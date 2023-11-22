@@ -1,0 +1,10 @@
+# .dockerignore
+
+__pycache__
+./app/__pycache__
+./dashboard_pages/__pycache
+./dataframes/data_buffer_df.csv
+./dataframes/hour_data.csv
+./logs/frontend-service-logger.log
+
+README.md

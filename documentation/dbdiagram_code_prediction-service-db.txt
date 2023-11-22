@@ -1,0 +1,68 @@
+// Use DBML to define your database structure
+// Docs: https://dbml.dbdiagram.io/docs
+
+Table labels_directory {
+  labels_id string [primary key]
+
+  datetime_created datetime
+  target_output string
+  lookahead_value integer
+  percent_change_threshold float
+  labels_start_datetime datetime
+  labels_end_datetime datetime
+}
+
+Table model_directory_info {
+  model_id string [primary key]
+  model_labels_id string
+
+  deployed_status boolean
+  datetime_created datetime
+  prediction_type string
+  model_type string
+  train_test_split_type string
+  train_percent float
+  test_percent float
+  train_accuracy float
+  test_accuracy float
+  roc_auc float
+  running_accuracy float
+  created_at float
+  running_FPR float
+}
+
+Table model_binaries {
+  model_binaries_id string [primary key]
+  model_info_id string
+
+  model_binary binary
+  classification_test_report_binary binary
+  confusion_matrix_binary binary
+  fpr_binary binary
+  tpr_binary binary
+  thresholds_binary varchar
+}
+
+Table prediction_records {
+  prediction_entry_id string [primary key]
+  model_prediction_id string
+
+  prediction_id string
+  datetime_entry datetime
+  current_datetime datetime
+  current_price numeric
+  percent_change_threshold numeric
+  lookahead_steps numeric
+  lookahead_datetime datetime
+  prediction_threshold numeric
+  prediction_value numeric
+  prediction_classification_value numeric
+  prediction_regression_value numeric
+  prediction_timeseries_value numeric
+}
+
+Ref: model_directory_info.model_labels_id > labels_directory.labels_id // many-to-one
+
+Ref: model_binaries.model_info_id - model_directory_info.model_id // one-to-one
+
+Ref: prediction_records.model_prediction_id < model_directory_info.model_id // many-to-one

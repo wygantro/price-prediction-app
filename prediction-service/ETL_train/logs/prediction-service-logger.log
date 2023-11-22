@@ -1,0 +1,372 @@
+[2023-11-22 11:06:03,430] INFO:prediction-service:29:starting ETL
+[2023-11-22 11:09:13,030] INFO:prediction-service:29:starting ETL
+[2023-11-22 11:09:13,048] INFO:prediction-service:99:creating connection engine
+[2023-11-22 11:09:13,138] INFO:prediction-service:103:creating model tables
+[2023-11-22 11:09:14,070] INFO:prediction-service:107:defining and returning session object
+[2023-11-22 11:09:14,072] INFO:prediction-service:35:feature-service session created
+[2023-11-22 11:09:22,288] INFO:prediction-service:39:hour dataframe ready
+[2023-11-22 11:09:22,288] INFO:prediction-service:99:creating connection engine
+[2023-11-22 11:09:22,289] INFO:prediction-service:103:creating model tables
+[2023-11-22 11:09:23,253] INFO:prediction-service:107:defining and returning session object
+[2023-11-22 11:09:23,253] INFO:prediction-service:45:prediction-service session created
+[2023-11-22 11:09:23,577] INFO:prediction-service:64:starting train/test
+[2023-11-22 11:09:23,583] INFO:prediction-service:71:train/test split complete
+[2023-11-22 11:09:23,583] INFO:prediction-service:83:LogisticRegression model type for model_1700669363
+[2023-11-22 11:09:23,583] INFO:prediction-service:86:training model_1700669363 on labels_1700669229
+[2023-11-22 11:09:24,297] INFO:prediction-service:92:train model accuracy 0.8254380118072748 for model_1700669363
+[2023-11-22 11:09:24,297] INFO:prediction-service:95:testing model_1700669363
+[2023-11-22 11:09:24,304] INFO:prediction-service:98:test model accuracy 0.8974481051228338 for model_1700669363
+[2023-11-22 11:09:24,330] INFO:prediction-service:107:model_1700669363 converted to pickle file
+[2023-11-22 11:09:24,346] INFO:prediction-service:125:trained roc_auc for model_1700669363: 0.8367160908059464
+[2023-11-22 11:09:24,346] INFO:prediction-service:128:committing model_1700669363 and data to prediction-service-db
+[2023-11-22 11:09:24,589] INFO:prediction-service:161:successfully committed model_1700669363 to prediction-service-db
+[2023-11-22 11:09:49,001] INFO:prediction-service:29:starting ETL
+[2023-11-22 11:09:49,019] INFO:prediction-service:99:creating connection engine
+[2023-11-22 11:09:49,071] INFO:prediction-service:103:creating model tables
+[2023-11-22 11:09:50,236] INFO:prediction-service:107:defining and returning session object
+[2023-11-22 11:09:50,238] INFO:prediction-service:35:feature-service session created
+[2023-11-22 11:09:57,939] INFO:prediction-service:39:hour dataframe ready
+[2023-11-22 11:09:57,939] INFO:prediction-service:99:creating connection engine
+[2023-11-22 11:09:57,940] INFO:prediction-service:103:creating model tables
+[2023-11-22 11:09:59,025] INFO:prediction-service:107:defining and returning session object
+[2023-11-22 11:09:59,025] INFO:prediction-service:45:prediction-service session created
+[2023-11-22 11:09:59,298] INFO:prediction-service:64:starting train/test
+[2023-11-22 11:09:59,304] INFO:prediction-service:71:train/test split complete
+[2023-11-22 11:09:59,305] INFO:prediction-service:83:RandomForestClassifier model type for model_1700669399
+[2023-11-22 11:09:59,305] INFO:prediction-service:86:training model_1700669399 on labels_1700669229
+[2023-11-22 11:10:07,237] INFO:prediction-service:92:train model accuracy 0.9999761950104742 for model_1700669399
+[2023-11-22 11:10:07,238] INFO:prediction-service:95:testing model_1700669399
+[2023-11-22 11:10:07,350] INFO:prediction-service:98:test model accuracy 0.84260140925538 for model_1700669399
+[2023-11-22 11:10:07,462] INFO:prediction-service:107:model_1700669399 converted to pickle file
+[2023-11-22 11:10:07,562] INFO:prediction-service:125:trained roc_auc for model_1700669399: 0.5797491487263697
+[2023-11-22 11:10:07,562] INFO:prediction-service:128:committing model_1700669399 and data to prediction-service-db
+[2023-11-22 11:10:54,112] INFO:prediction-service:161:successfully committed model_1700669399 to prediction-service-db
+[2023-11-22 11:12:16,223] INFO:prediction-service:29:starting ETL
+[2023-11-22 11:12:16,230] INFO:prediction-service:99:creating connection engine
+[2023-11-22 11:12:16,285] INFO:prediction-service:103:creating model tables
+[2023-11-22 11:12:17,275] INFO:prediction-service:107:defining and returning session object
+[2023-11-22 11:12:17,276] INFO:prediction-service:35:feature-service session created
+[2023-11-22 11:12:25,384] INFO:prediction-service:39:hour dataframe ready
+[2023-11-22 11:12:25,385] INFO:prediction-service:99:creating connection engine
+[2023-11-22 11:12:25,385] INFO:prediction-service:103:creating model tables
+[2023-11-22 11:12:26,407] INFO:prediction-service:107:defining and returning session object
+[2023-11-22 11:12:26,408] INFO:prediction-service:45:prediction-service session created
+[2023-11-22 11:12:26,686] INFO:prediction-service:64:starting train/test
+[2023-11-22 11:12:26,692] INFO:prediction-service:71:train/test split complete
+[2023-11-22 11:12:26,692] INFO:prediction-service:83:GradientBoostingClassifier model type for model_1700669546
+[2023-11-22 11:12:26,693] INFO:prediction-service:86:training model_1700669546 on labels_1700669229
+[2023-11-22 11:13:58,976] INFO:prediction-service:92:train model accuracy 0.951271186440678 for model_1700669546
+[2023-11-22 11:13:58,977] INFO:prediction-service:95:testing model_1700669546
+[2023-11-22 11:13:59,092] INFO:prediction-service:98:test model accuracy 0.27509045896019807 for model_1700669546
+[2023-11-22 11:13:59,123] INFO:prediction-service:107:model_1700669546 converted to pickle file
+[2023-11-22 11:13:59,246] INFO:prediction-service:125:trained roc_auc for model_1700669546: 0.5048509936505592
+[2023-11-22 11:13:59,247] INFO:prediction-service:128:committing model_1700669546 and data to prediction-service-db
+[2023-11-22 11:14:00,335] INFO:prediction-service:161:successfully committed model_1700669546 to prediction-service-db
+[2023-11-22 11:14:11,966] INFO:prediction-service:29:starting ETL
+[2023-11-22 11:14:11,975] INFO:prediction-service:99:creating connection engine
+[2023-11-22 11:14:12,034] INFO:prediction-service:103:creating model tables
+[2023-11-22 11:14:13,216] INFO:prediction-service:107:defining and returning session object
+[2023-11-22 11:14:13,219] INFO:prediction-service:35:feature-service session created
+[2023-11-22 11:14:20,893] INFO:prediction-service:39:hour dataframe ready
+[2023-11-22 11:14:20,894] INFO:prediction-service:99:creating connection engine
+[2023-11-22 11:14:20,895] INFO:prediction-service:103:creating model tables
+[2023-11-22 11:14:21,839] INFO:prediction-service:107:defining and returning session object
+[2023-11-22 11:14:21,839] INFO:prediction-service:45:prediction-service session created
+[2023-11-22 11:14:22,108] INFO:prediction-service:64:starting train/test
+[2023-11-22 11:14:22,115] INFO:prediction-service:71:train/test split complete
+[2023-11-22 11:14:22,115] INFO:prediction-service:83:XGBClassifier model type for model_1700669662
+[2023-11-22 11:14:22,116] INFO:prediction-service:86:training model_1700669662 on labels_1700669229
+[2023-11-22 12:39:27,828] INFO:prediction-service:29:starting ETL
+[2023-11-22 12:39:27,836] INFO:prediction-service:99:creating connection engine
+[2023-11-22 12:39:27,899] INFO:prediction-service:103:creating model tables
+[2023-11-22 12:39:28,863] INFO:prediction-service:107:defining and returning session object
+[2023-11-22 12:39:28,864] INFO:prediction-service:35:feature-service session created
+[2023-11-22 12:39:36,722] INFO:prediction-service:39:hour dataframe ready
+[2023-11-22 12:39:36,723] INFO:prediction-service:99:creating connection engine
+[2023-11-22 12:39:36,723] INFO:prediction-service:103:creating model tables
+[2023-11-22 12:39:37,683] INFO:prediction-service:107:defining and returning session object
+[2023-11-22 12:39:37,684] INFO:prediction-service:45:prediction-service session created
+[2023-11-22 12:39:37,908] INFO:prediction-service:64:starting train/test
+[2023-11-22 12:39:37,910] INFO:prediction-service:71:train/test split complete
+[2023-11-22 12:39:37,910] INFO:prediction-service:83:LogisticRegression model type for model_1700674777
+[2023-11-22 12:39:37,910] INFO:prediction-service:86:training model_1700674777 on labels_1700673965
+[2023-11-22 12:39:38,054] INFO:prediction-service:92:train model accuracy 0.9120387625792024 for model_1700674777
+[2023-11-22 12:39:38,054] INFO:prediction-service:95:testing model_1700674777
+[2023-11-22 12:39:38,056] INFO:prediction-service:98:test model accuracy 0.9061102831594635 for model_1700674777
+[2023-11-22 12:39:38,061] INFO:prediction-service:107:model_1700674777 converted to pickle file
+[2023-11-22 12:39:38,066] INFO:prediction-service:125:trained roc_auc for model_1700674777: 0.8147187430519529
+[2023-11-22 12:39:38,066] INFO:prediction-service:128:committing model_1700674777 and data to prediction-service-db
+[2023-11-22 12:39:38,244] INFO:prediction-service:161:successfully committed model_1700674777 to prediction-service-db
+[2023-11-22 12:39:48,744] INFO:prediction-service:29:starting ETL
+[2023-11-22 12:39:48,752] INFO:prediction-service:99:creating connection engine
+[2023-11-22 12:39:48,803] INFO:prediction-service:103:creating model tables
+[2023-11-22 12:39:49,753] INFO:prediction-service:107:defining and returning session object
+[2023-11-22 12:39:49,754] INFO:prediction-service:35:feature-service session created
+[2023-11-22 12:39:59,625] INFO:prediction-service:39:hour dataframe ready
+[2023-11-22 12:39:59,626] INFO:prediction-service:99:creating connection engine
+[2023-11-22 12:39:59,627] INFO:prediction-service:103:creating model tables
+[2023-11-22 12:40:00,549] INFO:prediction-service:107:defining and returning session object
+[2023-11-22 12:40:00,550] INFO:prediction-service:45:prediction-service session created
+[2023-11-22 12:40:00,756] INFO:prediction-service:64:starting train/test
+[2023-11-22 12:40:00,759] INFO:prediction-service:71:train/test split complete
+[2023-11-22 12:40:00,760] INFO:prediction-service:83:RandomForestClassifier model type for model_1700674800
+[2023-11-22 12:40:00,760] INFO:prediction-service:86:training model_1700674800 on labels_1700673965
+[2023-11-22 12:40:02,011] INFO:prediction-service:92:train model accuracy 0.9998757609640949 for model_1700674800
+[2023-11-22 12:40:02,012] INFO:prediction-service:95:testing model_1700674800
+[2023-11-22 12:40:02,037] INFO:prediction-service:98:test model accuracy 0.8440139095876801 for model_1700674800
+[2023-11-22 12:40:02,064] INFO:prediction-service:107:model_1700674800 converted to pickle file
+[2023-11-22 12:40:02,106] INFO:prediction-service:125:trained roc_auc for model_1700674800: 0.526454893822941
+[2023-11-22 12:40:02,107] INFO:prediction-service:128:committing model_1700674800 and data to prediction-service-db
+[2023-11-22 12:40:07,804] INFO:prediction-service:161:successfully committed model_1700674800 to prediction-service-db
+[2023-11-22 12:40:17,071] INFO:prediction-service:29:starting ETL
+[2023-11-22 12:40:17,079] INFO:prediction-service:99:creating connection engine
+[2023-11-22 12:40:17,131] INFO:prediction-service:103:creating model tables
+[2023-11-22 12:40:18,108] INFO:prediction-service:107:defining and returning session object
+[2023-11-22 12:40:18,111] INFO:prediction-service:35:feature-service session created
+[2023-11-22 12:40:25,570] INFO:prediction-service:39:hour dataframe ready
+[2023-11-22 12:40:25,573] INFO:prediction-service:99:creating connection engine
+[2023-11-22 12:40:25,578] INFO:prediction-service:103:creating model tables
+[2023-11-22 12:40:26,533] INFO:prediction-service:107:defining and returning session object
+[2023-11-22 12:40:26,534] INFO:prediction-service:45:prediction-service session created
+[2023-11-22 12:40:26,744] INFO:prediction-service:64:starting train/test
+[2023-11-22 12:40:26,747] INFO:prediction-service:71:train/test split complete
+[2023-11-22 12:40:26,747] INFO:prediction-service:83:GradientBoostingClassifier model type for model_1700674826
+[2023-11-22 12:40:26,748] INFO:prediction-service:86:training model_1700674826 on labels_1700673965
+[2023-11-22 12:40:41,210] INFO:prediction-service:92:train model accuracy 0.9987576096409492 for model_1700674826
+[2023-11-22 12:40:41,211] INFO:prediction-service:95:testing model_1700674826
+[2023-11-22 12:40:41,220] INFO:prediction-service:98:test model accuracy 0.8499751614505713 for model_1700674826
+[2023-11-22 12:40:41,235] INFO:prediction-service:107:model_1700674826 converted to pickle file
+[2023-11-22 12:40:41,247] INFO:prediction-service:125:trained roc_auc for model_1700674826: 0.5524444047240181
+[2023-11-22 12:40:41,248] INFO:prediction-service:128:committing model_1700674826 and data to prediction-service-db
+[2023-11-22 12:40:42,040] INFO:prediction-service:161:successfully committed model_1700674826 to prediction-service-db
+[2023-11-22 12:40:54,718] INFO:prediction-service:29:starting ETL
+[2023-11-22 12:40:54,726] INFO:prediction-service:99:creating connection engine
+[2023-11-22 12:40:54,781] INFO:prediction-service:103:creating model tables
+[2023-11-22 12:40:55,693] INFO:prediction-service:107:defining and returning session object
+[2023-11-22 12:40:55,693] INFO:prediction-service:35:feature-service session created
+[2023-11-22 12:41:03,203] INFO:prediction-service:39:hour dataframe ready
+[2023-11-22 12:41:03,204] INFO:prediction-service:99:creating connection engine
+[2023-11-22 12:41:03,205] INFO:prediction-service:103:creating model tables
+[2023-11-22 12:41:04,399] INFO:prediction-service:107:defining and returning session object
+[2023-11-22 12:41:04,402] INFO:prediction-service:45:prediction-service session created
+[2023-11-22 12:41:04,617] INFO:prediction-service:64:starting train/test
+[2023-11-22 12:41:04,620] INFO:prediction-service:71:train/test split complete
+[2023-11-22 12:41:04,620] INFO:prediction-service:83:AdaBoostClassifier model type for model_1700674864
+[2023-11-22 12:41:04,621] INFO:prediction-service:86:training model_1700674864 on labels_1700673965
+[2023-11-22 12:41:49,415] INFO:prediction-service:92:train model accuracy 1.0 for model_1700674864
+[2023-11-22 12:41:49,416] INFO:prediction-service:95:testing model_1700674864
+[2023-11-22 12:41:49,727] INFO:prediction-service:98:test model accuracy 0.8663686040735221 for model_1700674864
+[2023-11-22 12:41:49,798] INFO:prediction-service:107:model_1700674864 converted to pickle file
+[2023-11-22 12:41:50,095] INFO:prediction-service:125:trained roc_auc for model_1700674864: 0.5112389430685191
+[2023-11-22 12:41:50,096] INFO:prediction-service:128:committing model_1700674864 and data to prediction-service-db
+[2023-11-22 12:42:10,960] INFO:prediction-service:161:successfully committed model_1700674864 to prediction-service-db
+[2023-11-22 12:47:53,280] INFO:prediction-service:29:starting ETL
+[2023-11-22 12:47:53,287] INFO:prediction-service:99:creating connection engine
+[2023-11-22 12:47:53,335] INFO:prediction-service:103:creating model tables
+[2023-11-22 12:47:54,401] INFO:prediction-service:107:defining and returning session object
+[2023-11-22 12:47:54,405] INFO:prediction-service:35:feature-service session created
+[2023-11-22 12:48:02,572] INFO:prediction-service:39:hour dataframe ready
+[2023-11-22 12:48:02,573] INFO:prediction-service:99:creating connection engine
+[2023-11-22 12:48:02,574] INFO:prediction-service:103:creating model tables
+[2023-11-22 12:48:03,519] INFO:prediction-service:107:defining and returning session object
+[2023-11-22 12:48:03,519] INFO:prediction-service:45:prediction-service session created
+[2023-11-22 12:48:03,714] INFO:prediction-service:64:starting train/test
+[2023-11-22 12:48:03,716] INFO:prediction-service:71:train/test split complete
+[2023-11-22 12:48:03,717] INFO:prediction-service:83:LogisticRegression model type for model_1700675283
+[2023-11-22 12:48:03,717] INFO:prediction-service:86:training model_1700675283 on labels_1700673986
+[2023-11-22 12:48:03,882] INFO:prediction-service:92:train model accuracy 0.8950180146602063 for model_1700675283
+[2023-11-22 12:48:03,882] INFO:prediction-service:95:testing model_1700675283
+[2023-11-22 12:48:03,884] INFO:prediction-service:98:test model accuracy 0.8718330849478391 for model_1700675283
+[2023-11-22 12:48:03,889] INFO:prediction-service:107:model_1700675283 converted to pickle file
+[2023-11-22 12:48:03,893] INFO:prediction-service:125:trained roc_auc for model_1700675283: 0.7034849050370884
+[2023-11-22 12:48:03,894] INFO:prediction-service:128:committing model_1700675283 and data to prediction-service-db
+[2023-11-22 12:48:04,082] INFO:prediction-service:161:successfully committed model_1700675283 to prediction-service-db
+[2023-11-22 12:48:21,752] INFO:prediction-service:29:starting ETL
+[2023-11-22 12:48:21,761] INFO:prediction-service:99:creating connection engine
+[2023-11-22 12:48:21,814] INFO:prediction-service:103:creating model tables
+[2023-11-22 12:48:22,748] INFO:prediction-service:107:defining and returning session object
+[2023-11-22 12:48:22,748] INFO:prediction-service:35:feature-service session created
+[2023-11-22 12:48:30,421] INFO:prediction-service:39:hour dataframe ready
+[2023-11-22 12:48:30,422] INFO:prediction-service:99:creating connection engine
+[2023-11-22 12:48:30,423] INFO:prediction-service:103:creating model tables
+[2023-11-22 12:48:31,661] INFO:prediction-service:107:defining and returning session object
+[2023-11-22 12:48:31,662] INFO:prediction-service:45:prediction-service session created
+[2023-11-22 12:48:31,892] INFO:prediction-service:64:starting train/test
+[2023-11-22 12:48:31,894] INFO:prediction-service:71:train/test split complete
+[2023-11-22 12:48:31,894] INFO:prediction-service:83:RandomForestClassifier model type for model_1700675311
+[2023-11-22 12:48:31,895] INFO:prediction-service:86:training model_1700675311 on labels_1700673986
+[2023-11-22 12:48:32,993] INFO:prediction-service:92:train model accuracy 1.0 for model_1700675311
+[2023-11-22 12:48:32,993] INFO:prediction-service:95:testing model_1700675311
+[2023-11-22 12:48:33,022] INFO:prediction-service:98:test model accuracy 0.6378539493293591 for model_1700675311
+[2023-11-22 12:48:33,040] INFO:prediction-service:107:model_1700675311 converted to pickle file
+[2023-11-22 12:48:33,073] INFO:prediction-service:125:trained roc_auc for model_1700675311: 0.46160619672145214
+[2023-11-22 12:48:33,074] INFO:prediction-service:128:committing model_1700675311 and data to prediction-service-db
+[2023-11-22 12:48:36,976] INFO:prediction-service:161:successfully committed model_1700675311 to prediction-service-db
+[2023-11-22 12:48:45,298] INFO:prediction-service:29:starting ETL
+[2023-11-22 12:48:45,306] INFO:prediction-service:99:creating connection engine
+[2023-11-22 12:48:45,357] INFO:prediction-service:103:creating model tables
+[2023-11-22 12:48:46,590] INFO:prediction-service:107:defining and returning session object
+[2023-11-22 12:48:46,593] INFO:prediction-service:35:feature-service session created
+[2023-11-22 12:48:54,163] INFO:prediction-service:39:hour dataframe ready
+[2023-11-22 12:48:54,164] INFO:prediction-service:99:creating connection engine
+[2023-11-22 12:48:54,164] INFO:prediction-service:103:creating model tables
+[2023-11-22 12:48:55,257] INFO:prediction-service:107:defining and returning session object
+[2023-11-22 12:48:55,259] INFO:prediction-service:45:prediction-service session created
+[2023-11-22 12:48:55,484] INFO:prediction-service:64:starting train/test
+[2023-11-22 12:48:55,487] INFO:prediction-service:71:train/test split complete
+[2023-11-22 12:48:55,488] INFO:prediction-service:83:GradientBoostingClassifier model type for model_1700675335
+[2023-11-22 12:48:55,488] INFO:prediction-service:86:training model_1700675335 on labels_1700673986
+[2023-11-22 12:49:09,811] INFO:prediction-service:92:train model accuracy 0.9782581687166108 for model_1700675335
+[2023-11-22 12:49:09,811] INFO:prediction-service:95:testing model_1700675335
+[2023-11-22 12:49:09,821] INFO:prediction-service:98:test model accuracy 0.6587183308494784 for model_1700675335
+[2023-11-22 12:49:09,842] INFO:prediction-service:107:model_1700675335 converted to pickle file
+[2023-11-22 12:49:09,856] INFO:prediction-service:125:trained roc_auc for model_1700675335: 0.5707663530552446
+[2023-11-22 12:49:09,857] INFO:prediction-service:128:committing model_1700675335 and data to prediction-service-db
+[2023-11-22 12:49:10,542] INFO:prediction-service:161:successfully committed model_1700675335 to prediction-service-db
+[2023-11-22 12:49:31,887] INFO:prediction-service:29:starting ETL
+[2023-11-22 12:49:31,895] INFO:prediction-service:99:creating connection engine
+[2023-11-22 12:49:31,958] INFO:prediction-service:103:creating model tables
+[2023-11-22 12:49:32,915] INFO:prediction-service:107:defining and returning session object
+[2023-11-22 12:49:32,917] INFO:prediction-service:35:feature-service session created
+[2023-11-22 12:49:40,709] INFO:prediction-service:39:hour dataframe ready
+[2023-11-22 12:49:40,709] INFO:prediction-service:99:creating connection engine
+[2023-11-22 12:49:40,710] INFO:prediction-service:103:creating model tables
+[2023-11-22 12:49:41,634] INFO:prediction-service:107:defining and returning session object
+[2023-11-22 12:49:41,635] INFO:prediction-service:45:prediction-service session created
+[2023-11-22 12:49:41,982] INFO:prediction-service:64:starting train/test
+[2023-11-22 12:49:41,989] INFO:prediction-service:71:train/test split complete
+[2023-11-22 12:49:41,989] INFO:prediction-service:83:LogisticRegression model type for model_1700675381
+[2023-11-22 12:49:41,990] INFO:prediction-service:86:training model_1700675381 on labels_1700674018
+[2023-11-22 12:49:42,480] INFO:prediction-service:92:train model accuracy 0.8116962824409633 for model_1700675381
+[2023-11-22 12:49:42,481] INFO:prediction-service:95:testing model_1700675381
+[2023-11-22 12:49:42,484] INFO:prediction-service:98:test model accuracy 0.8984101005377602 for model_1700675381
+[2023-11-22 12:49:42,493] INFO:prediction-service:107:model_1700675381 converted to pickle file
+[2023-11-22 12:49:42,500] INFO:prediction-service:125:trained roc_auc for model_1700675381: 0.8609925139134762
+[2023-11-22 12:49:42,501] INFO:prediction-service:128:committing model_1700675381 and data to prediction-service-db
+[2023-11-22 12:49:42,726] INFO:prediction-service:161:successfully committed model_1700675381 to prediction-service-db
+[2023-11-22 12:49:49,664] INFO:prediction-service:29:starting ETL
+[2023-11-22 12:49:49,673] INFO:prediction-service:99:creating connection engine
+[2023-11-22 12:49:49,723] INFO:prediction-service:103:creating model tables
+[2023-11-22 12:49:50,675] INFO:prediction-service:107:defining and returning session object
+[2023-11-22 12:49:50,676] INFO:prediction-service:35:feature-service session created
+[2023-11-22 12:49:58,542] INFO:prediction-service:39:hour dataframe ready
+[2023-11-22 12:49:58,542] INFO:prediction-service:99:creating connection engine
+[2023-11-22 12:49:58,543] INFO:prediction-service:103:creating model tables
+[2023-11-22 12:49:59,473] INFO:prediction-service:107:defining and returning session object
+[2023-11-22 12:49:59,474] INFO:prediction-service:45:prediction-service session created
+[2023-11-22 12:49:59,726] INFO:prediction-service:64:starting train/test
+[2023-11-22 12:49:59,732] INFO:prediction-service:71:train/test split complete
+[2023-11-22 12:49:59,732] INFO:prediction-service:83:RandomForestClassifier model type for model_1700675399
+[2023-11-22 12:49:59,733] INFO:prediction-service:86:training model_1700675399 on labels_1700674018
+[2023-11-22 12:50:06,686] INFO:prediction-service:92:train model accuracy 0.9999415478138882 for model_1700675399
+[2023-11-22 12:50:06,686] INFO:prediction-service:95:testing model_1700675399
+[2023-11-22 12:50:06,781] INFO:prediction-service:98:test model accuracy 0.8953705868599485 for model_1700675399
+[2023-11-22 12:50:06,922] INFO:prediction-service:107:model_1700675399 converted to pickle file
+[2023-11-22 12:50:07,007] INFO:prediction-service:125:trained roc_auc for model_1700675399: 0.591499989820926
+[2023-11-22 12:50:07,008] INFO:prediction-service:128:committing model_1700675399 and data to prediction-service-db
+[2023-11-22 12:51:14,017] INFO:prediction-service:161:successfully committed model_1700675399 to prediction-service-db
+[2023-11-22 12:53:29,812] INFO:prediction-service:29:starting ETL
+[2023-11-22 12:53:29,828] INFO:prediction-service:99:creating connection engine
+[2023-11-22 12:53:29,890] INFO:prediction-service:103:creating model tables
+[2023-11-22 12:53:31,126] INFO:prediction-service:107:defining and returning session object
+[2023-11-22 12:53:31,129] INFO:prediction-service:35:feature-service session created
+[2023-11-22 12:53:38,600] INFO:prediction-service:39:hour dataframe ready
+[2023-11-22 12:53:38,600] INFO:prediction-service:99:creating connection engine
+[2023-11-22 12:53:38,601] INFO:prediction-service:103:creating model tables
+[2023-11-22 12:53:39,763] INFO:prediction-service:107:defining and returning session object
+[2023-11-22 12:53:39,765] INFO:prediction-service:45:prediction-service session created
+[2023-11-22 12:53:39,990] INFO:prediction-service:64:starting train/test
+[2023-11-22 12:53:39,993] INFO:prediction-service:71:train/test split complete
+[2023-11-22 12:53:39,993] INFO:prediction-service:83:LogisticRegression model type for model_1700675619
+[2023-11-22 12:53:39,994] INFO:prediction-service:86:training model_1700675619 on labels_1700675840
+[2023-11-22 12:53:40,181] INFO:prediction-service:92:train model accuracy 0.9009143311468892 for model_1700675619
+[2023-11-22 12:53:40,181] INFO:prediction-service:95:testing model_1700675619
+[2023-11-22 12:53:40,183] INFO:prediction-service:98:test model accuracy 0.9149443561208267 for model_1700675619
+[2023-11-22 12:53:40,188] INFO:prediction-service:107:model_1700675619 converted to pickle file
+[2023-11-22 12:53:40,193] INFO:prediction-service:125:trained roc_auc for model_1700675619: 0.8362588452403434
+[2023-11-22 12:53:40,194] INFO:prediction-service:128:committing model_1700675619 and data to prediction-service-db
+[2023-11-22 12:53:40,392] INFO:prediction-service:161:successfully committed model_1700675619 to prediction-service-db
+[2023-11-22 12:54:03,231] INFO:prediction-service:29:starting ETL
+[2023-11-22 12:54:03,240] INFO:prediction-service:99:creating connection engine
+[2023-11-22 12:54:03,298] INFO:prediction-service:103:creating model tables
+[2023-11-22 12:54:04,237] INFO:prediction-service:107:defining and returning session object
+[2023-11-22 12:54:04,239] INFO:prediction-service:35:feature-service session created
+[2023-11-22 12:54:11,422] INFO:prediction-service:39:hour dataframe ready
+[2023-11-22 12:54:11,423] INFO:prediction-service:99:creating connection engine
+[2023-11-22 12:54:11,423] INFO:prediction-service:103:creating model tables
+[2023-11-22 12:54:13,267] INFO:prediction-service:107:defining and returning session object
+[2023-11-22 12:54:13,268] INFO:prediction-service:45:prediction-service session created
+[2023-11-22 12:54:13,619] INFO:prediction-service:64:starting train/test
+[2023-11-22 12:54:13,622] INFO:prediction-service:71:train/test split complete
+[2023-11-22 12:54:13,622] INFO:prediction-service:83:RandomForestClassifier model type for model_1700675653
+[2023-11-22 12:54:13,623] INFO:prediction-service:86:training model_1700675653 on labels_1700675840
+[2023-11-22 12:54:15,141] INFO:prediction-service:92:train model accuracy 1.0 for model_1700675653
+[2023-11-22 12:54:15,142] INFO:prediction-service:95:testing model_1700675653
+[2023-11-22 12:54:15,170] INFO:prediction-service:98:test model accuracy 0.8783783783783784 for model_1700675653
+[2023-11-22 12:54:15,200] INFO:prediction-service:107:model_1700675653 converted to pickle file
+[2023-11-22 12:54:15,236] INFO:prediction-service:125:trained roc_auc for model_1700675653: 0.5130845842180493
+[2023-11-22 12:54:15,238] INFO:prediction-service:128:committing model_1700675653 and data to prediction-service-db
+[2023-11-22 12:54:23,302] INFO:prediction-service:161:successfully committed model_1700675653 to prediction-service-db
+[2023-11-22 12:54:29,647] INFO:prediction-service:29:starting ETL
+[2023-11-22 12:54:29,654] INFO:prediction-service:99:creating connection engine
+[2023-11-22 12:54:29,700] INFO:prediction-service:103:creating model tables
+[2023-11-22 12:54:30,625] INFO:prediction-service:107:defining and returning session object
+[2023-11-22 12:54:30,627] INFO:prediction-service:35:feature-service session created
+[2023-11-22 12:54:37,781] INFO:prediction-service:39:hour dataframe ready
+[2023-11-22 12:54:37,781] INFO:prediction-service:99:creating connection engine
+[2023-11-22 12:54:37,782] INFO:prediction-service:103:creating model tables
+[2023-11-22 12:54:38,700] INFO:prediction-service:107:defining and returning session object
+[2023-11-22 12:54:38,702] INFO:prediction-service:45:prediction-service session created
+[2023-11-22 12:54:38,916] INFO:prediction-service:64:starting train/test
+[2023-11-22 12:54:38,919] INFO:prediction-service:71:train/test split complete
+[2023-11-22 12:54:38,919] INFO:prediction-service:83:GradientBoostingClassifier model type for model_1700675678
+[2023-11-22 12:54:38,920] INFO:prediction-service:86:training model_1700675678 on labels_1700675840
+[2023-11-22 12:54:56,975] INFO:prediction-service:92:train model accuracy 0.9992049294374876 for model_1700675678
+[2023-11-22 12:54:56,976] INFO:prediction-service:95:testing model_1700675678
+[2023-11-22 12:54:56,989] INFO:prediction-service:98:test model accuracy 0.8720190779014309 for model_1700675678
+[2023-11-22 12:54:57,007] INFO:prediction-service:107:model_1700675678 converted to pickle file
+[2023-11-22 12:54:57,022] INFO:prediction-service:125:trained roc_auc for model_1700675678: 0.5771157569253491
+[2023-11-22 12:54:57,023] INFO:prediction-service:128:committing model_1700675678 and data to prediction-service-db
+[2023-11-22 12:54:59,035] INFO:prediction-service:161:successfully committed model_1700675678 to prediction-service-db
+[2023-11-22 12:55:07,491] INFO:prediction-service:29:starting ETL
+[2023-11-22 12:55:07,499] INFO:prediction-service:99:creating connection engine
+[2023-11-22 12:55:07,549] INFO:prediction-service:103:creating model tables
+[2023-11-22 12:55:08,459] INFO:prediction-service:107:defining and returning session object
+[2023-11-22 12:55:08,461] INFO:prediction-service:35:feature-service session created
+[2023-11-22 12:55:15,562] INFO:prediction-service:39:hour dataframe ready
+[2023-11-22 12:55:15,562] INFO:prediction-service:99:creating connection engine
+[2023-11-22 12:55:15,563] INFO:prediction-service:103:creating model tables
+[2023-11-22 12:55:16,731] INFO:prediction-service:107:defining and returning session object
+[2023-11-22 12:55:16,733] INFO:prediction-service:45:prediction-service session created
+[2023-11-22 12:55:16,960] INFO:prediction-service:64:starting train/test
+[2023-11-22 12:55:16,963] INFO:prediction-service:71:train/test split complete
+[2023-11-22 12:55:16,964] INFO:prediction-service:83:XGBClassifier model type for model_1700675716
+[2023-11-22 12:55:16,964] INFO:prediction-service:86:training model_1700675716 on labels_1700675840
+[2023-11-22 12:58:00,374] INFO:prediction-service:92:train model accuracy 1.0 for model_1700675716
+[2023-11-22 12:58:00,375] INFO:prediction-service:95:testing model_1700675716
+[2023-11-22 12:58:00,699] INFO:prediction-service:98:test model accuracy 0.8787758346581876 for model_1700675716
+[2023-11-22 12:58:00,969] INFO:prediction-service:107:model_1700675716 converted to pickle file
+[2023-11-22 12:58:01,305] INFO:prediction-service:125:trained roc_auc for model_1700675716: 0.6685550842188169
+[2023-11-22 12:58:01,306] INFO:prediction-service:128:committing model_1700675716 and data to prediction-service-db
+[2023-11-22 12:58:15,047] INFO:prediction-service:161:successfully committed model_1700675716 to prediction-service-db
+[2023-11-22 13:04:16,810] INFO:prediction-service:29:starting ETL
+[2023-11-22 13:04:16,823] INFO:prediction-service:99:creating connection engine
+[2023-11-22 13:04:16,928] INFO:prediction-service:103:creating model tables
+[2023-11-22 13:04:17,886] INFO:prediction-service:107:defining and returning session object
+[2023-11-22 13:04:17,887] INFO:prediction-service:35:feature-service session created
+[2023-11-22 13:04:36,276] INFO:prediction-service:39:hour dataframe ready
+[2023-11-22 13:04:36,277] INFO:prediction-service:99:creating connection engine
+[2023-11-22 13:04:36,280] INFO:prediction-service:103:creating model tables
+[2023-11-22 13:04:37,189] INFO:prediction-service:107:defining and returning session object
+[2023-11-22 13:04:37,189] INFO:prediction-service:45:prediction-service session created
+[2023-11-22 13:04:37,576] INFO:prediction-service:64:starting train/test
+[2023-11-22 13:04:37,581] INFO:prediction-service:71:train/test split complete
+[2023-11-22 13:04:37,583] INFO:prediction-service:83:AdaBoostClassifier model type for model_1700676277
+[2023-11-22 13:04:37,583] INFO:prediction-service:86:training model_1700676277 on labels_1700675840
+[2023-11-22 13:07:06,325] INFO:prediction-service:92:train model accuracy 1.0 for model_1700676277
+[2023-11-22 13:07:06,326] INFO:prediction-service:95:testing model_1700676277
+[2023-11-22 13:07:07,652] INFO:prediction-service:98:test model accuracy 0.8835453100158982 for model_1700676277
+[2023-11-22 13:07:07,979] INFO:prediction-service:107:model_1700676277 converted to pickle file
+[2023-11-22 13:07:09,109] INFO:prediction-service:125:trained roc_auc for model_1700676277: 0.5413640208862052
+[2023-11-22 13:07:09,109] INFO:prediction-service:128:committing model_1700676277 and data to prediction-service-db
+[2023-11-22 13:07:35,739] INFO:prediction-service:161:successfully committed model_1700676277 to prediction-service-db

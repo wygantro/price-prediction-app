@@ -1,0 +1,57 @@
+# prediction-deployment.yaml
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prediction-service-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prediction-app
+  template:
+    metadata:
+      labels:
+        app: prediction-app
+    spec:
+      containers:
+      - name: prediction-loop
+        image: gcr.io/nycdsa-project-4/prediction-service-loop:latest
+        volumeMounts:
+        - name: dataframes-volume
+          mountPath: /dataframes
+        env:
+        - name: DB_FEATURE_SERVICE_NAME
+          valueFrom:
+            secretKeyRef:
+              name: cloudsql-db-credentials
+              key: db_feature_service_name
+        - name: DB_PREDICTION_SERVICE_NAME
+          valueFrom:
+            secretKeyRef:
+              name: cloudsql-db-credentials
+              key: db_prediction_service_name
+        - name: DB_USER
+          valueFrom:
+            secretKeyRef:
+              name: cloudsql-db-credentials
+              key: username
+        - name: DB_PASS
+          valueFrom:
+            secretKeyRef:
+              name: cloudsql-db-credentials
+              key: password
+        - name: DB_HOST
+          valueFrom:
+            secretKeyRef:
+              name: cloudsql-db-credentials
+              key: db_host
+        - name: DB_PORT
+          valueFrom:
+            secretKeyRef:
+              name: cloudsql-db-credentials
+              key: db_port
+      volumes:
+      - name: dataframes-volume
+        persistentVolumeClaim:
+          claimName: prediction-pvc

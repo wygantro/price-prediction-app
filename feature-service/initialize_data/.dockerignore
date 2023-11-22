@@ -1,0 +1,4 @@
+__pycache__
+Dockerfile
+./logs/logger.log
+README.md

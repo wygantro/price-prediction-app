@@ -1,0 +1,72 @@
+# frontend-deployment.yaml
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-service-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend-app
+  template:
+    metadata:
+      labels:
+        app: frontend-app
+    spec:
+      containers:
+      - name: frontend-dashboard-backend
+        image: gcr.io/nycdsa-project-4/frontend-dashboard-backend:latest
+        volumeMounts:
+        - name: dataframes-volume
+          mountPath: /dataframes
+      - name: frontend-dashboard
+        image: gcr.io/nycdsa-project-4/frontend-dashboard:latest
+        volumeMounts:
+        - name: dataframes-volume
+          mountPath: /dataframes
+        env:
+        - name: DB_FEATURE_SERVICE_NAME
+          valueFrom:
+            secretKeyRef:
+              name: cloudsql-db-credentials
+              key: db_feature_service_name
+        - name: DB_PREDICTION_SERVICE_NAME
+          valueFrom:
+            secretKeyRef:
+              name: cloudsql-db-credentials
+              key: db_prediction_service_name
+        - name: DB_USER
+          valueFrom:
+            secretKeyRef:
+              name: cloudsql-db-credentials
+              key: username
+        - name: DB_PASS
+          valueFrom:
+            secretKeyRef:
+              name: cloudsql-db-credentials
+              key: password
+        - name: DB_NAME
+          valueFrom:
+            secretKeyRef:
+              name: cloudsql-db-credentials
+              key: db_name
+        - name: DB_HOST
+          valueFrom:
+            secretKeyRef:
+              name: cloudsql-db-credentials
+              key: db_host
+        - name: DB_PORT
+          valueFrom:
+            secretKeyRef:
+              name: cloudsql-db-credentials
+              key: db_port
+        - name: POLYGON_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: api-keys
+              key: polygon_api_key
+      volumes:
+      - name: dataframes-volume
+        persistentVolumeClaim:
+          claimName: frontend-pvc

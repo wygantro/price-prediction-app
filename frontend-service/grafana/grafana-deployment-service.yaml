@@ -1,0 +1,55 @@
+# grafana-deployment-service.yaml
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grafana-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: grafana
+  template:
+    metadata:
+      labels:
+        app: grafana
+    spec:
+      containers:
+        - name: grafana
+          image: grafana/grafana:latest
+          ports:
+            - containerPort: 3000
+          env:
+            - name: GF_SERVER_ROOT_URL
+              value: "http://grafana-service:3000"
+            - name: GF_SECURITY_ADMIN_USER
+              value: "admin"
+            - name: GF_SECURITY_ADMIN_PASSWORD
+              value: "password"
+            - name: GF_PATHS_CONFIG
+              value: /etc/grafana/grafana.ini
+          volumeMounts:
+            - name: grafana-storage
+              mountPath: /var/lib/grafana
+            - name: grafana-config-volume
+              mountPath: /etc/grafana
+      volumes:
+        - name: grafana-storage
+          emptyDir: {}
+        - name: grafana-config-volume
+          configMap:
+            name: grafana-config
+            
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: grafana-service
+spec:
+  selector:
+    app: grafana
+  ports:
+    - port: 80
+      targetPort: 3000
+  type: LoadBalancer  # Use NodePort or ClusterIP if LoadBalancer is not available
+

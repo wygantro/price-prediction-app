@@ -1,0 +1,14 @@
+# frontend-service.yaml
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-dashboard-service
+spec:
+  selector:
+    app: frontend-app
+  type: LoadBalancer
+  ports:
+  - protocol: TCP
+    port: 8050
+    targetPort: 8050

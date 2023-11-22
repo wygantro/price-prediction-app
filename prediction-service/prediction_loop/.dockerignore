@@ -1,0 +1,10 @@
+# .dockerignore
+
+__pycache__
+./app/__pycache__
+./dataframes/data_buffer_df.csv
+./dataframes/hour_data.csv
+./logs/prediction-service-logger.log
+
+Dockerfile
+README.md

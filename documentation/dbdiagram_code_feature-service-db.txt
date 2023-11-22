@@ -1,0 +1,90 @@
+// Use DBML to define your database structure
+// Docs: https://dbml.dbdiagram.io/docs
+
+Table daily_price_data {
+  daily_datetime_id datetime [primary key]
+  // daily price data
+  btc_daily_price_open numeric
+  btc_daily_price_close numeric
+  btc_daily_price_high numeric
+  btc_daily_price_low numeric
+  btc_daily_price_vol numeric
+  btc_daily_price_vol_weight_avg numeric
+}
+
+Table hour_price_data {
+  hour_datetime_id datetime [primary key]
+  daily_id datetime
+  // hour price data
+  btc_hour_price_open numeric
+  btc_hour_price_close numeric
+  btc_hour_price_high numeric
+  btc_hour_price_low numeric
+  btc_hour_price_vol numeric
+  btc_hour_price_vol_weight_avg numeric
+}
+
+Table minute_price_data {
+  minute_datetime_id datetime [primary key]
+  daily_id datetime
+  hour_id datetime
+  // minute price data
+  btc_minute_price_open numeric
+  btc_minute_price_close numeric
+  btc_minute_price_high numeric
+  btc_minute_price_low numeric
+  btc_minute_price_vol numeric
+  btc_minute_price_vol_weight_avg numeric
+}
+
+Table daily_feature_data {
+  daily_feature_datetime_id datetime [primary key]
+  // economic idicators
+  real_gdp_quarterly numeric
+  real_gdp_per_capita_quarterly numeric
+  treasury_yield_3m_daily numeric
+  treasury_yield_2y_daily numeric
+  treasury_yield_5y_daily numeric
+  treasury_yield_7y_daily numeric
+  treasury_yield_10y_daily numeric
+  treasury_yield_30y_daily numeric
+  federal_funds_daily numeric
+  cpi_monthly numeric
+  inflation_yearly numeric
+  retail_sales_monthly numeric
+  durables_monthly numeric
+  unemployment_monthy numeric
+  nonfarm_payroll_monthly numeric
+  // commodities
+  crude_oil_prices_wti_daily numeric
+  crude_oil_prices_brent_daily numeric
+  natural_gas_daily numeric
+  copper_monthly numeric
+  aluminum_monthly numeric
+  wheat_monthly numeric
+  corn_monthly numeric
+  cotten_monthly numeric
+  sugar_monthly numeric
+  coffee_monthly numeric
+  global_commodity_index_monthly numeric
+  // currency
+  eur_usd_daily numeric
+  jpy_usd_daily numeric
+  gbp_usd_daily numeric
+  cad_usd_daily numeric
+  sek_usd_daily numeric
+  chf_usd_daily numeric
+  brl_usd_daily numeric
+  rub_usd_daily numeric
+  inr_usd_daily numeric
+  cny_usd_daily numeric
+  sar_usd_daily numeric
+}
+
+// table relationships
+Ref: daily_price_data.daily_datetime_id < hour_price_data.hour_datetime_id // one-to-many
+Ref: daily_price_data.daily_datetime_id < minute_price_data.minute_datetime_id // one-to-many
+
+Ref: hour_price_data.hour_datetime_id < minute_price_data.minute_datetime_id // one-to-many
+
+Ref: daily_price_data.daily_datetime_id - daily_feature_data.daily_feature_datetime_id // one-to-one
