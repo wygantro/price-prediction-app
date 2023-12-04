@@ -1,5 +1,3 @@
-# .dockerignore
-
 __pycache__
 ./app/__pycache__
 ./dataframes/data_buffer_df.csv

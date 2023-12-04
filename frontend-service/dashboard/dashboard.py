@@ -19,81 +19,120 @@ app.layout = html.Div([
     dbc.NavbarSimple(
         children=[
             dbc.NavItem(dbc.NavLink("Home", href="/")),
-            dbc.NavItem(dbc.NavLink("Configure Dataframe", href="/dashboard_pages/page1")),
-            dbc.NavItem(dbc.NavLink("Models", href="/dashboard_pages/page2")),
-            dbc.NavItem(dbc.NavLink("Live Predictions", href="/dashboard_pages/page3")),
-            dbc.NavItem(dbc.NavLink("System Info", href="/dashboard_pages/page4"))
-            ],
+            dbc.NavItem(dbc.NavLink("1) Configure Dataframe",
+                        href="/dashboard_pages/page1")),
+            dbc.NavItem(dbc.NavLink("2) Models",
+                        href="/dashboard_pages/page2")),
+            dbc.NavItem(dbc.NavLink("3) Live Predictions",
+                        href="/dashboard_pages/page3")),
+            dbc.NavItem(dbc.NavLink("System Info",
+                        href="/dashboard_pages/page4"))
+        ],
         brand=html.H4("Price Prediction App"),
         color="#050505",
         dark="#02f543"
-        ),
-        html.Div(id='page-content')
-        ])
+    ),
+    html.Div(id='page-content')
+])
 
 # home page content
 home_layout = html.Div([
     # left side
     html.Div([
         html.Div([
-            #html.Img(src='./assets/red_circle_dot.png', alt='image'),
-            html.H5("An end-to-end solution for real time financial price predictions"),
+            html.H5(
+                "An end-to-end solution for real time financial price predictions"),
             html.Ul([
-                html.Li("Access over 50 macro economic features"),
+                html.Li("Access over 50 macro economic features updated hourly"),
                 html.Li("Label historic price movements and download CSV dataframe"),
-                html.Li("Compare trained ML models"),
-                html.Li("Deploy and get live predictions!")])
-            ], style={'flex': 1, 'textAlign': 'left', 'padding': '40px'})
-        ], style={'width': '50%', 'float': 'left'}),
+                html.Li("Compare trained machine learning classification models"),
+                html.Li("Deploy and get live predictions")])
+        ], style={'flex': 1, 'textAlign': 'left', 'padding': '40px'})
+    ], style={'width': '50%', 'float': 'left'}),
 
-    # Second div (right side)
+    # right side
     html.Div(id='model-serving-table',
              style={'width': '50%', 'float': 'left'}),
     dcc.Interval(
         id='table-update',
         interval=5*1000
-        ),
-        html.Div(style={'width': '80vw', 'display': 'inline-block'}),
-        html.Div(style={'display': 'flex'}, children=[
-            # first column
-            html.Div([
-                html.Img(src='./assets/configure-dataframe-v2.png', alt='image', style={'width': '20%', 'height': 'auto'}),
-                html.H3("Step 1"),
-                html.Div(style={'width': '10vw', 'display': 'inline-block'}),
-                html.H5("Configure Dataframe"),
-                html.P("Specify range, explore features, and label historic price movement for training."),
-                ], style={'flex': 1, 'textAlign': 'center', 'padding': '40px', 'backgroundColor': '#e4eaf5', 'borderRadius': '5px', 'margin-left': '80px', 'margin-right': '80px'}),
-            # second column
-            html.Div([
-                html.Img(src='./assets/explore-models-v2.png', alt='image', style={'width': '20%', 'height': 'auto'}),
-                html.H3("Step 2"),
-                html.Div(style={'width': '10vw', 'display': 'inline-block'}),
-                html.H5("Explore Trained Models"),
-                html.P("Compare models on similiar training data and deploy for real time predictions."),
-                ], style={'flex': 1, 'textAlign': 'center', 'padding': '40px', 'backgroundColor': '#e4eaf5', 'borderRadius': '5px', 'margin-left': '80px', 'margin-right': '80px'}),
-            # third column
-            html.Div([
-                html.Img(src='./assets/visualize-predictions-v2.png', alt='image', style={'width': '20%', 'height': 'auto'}),
-                html.H3("Step 3"),
-                html.Div(style={'width': '10vw', 'display': 'inline-block'}),
-                html.H5("Live Price Predictions"),
-                html.P("Visualize live price predictions and model performance!"),
-                ], style={'flex': 1, 'textAlign': 'center', 'padding': '40px', 'backgroundColor': '#e4eaf5', 'borderRadius': '5px', 'margin-left': '80px', 'margin-right': '80px'})
-            ]),
-            html.Br(),
-            html.Div([
-                html.A(html.Img(src='./assets/LI-In-Bug.png', alt='image', style={'width': '45px', 'height': '40px'}), href='https://linkedin.com', target='_blank'),
-                html.P("   "),
-                html.A(html.Img(src='./assets/github-mark.png', alt='image', style={'width': '40px', 'height': '40px'}), href='https://github.com', target='_blank')
-                ], style={'flex': 1, 'textAlign': 'left', 'padding': '40px', 'display': 'flex', 'position': 'absolute', 'bottom': 0})
-            ])
+    ),
+    html.Div(style={'width': '80vw', 'display': 'inline-block'}),
+    html.Div(style={'display': 'flex'}, children=[
+        # first column
+        html.Div([
+            html.Img(src='./assets/configure-dataframe-v2.png',
+                         alt='image', style={'width': '20%', 'height': 'auto'}),
+            html.H3("Step 1"),
+            html.Div(style={'width': '10vw', 'display': 'inline-block'}),
+            html.H5("Configure Dataframe"),
+            html.P(
+                "Specify range, explore features, and label historic price movement for training."),
+        ], style={'flex': 1,
+                  'textAlign': 'center',
+                  'padding': '40px',
+                  'backgroundColor': '#e4eaf5',
+                  'borderRadius': '5px',
+                  'margin-left': '80px',
+                  'margin-right': '80px'}),
+        # second column
+        html.Div([
+            html.Img(src='./assets/explore-models-v2.png',
+                         alt='image', style={'width': '20%', 'height': 'auto'}),
+            html.H3("Step 2"),
+            html.Div(style={'width': '10vw', 'display': 'inline-block'}),
+            html.H5("Explore Trained Models"),
+            html.P(
+                "Compare models on similiar training data and deploy for real time predictions."),
+        ], style={'flex': 1,
+                  'textAlign': 'center',
+                  'padding': '40px',
+                  'backgroundColor': '#e4eaf5',
+                  'borderRadius': '5px',
+                  'margin-left': '80px',
+                  'margin-right': '80px'}),
+        # third column
+        html.Div([
+            html.Img(src='./assets/visualize-predictions-v2.png',
+                         alt='image', style={'width': '20%', 'height': 'auto'}),
+            html.H3("Step 3"),
+            html.Div(style={'width': '10vw', 'display': 'inline-block'}),
+            html.H5("Live Price Predictions"),
+            html.P("Visualize live price predictions and model performance!"),
+        ], style={'flex': 1,
+                  'textAlign': 'center',
+                  'padding': '40px',
+                  'backgroundColor': '#e4eaf5',
+                  'borderRadius': '5px',
+                  'margin-left': '80px',
+                  'margin-right': '80px'})
+    ]),
+    html.Br(),
+    html.Div([
+        html.A(html.Img(src='./assets/LI-In-Bug.png', alt='image',
+                        style={'width': '45px',
+                               'height': '40px'}),
+                               href='https://www.linkedin.com/in/robert-wygant/', target='_blank'),
+        html.P("   "),
+        html.A(html.Img(src='./assets/github-mark.png', alt='image',
+                        style={'width': '40px',
+                               'height': '40px'}),
+                               href='https://github.com/wygantro/price-prediction-app', target='_blank')
+    ], style={'flex': 1,
+              'textAlign': 'left',
+              'padding': '40px',
+              'display': 'flex',
+              'position': 'absolute',
+              'bottom': 0})
+])
+
 
 @app.callback(
-        Output('page-content', 'children'),
-        Input('url', 'pathname')
-    )
+    Output('page-content', 'children'),
+    Input('url', 'pathname')
+)
 def display_page(pathname):
-    if pathname == '/dashboard_pages/page1': 
+    if pathname == '/dashboard_pages/page1':
         return page1.layout
     elif pathname == '/dashboard_pages/page2':
         return page2.layout
@@ -106,16 +145,15 @@ def display_page(pathname):
 
 
 @app.callback(
-        Output('model-serving-table', 'children'),
-        Input('table-update', 'n_intervals')
-    )
-def update_table(n_intervals):    
+    Output('model-serving-table', 'children'),
+    Input('table-update', 'n_intervals')
+)
+def update_table(n_intervals):
     # get number of active models
     active_models = get_active_models(logger, session_prediction_service)
     if not active_models:
         num_active_models = 0
     num_active_models = len(active_models)
-
 
     # load live websocket price and datetime values
     try:
@@ -125,24 +163,26 @@ def update_table(n_intervals):
     except pd.errors.EmptyDataError as e:
         print(f"error occurred: {e}")
         raise PreventUpdate
-    
+
     # format live_price_value
     live_price_value_formatted = "${:,.2f}".format(live_price_value)
 
     # get average prediction value
-    avg_predictions = get_avg_prediction(logger, session_prediction_service, current_datetime()[1])
+    avg_predictions = get_avg_prediction(
+        logger, session_prediction_service, current_datetime()[1])
 
     # define 'greater than' or 'less than' message
     if avg_predictions[0] > 0.5:
         prediction_msg = "greater than: "
     else:
         prediction_msg = "less than : "
-    
+
     # format average prediction price threshold
     avg_predictions_formatted = "${:,.2f}".format(avg_predictions[1])
 
     # format live_datetime time and date values
-    live_datetime_value_obj = datetime.datetime.strptime(live_datetime_value, "%Y-%m-%d %H:%M:%S.%f")
+    live_datetime_value_obj = datetime.datetime.strptime(
+        live_datetime_value, "%Y-%m-%d %H:%M:%S.%f")
     live_datetime_value_time = live_datetime_value_obj.strftime("%H:%M:%S")
     live_datetime_value_date = live_datetime_value_obj.strftime("%Y-%m-%d")
 
@@ -150,28 +190,51 @@ def update_table(n_intervals):
         html.Table([
             # header
             html.Tr([
-                html.Th('asset pair', style={'text-align': 'center', 'padding-left': '20px', 'padding-right': '20px'}),
-                html.Th('serving', style={'text-align': 'center', 'padding-left': '20px', 'padding-right': '20px'}),
-                html.Th('current price', style={'text-align': 'center', 'padding-left': '20px', 'padding-right': '20px'}),
-                html.Th('average prediction', style={'text-align': 'center', 'padding-left': '20px', 'padding-right': '20px'}),
+                html.Th('asset pair',
+                        style={'text-align': 'center',
+                               'padding-left': '20px',
+                               'padding-right': '20px'}),
+                html.Th('serving',
+                        style={'text-align': 'center',
+                               'padding-left': '20px',
+                               'padding-right': '20px'}),
+                html.Th('current price',
+                        style={'text-align': 'center',
+                               'padding-left': '20px',
+                               'padding-right': '20px'}),
+                html.Th('average prediction',
+                        style={'text-align': 'center',
+                               'padding-left': '20px',
+                               'padding-right': '20px'}),
                 html.Th('')
-                ], style={'text-align': 'center'}),
+            ], style={'text-align': 'center'}),
             # body
             html.Tr([
                 html.Td([
-                    html.Img(src='./assets/bitcoin.png', style={'width': '20%', 'height': 'auto', 'object-fit': 'cover'}),
+                    html.Img(src='./assets/bitcoin.png',
+                             style={'width': '20%',
+                                    'height': 'auto',
+                                    'object-fit': 'cover'}),
                     'BTC/USD'], style={'width': '120px', 'padding': '10px'}),
-                html.Td(f'{num_active_models} models', style={'padding': '10px'}),
-                html.Td(f'{live_price_value_formatted}', style={'padding': '10px'}),
-                html.Td(f'{prediction_msg} {avg_predictions_formatted}', style={'padding': '10px'}),
-                html.Td(dcc.Link("view", href='/dashboard_pages/page3'), style={'padding': '10px'})
-                ], style={'text-align': 'left'})
+                html.Td(f'{num_active_models} models',
+                        style={'padding': '10px'}),
+                html.Td(f'{live_price_value_formatted}',
+                        style={'padding': '10px'}),
+                html.Td(f'{prediction_msg} {avg_predictions_formatted}', style={
+                        'padding': '10px'}),
+                html.Td(dcc.Link("view", href='/dashboard_pages/page3'),
+                        style={'padding': '10px'})
+            ], style={'text-align': 'left'})
         ]),
-    html.Footer(html.Small(f"last updated: {live_datetime_value_date}, {live_datetime_value_time}"))
-    ], style={'flex': 1, 'textAlign': 'left', 'padding': '40px', 'border-collapse': 'collapse'}, className='table-bordered')
+        html.Footer(html.Small(
+            f"last updated: {live_datetime_value_date}, {live_datetime_value_time}"))
+    ], style={'flex': 1,
+              'textAlign': 'left',
+              'padding': '40px',
+              'border-collapse': 'collapse'}, className='table-bordered')
 
     return table_content
 
-# check main module run server
+
 if __name__ == '__main__':
     app.run_server(host='0.0.0.0', port=8050)

@@ -1,5 +1,3 @@
-# .dockerignore
-
 __pycache__
 ./app/__pycache__
 ./dashboard_pages/__pycache

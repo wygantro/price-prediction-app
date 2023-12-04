@@ -18,7 +18,6 @@ docker build -t "${GCR_HOSTNAME}/${PROJECT_ID}/${IMAGE_1_NAME}:latest" ./predict
 gcloud auth configure-docker
 docker push "${GCR_HOSTNAME}/${PROJECT_ID}/${IMAGE_1_NAME}:latest"
 
-
 echo "prediction-service images built and pushed successfully"
 
 # configure cluster

@@ -1,6 +1,5 @@
 # frontend-service container build, push and run locally
 
-## Local image build and run on Docker
 
 ### frontend-dashboard-backend
 

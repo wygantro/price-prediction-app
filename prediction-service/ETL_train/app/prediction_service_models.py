@@ -6,11 +6,12 @@ from sqlalchemy.orm import declarative_base
 
 Base = declarative_base()
 
+
 class Labels_directory(Base):
     __tablename__ = 'labels_directory'
 
     labels_id = Column(String(), primary_key=True)
-    
+
     datetime_created = Column(DateTime())
     target_output = Column(String())
     lookahead_value = Column(Integer())
@@ -20,6 +21,7 @@ class Labels_directory(Base):
 
     # one-to-many relationship with model_directory
     model_info = relationship("Model_directory_info", back_populates="labels")
+
 
 class Model_directory_info(Base):
     __tablename__ = 'model_directory_info'
@@ -44,15 +46,19 @@ class Model_directory_info(Base):
     # many-to-one relationship with labels_directory
     labels = relationship("Labels_directory", back_populates="model_info")
     # one-to-one relationship with model_objects
-    model_binaries = relationship("Model_binaries", back_populates="model_directory_info", uselist=False)
+    model_binaries = relationship(
+        "Model_binaries", back_populates="model_directory_info", uselist=False)
     # one-to-many relationship with prediction_records
-    prediction_records_info = relationship("Prediction_records", back_populates="model")
+    prediction_records_info = relationship(
+        "Prediction_records", back_populates="model")
+
 
 class Model_binaries(Base):
     __tablename__ = 'model_binaries'
 
     model_binaries_id = Column(String(), primary_key=True)
-    model_info_id = Column(String(), ForeignKey('model_directory_info.model_id'), unique=True)
+    model_info_id = Column(String(), ForeignKey(
+        'model_directory_info.model_id'), unique=True)
 
     model_binary = Column(LargeBinary())
     classification_test_report_binary = Column(LargeBinary())
@@ -62,13 +68,16 @@ class Model_binaries(Base):
     thresholds_binary = Column(LargeBinary())
 
     # one-to-one relationship with model_directory
-    model_directory_info = relationship("Model_directory_info", back_populates="model_binaries")
+    model_directory_info = relationship(
+        "Model_directory_info", back_populates="model_binaries")
+
 
 class Prediction_records(Base):
     __tablename__ = 'prediction_records'
 
     prediction_entry_id = Column(String(), primary_key=True)
-    model_prediction_id = Column(String, ForeignKey('model_directory_info.model_id'))
+    model_prediction_id = Column(
+        String, ForeignKey('model_directory_info.model_id'))
 
     prediction_id = Column(String())
     datetime_entry = Column(DateTime())
@@ -84,4 +93,5 @@ class Prediction_records(Base):
     prediction_timeseries_value = Column(Numeric())
 
     # many-to-one relationship with labels_directory
-    model = relationship("Model_directory_info", back_populates="prediction_records_info")
+    model = relationship("Model_directory_info",
+                         back_populates="prediction_records_info")

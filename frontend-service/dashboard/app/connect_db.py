@@ -10,7 +10,8 @@ def connect_url(database_service):
 
     Returns:
         str: URL string specific to SQLAlchemy
-        format: postgresql://{db_user}:{db_pass}@{db_host}:{db_port}/{db_name}
+        format: 
+        postgresql://{db_user}:{db_pass}@{db_host}:{db_port}/{db_name}
     """
     import os
 
@@ -22,7 +23,7 @@ def connect_url(database_service):
     else:
         pass
 
-    # production environment
+    # get production environment variables
     db_user = os.environ["DB_USER"]
     db_pass = os.environ["DB_PASS"]
     db_host = os.environ["DB_HOST"]

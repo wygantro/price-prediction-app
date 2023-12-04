@@ -2,6 +2,7 @@
 
 import logging
 
+
 def initial_daily_feature_df(logger, api_dict, *args_df, initialize=False):
     """
     Initial daily feature API call over a set datetime range.
@@ -12,6 +13,7 @@ def initial_daily_feature_df(logger, api_dict, *args_df, initialize=False):
 
     Args:
         logger (logging.Logger): Initialized logger object
+        api_dict (dict): API address dictionary
         *args_df (pandas.core.frame.DataFrame): Optional reference dataframe
         initialize: Default to False. True if no reference dataframe input
 
@@ -22,6 +24,7 @@ def initial_daily_feature_df(logger, api_dict, *args_df, initialize=False):
     import requests
     from datetime import datetime, date
 
+    # initialize and define start datetime
     logger.log(logging.INFO, "initializing date range for daily features")
     api_dict = api_dict
     if not api_dict:
@@ -34,27 +37,32 @@ def initial_daily_feature_df(logger, api_dict, *args_df, initialize=False):
     else:
         logger.log(logging.ERROR, "input reference dataframe required")
         raise ValueError("input reference dataframe required")
-        
+    
+    # deine end datetime and empty price dataframes
     end_date = datetime.today()
     D = 'D'
-    date_list = list(pd.date_range(start_date, end_date, freq=D).strftime("%Y-%m-%d"))
+    date_list = list(pd.date_range(
+        start_date, end_date, freq=D).strftime("%Y-%m-%d"))
     df_date = pd.DataFrame({'date': date_list}).set_index('date', drop=True)
-    df_price = pd.DataFrame({'date':[],
-                             'btc_close_price':[],
-                             'btc_volume':[],
-                             'btc_volume_weighted':[],
-                             'btc_open_price':[],
-                             'btc_high_price':[],
-                             'btc_low_price':[],
-                             'btc_n_transactions':[]})
+    df_price = pd.DataFrame({'date': [],
+                             'btc_close_price': [],
+                             'btc_volume': [],
+                             'btc_volume_weighted': [],
+                             'btc_open_price': [],
+                             'btc_high_price': [],
+                             'btc_low_price': [],
+                             'btc_n_transactions': []})
+    logger.log(logging.INFO,
+               "requesting daily price conditions from polygon.io API")
     
-    ####
-    logger.log(logging.INFO, "requesting daily price conditions from polygon.io API") # request BTC price conditions (daily) from API
+    # for loop over datetime values and request API
     for date_i in date_list:
-        url = 'https://api.polygon.io/v2/aggs/grouped/locale/global/market/crypto/{date}?adjusted=true&apiKey=68V4qcNzPdz7NuKkNvG5Hj2Z1O4hbvJj'.format(date=date_i)
+        url = 'https://api.polygon.io/v2/aggs/grouped/locale/global/market/crypto/{date}?adjusted=true&apiKey=68V4qcNzPdz7NuKkNvG5Hj2Z1O4hbvJj'.format(
+            date=date_i)
         r = requests.get(url)
         data = r.json()['results']
-        btc_daily_price_info = list(filter(lambda ticker_info: ticker_info['T'] == 'X:BTCUSD', data))
+        btc_daily_price_info = list(
+            filter(lambda ticker_info: ticker_info['T'] == 'X:BTCUSD', data))
         df_price.loc[len(df_price.index)] = [
             date_i,
             btc_daily_price_info[0]['c'],
@@ -65,12 +73,14 @@ def initial_daily_feature_df(logger, api_dict, *args_df, initialize=False):
             btc_daily_price_info[0]['l'],
             btc_daily_price_info[0]['n']
         ]
-    logger.log(logging.INFO, "storing price conditions in dictionary") # populate dictionary with api values
+    
+    # reformat df_price
+    logger.log(logging.INFO, "storing price conditions in dictionary")
     df_price = df_price.set_index('date')
     df_price = df_date.join(df_price)
-    ####
-
     logger.log(logging.INFO, "getting json AlphaVantage API info")
+
+    # append and store in API dictionary
     api_values_dict = {}
     for metric, url in api_dict.items():
         url = url
@@ -86,30 +96,39 @@ def initial_daily_feature_df(logger, api_dict, *args_df, initialize=False):
         for i in data:
             date_lst.append(i['date'])
             values_lst.append(i['value'])
-        api_values_dict[str(metric)] = {'date': date_lst, str(metric): values_lst}
-    
-    logger.log(logging.INFO, "requesting daily price conditions from AlphaVantage API") # request feature conditions (daily) from API
-    logger.log(logging.INFO, "building initial dataframe") # build dataframe df for return
+        api_values_dict[str(metric)] = {
+            'date': date_lst, str(metric): values_lst}
+    logger.log(logging.INFO,
+               "requesting daily price conditions from AlphaVantage API")
+    logger.log(logging.INFO, "building initial dataframe")
+
+    # for loop over api values dictionary and store in dataframe
     df_daily = df_price
     for metric_name, values in api_values_dict.items():
         df_metric_name = pd.DataFrame(values).set_index('date')
-        df_daily = df_daily.join(df_metric_name).replace('.', method='ffill').fillna(method='ffill').fillna(method='bfill').astype(float)
+        df_daily = df_daily.join(df_metric_name).replace('.', method='ffill').fillna(
+            method='ffill').fillna(method='bfill').astype(float)
     df_daily = df_daily.reset_index(drop=False)
 
     if initialize:
-        logger.log(logging.INFO, "returning initial dataframe") # build dataframe df for return
+        logger.log(logging.INFO, "returning initial dataframe")
         df = df_daily
         df['date_predict'] = pd.to_datetime(df['date'], format="%Y-%m-%d")
         return df
     elif not initialize and args_df:
-        df = args_df[0].iloc[:,:-6]
+        df = args_df[0].iloc[:, :-6]
         last_record = df.iloc[-1]
-        last_record_delta = datetime.today() - datetime.strptime(last_record['date'], "%Y-%m-%d")
-        df = pd.concat([df, df_daily.tail(last_record_delta.days)]).reset_index(drop=True)
+        last_record_delta = datetime.today(
+        ) - datetime.strptime(last_record['date'], "%Y-%m-%d")
+        df = pd.concat([df, df_daily.tail(last_record_delta.days)]
+                       ).reset_index(drop=True)
+        
         return df
+    
     else:
         logger.log(logging.ERROR, "check input df reference type")
         raise ValueError("check input df reference type")
+
 
 def commit_initial_daily_features(logger, session, df):
     """
@@ -129,7 +148,8 @@ def commit_initial_daily_features(logger, session, df):
     from app.feature_service_models import Daily_feature_data
     import datetime
 
-    logger.log(logging.INFO, "commiting initial values to database") # save and commit daily features
+    # for loop over feature dataframe and commit
+    logger.log(logging.INFO, "commiting initial values to database")
     indicators_lst = []
     for i, rows in df.iterrows():
         indicators = [
@@ -157,7 +177,7 @@ def commit_initial_daily_features(logger, session, df):
             rows.durables_monthly,
             rows.unemployment_monthy,
             rows.nonfarm_payroll_monthly,
-            #commodities
+            # commodities
             rows.crude_oil_prices_wti_daily,
             rows.crude_oil_prices_brent_daily,
             rows.natural_gas_daily,
@@ -169,26 +189,26 @@ def commit_initial_daily_features(logger, session, df):
             rows.sugar_monthly,
             rows.coffee_monthly,
             rows.global_commodity_index_monthly,
-            #fx_DXY
+            # fx_DXY
             rows.eur_usd_daily,
             rows.jpy_usd_daily,
             rows.gbp_usd_daily,
             rows.cad_usd_daily,
             rows.sek_usd_daily,
             rows.chf_usd_daily,
-            #fx_BRICS
+            # fx_BRICS
             rows.brl_usd_daily,
             rows.rub_usd_daily,
             rows.inr_usd_daily,
             rows.cny_usd_daily,
             rows.sar_usd_daily,
             rows.date_predict
-            ] 
+        ]
         indicators_lst.append(indicators)
 
     for i in range(len(indicators_lst)):
         date_i = datetime.datetime.strptime(indicators_lst[i][0], "%Y-%m-%d")
-        logger.log(logging.INFO, f"commiting daily feature for: {date_i}") # daily feature i commit
+        logger.log(logging.INFO, f"commiting daily feature for: {date_i}")
         d_i = Daily_feature_data(
             daily_feature_datetime_id=date_i,
             # economic idicators
@@ -232,7 +252,7 @@ def commit_initial_daily_features(logger, session, df):
             inr_usd_daily=indicators_lst[i][42],
             cny_usd_daily=indicators_lst[i][43],
             sar_usd_daily=indicators_lst[i][44]
-            )    
+        )
         try:
             session.add(d_i)
         except:

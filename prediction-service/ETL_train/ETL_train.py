@@ -3,7 +3,6 @@
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.ensemble import GradientBoostingClassifier
-import xgboost as xgb
 from sklearn.ensemble import AdaBoostClassifier
 from sklearn.tree import DecisionTreeClassifier
 
@@ -20,7 +19,7 @@ from app.prediction_service_models import Model_directory_info, Model_binaries
 
 import datetime
 import logging
-#import pandas as pd
+# import pandas as pd
 import pickle
 import warnings
 
@@ -28,24 +27,31 @@ import warnings
 logger = init_logger('prediction-service')
 logger.log(logging.INFO, "starting ETL")
 
-# Connect to feature-service-db and get hour feature dataframe
-database_service = 'feature-service' # connect to feature-service-db
+# connect to feature-service-db and get hour feature dataframe
+database_service = 'feature-service'
 db_url = connect_url(database_service)
-session_feature_service = create_db_models(logger, db_url, database_service)
+session_feature_service = create_db_models(logger,
+                                           db_url,
+                                           database_service)
 logger.log(logging.INFO, f"{database_service} session created")
 # get hour feature dataframe
-df_hour_data = get_full_feature_dataframe(logger, session_feature_service)
-#df_hour_data = pd.read_csv('./dataframes/hour_data.csv')
+df_hour_data = get_full_feature_dataframe(logger,
+                                          session_feature_service)
+# df_hour_data = pd.read_csv('./dataframes/hour_data.csv')
 logger.log(logging.INFO, "hour dataframe ready")
 
 # Connect to prediction-service-db and recreate labeled dataframe
-database_service = 'prediction-service' # connect to feature-service-db
+database_service = 'prediction-service'
 db_url = connect_url(database_service)
-session_prediction_service = create_db_models(logger, db_url, database_service)
+session_prediction_service = create_db_models(logger,
+                                              db_url,
+                                              database_service)
 logger.log(logging.INFO, f"{database_service} session created")
 # recreate labeled dataframe
-labels_id_input = "labels_1700675840"
-df_labels = create_df_labels(logger, session_prediction_service, df_hour_data, labels_id_input)
+labels_id_input = "labels_1700937309"
+df_labels = create_df_labels(
+    logger, session_prediction_service,
+    df_hour_data, labels_id_input)
 
 # ETL
 # define model id
@@ -53,7 +59,7 @@ datetime_created = datetime.datetime.now()
 model_id = f"model_{int(datetime_created.timestamp())}"
 model_labels_id = labels_id_input
 
-# prep train/test dataframe with inner join of hour_data features and corresponding labels
+# train/test dataframe with inner join of hour_data features and labels
 df = ETL_transform(df_hour_data, df_labels)
 
 # train/test split
@@ -71,11 +77,10 @@ y_test = df_split[3]
 logger.log(logging.INFO, "train/test split complete")
 
 # define SciKit learn model
-model = LogisticRegression()
-#model = RandomForestClassifier(n_estimators=100, random_state=42)
-#model = GradientBoostingClassifier(n_estimators=300, learning_rate=1.0, max_depth=5, random_state=42)
-#model = xgb.XGBClassifier( objective="binary:logistic", max_depth=10, learning_rate=0.1, n_estimators=10000)
-#model = AdaBoostClassifier(DecisionTreeClassifier(max_depth=10), n_estimators=500, random_state=42)
+# model = LogisticRegression()
+model = RandomForestClassifier(n_estimators=100, random_state=42)
+# model = GradientBoostingClassifier(n_estimators=300, learning_rate=1.0, max_depth=5, random_state=42)
+# model = AdaBoostClassifier(DecisionTreeClassifier(max_depth=10), n_estimators=500, random_state=42)
 
 
 prediction_type = "classification"
@@ -85,20 +90,25 @@ logger.log(logging.INFO, f"{model_type} model type for {model_id}")
 # train
 logger.log(logging.INFO, f"training {model_id} on {model_labels_id}")
 with warnings.catch_warnings():
-    warnings.filterwarnings("ignore", category=ConvergenceWarning)  
+    warnings.filterwarnings("ignore", category=ConvergenceWarning)
     model.fit(X_train, y_train)
     train_accuracy = model.score(X_train, y_train)
 
-logger.log(logging.INFO, f"train model accuracy {train_accuracy} for {model_id}")
+logger.log(
+    logging.INFO,
+    f"train model accuracy {train_accuracy} for {model_id}")
 
 # test
 logger.log(logging.INFO, f"testing {model_id}")
 y_pred = model.predict(X_test)
 test_accuracy = accuracy_score(y_test, y_pred)
-logger.log(logging.INFO, f"test model accuracy {test_accuracy} for {model_id}")
+logger.log(
+    logging.INFO,
+    f"test model accuracy {test_accuracy} for {model_id}")
 
 # classification report
-classification_test_report = classification_report(y_test, y_pred, zero_division=0, output_dict=True)
+classification_test_report = classification_report(
+    y_test, y_pred, zero_division=0, output_dict=True)
 classification_test_report_binary = pickle.dumps(classification_test_report)
 
 # define model_binaries_id and save model as pickle
@@ -125,7 +135,8 @@ roc_auc = roc_values[3]
 logger.log(logging.INFO, f"trained roc_auc for {model_id}: {roc_auc}")
 
 # commit model and report data to model_directory table
-logger.log(logging.INFO, f"committing {model_id} and data to prediction-service-db")
+logger.log(
+    logging.INFO, f"committing {model_id} and data to prediction-service-db")
 try:
     new_model_directory_info = Model_directory_info(model_id=model_id,
                                                     model_labels_id=model_labels_id,
@@ -140,7 +151,7 @@ try:
                                                     test_accuracy=test_accuracy,
                                                     roc_auc=roc_auc)
     session_prediction_service.add(new_model_directory_info)
-    
+
     new_model_binaries = Model_binaries(model_binaries_id=model_binaries_id,
                                         model_binary=model_pickle,
                                         classification_test_report_binary=classification_test_report_binary,
@@ -149,8 +160,8 @@ try:
                                         tpr_binary=tpr_binary,
                                         thresholds_binary=thresholds_binary,
                                         model_info_id=model_id)
-    
     session_prediction_service.add(new_model_binaries)
+
     session_prediction_service.commit()
 except:
     session_prediction_service.rollback()
@@ -158,4 +169,6 @@ except:
 
 finally:
     session_prediction_service.close()
-logger.log(logging.INFO, f"successfully committed {model_id} to prediction-service-db")
+logger.log(
+    logging.INFO,
+    f"successfully committed {model_id} to prediction-service-db")

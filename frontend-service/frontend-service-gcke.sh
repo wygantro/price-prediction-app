@@ -2,7 +2,7 @@
 
 # check if the script has execution permissions
 if [[ ! -x $0 ]]; then
-    echo "making the script executable..."
+    echo "making the script executable"
     chmod +x $0
     exec $0 "$@"
 fi

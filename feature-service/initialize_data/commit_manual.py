@@ -1,13 +1,13 @@
+# commit_manual.py
+
 from app.app_init import init_logger, create_db_models
 from app.connect_db import connect_url
 import logging
 from datetime import datetime, timedelta
 from app.feature_service_models import Hour_price_data
 
-# run and load logger object
+# define logger object and database connection
 logger = init_logger('feature-service')
-    
-# db url connection and create engine
 db_url = connect_url('feature-service')
 
 # check db tables and create sessions
@@ -33,9 +33,8 @@ while current_time < end_time:
                                    btc_hour_price_vol_weight_avg=20027.32)
 
     session.add(commit_input)
-    session.commit()   
+    session.commit()
 
     current_time += timedelta(hours=1)
 
 session.close()
-

@@ -55,11 +55,13 @@ def datetime_classified_lst(labels, datetime_input):
     """
     import datetime
 
+    # define datetime classified list and append values
     datetime_classified_lst = []
     for i in range(len(labels)):
         if labels[i] == 1:
             datetime_classified_lst.append(datetime.datetime.strptime(
                 datetime_input[i], "%Y-%m-%d %H:%M:%S"))
+            
     return datetime_classified_lst
 
 
@@ -78,12 +80,13 @@ def datetime_classified_ranges(labels_list, datetime_lst):
         price labels
     """
 
+    # default return empty list
     if not labels_list:
         return []
-
+    
+    # define labels range list and append start/end datetime tuples
     ranges = []
     start_idx = None
-
     for i, value in enumerate(labels_list):
         if value == 1 and (i == 0 or labels_list[i-1] == 0):
             start_idx = i

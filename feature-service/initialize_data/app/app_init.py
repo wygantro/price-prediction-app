@@ -99,12 +99,13 @@ def create_db_models(logger, db_url, database_service):
     logger.log(logging.INFO, "creating connection engine")
     engine = create_engine(db_url)
 
-    # create tables with Base from models
+    # create tables with Base object from models
     logger.log(logging.INFO, "creating model tables")
     Base.metadata.create_all(engine)
 
-    # define session object and return session
+    # define and return session object
     logger.log(logging.INFO, "defining and returning session object")
     Session = sessionmaker(bind=engine)
     session = Session()
+    
     return session

@@ -1,12 +1,12 @@
 # dashboard_init.py
 
-import dash
-import dash_bootstrap_components as dbc
-import plotly.io as pio
 from app.app_init import init_logger, create_db_models
 from app.connect_db import connect_url
-import pandas as pd
+import dash
+import dash_bootstrap_components as dbc
 import logging
+import pandas as pd
+import plotly.io as pio
 
 # initialize logs
 logger = init_logger('frontend-service')
@@ -29,7 +29,7 @@ style_dict = {
     'padding': '15px',
     'border': '1px solid black',
     'borderRadius': '5px'
-    }
+}
 
 pio.templates.default = "simple_white"
 # "plotly"
@@ -44,6 +44,7 @@ pio.templates.default = "simple_white"
 file_path = './dataframes/hour_data.csv'
 df = pd.read_csv(file_path)
 
-app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP], suppress_callback_exceptions=True)
+app = dash.Dash(__name__, external_stylesheets=[
+                dbc.themes.BOOTSTRAP], suppress_callback_exceptions=True)
 app.title = 'Price Prediction App'
 server = app.server
