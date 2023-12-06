@@ -45,7 +45,7 @@ home_layout = html.Div([
             html.Ul([
                 html.Li("Access over 50 macro economic features updated hourly"),
                 html.Li("Label historic price movements and download CSV dataframe"),
-                html.Li("Compare trained machine learning classification models"),
+                html.Li("Compare trained machine learning models"),
                 html.Li("Deploy and get live predictions")])
         ], style={'flex': 1, 'textAlign': 'left', 'padding': '40px'})
     ], style={'width': '50%', 'float': 'left'}),
