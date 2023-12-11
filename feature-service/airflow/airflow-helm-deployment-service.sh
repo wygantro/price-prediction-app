@@ -19,8 +19,11 @@ helm repo update
 export NAMESPACE=airflow
 kubectl create namespace $NAMESPACE
 
+# apply variables config map
+kubectl apply -f variables.yaml
+
 # install apache-airflow chart and airflow-values.yaml
-helm install airflow apache-airflow/airflow --namespace $NAMESPACE -f airflow-values.yaml
+helm install airflow apache-airflow/airflow --namespace $NAMESPACE -f values.yaml
 
 # confirm pods
 kubectl get pods --namespace $NAMESPACE
