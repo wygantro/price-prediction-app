@@ -47,8 +47,9 @@ session_prediction_service = create_db_models(logger,
                                               db_url,
                                               database_service)
 logger.log(logging.INFO, f"{database_service} session created")
-# recreate labeled dataframe
-labels_id_input = "labels_1700937309"
+
+# recreate labeled dataframe from labels id
+labels_id_input = "labels_1702566332"
 df_labels = create_df_labels(
     logger, session_prediction_service,
     df_hour_data, labels_id_input)
@@ -63,7 +64,7 @@ model_labels_id = labels_id_input
 df = ETL_transform(df_hour_data, df_labels)
 
 # train/test split
-train_test_split_type = "timeseries_manual_split"
+split_type = "timeseries_manual_split"
 train_percent = 0.8
 test_percent = 1 - train_percent
 
@@ -77,10 +78,10 @@ y_test = df_split[3]
 logger.log(logging.INFO, "train/test split complete")
 
 # define SciKit learn model
-# model = LogisticRegression()
-model = RandomForestClassifier(n_estimators=100, random_state=42)
-# model = GradientBoostingClassifier(n_estimators=300, learning_rate=1.0, max_depth=5, random_state=42)
-# model = AdaBoostClassifier(DecisionTreeClassifier(max_depth=10), n_estimators=500, random_state=42)
+model = LogisticRegression()
+#model = RandomForestClassifier(n_estimators=100, random_state=42)
+#model = GradientBoostingClassifier(n_estimators=300, learning_rate=1.0, max_depth=5, random_state=42)
+#model = AdaBoostClassifier(DecisionTreeClassifier(max_depth=10), n_estimators=500, random_state=42)
 
 
 prediction_type = "classification"
@@ -113,8 +114,8 @@ classification_test_report_binary = pickle.dumps(classification_test_report)
 
 # define model_binaries_id and save model as pickle
 model_binaries_id = f"binary_{model_id}"
-model_pickle = pickle.dumps(model)
-logger.log(logging.INFO, f"{model_id} converted to pickle file")
+#model_pickle = pickle.dumps(model)
+#logger.log(logging.INFO, f"{model_id} converted to pickle file")
 
 # confusion matrix
 y_true = y_test
@@ -138,22 +139,22 @@ logger.log(logging.INFO, f"trained roc_auc for {model_id}: {roc_auc}")
 logger.log(
     logging.INFO, f"committing {model_id} and data to prediction-service-db")
 try:
-    new_model_directory_info = Model_directory_info(model_id=model_id,
-                                                    model_labels_id=model_labels_id,
-                                                    deployed_status=False,
+    new_model_directory_info = Model_directory_info(model_id=model_id, #
+                                                    model_labels_id=model_labels_id, #
+                                                    deployed_status=False, #
                                                     datetime_created=datetime_created,
-                                                    prediction_type=prediction_type,
-                                                    model_type=model_type,
-                                                    train_test_split_type=train_test_split_type,
-                                                    train_percent=train_percent,
-                                                    test_percent=test_percent,
-                                                    train_accuracy=train_accuracy,
-                                                    test_accuracy=test_accuracy,
-                                                    roc_auc=roc_auc)
+                                                    prediction_type=prediction_type, #
+                                                    model_type=model_type, #
+                                                    train_test_split_type=split_type, #
+                                                    train_percent=train_percent, #
+                                                    test_percent=test_percent, #
+                                                    train_accuracy=train_accuracy, #
+                                                    test_accuracy=test_accuracy, #
+                                                    roc_auc=roc_auc)#
     session_prediction_service.add(new_model_directory_info)
 
     new_model_binaries = Model_binaries(model_binaries_id=model_binaries_id,
-                                        model_binary=model_pickle,
+                                        #model_binary=model_pickle,
                                         classification_test_report_binary=classification_test_report_binary,
                                         confusion_matrix_binary=confusion_matrix_binary,
                                         fpr_binary=fpr_binary,
@@ -172,3 +173,68 @@ finally:
 logger.log(
     logging.INFO,
     f"successfully committed {model_id} to prediction-service-db")
+
+# model params
+params_dict = model.get_params()
+
+# model metrics
+metrics_dict = {
+    "train_percent":train_percent,
+    "test_percent":test_percent,
+    "train_accuracy":train_accuracy,
+    "test_accuracy":test_accuracy,
+    "roc_auc":roc_auc
+    }
+
+# mlflow 
+import mlflow
+import mlflow.sklearn
+
+# set public CloudSQL database URI
+mlflow.set_tracking_uri("http://34.31.62.132:5000/")
+
+# start mlflow experiment run
+with mlflow.start_run() as run:
+
+    # log model
+    mlflow.sklearn.log_model(model, model_id)
+    
+    # log model parameters and metrics
+    mlflow.log_params(params_dict)
+    mlflow.log_metrics(metrics_dict)
+
+    # save run id and name
+    run_id = run.info.run_id #mlflow.start_run().info.run_id
+    run_name = run.info.run_name #mlflow.start_run().info.run_name
+    print("Run ID:", run_id)
+    print("Run Name:", run_name)
+
+# end mlflow run
+mlflow.end_run()
+
+# define model URI and model name
+model_uri = f"runs:/{run_id}/artifacts/model"
+model_name = model_id
+print("Model URI:", model_uri)
+print("Model name:", model_name)
+
+# name and register the model
+registered_model_name = mlflow.register_model(model_uri, model_name)
+
+
+# version and tag model
+from mlflow import MlflowClient
+
+# initialize an MLflow Client and stage
+client = MlflowClient()
+
+# set version
+client.transition_model_version_stage(
+    name=model_name, version=1, stage="Staging"
+)
+
+# set registered model tags
+client.set_registered_model_tag(model_name, "prediction type", prediction_type)
+client.set_registered_model_tag(model_name, "model type", model_type)
+client.set_registered_model_tag(model_name, "split type", split_type)
+client.set_registered_model_tag(model_name, "labels ID", model_labels_id)

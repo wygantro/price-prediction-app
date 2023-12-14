@@ -26,7 +26,7 @@ mlflow server \
 3. Access MLflow UI
 ```bash
 http://<MLFLOW_SERVER_HOST>:<MLFLOW_SERVER_PORT>
-
+``
 mlflow db upgrade --url postgresql://user:postgres@35.184.60.255:5432/mlflow-db
 
 

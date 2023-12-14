@@ -1,7 +1,6 @@
 # ./app/test_service_models.py
 
-from sqlalchemy import Column, DateTime, Numeric, ForeignKey
-from sqlalchemy.orm import relationship
+from sqlalchemy import Column, DateTime, Numeric
 from sqlalchemy.orm import declarative_base
 
 Base = declarative_base()

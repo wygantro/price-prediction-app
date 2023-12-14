@@ -1,28 +1,28 @@
 # eth_hour_price_dag.py
 
 from datetime import datetime, timedelta
+import time
 import requests
 from airflow import DAG
 from airflow.operators.python_operator import PythonOperator
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-from app.test_service_models import Hour_eth_price_data
-
-# Define the default_args dictionary
+# define the default_args dictionary
 default_args = {
     'owner': 'feature-service',
-    'start_date': datetime(2023, 1, 1, 0, 1, 0),
+    'start_date': datetime(2023, 1, 1),
     'depends_on_past': False,
     'retries': 1,
-    'retry_delay': timedelta(minutes=1),
+    'retry_delay': timedelta(minutes=5),
 }
 
 # define the DAG
 dag = DAG(
     'eth_hour_price_dag',
     default_args=default_args,
-    schedule_interval='0 * * * *',
+    schedule_interval='5 * * * *',
+    #schedule_interval='@hourly',
     catchup=False
 )
 
@@ -31,6 +31,10 @@ def eth_hour_price_to_db():
 
     from app.commit import current_datetime
     from app.get_data import eth_hour_price
+    from app.test_service_models import Hour_eth_price_data
+
+    # delay function execution
+    time.sleep(20)
 
     try:
         engine = create_engine('postgresql://user:postgres@172.30.192.3:5432/test-service-db')
@@ -42,7 +46,6 @@ def eth_hour_price_to_db():
 
         new_data = Hour_eth_price_data(
             hour_datetime_id=current_datetime()[1],
-            # daily_id=current_datetime()[0],
             eth_hour_price_open=eth_hour_price[1],
             eth_hour_price_close=eth_hour_price[2],
             eth_hour_price_high=eth_hour_price[3],
