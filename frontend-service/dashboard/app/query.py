@@ -261,7 +261,7 @@ def get_active_models(logger, session, *metric_input):
 
 def get_model_info(logger, session, models_id_input):
     """
-    Connects with database, queries all model info for given deployed
+    Connects with prediction-service-db, queries all model info for given deployed
     model ID.
 
     Args:
@@ -278,6 +278,36 @@ def get_model_info(logger, session, models_id_input):
         Model_directory_info.model_id == models_id_input).first()
 
     return model_info
+
+
+def get_mlflow_model_info(logger, session, models_id_input):
+    """
+    Connects with mlflow-db, executes SQL string to query all model ID
+    tag info for given input model ID.
+
+    Args:
+         logger (logging.Logger): Initialized logger object
+         engine_mlflow (sqlalchemy.orm.session.Session): SQLAlchemy object
+         models_id_input (str): model ID input
+
+    Returns:
+         lst: list of mlflow registered model tags
+    """
+
+    result = session.execute(f"""
+                             SELECT * FROM registered_model_tags
+                             WHERE name = '{models_id_input}';
+                             """)
+    rows = result.fetchall()
+
+    # append queried results to list
+    results_lst =[]
+    for row in rows:
+        results_lst.append(row[1])
+
+    session.close()
+
+    return results_lst
 
 
 def get_model_object(logger, session, models_id_input):

@@ -1,6 +1,7 @@
 # ./dashboard_pages/page2.py
 
-import dash
+#import dash
+import time
 from dash import dcc, html, dash_table
 from dash.dependencies import Input, Output
 import dash_bootstrap_components as dbc
@@ -11,10 +12,10 @@ import pandas as pd
 import numpy as np
 import pickle
 
-from app.query import get_labels_ids, get_labels_details, get_model_ids, get_model_info
+from app.query import get_labels_ids, get_labels_details, get_model_ids, get_model_info, get_mlflow_model_info
 from app.train_test import datetime_train_test_ranges
 
-from dashboard_init import app, df, logger, session_prediction_service, style_dict
+from dashboard_init import app, df, logger, session_mlflow, session_prediction_service, style_dict
 
 # define initial scatter plot
 initial_fig = go.Figure()
@@ -51,14 +52,17 @@ layout = dbc.Container([
                     inline=True
                 ),
                 html.Div(id='model-deployment-message'),
-            ], style=style_dict)], width=3),
+            ], style=style_dict),
+            html.Footer(html.Small(dcc.Link("powered by MLflow",
+                                            href="http://34.31.62.132:5000/#/models",
+                                            target="_blank")))], width=3),
         dbc.Col([
             dbc.Row([
                 html.Div([
-                    html.H5("Train Test Profile"),
-                    dcc.Graph(id='train-test-graph',
+                    html.H5("Price Profile"),
+                    dcc.Graph(id='price-profile-graph',
                               figure=initial_fig, animate=True),
-                    html.Div(id='train-test-details')
+                    html.Div(id='price-profile-details')
                 ], style=style_dict)
             ]),
             dbc.Row([
@@ -113,10 +117,12 @@ def labels_dropdown_details(labels_id_input):
         html.P(""),
         html.H6("Details:"),
         html.Hr(),
-        html.Li(f"Labeled output: {labels_details.target_output}"),
-        html.Li(f"Start: {labels_details.labels_start_datetime}"),
-        html.Li(f"End: {labels_details.labels_end_datetime}"),
-        html.Li(f"Models trained: {len(labels_details.model_info)}")
+        html.Li(f"output: {labels_details.target_output}"),
+        html.Li(f"start: {labels_details.labels_start_datetime}"),
+        html.Li(f"end: {labels_details.labels_end_datetime}"),
+        html.Li(f"lookahead: {labels_details.lookahead_value} hours"),
+        html.Li(f"percent change: + {labels_details.percent_change_threshold} %"),
+        html.Li(f"trained models: {len(labels_details.model_info)}")
     ]
 
     return labels_id_details
@@ -149,28 +155,19 @@ def models_dropdown_options(labels_id_input):
     Input('models-id-dropdown', 'value'),
     prevent_initial_call=True
 )
-def models_dropdown_details(models_id_input):
+def models_dropdown_details(models_id_input):    
     if not models_id_input:
         checkmark_value = []
         return "No models available for labels selected", checkmark_value
 
-    # get model details from model ID input
+    # get prediction-service and mlflow model details from model ID input
+    mlflow_model_details = get_mlflow_model_info(
+        logger, session_mlflow, models_id_input)
     model_details = get_model_info(
         logger, session_prediction_service, models_id_input)
-    if not model_details:
+    if not mlflow_model_details or not model_details:
         checkmark_value = []
         return f"No details found for ID {models_id_input}", checkmark_value
-
-    # get report dictionary from model details query object
-    report_dict = pickle.loads(
-        model_details.model_binaries.classification_test_report_binary)
-
-    # convert report_dict to a dataframe
-    df_report = pd.DataFrame(report_dict).transpose()
-    df_report = df_report.round(2)
-    df_report['support'] = df_report['support'].astype(int)
-    df_report = df_report.reset_index()
-    df_report.rename(columns={'index': ''}, inplace=True)
 
     # get database deployment status and update checkmark value
     deployed_status = model_details.deployed_status
@@ -183,26 +180,10 @@ def models_dropdown_details(models_id_input):
         html.P(""),
         html.H6("Details:"),
         html.Hr(),
-        html.Li(f"Model type: {model_details.model_type}"),
-        html.Li("Classification report: "),
-        html.P(""),
-        dash_table.DataTable(
-            id='table',
-            columns=[{"name": col, "id": col} for col in df_report.columns],
-            data=df_report.reset_index().to_dict('records'),
-            style_table={'margin': 'auto'},
-            style_header={
-                'backgroundColor': 'lightgrey',
-                'fontWeight': 'bold',
-                'fontSize': '10px',
-                'fontFamily': 'Arial'
-            },
-            style_cell={
-                'fontSize': '10px',
-                'fontFamily': 'Arial',
-                'textAlign': 'center'
-            }
-        )
+        html.Li(f"prediction type: {mlflow_model_details[0]}"),
+        html.Li(f"model type: {mlflow_model_details[1]}"),
+        html.Li(f"split type: {mlflow_model_details[2]}"),
+        html.Li(f"labels ID: {mlflow_model_details[3]}")
     ]
 
     return model_id_details, checkmark_value
@@ -221,12 +202,31 @@ def update_deployed_status(models_id_input, deploy_model_checkbox):
     if not model_details:
         return ""
 
-    # get deployment status from db
+    # get deployment status from prediction-service-db
     deployment_status = model_details.deployed_status
     if deploy_model_checkbox != deployment_status:
         if deploy_model_checkbox:
             model_details.deployed_status = True
             session_prediction_service.commit()
+            session_prediction_service.close()
+
+            ### MLflow model to 'Production' database update ###
+            update_statement = """
+                                UPDATE model_versions
+                                SET current_stage = :new_value
+                                WHERE name = :record_id_name AND version = :record_id_version
+                            """
+            params = {
+                'new_value': 'Production',
+                'record_id_name': models_id_input,
+                'record_id_version': 1
+                }
+            
+            session_mlflow.execute(update_statement, params)
+            session_mlflow.commit()
+            session_mlflow.close()
+            ######
+
             return [
                 html.P('Deployed!'),
                 dbc.NavLink("view here", href=f"/dashboard_pages/page3",
@@ -236,24 +236,44 @@ def update_deployed_status(models_id_input, deploy_model_checkbox):
         elif not deploy_model_checkbox:
             model_details.deployed_status = False
             session_prediction_service.commit()
+            session_prediction_service.close()
+
+            ### MLflow model to 'Staging' database update ###
+            update_statement = """
+                                UPDATE model_versions
+                                SET current_stage = :new_value
+                                WHERE name = :record_id_name AND version = :record_id_version
+                            """
+            params = {
+                'new_value': 'Staging',
+                'record_id_name': models_id_input,
+                'record_id_version': 1
+                }
+
+            session_mlflow.execute(update_statement, params)
+            session_mlflow.commit()
+            session_mlflow.close()
+            ######
+
             return [
                 html.P('Deployment stopped.'),
             ]
 
 
-# train/test profile graph
+# price profile graph
 @app.callback(
-    Output('train-test-graph', 'figure'),
+    Output('price-profile-graph', 'figure'),
     Input('labels-id-dropdown', 'value'),
-    Input('models-id-dropdown', 'value'),
+    #Input('models-id-dropdown', 'value'),
     prevent_initial_call=True
 )
-def update_train_test_graph(labels_id_input, model_id_input):
+def price_profile_graph(labels_id_input):#, model_id_input):
     df = pd.read_csv('./dataframes/hour_data.csv')
 
     if not labels_id_input:
         # redefine and return initial default scatter plot
         fig = go.Figure()
+
         # remove all shapes from previous callbacks
         fig['layout']['shapes'] = []
 
@@ -277,9 +297,11 @@ def update_train_test_graph(labels_id_input, model_id_input):
         # get labels info from database
         labels_details = get_labels_details(
             logger, session_prediction_service, labels_id_input)
-        df['hour_datetime_id'] = pd.to_datetime(df['hour_datetime_id'])
         start_date = labels_details.labels_start_datetime
         end_date = labels_details.labels_end_datetime
+
+        # convert datetime ID column to pandas datetime objects
+        df['hour_datetime_id'] = pd.to_datetime(df['hour_datetime_id'])
 
         # define range for dataframe based on labels info
         start_date_i = df[df['hour_datetime_id']==start_date].index.item()
@@ -311,6 +333,7 @@ def update_train_test_graph(labels_id_input, model_id_input):
         )
 
         # update figure shading train/test regions for model ID input
+        model_id_input=False # currently muted
         if model_id_input:
             # define list of tuples to shade train and test regions on graph
             datetime_train_test_ranges_list = datetime_train_test_ranges(
@@ -390,54 +413,38 @@ def update_train_test_graph(labels_id_input, model_id_input):
             return fig
 
 
-# train/test details
+# price profile details
 @app.callback(
-    Output('train-test-details', 'children'),
+    Output('price-profile-details', 'children'),
     Input('labels-id-dropdown', 'value'),
     Input('models-id-dropdown', 'value')
 )
-def update_train_test_details(labels_id_input, model_id_input):
+def price_profile_details(labels_id_input, model_id_input):
     if not labels_id_input and not model_id_input:
         return "No labels or models selected"
 
     # check for model ID input
     if labels_id_input and not model_id_input:
-        # return labels details only if no model_id_input
-        labels_details = get_labels_details(
-            logger, session_prediction_service, labels_id_input)
-        train_test_details = html.Div([
-            html.Div([html.H6(f'Label ID: {labels_id_input}'),
-                      html.Li(
-                          f'lookahead: {labels_details.lookahead_value} hours'),
-                      html.Li(f'percent change threshold: {labels_details.percent_change_threshold} %'),]),
-            html.Div([html.H6(f'Model ID: select a model'),]),
+        # return selected labels ID
+        price_profile_details = html.Div([
+            html.Div([html.H6(f'Label ID: {labels_id_input}')]),
+            html.Div([html.H6(f'Model ID: select a trained model!'),]),
             html.Div([html.H6('')])
         ], style={'display': 'flex',
                   'justify-content': 'space-between'})
 
-        return train_test_details
+        return price_profile_details
 
-    # return all details if label ID and model ID input
-    labels_details = get_labels_details(
-        logger, session_prediction_service, labels_id_input)
-    model_details = get_model_info(
-        logger, session_prediction_service, model_id_input)
-
-    train_test_details = html.Div([
-        html.Div([html.H6(f'Label ID: {labels_id_input}'),
-                  html.Li(
-                      f'lookahead: {labels_details.lookahead_value} hours'),
-                  html.Li(f'percent change threshold: {labels_details.percent_change_threshold} %'),]),
-        html.Div([html.H6(f'Model ID: {model_id_input}'),
-                  html.Li(
-                      f'train ratio: {round(model_details.train_percent*100, 1)} %'),
-                  html.Li(f'train accuracy: {round(model_details.train_accuracy*100, 1)} %'),]),
+    # return selected labels and model ID
+    price_profile_details = html.Div([
+        html.Div([html.H6(f'Label ID: {labels_id_input}')]),
+        html.Div([html.H6(f'Model ID: {model_id_input}')]),
         html.Div([html.H6('')])
     ], style={'fontWeight': 'normal',
               'display': 'flex',
               'justify-content': 'space-between'})
 
-    return train_test_details
+    return price_profile_details
 
 
 # confusion matrix graph
@@ -472,9 +479,9 @@ def update_confusion_matrix_graph(model_id_input):
     )
 
     # define dcc Graph child with fig
-    fig_child = dcc.Graph(figure=fig, animate=True)
+    confusion_matrix_fig_child = dcc.Graph(figure=fig, animate=True)
 
-    return fig_child
+    return confusion_matrix_fig_child
 
 
 # roc curve graph
@@ -519,9 +526,9 @@ def update_roc_curve_graph(model_id_input):
         ], layout=layout)
 
     # define dcc Graph child with fig
-    roc_curve_child = [
+    roc_curve_fig_child = [
         html.P(f'Area = {roc_auc:.2f}'),
         dcc.Graph(figure=fig, animate=True)
     ]
 
-    return roc_curve_child
+    return roc_curve_fig_child
