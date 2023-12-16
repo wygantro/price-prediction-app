@@ -63,7 +63,7 @@ layout = dbc.Container([
                     html.Div(id='live-prediction'),
                     dcc.Interval(
                         id='prediction-dashboard-interval',
-                        interval=0.5*1000
+                        interval=1*1000
                     ),
                     dcc.Graph(id='prediction-graph',
                               figure=initial_fig, animate=True),

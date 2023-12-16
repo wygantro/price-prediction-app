@@ -330,3 +330,77 @@ def get_model_object(logger, session, models_id_input):
         Model_binaries.model_info_id == models_id_input).first()
 
     return model_object
+
+
+def get_model_object_gcs(logger, session, models_id_input):
+    """
+    Connects with mlflow database, queries model run ID for given
+    deployed model ID input. Then defines unique model Google Cloud
+    Storage path and gets stored model from artifact directory
+
+    Args:
+         logger (logging.Logger): initialized logger object
+         session (sqlalchemy.orm.session.Session): SQLAlchemy object
+         models_id_input (str): model ID input
+
+    Returns:
+         sklearn.model_type: trained ML model object
+    """
+    from google.cloud import storage
+    import joblib
+    import pickle
+    from sqlalchemy import text
+
+    # initialize a client to interact with Google Cloud Storage
+    storage_client = storage.Client()
+
+    # define SQLAlchemy query and get results
+    query = text("""
+                    SELECT * FROM model_versions
+                    WHERE name = :value_name AND version = :value_version
+                """)
+    result = session.execute(query, {"value_name": f"{models_id_input}",
+                                     "value_version": 1})
+    rows = result.fetchall()
+
+    # get and define model_id cloud storage path
+    model_run_id = rows[0][8]
+
+    # define Google Cloud Storage info and get bucket/blob
+    bucket_name = "mlflow-models-nycdsa-project-4"
+    file_name = f"0/{model_run_id}/artifacts/{models_id_input}/model.pkl"
+    bucket = storage_client.bucket(bucket_name)
+    blob = bucket.blob(file_name)
+    
+    # download pickle file and deserialize
+    try:
+        binary_model = blob.download_as_bytes()
+        model = pickle.loads(binary_model)
+    except Exception as e:
+        print(f"An error occurred: {e}")
+    
+    return model
+
+
+def deployed_model_lst(logger, session):
+    """
+    Connects with prediction-service database, queries all active
+    models and returns a list of model IDs.
+
+    Args:
+         logger (logging.Logger): Initialized logger object
+         session (sqlalchemy.orm.session.Session): SQLAlchemy object
+
+    Returns:
+         lst: list of deployed models
+    """
+    from app.prediction_service_models import Model_directory_info
+
+    # query deployed models
+    query_lst = session.query(Model_directory_info.model_id)\
+        .filter(Model_directory_info.deployed_status == True)\
+        .order_by(Model_directory_info.model_id).all()
+    
+    deployed_model_lst = [model[0] for model in query_lst]
+
+    return deployed_model_lst

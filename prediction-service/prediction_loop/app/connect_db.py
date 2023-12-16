@@ -20,6 +20,8 @@ def connect_url(database_service):
         db_name = os.environ["DB_FEATURE_SERVICE_NAME"]
     elif database_service == 'prediction-service':
         db_name = os.environ["DB_PREDICTION_SERVICE_NAME"]
+    elif database_service == 'mlflow':
+        db_name = os.environ["DB_MLFLOW_NAME"]
     else:
         pass
 

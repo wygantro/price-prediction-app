@@ -44,9 +44,13 @@ gcloud container clusters get-credentials project-cluster
 
 4. Create project-secrets for Google cloudsql database credentials secrets
 ```bash
+
+kubectl delete secret cloudsql-db-credentials
+
 kubectl create secret generic cloudsql-db-credentials \
     --from-literal=db_feature_service_name=feature-service-db \
     --from-literal=db_prediction_service_name=prediction-service-db \
+    --from-literal=db_mlflow_name=mlflow-db \
     --from-literal=username=user \
     --from-literal=password=postgres \
     --from-literal=db_name=feature-service-db \

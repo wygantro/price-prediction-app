@@ -1,4 +1,4 @@
-# ETL_train_main.py
+# etl_train.py
 
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
@@ -49,7 +49,7 @@ session_prediction_service = create_db_models(logger,
 logger.log(logging.INFO, f"{database_service} session created")
 
 # recreate labeled dataframe from labels id
-labels_id_input = "labels_1702566332"
+labels_id_input = "labels_1702660651"
 df_labels = create_df_labels(
     logger, session_prediction_service,
     df_hour_data, labels_id_input)
@@ -78,8 +78,8 @@ y_test = df_split[3]
 logger.log(logging.INFO, "train/test split complete")
 
 # define SciKit learn model
-model = LogisticRegression()
-#model = RandomForestClassifier(n_estimators=100, random_state=42)
+#model = LogisticRegression()
+model = RandomForestClassifier(n_estimators=100, random_state=42)
 #model = GradientBoostingClassifier(n_estimators=300, learning_rate=1.0, max_depth=5, random_state=42)
 #model = AdaBoostClassifier(DecisionTreeClassifier(max_depth=10), n_estimators=500, random_state=42)
 
@@ -139,22 +139,21 @@ logger.log(logging.INFO, f"trained roc_auc for {model_id}: {roc_auc}")
 logger.log(
     logging.INFO, f"committing {model_id} and data to prediction-service-db")
 try:
-    new_model_directory_info = Model_directory_info(model_id=model_id, #
-                                                    model_labels_id=model_labels_id, #
-                                                    deployed_status=False, #
+    new_model_directory_info = Model_directory_info(model_id=model_id,
+                                                    model_labels_id=model_labels_id,
+                                                    deployed_status=False,
                                                     datetime_created=datetime_created,
-                                                    prediction_type=prediction_type, #
-                                                    model_type=model_type, #
-                                                    train_test_split_type=split_type, #
-                                                    train_percent=train_percent, #
-                                                    test_percent=test_percent, #
-                                                    train_accuracy=train_accuracy, #
-                                                    test_accuracy=test_accuracy, #
-                                                    roc_auc=roc_auc)#
+                                                    prediction_type=prediction_type,
+                                                    model_type=model_type,
+                                                    train_test_split_type=split_type,
+                                                    train_percent=train_percent,
+                                                    test_percent=test_percent,
+                                                    train_accuracy=train_accuracy,
+                                                    test_accuracy=test_accuracy,
+                                                    roc_auc=roc_auc)
     session_prediction_service.add(new_model_directory_info)
 
     new_model_binaries = Model_binaries(model_binaries_id=model_binaries_id,
-                                        #model_binary=model_pickle,
                                         classification_test_report_binary=classification_test_report_binary,
                                         confusion_matrix_binary=confusion_matrix_binary,
                                         fpr_binary=fpr_binary,
