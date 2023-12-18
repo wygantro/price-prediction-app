@@ -31,7 +31,7 @@ db_url = connect_url(database_service)
 #engine = create_engine(db_url) # define engine
 #Session = sessionmaker(bind=engine) # define Session object
 session_mlflow = create_db_models(logger, db_url, database_service) #Session() # create and connect session
-logger.log(logging.INFO, f"{database_service} engine created")
+logger.log(logging.INFO, f"{database_service} session created")
 
 # define global style dictionary
 style_dict = {

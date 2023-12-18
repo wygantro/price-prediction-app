@@ -15,10 +15,6 @@ from app.query import create_df_labels
 
 from dashboard_init import app, df, logger, session_prediction_service, style_dict
 
-# define intial range values
-min_value = 0
-max_value = len(df) - 1
-step_value = len(df) // 24
 
 # define initial scatter plot with selected target output
 initial_fig = go.Figure()
@@ -32,7 +28,16 @@ initial_fig.add_trace(
 )
 
 # update y-axis and trace
-initial_fig.update_layout(yaxis=dict(title='price (usd)'))
+initial_fig.update_layout(
+        showlegend=False,
+        xaxis=dict(
+            rangeslider=dict(
+                visible=True
+                ),
+            type="date"
+        ),
+    yaxis=dict(title='price (usd)')
+    )
 initial_fig.update_traces(line=dict(width=1),
                           selector=dict(mode='lines'))
 
@@ -42,55 +47,29 @@ layout = dbc.Container([
         dbc.Col([
             dbc.Row([
                 dbc.Col(html.Div([
-                    html.H5("Select Range"),
+                    html.H5("Select Output"),
                     dcc.Dropdown(
                         id='dropdown-select-output',
                         options=[
-                            {'label': 'BTC/USD (hour)',
+                            {'label': 'btc/usd (hour)',
                              'value': 'btc_hour_price_close'}
                         ],
                         value='btc_hour_price_close',
                         multi=False
                     ),
                     html.Div(id='selected-output'),
-                    html.Div('select range'),
-                    dcc.RangeSlider(
-                        id='date-range-slider',
-                        min=min_value,
-                        max=max_value,
-                        step=step_value,
-                        value=[min_value, max_value],
-                        marks={i: '' for i in range(
-                            min_value, max_value, int(step_value))}
-                    ),
-                    dcc.Checklist(
-                        id='graph-range-checkbox',
-                        options=[
-                            {'label': 'apply range', 'value': 'True'}
-                        ],
-                        value=[],
-                        inline=True
-                    )
                 ], style=style_dict), width=6),
 
                 dbc.Col(html.Div([
                     html.H5("Available Features"),
                     dcc.Dropdown(
                         id='dropdown-available-inputs',
-                        options=[{'label': col, 'value': col}
+                        options=[{'label': col.replace("_", " "), 'value': col}
                                  for col in df.columns[2:]],
-                        value='federal_funds_daily',
+                        value='None',
                         multi=False
                     ),
                     html.Div(id='selected-feature'),
-                    dcc.Checklist(
-                        id='graph-feature-checkbox',
-                        options=[
-                            {'label': 'add to graph', 'value': 'True'}
-                        ],
-                        value=[],
-                        inline=True
-                    )
                 ], style=style_dict), width=6)
             ]),
 
@@ -100,8 +79,7 @@ layout = dbc.Container([
                     dcc.Graph(id='graph',
                               figure=initial_fig,
                               animate=True),
-                    html.H6("Last updated: "),
-                    html.Div(id='last-updated'),
+                    html.Div(id='last-updated')
                 ], style=style_dict))
             ])
         ], width=9),
@@ -109,7 +87,7 @@ layout = dbc.Container([
         dbc.Col(
             html.Div([
                 html.Div([
-                    html.H5("Label Output"),
+                    html.H5("Label/Classify Output"),
                     html.H6("Lookahead timestep (hours): "),
                     dcc.Input(
                         id='lookahead-timestep',
@@ -127,7 +105,7 @@ layout = dbc.Container([
                         step=0.5
                     ),
                     html.Br(),
-                    html.H6("Label Summary:"),
+                    html.H6("Summary:"),
                     html.Div(id='selected-labels-info'),
                     dcc.Checklist(
                         id='add-labels-checkbox',
@@ -153,7 +131,10 @@ layout = dbc.Container([
     Input('dropdown-select-output', 'value')
 )
 def select_target_output(selected_output):
-    return f"selected output: {selected_output}"
+    # format selected output
+    selected_output_str = selected_output.replace("_", " ")
+
+    return f"selected output: {selected_output_str}"
 
 
 # available features
@@ -162,40 +143,38 @@ def select_target_output(selected_output):
     Input('dropdown-available-inputs', 'value')
 )
 def select_feature(selected_feature):
-    return f"selected feature: {selected_feature}"
+    # check selected feature and return message
+    if selected_feature == 'None' or not selected_feature:
+        selected_feature_msg = "select a feature!"
+    elif selected_feature:
+        selected_feature_str = selected_feature.replace("_", " ")
+        selected_feature_msg = f"selected feature: {selected_feature_str}"
+    else:
+        selected_feature_msg = ""
 
+    return selected_feature_msg
 
 # update graph with range, feature and label inputs
 @app.callback(
     Output('graph', 'figure'),
     Output('last-updated', 'children'),
-    Input('graph-range-checkbox', 'value'),
-    Input('date-range-slider', 'value'),
-    Input('graph-feature-checkbox', 'value'),
     Input('dropdown-available-inputs', 'value'),
     Input('lookahead-timestep', 'value'),
     Input('lookahead-threshold', 'value'),
     Input('add-labels-checkbox', 'value')
 )
-def update_graph(range_checkbox, range_value, graph_feature_checkbox,
-                 graph_feature_value, lookahead_timestep,
+def update_graph(graph_feature_value, lookahead_timestep,
                  lookahead_threshold, add_labels_checkbox):
+
+    # define add feature values to graph
+    if graph_feature_value == 'None' or not graph_feature_value:
+        graph_feature_status = False
+    elif graph_feature_value:
+        graph_feature_status = True
     
     # load dataframe
     df = pd.read_csv('./dataframes/hour_data.csv')
     last_updated = df['hour_datetime_id'].iloc[-1]
-
-    # set dataframe datetime range
-    if range_checkbox and not graph_feature_checkbox:
-        df = df.iloc[range_value[0]:range_value[1]]
-        current_feature = []
-    elif range_checkbox and graph_feature_checkbox:
-        df = df.iloc[range_value[0]:range_value[1]]
-        current_feature = graph_feature_value
-    elif not range_checkbox and graph_feature_checkbox:
-        current_feature = graph_feature_value
-    else:
-        current_feature = []
 
     # define initial scatter plot with selected target output
     fig = go.Figure()
@@ -205,19 +184,20 @@ def update_graph(range_checkbox, range_value, graph_feature_checkbox,
             x=df['hour_datetime_id'],
             y=df['btc_hour_price_close'],
             mode='lines',
-            name='BTC/USD (hour)'
+            name='btc/usd (hour)',
+            yaxis='y1'
         )
     )
 
     # add selected feature trace if checkbox is checked
-    if graph_feature_checkbox and current_feature == graph_feature_value:
-        current_feature = graph_feature_value
+    if graph_feature_status:
+        selected_feature_str = graph_feature_value.replace("_", " ")
         fig.add_trace(
             go.Scatter(
                 x=df['hour_datetime_id'],
                 y=df[graph_feature_value],
                 mode='lines',
-                name=graph_feature_value,
+                name=selected_feature_str,
                 yaxis='y2'
             )
         )
@@ -225,7 +205,7 @@ def update_graph(range_checkbox, range_value, graph_feature_checkbox,
         # update secondary y axis specific to selected feature
         fig.update_layout(
             yaxis2=dict(
-                title=graph_feature_value,
+                title='', #selected_feature_str,
                 overlaying='y',
                 side='right',
                 range=[min(df[graph_feature_value]),
@@ -236,15 +216,17 @@ def update_graph(range_checkbox, range_value, graph_feature_checkbox,
     # update initial layout and trace
     fig.update_layout(
         yaxis_title="price (usd)",
-        showlegend=True,
+        showlegend=False,
         xaxis=dict(
-            range=[min(df['hour_datetime_id']),
-                   max(df['hour_datetime_id'])]
+            rangeslider=dict(
+                visible=True
+                ),
+            type="date"
         ),
         yaxis=dict(
             range=[min(df['btc_hour_price_close']),
                    max(df['btc_hour_price_close'])]
-        )
+        ),
     )
 
     fig.update_traces(line=dict(width=1),
@@ -263,7 +245,7 @@ def update_graph(range_checkbox, range_value, graph_feature_checkbox,
         datetime_classified_ranges_list = datetime_classified_ranges(
             labels_list,
             labels_datetime_list)
-        
+
         # add shading
         fig.update_layout(
             shapes=[
@@ -283,30 +265,37 @@ def update_graph(range_checkbox, range_value, graph_feature_checkbox,
             ]
         )
 
-    return fig, last_updated
+    return fig, html.Small(f"Last updated: {last_updated}")
 
 
 # update label summary info
 @app.callback(
     Output('selected-labels-info', 'children'),
     Input('dropdown-select-output', 'value'),
-    Input('date-range-slider', 'value'),
+    Input('graph', 'relayoutData'),
     Input('lookahead-timestep', 'value'),
     Input('lookahead-threshold', 'value')
 )
-def update_label_info(selected_output, range_value,
+def update_label_info(selected_output, relayout_data,
                       lookahead_timestep, lookahead_threshold):
-    df = pd.read_csv('./dataframes/hour_data.csv')
+    # reformat selected output and range messages
+    selected_output_str = selected_output.replace("_", " ")
 
-    # datetime range values from dataframe
-    range_end = df['hour_datetime_id'].iloc[range_value[-1]]
-    range_start = df['hour_datetime_id'].iloc[range_value[0]]
+    # get selected datetime range from slider and format
+    if relayout_data and 'xaxis.range' in relayout_data:
+        range_start = str(pd.to_datetime(relayout_data['xaxis.range'][0]).round("H"))
+        range_end = str(pd.to_datetime(relayout_data['xaxis.range'][1]).round("H"))
+    else:
+        # datetime object range frame dataframe
+        df = pd.read_csv('./dataframes/hour_data.csv')
+        range_start = df['hour_datetime_id'].iloc[0]
+        range_end = df['hour_datetime_id'].iloc[-1]
 
     # define HTML children output
     selected_labels_info = html.Div([
-        html.Li(f"output: {selected_output}"),
-        html.Li(f"start: {range_start}"),
-        html.Li(f"end: {range_end}"),
+        html.Li(f"output: {selected_output_str}"),
+        html.Li(f"start: {range_end}"),
+        html.Li(f"end: {range_start}"),
         html.Li(f"lookahead: {lookahead_timestep} hours"),
         html.Li(f"percent change: + {lookahead_threshold} %"),
         html.P("")
@@ -320,106 +309,75 @@ def update_label_info(selected_output, range_value,
     Output('save-button-message', 'children'),
     Output('labels-id', 'data'),
     Input('dropdown-select-output', 'value'),
-    Input('date-range-slider', 'value'),
+    Input('graph', 'relayoutData'),
     Input('lookahead-timestep', 'value'),
     Input('lookahead-threshold', 'value'),
     Input('save-button', 'n_clicks')
 )
-def save_label_info(selected_output, range_value,
-                    lookahead_timestep, lookahead_threshold, n_clicks):
-    # default HTML output
-    if not n_clicks:
-        # load dataframe
-        df = pd.read_csv('./dataframes/hour_data.csv')
+def save_label_info(selected_output, relayout_data,
+                    lookahead_timestep, lookahead_threshold,
+                    n_clicks):
+    # load dataframe
+    df = pd.read_csv('./dataframes/hour_data.csv')
 
-        # resize dataframe
-        df = df.iloc[range_value[0]:range_value[-1]]
+    # get selected datetime range from slider and format
+    if relayout_data and 'xaxis.range' in relayout_data:            
+        range_start = pd.to_datetime(relayout_data['xaxis.range'][0]).round("H")
+        range_end = pd.to_datetime(relayout_data['xaxis.range'][1]).round("H")
+    else:
+        range_start = df['hour_datetime_id'].iloc[0]
+        range_end = df['hour_datetime_id'].iloc[-1]
 
-        # define default HTML children output download CSV message
-        rows, columns = df.shape
-        labels_saved_info = html.Div([
-                html.Hr(),
-                html.P(""),
-                html.H6("Dataframe Summary:"),
-                html.P(f"rows: {rows}"),
-                html.P(f"feature columns: {columns}"),
-                html.Button("Download CSV", id="btn_csv"),
-                dcc.Download(id="download-dataframe-csv"),
-                html.P(""),
-                html.Small("save labels first to download CSV"),
-                dbc.NavLink("next page", href="/dashboard_pages/page2",
-                            style={"color": "blue",
-                                   "text-decoration": "underline"})
-                ])
-        
-        labels_id = None
-        
-        return labels_saved_info, labels_id
-    
-    # check if saved button and update HTML and commit labels info to database
+    # slice the DataFrame based on the datetime range
+    df['hour_datetime_id'] = pd.to_datetime(df['hour_datetime_id'])
+    df = df[(df['hour_datetime_id'] >= range_start) & (df['hour_datetime_id'] <= range_end)]
+
     ctx = dash.callback_context
     if ctx.triggered[0]['prop_id'] == 'save-button.n_clicks':
+        # commit labels info to database and output message
+        labels_created_datetime = datetime.datetime.now()
+        labels_id = f"labels_{int(labels_created_datetime.timestamp())}"
 
-        if n_clicks:
-            # load dataframe
-            df = pd.read_csv('./dataframes/hour_data.csv')
+        save_btn_msg = f"labels saved! (ID: {labels_id})"
 
-            # define labels info to commit
-            labels_start_datetime_str = df['hour_datetime_id'].iloc[range_value[0]+1]
-            labels_start_datetime = datetime.datetime.strptime(
-                labels_start_datetime_str, "%Y-%m-%d %H:%M:%S")
-            labels_end_datetime_str = df['hour_datetime_id'].iloc[range_value[-1]-1]
-            labels_end_datetime = datetime.datetime.strptime(
-                labels_end_datetime_str, "%Y-%m-%d %H:%M:%S")
-            labels_created_datetime = datetime.datetime.now()
-            labels_output = selected_output
-            lookahead_value = lookahead_timestep
-            percent_change_threshold = lookahead_threshold
-            labels_id = f"labels_{int(labels_created_datetime.timestamp())}"
-
-            # create labeled list
-            df = df.iloc[range_value[0]:range_value[-1]]
-
-            # create new database entry
-            new_labels = Labels_directory(
+        # create new database entry
+        new_labels = Labels_directory(
                 labels_id=labels_id,
                 datetime_created=labels_created_datetime,
-                target_output=labels_output,
-                lookahead_value=lookahead_value,
-                percent_change_threshold=percent_change_threshold,
-                labels_start_datetime=labels_start_datetime,
-                labels_end_datetime=labels_end_datetime
+                target_output=selected_output,
+                lookahead_value=lookahead_timestep,
+                percent_change_threshold=lookahead_threshold,
+                labels_start_datetime=range_start,
+                labels_end_datetime=range_end
                 )
-
-            # commit labels info to database
-            try:
-                session_prediction_service.add(new_labels)
-                session_prediction_service.commit()
-            except:
-                session_prediction_service.rollback()
-
-            # define HTML children output saved labels message
-            rows, columns = df.shape
-            labels_saved_info = html.Div([
-                html.P(""),
-                html.H6("Saved!"),
-                html.P(f"id: {labels_id}"),
-                html.Hr(),
-                html.P(''),
-                html.H6("Dataframe Summary:"),
-                html.P(f"rows: {rows}"),
-                html.P(f"feature columns: {columns}"),
-                html.Button("Download CSV", id="btn_csv"),
-                dcc.Download(id="download-dataframe-csv"),
-                html.P(''),
-                dbc.NavLink("next page", href="/dashboard_pages/page2",
-                            style={"color": "blue",
-                                   "text-decoration": "underline"})
-            ])
+        
+        # commit labels info to database
+        try:
+            session_prediction_service.add(new_labels)
+            session_prediction_service.commit()
+        except:
+            session_prediction_service.rollback()
 
     else:
-        labels_saved_info = None
         labels_id = None
+        save_btn_msg = "save labels first to download CSV"
+
+    # define default HTML children output download CSV message
+    rows, columns = df.shape
+    labels_saved_info = html.Div([
+            html.Hr(),
+            html.P(""),
+            html.H6("Dataframe Summary:"),
+            html.P(f"rows: {rows}"),
+            html.P(f"feature columns: {columns}"),
+            html.Button("Download CSV", id="btn_csv"),
+            dcc.Download(id="download-dataframe-csv"),
+            html.P(""),
+            html.Small(save_btn_msg),
+            dbc.NavLink("next page", href="/dashboard_pages/page2",
+                        style={"color": "blue",
+                                "text-decoration": "underline"})
+            ])    
     
     return labels_saved_info, labels_id
 
