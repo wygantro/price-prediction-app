@@ -41,7 +41,7 @@ layout = dbc.Container([
                 dcc.Dropdown(
                     id='metrics-dropdown',
                     options=[
-                        {'label': 'Prediction Accuracy',
+                        {'label': 'Running Accuracy',
                             'value': 'running_accuracy'},
                         {'label': 'Test Accuracy', 'value': 'test_accuracy'},
                         {'label': 'Train Accuracy', 'value': 'train_accuracy'},
@@ -106,12 +106,15 @@ def metrics_dropdown(metric_value):
         logger, session_prediction_service, metric_value)
     if not active_models:
         return "No active models. Activate models on previous page."
-
+    
+    # format metric call
+    metric_value_str = metric_value.replace("_", " ")
+    
     # ranked models HTML table
     metric_table = html.Table([
         html.Thead(
             html.Tr(
-                [html.Th("Model ID"), html.Th(f"{metric_value}")])
+                [html.Th("Model ID"), html.Th(f"{metric_value_str}")])
         ),
         html.Tbody([
             html.Tr(
@@ -148,13 +151,12 @@ def model_details(href_input):
     model_details = html.Div([
         html.Hr(),
         html.H6("Details:"),
-        html.Li(f"Prediction type: {model_info_query.prediction_type}"),
-        html.Li(f"Model type: {model_info_query.model_type}"),
-        html.Li(f"Labels ID: {model_info_query.model_labels_id}"),
+        html.Li(f"model type: {model_info_query.model_type}"),
+        html.Li(f"labels ID: {model_info_query.model_labels_id}"),
         html.Li(
-            f"Labels lookahead: {model_info_query.labels.lookahead_value} hours"),
+            f"lookahead: {model_info_query.labels.lookahead_value} hours"),
         html.Li(
-            f"Labels percent change: {model_info_query.labels.percent_change_threshold}%"),
+            f"percent change: {model_info_query.labels.percent_change_threshold}%"),
         html.P(""),
         html.Footer(html.Small(f"ID: {model_id_clicked}")),
         html.Footer(html.Small(
@@ -370,21 +372,54 @@ def update_graph(stored_model_id, n_intervals):
         ]
     )
 
-    # add prediction price data if model selected
+    # add prediction price down/up data and arrows if model selected
     if stored_model_id:
         # get df_predictions info
         df_predictions = get_live_predictions_df(
             logger, session_prediction_service, stored_model_id)
 
-        # add price prediction data
+        # define a custom arrow marker
+        arrow_marker_up = dict(
+                symbol="triangle-up",
+                size=8,
+                opacity=0.8,
+                line=dict(width=2, color='darkgrey'),
+                color='lightgreen'
+                )
+        
+        # define a custom arrow marker
+        arrow_marker_down = dict(
+                symbol="triangle-down",
+                size=8,
+                opacity=0.8,
+                line=dict(width=2, color='darkgrey'),
+                color='red'
+                )
+        
+        # add price down prediction data
+        df_predictions_down = df_predictions[df_predictions['predicted'] == 0]
         fig.add_trace(
             go.Scatter(
-                x=df_predictions['datetime'],
-                y=df_predictions['prediction_price_threshold'],
-                line=dict(color='orange'),
-                name='prediction',
+                x=df_predictions_down['datetime'],
+                y=df_predictions_down['prediction_price_threshold'],
+                #line=dict(color='orange'),
+                name='prediction down',
                 yaxis='y',
-                mode='markers'
+                mode='markers',
+                marker=arrow_marker_down
+            )
+        )
+
+        # add price up prediction data
+        df_predictions_up = df_predictions[df_predictions['predicted'] == 1]
+        fig.add_trace(
+            go.Scatter(
+                x=df_predictions_up['datetime'],
+                y=df_predictions_up['prediction_price_threshold'],
+                name='prediction up',
+                yaxis='y',
+                mode='markers',
+                marker=arrow_marker_up
             )
         )
 
@@ -392,8 +427,8 @@ def update_graph(stored_model_id, n_intervals):
         fig.update_layout(
             showlegend=True,
             xaxis=dict(
-                range=[df_minute['datetime'].min(
-                ), df_predictions['datetime'].max() + pd.Timedelta(hours=4)],
+                range=[df_minute['datetime'].min(),
+                       df_predictions['datetime'].max() + pd.Timedelta(hours=4)],
             ),
             yaxis=dict(
                 title="price (usd)"
@@ -450,7 +485,7 @@ def prediction_table(stored_model_id):
         html.P(""),
         dash_table.DataTable(
             id='table',
-            columns=[{"name": col, "id": col}
+            columns=[{"name": col.replace("_", " "), "id": col}
                      for col in df_prediction_results.columns],
             data=df_prediction_results.reset_index().to_dict('records'),
             style_table={'margin': 'auto'},

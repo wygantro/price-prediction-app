@@ -176,6 +176,11 @@ def models_dropdown_details(models_id_input):
     elif not deployed_status:
         checkmark_value = []
 
+    # define model metrics
+    model_metrics_query = get_model_info(logger, session_prediction_service, models_id_input)
+    train_accuracy_str = "{:.1%}".format(model_metrics_query.train_accuracy)
+    test_accuracy_str = "{:.1%}".format(model_metrics_query.test_accuracy)
+
     model_id_details = [
         html.P(""),
         html.H6("Details:"),
@@ -183,7 +188,8 @@ def models_dropdown_details(models_id_input):
         html.Li(f"prediction type: {mlflow_model_details[0]}"),
         html.Li(f"model type: {mlflow_model_details[1]}"),
         html.Li(f"split type: {mlflow_model_details[2]}"),
-        html.Li(f"labels ID: {mlflow_model_details[3]}")
+        html.Li(f"train accuracy: {train_accuracy_str}"),
+        html.Li(f"test accuracy: {test_accuracy_str}")
     ]
 
     return model_id_details, checkmark_value
@@ -210,7 +216,7 @@ def update_deployed_status(models_id_input, deploy_model_checkbox):
             session_prediction_service.commit()
             session_prediction_service.close()
 
-            ### MLflow model to 'Production' database update ###
+            # MLflow model to 'Production' database update
             update_statement = """
                                 UPDATE model_versions
                                 SET current_stage = :new_value
@@ -225,13 +231,12 @@ def update_deployed_status(models_id_input, deploy_model_checkbox):
             session_mlflow.execute(update_statement, params)
             session_mlflow.commit()
             session_mlflow.close()
-            ######
 
             return [
-                html.P('Deployed!'),
-                dbc.NavLink("view here", href=f"/dashboard_pages/page3",
+                html.Div('Deployed!'),
+                dbc.NavLink("view here", href=f"/dashboard_pages/page3", 
                             style={"color": "blue", "text-decoration": "underline"})
-            ]
+                ]
 
         elif not deploy_model_checkbox:
             model_details.deployed_status = False
