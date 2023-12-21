@@ -5636,3 +5636,2504 @@
 [2023-12-18 21:19:43,422] INFO:frontend-service:56:query loop complete
 [2023-12-18 21:20:43,424] INFO:frontend-service:55:no data update
 [2023-12-18 21:20:43,425] INFO:frontend-service:56:query loop complete
+[2023-12-20 10:39:23,503] INFO:frontend-service:26:entering save_down function
+[2023-12-20 10:39:24,026] INFO:frontend-service:29:entering websocket connection loop
+[2023-12-20 10:39:24,029] INFO:frontend-service:34:websocket connected successfully
+[2023-12-20 10:39:24,121] INFO:frontend-service:47:websocket authenticated successfully
+[2023-12-20 10:39:24,124] INFO:frontend-service:51:websocket streaming
+[2023-12-20 10:41:39,736] INFO:frontend-service:95:creating connection engine
+[2023-12-20 10:41:39,791] INFO:frontend-service:99:creating model tables
+[2023-12-20 10:41:40,138] INFO:frontend-service:26:entering save_down function
+[2023-12-20 10:41:40,658] INFO:frontend-service:29:entering websocket connection loop
+[2023-12-20 10:41:40,659] INFO:frontend-service:34:websocket connected successfully
+[2023-12-20 10:41:40,746] INFO:frontend-service:47:websocket authenticated successfully
+[2023-12-20 10:41:40,748] INFO:frontend-service:51:websocket streaming
+[2023-12-20 10:41:41,420] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 10:41:41,421] INFO:frontend-service:30:feature-service session created
+[2023-12-20 10:41:41,423] INFO:frontend-service:32:getting latest database datetime record
+[2023-12-20 10:41:41,604] INFO:frontend-service:36:initial hour datetime ID: 2023-12-20 15:00:00
+[2023-12-20 10:41:49,721] INFO:frontend-service:95:creating connection engine
+[2023-12-20 10:41:49,765] INFO:frontend-service:99:creating model tables
+[2023-12-20 10:41:56,750] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 10:41:56,751] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 10:41:56,752] INFO:frontend-service:95:creating connection engine
+[2023-12-20 10:41:56,754] INFO:frontend-service:99:creating model tables
+[2023-12-20 10:42:04,070] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 10:42:04,072] INFO:frontend-service:26:feature-service session created
+[2023-12-20 10:42:04,073] INFO:frontend-service:111:creating connection engine
+[2023-12-20 10:42:04,075] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 10:42:04,076] INFO:frontend-service:34:mlflow session created
+[2023-12-20 10:42:21,618] INFO:frontend-service:40:initial hour dataframe update and saved: 2023-12-20 15:00:00
+[2023-12-20 10:42:21,619] INFO:frontend-service:55:no data update
+[2023-12-20 10:42:21,619] INFO:frontend-service:56:query loop complete
+[2023-12-20 10:43:21,621] INFO:frontend-service:55:no data update
+[2023-12-20 10:43:21,622] INFO:frontend-service:56:query loop complete
+[2023-12-20 10:44:21,623] INFO:frontend-service:55:no data update
+[2023-12-20 10:44:21,624] INFO:frontend-service:56:query loop complete
+[2023-12-20 10:45:21,626] INFO:frontend-service:55:no data update
+[2023-12-20 10:45:21,626] INFO:frontend-service:56:query loop complete
+[2023-12-20 10:45:53,708] INFO:frontend-service:95:creating connection engine
+[2023-12-20 10:45:53,748] INFO:frontend-service:99:creating model tables
+[2023-12-20 10:45:55,376] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 10:45:55,377] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 10:45:55,377] INFO:frontend-service:95:creating connection engine
+[2023-12-20 10:45:55,378] INFO:frontend-service:99:creating model tables
+[2023-12-20 10:45:56,976] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 10:45:56,977] INFO:frontend-service:26:feature-service session created
+[2023-12-20 10:45:56,978] INFO:frontend-service:111:creating connection engine
+[2023-12-20 10:45:56,981] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 10:45:56,982] INFO:frontend-service:34:mlflow session created
+[2023-12-20 10:46:21,627] INFO:frontend-service:55:no data update
+[2023-12-20 10:46:21,628] INFO:frontend-service:56:query loop complete
+[2023-12-20 10:46:46,178] INFO:frontend-service:95:creating connection engine
+[2023-12-20 10:46:46,234] INFO:frontend-service:99:creating model tables
+[2023-12-20 10:46:47,890] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 10:46:47,891] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 10:46:47,891] INFO:frontend-service:95:creating connection engine
+[2023-12-20 10:46:47,892] INFO:frontend-service:99:creating model tables
+[2023-12-20 10:46:49,511] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 10:46:49,512] INFO:frontend-service:26:feature-service session created
+[2023-12-20 10:46:49,512] INFO:frontend-service:111:creating connection engine
+[2023-12-20 10:46:49,513] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 10:46:49,513] INFO:frontend-service:34:mlflow session created
+[2023-12-20 10:47:21,631] INFO:frontend-service:55:no data update
+[2023-12-20 10:47:21,632] INFO:frontend-service:56:query loop complete
+[2023-12-20 10:48:21,635] INFO:frontend-service:55:no data update
+[2023-12-20 10:48:21,636] INFO:frontend-service:56:query loop complete
+[2023-12-20 10:49:21,637] INFO:frontend-service:55:no data update
+[2023-12-20 10:49:21,639] INFO:frontend-service:56:query loop complete
+[2023-12-20 10:49:39,852] INFO:frontend-service:95:creating connection engine
+[2023-12-20 10:49:39,897] INFO:frontend-service:99:creating model tables
+[2023-12-20 10:49:41,494] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 10:49:41,495] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 10:49:41,495] INFO:frontend-service:95:creating connection engine
+[2023-12-20 10:49:41,496] INFO:frontend-service:99:creating model tables
+[2023-12-20 10:49:43,010] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 10:49:43,011] INFO:frontend-service:26:feature-service session created
+[2023-12-20 10:49:43,012] INFO:frontend-service:111:creating connection engine
+[2023-12-20 10:49:43,015] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 10:49:43,016] INFO:frontend-service:34:mlflow session created
+[2023-12-20 10:50:14,001] INFO:frontend-service:95:creating connection engine
+[2023-12-20 10:50:14,042] INFO:frontend-service:99:creating model tables
+[2023-12-20 10:50:15,729] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 10:50:15,731] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 10:50:15,733] INFO:frontend-service:95:creating connection engine
+[2023-12-20 10:50:15,735] INFO:frontend-service:99:creating model tables
+[2023-12-20 10:50:17,309] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 10:50:17,310] INFO:frontend-service:26:feature-service session created
+[2023-12-20 10:50:17,311] INFO:frontend-service:111:creating connection engine
+[2023-12-20 10:50:17,311] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 10:50:17,312] INFO:frontend-service:34:mlflow session created
+[2023-12-20 10:50:21,641] INFO:frontend-service:55:no data update
+[2023-12-20 10:50:21,642] INFO:frontend-service:56:query loop complete
+[2023-12-20 10:51:18,212] INFO:frontend-service:95:creating connection engine
+[2023-12-20 10:51:18,260] INFO:frontend-service:99:creating model tables
+[2023-12-20 10:51:19,888] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 10:51:19,889] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 10:51:19,889] INFO:frontend-service:95:creating connection engine
+[2023-12-20 10:51:19,890] INFO:frontend-service:99:creating model tables
+[2023-12-20 10:51:21,469] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 10:51:21,471] INFO:frontend-service:26:feature-service session created
+[2023-12-20 10:51:21,472] INFO:frontend-service:111:creating connection engine
+[2023-12-20 10:51:21,474] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 10:51:21,475] INFO:frontend-service:34:mlflow session created
+[2023-12-20 10:51:21,642] INFO:frontend-service:55:no data update
+[2023-12-20 10:51:21,642] INFO:frontend-service:56:query loop complete
+[2023-12-20 10:52:21,644] INFO:frontend-service:55:no data update
+[2023-12-20 10:52:21,647] INFO:frontend-service:56:query loop complete
+[2023-12-20 10:52:49,691] INFO:frontend-service:95:creating connection engine
+[2023-12-20 10:52:49,734] INFO:frontend-service:99:creating model tables
+[2023-12-20 10:52:51,408] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 10:52:51,409] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 10:52:51,409] INFO:frontend-service:95:creating connection engine
+[2023-12-20 10:52:51,410] INFO:frontend-service:99:creating model tables
+[2023-12-20 10:52:52,967] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 10:52:52,968] INFO:frontend-service:26:feature-service session created
+[2023-12-20 10:52:52,969] INFO:frontend-service:111:creating connection engine
+[2023-12-20 10:52:52,970] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 10:52:52,971] INFO:frontend-service:34:mlflow session created
+[2023-12-20 10:53:21,649] INFO:frontend-service:55:no data update
+[2023-12-20 10:53:21,651] INFO:frontend-service:56:query loop complete
+[2023-12-20 10:54:12,900] INFO:frontend-service:95:creating connection engine
+[2023-12-20 10:54:12,941] INFO:frontend-service:99:creating model tables
+[2023-12-20 10:54:14,531] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 10:54:14,533] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 10:54:14,535] INFO:frontend-service:95:creating connection engine
+[2023-12-20 10:54:14,537] INFO:frontend-service:99:creating model tables
+[2023-12-20 10:54:16,128] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 10:54:16,130] INFO:frontend-service:26:feature-service session created
+[2023-12-20 10:54:16,131] INFO:frontend-service:111:creating connection engine
+[2023-12-20 10:54:16,134] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 10:54:16,135] INFO:frontend-service:34:mlflow session created
+[2023-12-20 10:54:21,654] INFO:frontend-service:55:no data update
+[2023-12-20 10:54:21,655] INFO:frontend-service:56:query loop complete
+[2023-12-20 10:55:21,657] INFO:frontend-service:55:no data update
+[2023-12-20 10:55:21,660] INFO:frontend-service:56:query loop complete
+[2023-12-20 10:56:21,663] INFO:frontend-service:55:no data update
+[2023-12-20 10:56:21,665] INFO:frontend-service:56:query loop complete
+[2023-12-20 10:57:05,556] INFO:frontend-service:95:creating connection engine
+[2023-12-20 10:57:05,596] INFO:frontend-service:99:creating model tables
+[2023-12-20 10:57:07,250] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 10:57:07,250] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 10:57:07,251] INFO:frontend-service:95:creating connection engine
+[2023-12-20 10:57:07,251] INFO:frontend-service:99:creating model tables
+[2023-12-20 10:57:08,809] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 10:57:08,810] INFO:frontend-service:26:feature-service session created
+[2023-12-20 10:57:08,810] INFO:frontend-service:111:creating connection engine
+[2023-12-20 10:57:08,811] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 10:57:08,811] INFO:frontend-service:34:mlflow session created
+[2023-12-20 10:57:21,668] INFO:frontend-service:55:no data update
+[2023-12-20 10:57:21,668] INFO:frontend-service:56:query loop complete
+[2023-12-20 10:58:21,670] INFO:frontend-service:55:no data update
+[2023-12-20 10:58:21,670] INFO:frontend-service:56:query loop complete
+[2023-12-20 10:58:27,060] INFO:frontend-service:95:creating connection engine
+[2023-12-20 10:58:27,109] INFO:frontend-service:99:creating model tables
+[2023-12-20 10:58:28,804] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 10:58:28,806] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 10:58:28,807] INFO:frontend-service:95:creating connection engine
+[2023-12-20 10:58:28,809] INFO:frontend-service:99:creating model tables
+[2023-12-20 10:58:30,385] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 10:58:30,385] INFO:frontend-service:26:feature-service session created
+[2023-12-20 10:58:30,386] INFO:frontend-service:111:creating connection engine
+[2023-12-20 10:58:30,386] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 10:58:30,386] INFO:frontend-service:34:mlflow session created
+[2023-12-20 10:59:15,858] INFO:frontend-service:95:creating connection engine
+[2023-12-20 10:59:15,901] INFO:frontend-service:99:creating model tables
+[2023-12-20 10:59:17,563] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 10:59:17,565] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 10:59:17,566] INFO:frontend-service:95:creating connection engine
+[2023-12-20 10:59:17,569] INFO:frontend-service:99:creating model tables
+[2023-12-20 10:59:19,324] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 10:59:19,325] INFO:frontend-service:26:feature-service session created
+[2023-12-20 10:59:19,326] INFO:frontend-service:111:creating connection engine
+[2023-12-20 10:59:19,328] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 10:59:19,328] INFO:frontend-service:34:mlflow session created
+[2023-12-20 10:59:21,671] INFO:frontend-service:55:no data update
+[2023-12-20 10:59:21,671] INFO:frontend-service:56:query loop complete
+[2023-12-20 11:00:15,278] INFO:frontend-service:95:creating connection engine
+[2023-12-20 11:00:15,315] INFO:frontend-service:99:creating model tables
+[2023-12-20 11:00:16,968] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 11:00:16,969] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 11:00:16,969] INFO:frontend-service:95:creating connection engine
+[2023-12-20 11:00:16,970] INFO:frontend-service:99:creating model tables
+[2023-12-20 11:00:18,615] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 11:00:18,618] INFO:frontend-service:26:feature-service session created
+[2023-12-20 11:00:18,619] INFO:frontend-service:111:creating connection engine
+[2023-12-20 11:00:18,622] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 11:00:18,623] INFO:frontend-service:34:mlflow session created
+[2023-12-20 11:01:22,117] INFO:frontend-service:51:hour dataframe updated and saved: 2023-12-20 16:00:00
+[2023-12-20 11:02:22,119] INFO:frontend-service:55:no data update
+[2023-12-20 11:02:22,120] INFO:frontend-service:56:query loop complete
+[2023-12-20 11:03:22,122] INFO:frontend-service:55:no data update
+[2023-12-20 11:03:22,122] INFO:frontend-service:56:query loop complete
+[2023-12-20 11:03:33,080] INFO:frontend-service:95:creating connection engine
+[2023-12-20 11:03:33,122] INFO:frontend-service:99:creating model tables
+[2023-12-20 11:03:34,742] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 11:03:34,744] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 11:03:34,746] INFO:frontend-service:95:creating connection engine
+[2023-12-20 11:03:34,749] INFO:frontend-service:99:creating model tables
+[2023-12-20 11:03:36,254] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 11:03:36,255] INFO:frontend-service:26:feature-service session created
+[2023-12-20 11:03:36,255] INFO:frontend-service:111:creating connection engine
+[2023-12-20 11:03:36,256] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 11:03:36,257] INFO:frontend-service:34:mlflow session created
+[2023-12-20 11:04:22,124] INFO:frontend-service:55:no data update
+[2023-12-20 11:04:22,124] INFO:frontend-service:56:query loop complete
+[2023-12-20 11:04:44,278] INFO:frontend-service:95:creating connection engine
+[2023-12-20 11:04:44,321] INFO:frontend-service:99:creating model tables
+[2023-12-20 11:04:46,004] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 11:04:46,004] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 11:04:46,004] INFO:frontend-service:95:creating connection engine
+[2023-12-20 11:04:46,004] INFO:frontend-service:99:creating model tables
+[2023-12-20 11:04:47,525] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 11:04:47,525] INFO:frontend-service:26:feature-service session created
+[2023-12-20 11:04:47,525] INFO:frontend-service:111:creating connection engine
+[2023-12-20 11:04:47,525] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 11:04:47,525] INFO:frontend-service:34:mlflow session created
+[2023-12-20 11:05:22,125] INFO:frontend-service:55:no data update
+[2023-12-20 11:05:22,128] INFO:frontend-service:56:query loop complete
+[2023-12-20 11:06:05,084] INFO:frontend-service:95:creating connection engine
+[2023-12-20 11:06:05,128] INFO:frontend-service:99:creating model tables
+[2023-12-20 11:06:06,697] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 11:06:06,699] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 11:06:06,700] INFO:frontend-service:95:creating connection engine
+[2023-12-20 11:06:06,702] INFO:frontend-service:99:creating model tables
+[2023-12-20 11:06:08,241] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 11:06:08,242] INFO:frontend-service:26:feature-service session created
+[2023-12-20 11:06:08,242] INFO:frontend-service:111:creating connection engine
+[2023-12-20 11:06:08,243] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 11:06:08,243] INFO:frontend-service:34:mlflow session created
+[2023-12-20 11:06:22,130] INFO:frontend-service:55:no data update
+[2023-12-20 11:06:22,132] INFO:frontend-service:56:query loop complete
+[2023-12-20 11:06:41,594] INFO:frontend-service:95:creating connection engine
+[2023-12-20 11:06:41,636] INFO:frontend-service:99:creating model tables
+[2023-12-20 11:06:43,125] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 11:06:43,127] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 11:06:43,128] INFO:frontend-service:95:creating connection engine
+[2023-12-20 11:06:43,130] INFO:frontend-service:99:creating model tables
+[2023-12-20 11:06:44,690] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 11:06:44,691] INFO:frontend-service:26:feature-service session created
+[2023-12-20 11:06:44,692] INFO:frontend-service:111:creating connection engine
+[2023-12-20 11:06:44,693] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 11:06:44,693] INFO:frontend-service:34:mlflow session created
+[2023-12-20 11:07:22,134] INFO:frontend-service:55:no data update
+[2023-12-20 11:07:22,136] INFO:frontend-service:56:query loop complete
+[2023-12-20 11:08:22,139] INFO:frontend-service:55:no data update
+[2023-12-20 11:08:22,140] INFO:frontend-service:56:query loop complete
+[2023-12-20 11:09:22,141] INFO:frontend-service:55:no data update
+[2023-12-20 11:09:22,143] INFO:frontend-service:56:query loop complete
+[2023-12-20 11:09:37,742] INFO:frontend-service:95:creating connection engine
+[2023-12-20 11:09:37,792] INFO:frontend-service:99:creating model tables
+[2023-12-20 11:09:39,438] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 11:09:39,439] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 11:09:39,440] INFO:frontend-service:95:creating connection engine
+[2023-12-20 11:09:39,441] INFO:frontend-service:99:creating model tables
+[2023-12-20 11:09:41,118] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 11:09:41,119] INFO:frontend-service:26:feature-service session created
+[2023-12-20 11:09:41,119] INFO:frontend-service:111:creating connection engine
+[2023-12-20 11:09:41,120] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 11:09:41,121] INFO:frontend-service:34:mlflow session created
+[2023-12-20 11:10:22,145] INFO:frontend-service:55:no data update
+[2023-12-20 11:10:22,148] INFO:frontend-service:56:query loop complete
+[2023-12-20 11:11:22,151] INFO:frontend-service:55:no data update
+[2023-12-20 11:11:22,152] INFO:frontend-service:56:query loop complete
+[2023-12-20 11:12:22,153] INFO:frontend-service:55:no data update
+[2023-12-20 11:12:22,153] INFO:frontend-service:56:query loop complete
+[2023-12-20 11:13:22,154] INFO:frontend-service:55:no data update
+[2023-12-20 11:13:22,155] INFO:frontend-service:56:query loop complete
+[2023-12-20 11:14:22,158] INFO:frontend-service:55:no data update
+[2023-12-20 11:14:22,161] INFO:frontend-service:56:query loop complete
+[2023-12-20 11:15:22,163] INFO:frontend-service:55:no data update
+[2023-12-20 11:15:22,163] INFO:frontend-service:56:query loop complete
+[2023-12-20 11:16:22,165] INFO:frontend-service:55:no data update
+[2023-12-20 11:16:22,167] INFO:frontend-service:56:query loop complete
+[2023-12-20 11:17:22,170] INFO:frontend-service:55:no data update
+[2023-12-20 11:17:22,172] INFO:frontend-service:56:query loop complete
+[2023-12-20 11:18:02,098] INFO:frontend-service:95:creating connection engine
+[2023-12-20 11:18:02,139] INFO:frontend-service:99:creating model tables
+[2023-12-20 11:18:03,838] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 11:18:03,840] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 11:18:03,841] INFO:frontend-service:95:creating connection engine
+[2023-12-20 11:18:03,843] INFO:frontend-service:99:creating model tables
+[2023-12-20 11:18:05,435] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 11:18:05,436] INFO:frontend-service:26:feature-service session created
+[2023-12-20 11:18:05,437] INFO:frontend-service:111:creating connection engine
+[2023-12-20 11:18:05,438] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 11:18:05,439] INFO:frontend-service:34:mlflow session created
+[2023-12-20 11:18:22,173] INFO:frontend-service:55:no data update
+[2023-12-20 11:18:22,174] INFO:frontend-service:56:query loop complete
+[2023-12-20 11:19:22,175] INFO:frontend-service:55:no data update
+[2023-12-20 11:19:22,176] INFO:frontend-service:56:query loop complete
+[2023-12-20 11:20:22,177] INFO:frontend-service:55:no data update
+[2023-12-20 11:20:22,179] INFO:frontend-service:56:query loop complete
+[2023-12-20 11:21:22,182] INFO:frontend-service:55:no data update
+[2023-12-20 11:21:22,185] INFO:frontend-service:56:query loop complete
+[2023-12-20 11:22:22,187] INFO:frontend-service:55:no data update
+[2023-12-20 11:22:22,190] INFO:frontend-service:56:query loop complete
+[2023-12-20 11:23:22,193] INFO:frontend-service:55:no data update
+[2023-12-20 11:23:22,196] INFO:frontend-service:56:query loop complete
+[2023-12-20 11:23:46,974] INFO:frontend-service:95:creating connection engine
+[2023-12-20 11:23:47,021] INFO:frontend-service:99:creating model tables
+[2023-12-20 11:23:48,680] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 11:23:48,684] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 11:23:48,686] INFO:frontend-service:95:creating connection engine
+[2023-12-20 11:23:48,689] INFO:frontend-service:99:creating model tables
+[2023-12-20 11:23:50,270] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 11:23:50,271] INFO:frontend-service:26:feature-service session created
+[2023-12-20 11:23:50,272] INFO:frontend-service:111:creating connection engine
+[2023-12-20 11:23:50,273] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 11:23:50,273] INFO:frontend-service:34:mlflow session created
+[2023-12-20 11:24:22,199] INFO:frontend-service:55:no data update
+[2023-12-20 11:24:22,201] INFO:frontend-service:56:query loop complete
+[2023-12-20 11:25:22,204] INFO:frontend-service:55:no data update
+[2023-12-20 11:25:22,205] INFO:frontend-service:56:query loop complete
+[2023-12-20 11:26:19,526] INFO:frontend-service:95:creating connection engine
+[2023-12-20 11:26:19,571] INFO:frontend-service:99:creating model tables
+[2023-12-20 11:26:21,130] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 11:26:21,132] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 11:26:21,133] INFO:frontend-service:95:creating connection engine
+[2023-12-20 11:26:21,135] INFO:frontend-service:99:creating model tables
+[2023-12-20 11:26:22,206] INFO:frontend-service:55:no data update
+[2023-12-20 11:26:22,210] INFO:frontend-service:56:query loop complete
+[2023-12-20 11:26:22,689] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 11:26:22,690] INFO:frontend-service:26:feature-service session created
+[2023-12-20 11:26:22,690] INFO:frontend-service:111:creating connection engine
+[2023-12-20 11:26:22,691] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 11:26:22,691] INFO:frontend-service:34:mlflow session created
+[2023-12-20 11:27:22,212] INFO:frontend-service:55:no data update
+[2023-12-20 11:27:22,214] INFO:frontend-service:56:query loop complete
+[2023-12-20 11:28:22,217] INFO:frontend-service:55:no data update
+[2023-12-20 11:28:22,219] INFO:frontend-service:56:query loop complete
+[2023-12-20 11:29:22,222] INFO:frontend-service:55:no data update
+[2023-12-20 11:29:22,223] INFO:frontend-service:56:query loop complete
+[2023-12-20 11:29:48,735] INFO:frontend-service:95:creating connection engine
+[2023-12-20 11:29:48,783] INFO:frontend-service:99:creating model tables
+[2023-12-20 11:29:50,393] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 11:29:50,394] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 11:29:50,394] INFO:frontend-service:95:creating connection engine
+[2023-12-20 11:29:50,395] INFO:frontend-service:99:creating model tables
+[2023-12-20 11:29:52,032] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 11:29:52,035] INFO:frontend-service:26:feature-service session created
+[2023-12-20 11:29:52,035] INFO:frontend-service:111:creating connection engine
+[2023-12-20 11:29:52,038] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 11:29:52,040] INFO:frontend-service:34:mlflow session created
+[2023-12-20 11:30:22,224] INFO:frontend-service:55:no data update
+[2023-12-20 11:30:22,225] INFO:frontend-service:56:query loop complete
+[2023-12-20 11:31:14,718] INFO:frontend-service:95:creating connection engine
+[2023-12-20 11:31:14,761] INFO:frontend-service:99:creating model tables
+[2023-12-20 11:31:16,471] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 11:31:16,472] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 11:31:16,473] INFO:frontend-service:95:creating connection engine
+[2023-12-20 11:31:16,475] INFO:frontend-service:99:creating model tables
+[2023-12-20 11:31:18,112] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 11:31:18,114] INFO:frontend-service:26:feature-service session created
+[2023-12-20 11:31:18,115] INFO:frontend-service:111:creating connection engine
+[2023-12-20 11:31:18,117] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 11:31:18,118] INFO:frontend-service:34:mlflow session created
+[2023-12-20 11:31:22,226] INFO:frontend-service:55:no data update
+[2023-12-20 11:31:22,227] INFO:frontend-service:56:query loop complete
+[2023-12-20 11:32:22,228] INFO:frontend-service:55:no data update
+[2023-12-20 11:32:22,229] INFO:frontend-service:56:query loop complete
+[2023-12-20 11:33:22,238] INFO:frontend-service:55:no data update
+[2023-12-20 11:33:22,244] INFO:frontend-service:56:query loop complete
+[2023-12-20 11:33:44,235] INFO:frontend-service:95:creating connection engine
+[2023-12-20 11:33:44,277] INFO:frontend-service:99:creating model tables
+[2023-12-20 11:33:45,911] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 11:33:45,911] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 11:33:45,912] INFO:frontend-service:95:creating connection engine
+[2023-12-20 11:33:45,912] INFO:frontend-service:99:creating model tables
+[2023-12-20 11:33:47,526] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 11:33:47,528] INFO:frontend-service:26:feature-service session created
+[2023-12-20 11:33:47,529] INFO:frontend-service:111:creating connection engine
+[2023-12-20 11:33:47,531] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 11:33:47,532] INFO:frontend-service:34:mlflow session created
+[2023-12-20 11:34:22,246] INFO:frontend-service:55:no data update
+[2023-12-20 11:34:22,246] INFO:frontend-service:56:query loop complete
+[2023-12-20 11:35:22,247] INFO:frontend-service:55:no data update
+[2023-12-20 11:35:22,248] INFO:frontend-service:56:query loop complete
+[2023-12-20 11:36:22,249] INFO:frontend-service:55:no data update
+[2023-12-20 11:36:22,251] INFO:frontend-service:56:query loop complete
+[2023-12-20 11:37:22,254] INFO:frontend-service:55:no data update
+[2023-12-20 11:37:22,255] INFO:frontend-service:56:query loop complete
+[2023-12-20 11:38:22,256] INFO:frontend-service:55:no data update
+[2023-12-20 11:38:22,257] INFO:frontend-service:56:query loop complete
+[2023-12-20 11:38:34,607] INFO:frontend-service:95:creating connection engine
+[2023-12-20 11:38:34,650] INFO:frontend-service:99:creating model tables
+[2023-12-20 11:38:36,283] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 11:38:36,286] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 11:38:36,287] INFO:frontend-service:95:creating connection engine
+[2023-12-20 11:38:36,290] INFO:frontend-service:99:creating model tables
+[2023-12-20 11:38:37,863] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 11:38:37,865] INFO:frontend-service:26:feature-service session created
+[2023-12-20 11:38:37,866] INFO:frontend-service:111:creating connection engine
+[2023-12-20 11:38:37,867] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 11:38:37,868] INFO:frontend-service:34:mlflow session created
+[2023-12-20 11:39:22,259] INFO:frontend-service:55:no data update
+[2023-12-20 11:39:22,261] INFO:frontend-service:56:query loop complete
+[2023-12-20 11:39:26,347] INFO:frontend-service:95:creating connection engine
+[2023-12-20 11:39:26,387] INFO:frontend-service:99:creating model tables
+[2023-12-20 11:39:27,902] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 11:39:27,903] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 11:39:27,904] INFO:frontend-service:95:creating connection engine
+[2023-12-20 11:39:27,905] INFO:frontend-service:99:creating model tables
+[2023-12-20 11:39:29,443] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 11:39:29,446] INFO:frontend-service:26:feature-service session created
+[2023-12-20 11:39:29,447] INFO:frontend-service:111:creating connection engine
+[2023-12-20 11:39:29,450] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 11:39:29,451] INFO:frontend-service:34:mlflow session created
+[2023-12-20 11:40:01,294] INFO:frontend-service:95:creating connection engine
+[2023-12-20 11:40:01,342] INFO:frontend-service:99:creating model tables
+[2023-12-20 11:40:03,022] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 11:40:03,024] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 11:40:03,025] INFO:frontend-service:95:creating connection engine
+[2023-12-20 11:40:03,027] INFO:frontend-service:99:creating model tables
+[2023-12-20 11:40:04,627] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 11:40:04,629] INFO:frontend-service:26:feature-service session created
+[2023-12-20 11:40:04,630] INFO:frontend-service:111:creating connection engine
+[2023-12-20 11:40:04,632] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 11:40:04,633] INFO:frontend-service:34:mlflow session created
+[2023-12-20 11:40:22,263] INFO:frontend-service:55:no data update
+[2023-12-20 11:40:22,265] INFO:frontend-service:56:query loop complete
+[2023-12-20 11:41:23,414] INFO:frontend-service:95:creating connection engine
+[2023-12-20 11:41:23,485] INFO:frontend-service:99:creating model tables
+[2023-12-20 11:41:24,089] INFO:frontend-service:26:entering save_down function
+[2023-12-20 11:41:24,625] INFO:frontend-service:29:entering websocket connection loop
+[2023-12-20 11:41:24,626] INFO:frontend-service:34:websocket connected successfully
+[2023-12-20 11:41:24,712] INFO:frontend-service:47:websocket authenticated successfully
+[2023-12-20 11:41:24,713] INFO:frontend-service:51:websocket streaming
+[2023-12-20 11:41:25,073] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 11:41:25,076] INFO:frontend-service:30:feature-service session created
+[2023-12-20 11:41:25,077] INFO:frontend-service:32:getting latest database datetime record
+[2023-12-20 11:41:25,269] INFO:frontend-service:36:initial hour datetime ID: 2023-12-20 16:00:00
+[2023-12-20 11:41:28,979] INFO:frontend-service:95:creating connection engine
+[2023-12-20 11:41:29,044] INFO:frontend-service:99:creating model tables
+[2023-12-20 11:41:32,948] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 11:41:32,950] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 11:41:32,952] INFO:frontend-service:95:creating connection engine
+[2023-12-20 11:41:32,958] INFO:frontend-service:99:creating model tables
+[2023-12-20 11:41:38,405] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 11:41:38,405] INFO:frontend-service:26:feature-service session created
+[2023-12-20 11:41:38,406] INFO:frontend-service:111:creating connection engine
+[2023-12-20 11:41:38,406] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 11:41:38,407] INFO:frontend-service:34:mlflow session created
+[2023-12-20 11:42:28,194] INFO:frontend-service:40:initial hour dataframe update and saved: 2023-12-20 16:00:00
+[2023-12-20 11:42:28,197] INFO:frontend-service:55:no data update
+[2023-12-20 11:42:28,201] INFO:frontend-service:56:query loop complete
+[2023-12-20 11:42:41,936] INFO:frontend-service:95:creating connection engine
+[2023-12-20 11:42:41,992] INFO:frontend-service:99:creating model tables
+[2023-12-20 11:42:43,661] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 11:42:43,662] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 11:42:43,664] INFO:frontend-service:95:creating connection engine
+[2023-12-20 11:42:43,667] INFO:frontend-service:99:creating model tables
+[2023-12-20 11:42:45,340] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 11:42:45,341] INFO:frontend-service:26:feature-service session created
+[2023-12-20 11:42:45,341] INFO:frontend-service:111:creating connection engine
+[2023-12-20 11:42:45,342] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 11:42:45,342] INFO:frontend-service:34:mlflow session created
+[2023-12-20 11:43:25,412] INFO:frontend-service:95:creating connection engine
+[2023-12-20 11:43:25,452] INFO:frontend-service:99:creating model tables
+[2023-12-20 11:43:27,100] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 11:43:27,101] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 11:43:27,101] INFO:frontend-service:95:creating connection engine
+[2023-12-20 11:43:27,102] INFO:frontend-service:99:creating model tables
+[2023-12-20 11:43:28,204] INFO:frontend-service:55:no data update
+[2023-12-20 11:43:28,204] INFO:frontend-service:56:query loop complete
+[2023-12-20 11:43:28,710] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 11:43:28,711] INFO:frontend-service:26:feature-service session created
+[2023-12-20 11:43:28,711] INFO:frontend-service:111:creating connection engine
+[2023-12-20 11:43:28,712] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 11:43:28,712] INFO:frontend-service:34:mlflow session created
+[2023-12-20 11:44:05,916] INFO:frontend-service:95:creating connection engine
+[2023-12-20 11:44:05,956] INFO:frontend-service:99:creating model tables
+[2023-12-20 11:44:07,550] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 11:44:07,551] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 11:44:07,551] INFO:frontend-service:95:creating connection engine
+[2023-12-20 11:44:07,553] INFO:frontend-service:99:creating model tables
+[2023-12-20 11:44:09,129] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 11:44:09,129] INFO:frontend-service:26:feature-service session created
+[2023-12-20 11:44:09,129] INFO:frontend-service:111:creating connection engine
+[2023-12-20 11:44:09,130] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 11:44:09,131] INFO:frontend-service:34:mlflow session created
+[2023-12-20 11:44:28,206] INFO:frontend-service:55:no data update
+[2023-12-20 11:44:28,208] INFO:frontend-service:56:query loop complete
+[2023-12-20 11:44:46,745] INFO:frontend-service:95:creating connection engine
+[2023-12-20 11:44:46,783] INFO:frontend-service:99:creating model tables
+[2023-12-20 11:44:48,369] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 11:44:48,371] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 11:44:48,372] INFO:frontend-service:95:creating connection engine
+[2023-12-20 11:44:48,376] INFO:frontend-service:99:creating model tables
+[2023-12-20 11:44:49,929] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 11:44:49,930] INFO:frontend-service:26:feature-service session created
+[2023-12-20 11:44:49,930] INFO:frontend-service:111:creating connection engine
+[2023-12-20 11:44:49,931] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 11:44:49,932] INFO:frontend-service:34:mlflow session created
+[2023-12-20 11:45:28,214] INFO:frontend-service:55:no data update
+[2023-12-20 11:45:28,215] INFO:frontend-service:56:query loop complete
+[2023-12-20 11:46:28,217] INFO:frontend-service:55:no data update
+[2023-12-20 11:46:28,218] INFO:frontend-service:56:query loop complete
+[2023-12-20 11:47:28,220] INFO:frontend-service:55:no data update
+[2023-12-20 11:47:28,221] INFO:frontend-service:56:query loop complete
+[2023-12-20 11:48:28,224] INFO:frontend-service:55:no data update
+[2023-12-20 11:48:28,225] INFO:frontend-service:56:query loop complete
+[2023-12-20 11:49:28,226] INFO:frontend-service:55:no data update
+[2023-12-20 11:49:28,226] INFO:frontend-service:56:query loop complete
+[2023-12-20 11:50:28,228] INFO:frontend-service:55:no data update
+[2023-12-20 11:50:28,231] INFO:frontend-service:56:query loop complete
+[2023-12-20 11:51:28,234] INFO:frontend-service:55:no data update
+[2023-12-20 11:51:28,235] INFO:frontend-service:56:query loop complete
+[2023-12-20 11:52:28,237] INFO:frontend-service:55:no data update
+[2023-12-20 11:52:28,238] INFO:frontend-service:56:query loop complete
+[2023-12-20 11:53:28,239] INFO:frontend-service:55:no data update
+[2023-12-20 11:53:28,243] INFO:frontend-service:56:query loop complete
+[2023-12-20 11:54:28,244] INFO:frontend-service:55:no data update
+[2023-12-20 11:54:28,246] INFO:frontend-service:56:query loop complete
+[2023-12-20 11:55:28,249] INFO:frontend-service:55:no data update
+[2023-12-20 11:55:28,252] INFO:frontend-service:56:query loop complete
+[2023-12-20 11:56:28,254] INFO:frontend-service:55:no data update
+[2023-12-20 11:56:28,257] INFO:frontend-service:56:query loop complete
+[2023-12-20 11:57:28,260] INFO:frontend-service:55:no data update
+[2023-12-20 11:57:28,263] INFO:frontend-service:56:query loop complete
+[2023-12-20 11:58:28,266] INFO:frontend-service:55:no data update
+[2023-12-20 11:58:28,269] INFO:frontend-service:56:query loop complete
+[2023-12-20 11:59:28,271] INFO:frontend-service:55:no data update
+[2023-12-20 11:59:28,272] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:01:24,243] INFO:frontend-service:51:hour dataframe updated and saved: 2023-12-20 17:00:00
+[2023-12-20 12:02:24,245] INFO:frontend-service:55:no data update
+[2023-12-20 12:02:24,246] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:03:24,247] INFO:frontend-service:55:no data update
+[2023-12-20 12:03:24,248] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:04:24,249] INFO:frontend-service:55:no data update
+[2023-12-20 12:04:24,251] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:05:24,254] INFO:frontend-service:55:no data update
+[2023-12-20 12:05:24,256] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:06:24,257] INFO:frontend-service:55:no data update
+[2023-12-20 12:06:24,259] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:07:24,261] INFO:frontend-service:55:no data update
+[2023-12-20 12:07:24,295] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:08:24,322] INFO:frontend-service:55:no data update
+[2023-12-20 12:08:24,324] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:09:24,326] INFO:frontend-service:55:no data update
+[2023-12-20 12:09:24,329] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:10:24,331] INFO:frontend-service:55:no data update
+[2023-12-20 12:10:24,334] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:11:24,337] INFO:frontend-service:55:no data update
+[2023-12-20 12:11:24,339] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:12:24,341] INFO:frontend-service:55:no data update
+[2023-12-20 12:12:24,344] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:13:24,346] INFO:frontend-service:55:no data update
+[2023-12-20 12:13:24,349] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:14:24,352] INFO:frontend-service:55:no data update
+[2023-12-20 12:14:24,353] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:15:24,355] INFO:frontend-service:55:no data update
+[2023-12-20 12:15:24,358] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:16:24,362] INFO:frontend-service:55:no data update
+[2023-12-20 12:16:24,364] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:17:24,366] INFO:frontend-service:55:no data update
+[2023-12-20 12:17:24,368] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:18:24,371] INFO:frontend-service:55:no data update
+[2023-12-20 12:18:24,373] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:19:24,376] INFO:frontend-service:55:no data update
+[2023-12-20 12:19:24,379] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:20:24,382] INFO:frontend-service:55:no data update
+[2023-12-20 12:20:24,384] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:21:24,388] INFO:frontend-service:55:no data update
+[2023-12-20 12:21:24,388] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:22:24,389] INFO:frontend-service:55:no data update
+[2023-12-20 12:22:24,391] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:23:24,395] INFO:frontend-service:55:no data update
+[2023-12-20 12:23:24,397] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:24:24,400] INFO:frontend-service:55:no data update
+[2023-12-20 12:24:24,402] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:25:24,404] INFO:frontend-service:55:no data update
+[2023-12-20 12:25:24,406] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:26:24,409] INFO:frontend-service:55:no data update
+[2023-12-20 12:26:24,410] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:27:24,411] INFO:frontend-service:55:no data update
+[2023-12-20 12:27:24,414] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:28:24,417] INFO:frontend-service:55:no data update
+[2023-12-20 12:28:24,417] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:29:24,418] INFO:frontend-service:55:no data update
+[2023-12-20 12:29:24,420] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:30:24,424] INFO:frontend-service:55:no data update
+[2023-12-20 12:30:24,426] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:31:24,428] INFO:frontend-service:55:no data update
+[2023-12-20 12:31:24,430] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:32:24,433] INFO:frontend-service:55:no data update
+[2023-12-20 12:32:24,436] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:33:24,438] INFO:frontend-service:55:no data update
+[2023-12-20 12:33:24,440] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:34:24,442] INFO:frontend-service:55:no data update
+[2023-12-20 12:34:24,444] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:35:24,447] INFO:frontend-service:55:no data update
+[2023-12-20 12:35:24,450] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:36:24,453] INFO:frontend-service:55:no data update
+[2023-12-20 12:36:24,455] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:37:24,458] INFO:frontend-service:55:no data update
+[2023-12-20 12:37:24,460] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:38:24,463] INFO:frontend-service:55:no data update
+[2023-12-20 12:38:24,465] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:39:24,467] INFO:frontend-service:55:no data update
+[2023-12-20 12:39:24,470] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:40:24,472] INFO:frontend-service:55:no data update
+[2023-12-20 12:40:24,473] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:41:24,474] INFO:frontend-service:55:no data update
+[2023-12-20 12:41:24,475] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:42:24,477] INFO:frontend-service:55:no data update
+[2023-12-20 12:42:24,478] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:43:24,479] INFO:frontend-service:55:no data update
+[2023-12-20 12:43:24,482] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:44:24,485] INFO:frontend-service:55:no data update
+[2023-12-20 12:44:24,488] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:45:24,491] INFO:frontend-service:55:no data update
+[2023-12-20 12:45:24,491] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:46:24,493] INFO:frontend-service:55:no data update
+[2023-12-20 12:46:24,496] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:47:24,498] INFO:frontend-service:55:no data update
+[2023-12-20 12:47:24,501] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:48:24,503] INFO:frontend-service:55:no data update
+[2023-12-20 12:48:24,505] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:49:24,508] INFO:frontend-service:55:no data update
+[2023-12-20 12:49:24,511] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:50:24,512] INFO:frontend-service:55:no data update
+[2023-12-20 12:50:24,513] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:51:24,516] INFO:frontend-service:55:no data update
+[2023-12-20 12:51:24,518] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:52:24,520] INFO:frontend-service:55:no data update
+[2023-12-20 12:52:24,520] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:53:24,521] INFO:frontend-service:55:no data update
+[2023-12-20 12:53:24,524] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:54:24,527] INFO:frontend-service:55:no data update
+[2023-12-20 12:54:24,529] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:54:26,609] INFO:frontend-service:95:creating connection engine
+[2023-12-20 12:54:26,646] INFO:frontend-service:99:creating model tables
+[2023-12-20 12:54:28,308] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 12:54:28,309] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 12:54:28,309] INFO:frontend-service:95:creating connection engine
+[2023-12-20 12:54:28,310] INFO:frontend-service:99:creating model tables
+[2023-12-20 12:54:29,922] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 12:54:29,923] INFO:frontend-service:26:feature-service session created
+[2023-12-20 12:54:29,924] INFO:frontend-service:111:creating connection engine
+[2023-12-20 12:54:29,926] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 12:54:29,926] INFO:frontend-service:34:mlflow session created
+[2023-12-20 12:55:24,532] INFO:frontend-service:55:no data update
+[2023-12-20 12:55:24,532] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:56:24,534] INFO:frontend-service:55:no data update
+[2023-12-20 12:56:24,534] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:56:24,806] INFO:frontend-service:95:creating connection engine
+[2023-12-20 12:56:24,843] INFO:frontend-service:99:creating model tables
+[2023-12-20 12:56:26,472] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 12:56:26,472] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 12:56:26,473] INFO:frontend-service:95:creating connection engine
+[2023-12-20 12:56:26,474] INFO:frontend-service:99:creating model tables
+[2023-12-20 12:56:28,102] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 12:56:28,104] INFO:frontend-service:26:feature-service session created
+[2023-12-20 12:56:28,105] INFO:frontend-service:111:creating connection engine
+[2023-12-20 12:56:28,108] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 12:56:28,109] INFO:frontend-service:34:mlflow session created
+[2023-12-20 12:57:11,470] INFO:frontend-service:95:creating connection engine
+[2023-12-20 12:57:11,508] INFO:frontend-service:99:creating model tables
+[2023-12-20 12:57:13,111] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 12:57:13,112] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 12:57:13,112] INFO:frontend-service:95:creating connection engine
+[2023-12-20 12:57:13,114] INFO:frontend-service:99:creating model tables
+[2023-12-20 12:57:14,822] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 12:57:14,824] INFO:frontend-service:26:feature-service session created
+[2023-12-20 12:57:14,825] INFO:frontend-service:111:creating connection engine
+[2023-12-20 12:57:14,828] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 12:57:14,829] INFO:frontend-service:34:mlflow session created
+[2023-12-20 12:57:24,535] INFO:frontend-service:55:no data update
+[2023-12-20 12:57:24,535] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:58:24,536] INFO:frontend-service:55:no data update
+[2023-12-20 12:58:24,538] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:58:46,813] INFO:frontend-service:95:creating connection engine
+[2023-12-20 12:58:46,854] INFO:frontend-service:99:creating model tables
+[2023-12-20 12:58:48,421] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 12:58:48,423] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 12:58:48,425] INFO:frontend-service:95:creating connection engine
+[2023-12-20 12:58:48,428] INFO:frontend-service:99:creating model tables
+[2023-12-20 12:58:50,021] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 12:58:50,022] INFO:frontend-service:26:feature-service session created
+[2023-12-20 12:58:50,022] INFO:frontend-service:111:creating connection engine
+[2023-12-20 12:58:50,022] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 12:58:50,023] INFO:frontend-service:34:mlflow session created
+[2023-12-20 12:59:12,412] INFO:frontend-service:95:creating connection engine
+[2023-12-20 12:59:12,461] INFO:frontend-service:99:creating model tables
+[2023-12-20 12:59:14,144] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 12:59:14,146] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 12:59:14,147] INFO:frontend-service:95:creating connection engine
+[2023-12-20 12:59:14,150] INFO:frontend-service:99:creating model tables
+[2023-12-20 12:59:15,900] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 12:59:15,901] INFO:frontend-service:26:feature-service session created
+[2023-12-20 12:59:15,901] INFO:frontend-service:111:creating connection engine
+[2023-12-20 12:59:15,901] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 12:59:15,902] INFO:frontend-service:34:mlflow session created
+[2023-12-20 12:59:24,542] INFO:frontend-service:55:no data update
+[2023-12-20 12:59:24,544] INFO:frontend-service:56:query loop complete
+[2023-12-20 12:59:50,301] INFO:frontend-service:95:creating connection engine
+[2023-12-20 12:59:50,342] INFO:frontend-service:99:creating model tables
+[2023-12-20 12:59:51,961] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 12:59:51,961] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 12:59:51,962] INFO:frontend-service:95:creating connection engine
+[2023-12-20 12:59:51,962] INFO:frontend-service:99:creating model tables
+[2023-12-20 12:59:53,620] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 12:59:53,621] INFO:frontend-service:26:feature-service session created
+[2023-12-20 12:59:53,622] INFO:frontend-service:111:creating connection engine
+[2023-12-20 12:59:53,624] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 12:59:53,625] INFO:frontend-service:34:mlflow session created
+[2023-12-20 13:00:32,640] INFO:frontend-service:95:creating connection engine
+[2023-12-20 13:00:32,690] INFO:frontend-service:99:creating model tables
+[2023-12-20 13:00:38,941] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 13:00:38,942] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 13:00:38,942] INFO:frontend-service:95:creating connection engine
+[2023-12-20 13:00:38,943] INFO:frontend-service:99:creating model tables
+[2023-12-20 13:00:46,207] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 13:00:46,208] INFO:frontend-service:26:feature-service session created
+[2023-12-20 13:00:46,209] INFO:frontend-service:111:creating connection engine
+[2023-12-20 13:00:46,209] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 13:00:46,210] INFO:frontend-service:34:mlflow session created
+[2023-12-20 13:01:23,803] INFO:frontend-service:95:creating connection engine
+[2023-12-20 13:01:23,852] INFO:frontend-service:99:creating model tables
+[2023-12-20 13:01:25,419] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 13:01:25,419] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 13:01:25,419] INFO:frontend-service:95:creating connection engine
+[2023-12-20 13:01:25,420] INFO:frontend-service:99:creating model tables
+[2023-12-20 13:01:27,004] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 13:01:27,005] INFO:frontend-service:26:feature-service session created
+[2023-12-20 13:01:27,005] INFO:frontend-service:111:creating connection engine
+[2023-12-20 13:01:27,006] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 13:01:27,006] INFO:frontend-service:34:mlflow session created
+[2023-12-20 13:01:32,823] INFO:frontend-service:51:hour dataframe updated and saved: 2023-12-20 18:00:00
+[2023-12-20 13:02:07,537] INFO:frontend-service:95:creating connection engine
+[2023-12-20 13:02:07,591] INFO:frontend-service:99:creating model tables
+[2023-12-20 13:02:09,150] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 13:02:09,151] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 13:02:09,151] INFO:frontend-service:95:creating connection engine
+[2023-12-20 13:02:09,152] INFO:frontend-service:99:creating model tables
+[2023-12-20 13:02:10,738] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 13:02:10,738] INFO:frontend-service:26:feature-service session created
+[2023-12-20 13:02:10,739] INFO:frontend-service:111:creating connection engine
+[2023-12-20 13:02:10,739] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 13:02:10,740] INFO:frontend-service:34:mlflow session created
+[2023-12-20 13:02:32,825] INFO:frontend-service:55:no data update
+[2023-12-20 13:02:32,825] INFO:frontend-service:56:query loop complete
+[2023-12-20 13:03:32,826] INFO:frontend-service:55:no data update
+[2023-12-20 13:03:32,828] INFO:frontend-service:56:query loop complete
+[2023-12-20 13:03:53,266] INFO:frontend-service:95:creating connection engine
+[2023-12-20 13:03:53,308] INFO:frontend-service:99:creating model tables
+[2023-12-20 13:03:54,983] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 13:03:54,984] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 13:03:54,986] INFO:frontend-service:95:creating connection engine
+[2023-12-20 13:03:54,988] INFO:frontend-service:99:creating model tables
+[2023-12-20 13:03:56,538] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 13:03:56,538] INFO:frontend-service:26:feature-service session created
+[2023-12-20 13:03:56,538] INFO:frontend-service:111:creating connection engine
+[2023-12-20 13:03:56,539] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 13:03:56,540] INFO:frontend-service:34:mlflow session created
+[2023-12-20 13:04:32,831] INFO:frontend-service:55:no data update
+[2023-12-20 13:04:32,832] INFO:frontend-service:56:query loop complete
+[2023-12-20 13:05:00,525] INFO:frontend-service:95:creating connection engine
+[2023-12-20 13:05:00,567] INFO:frontend-service:99:creating model tables
+[2023-12-20 13:05:02,222] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 13:05:02,223] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 13:05:02,223] INFO:frontend-service:95:creating connection engine
+[2023-12-20 13:05:02,224] INFO:frontend-service:99:creating model tables
+[2023-12-20 13:05:03,823] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 13:05:03,824] INFO:frontend-service:26:feature-service session created
+[2023-12-20 13:05:03,824] INFO:frontend-service:111:creating connection engine
+[2023-12-20 13:05:03,825] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 13:05:03,825] INFO:frontend-service:34:mlflow session created
+[2023-12-20 13:05:32,835] INFO:frontend-service:55:no data update
+[2023-12-20 13:05:32,837] INFO:frontend-service:56:query loop complete
+[2023-12-20 13:05:44,547] INFO:frontend-service:95:creating connection engine
+[2023-12-20 13:05:44,600] INFO:frontend-service:99:creating model tables
+[2023-12-20 13:05:46,296] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 13:05:46,297] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 13:05:46,297] INFO:frontend-service:95:creating connection engine
+[2023-12-20 13:05:46,298] INFO:frontend-service:99:creating model tables
+[2023-12-20 13:05:47,939] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 13:05:47,940] INFO:frontend-service:26:feature-service session created
+[2023-12-20 13:05:47,940] INFO:frontend-service:111:creating connection engine
+[2023-12-20 13:05:47,941] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 13:05:47,941] INFO:frontend-service:34:mlflow session created
+[2023-12-20 13:06:32,842] INFO:frontend-service:55:no data update
+[2023-12-20 13:06:32,843] INFO:frontend-service:56:query loop complete
+[2023-12-20 13:07:32,845] INFO:frontend-service:55:no data update
+[2023-12-20 13:07:32,846] INFO:frontend-service:56:query loop complete
+[2023-12-20 13:07:37,527] INFO:frontend-service:95:creating connection engine
+[2023-12-20 13:07:37,569] INFO:frontend-service:99:creating model tables
+[2023-12-20 13:07:39,158] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 13:07:39,160] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 13:07:39,161] INFO:frontend-service:95:creating connection engine
+[2023-12-20 13:07:39,163] INFO:frontend-service:99:creating model tables
+[2023-12-20 13:07:40,727] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 13:07:40,728] INFO:frontend-service:26:feature-service session created
+[2023-12-20 13:07:40,729] INFO:frontend-service:111:creating connection engine
+[2023-12-20 13:07:40,730] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 13:07:40,730] INFO:frontend-service:34:mlflow session created
+[2023-12-20 13:08:32,848] INFO:frontend-service:55:no data update
+[2023-12-20 13:08:32,848] INFO:frontend-service:56:query loop complete
+[2023-12-20 13:08:34,028] INFO:frontend-service:95:creating connection engine
+[2023-12-20 13:08:34,089] INFO:frontend-service:99:creating model tables
+[2023-12-20 13:08:35,681] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 13:08:35,682] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 13:08:35,682] INFO:frontend-service:95:creating connection engine
+[2023-12-20 13:08:35,683] INFO:frontend-service:99:creating model tables
+[2023-12-20 13:08:37,456] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 13:08:37,458] INFO:frontend-service:26:feature-service session created
+[2023-12-20 13:08:37,459] INFO:frontend-service:111:creating connection engine
+[2023-12-20 13:08:37,461] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 13:08:37,463] INFO:frontend-service:34:mlflow session created
+[2023-12-20 13:09:32,849] INFO:frontend-service:55:no data update
+[2023-12-20 13:09:32,852] INFO:frontend-service:56:query loop complete
+[2023-12-20 13:10:08,496] INFO:frontend-service:95:creating connection engine
+[2023-12-20 13:10:08,549] INFO:frontend-service:99:creating model tables
+[2023-12-20 13:10:10,134] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 13:10:10,134] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 13:10:10,135] INFO:frontend-service:95:creating connection engine
+[2023-12-20 13:10:10,135] INFO:frontend-service:99:creating model tables
+[2023-12-20 13:10:11,660] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 13:10:11,660] INFO:frontend-service:26:feature-service session created
+[2023-12-20 13:10:11,661] INFO:frontend-service:111:creating connection engine
+[2023-12-20 13:10:11,661] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 13:10:11,662] INFO:frontend-service:34:mlflow session created
+[2023-12-20 13:10:32,854] INFO:frontend-service:55:no data update
+[2023-12-20 13:10:32,854] INFO:frontend-service:56:query loop complete
+[2023-12-20 13:11:32,856] INFO:frontend-service:55:no data update
+[2023-12-20 13:11:32,857] INFO:frontend-service:56:query loop complete
+[2023-12-20 13:12:20,485] INFO:frontend-service:95:creating connection engine
+[2023-12-20 13:12:20,531] INFO:frontend-service:99:creating model tables
+[2023-12-20 13:12:22,059] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 13:12:22,061] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 13:12:22,062] INFO:frontend-service:95:creating connection engine
+[2023-12-20 13:12:22,063] INFO:frontend-service:99:creating model tables
+[2023-12-20 13:12:23,715] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 13:12:23,716] INFO:frontend-service:26:feature-service session created
+[2023-12-20 13:12:23,717] INFO:frontend-service:111:creating connection engine
+[2023-12-20 13:12:23,720] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 13:12:23,721] INFO:frontend-service:34:mlflow session created
+[2023-12-20 13:12:32,857] INFO:frontend-service:55:no data update
+[2023-12-20 13:12:32,857] INFO:frontend-service:56:query loop complete
+[2023-12-20 13:13:32,859] INFO:frontend-service:55:no data update
+[2023-12-20 13:13:32,859] INFO:frontend-service:56:query loop complete
+[2023-12-20 13:14:32,862] INFO:frontend-service:55:no data update
+[2023-12-20 13:14:32,865] INFO:frontend-service:56:query loop complete
+[2023-12-20 13:15:32,868] INFO:frontend-service:55:no data update
+[2023-12-20 13:15:32,870] INFO:frontend-service:56:query loop complete
+[2023-12-20 13:16:32,873] INFO:frontend-service:55:no data update
+[2023-12-20 13:16:32,876] INFO:frontend-service:56:query loop complete
+[2023-12-20 13:17:32,879] INFO:frontend-service:55:no data update
+[2023-12-20 13:17:32,882] INFO:frontend-service:56:query loop complete
+[2023-12-20 13:18:32,886] INFO:frontend-service:55:no data update
+[2023-12-20 13:18:32,886] INFO:frontend-service:56:query loop complete
+[2023-12-20 13:19:32,887] INFO:frontend-service:55:no data update
+[2023-12-20 13:19:32,889] INFO:frontend-service:56:query loop complete
+[2023-12-20 13:20:26,476] INFO:frontend-service:95:creating connection engine
+[2023-12-20 13:20:26,531] INFO:frontend-service:99:creating model tables
+[2023-12-20 13:20:28,170] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 13:20:28,171] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 13:20:28,171] INFO:frontend-service:95:creating connection engine
+[2023-12-20 13:20:28,172] INFO:frontend-service:99:creating model tables
+[2023-12-20 13:20:29,774] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 13:20:29,776] INFO:frontend-service:26:feature-service session created
+[2023-12-20 13:20:29,777] INFO:frontend-service:111:creating connection engine
+[2023-12-20 13:20:29,779] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 13:20:29,779] INFO:frontend-service:34:mlflow session created
+[2023-12-20 13:20:32,892] INFO:frontend-service:55:no data update
+[2023-12-20 13:20:32,892] INFO:frontend-service:56:query loop complete
+[2023-12-20 13:21:32,894] INFO:frontend-service:55:no data update
+[2023-12-20 13:21:32,897] INFO:frontend-service:56:query loop complete
+[2023-12-20 13:22:04,159] INFO:frontend-service:95:creating connection engine
+[2023-12-20 13:22:04,196] INFO:frontend-service:99:creating model tables
+[2023-12-20 13:22:05,851] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 13:22:05,852] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 13:22:05,854] INFO:frontend-service:95:creating connection engine
+[2023-12-20 13:22:05,856] INFO:frontend-service:99:creating model tables
+[2023-12-20 13:22:07,448] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 13:22:07,451] INFO:frontend-service:26:feature-service session created
+[2023-12-20 13:22:07,452] INFO:frontend-service:111:creating connection engine
+[2023-12-20 13:22:07,454] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 13:22:07,456] INFO:frontend-service:34:mlflow session created
+[2023-12-20 13:22:32,899] INFO:frontend-service:55:no data update
+[2023-12-20 13:22:32,899] INFO:frontend-service:56:query loop complete
+[2023-12-20 13:23:32,901] INFO:frontend-service:55:no data update
+[2023-12-20 13:23:32,904] INFO:frontend-service:56:query loop complete
+[2023-12-20 13:24:08,196] INFO:frontend-service:95:creating connection engine
+[2023-12-20 13:24:08,241] INFO:frontend-service:99:creating model tables
+[2023-12-20 13:24:09,948] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 13:24:09,949] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 13:24:09,949] INFO:frontend-service:95:creating connection engine
+[2023-12-20 13:24:09,950] INFO:frontend-service:99:creating model tables
+[2023-12-20 13:24:11,418] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 13:24:11,419] INFO:frontend-service:26:feature-service session created
+[2023-12-20 13:24:11,419] INFO:frontend-service:111:creating connection engine
+[2023-12-20 13:24:11,420] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 13:24:11,420] INFO:frontend-service:34:mlflow session created
+[2023-12-20 13:24:32,907] INFO:frontend-service:55:no data update
+[2023-12-20 13:24:32,909] INFO:frontend-service:56:query loop complete
+[2023-12-20 13:25:32,911] INFO:frontend-service:55:no data update
+[2023-12-20 13:25:32,913] INFO:frontend-service:56:query loop complete
+[2023-12-20 13:26:32,915] INFO:frontend-service:55:no data update
+[2023-12-20 13:26:32,917] INFO:frontend-service:56:query loop complete
+[2023-12-20 13:27:08,285] INFO:frontend-service:95:creating connection engine
+[2023-12-20 13:27:08,330] INFO:frontend-service:99:creating model tables
+[2023-12-20 13:27:09,925] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 13:27:09,926] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 13:27:09,927] INFO:frontend-service:95:creating connection engine
+[2023-12-20 13:27:09,928] INFO:frontend-service:99:creating model tables
+[2023-12-20 13:27:11,530] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 13:27:11,532] INFO:frontend-service:26:feature-service session created
+[2023-12-20 13:27:11,533] INFO:frontend-service:111:creating connection engine
+[2023-12-20 13:27:11,534] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 13:27:11,535] INFO:frontend-service:34:mlflow session created
+[2023-12-20 13:27:32,919] INFO:frontend-service:55:no data update
+[2023-12-20 13:27:32,921] INFO:frontend-service:56:query loop complete
+[2023-12-20 13:28:19,652] INFO:frontend-service:95:creating connection engine
+[2023-12-20 13:28:19,691] INFO:frontend-service:99:creating model tables
+[2023-12-20 13:28:21,284] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 13:28:21,287] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 13:28:21,288] INFO:frontend-service:95:creating connection engine
+[2023-12-20 13:28:21,291] INFO:frontend-service:99:creating model tables
+[2023-12-20 13:28:22,891] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 13:28:22,893] INFO:frontend-service:26:feature-service session created
+[2023-12-20 13:28:22,895] INFO:frontend-service:111:creating connection engine
+[2023-12-20 13:28:22,897] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 13:28:22,899] INFO:frontend-service:34:mlflow session created
+[2023-12-20 13:28:32,924] INFO:frontend-service:55:no data update
+[2023-12-20 13:28:32,925] INFO:frontend-service:56:query loop complete
+[2023-12-20 13:29:32,926] INFO:frontend-service:55:no data update
+[2023-12-20 13:29:32,927] INFO:frontend-service:56:query loop complete
+[2023-12-20 13:30:32,931] INFO:frontend-service:55:no data update
+[2023-12-20 13:30:32,939] INFO:frontend-service:56:query loop complete
+[2023-12-20 13:31:32,943] INFO:frontend-service:55:no data update
+[2023-12-20 13:31:32,945] INFO:frontend-service:56:query loop complete
+[2023-12-20 13:32:27,526] INFO:frontend-service:95:creating connection engine
+[2023-12-20 13:32:27,565] INFO:frontend-service:99:creating model tables
+[2023-12-20 13:32:29,122] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 13:32:29,123] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 13:32:29,123] INFO:frontend-service:95:creating connection engine
+[2023-12-20 13:32:29,124] INFO:frontend-service:99:creating model tables
+[2023-12-20 13:32:30,682] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 13:32:30,683] INFO:frontend-service:26:feature-service session created
+[2023-12-20 13:32:30,684] INFO:frontend-service:111:creating connection engine
+[2023-12-20 13:32:30,684] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 13:32:30,685] INFO:frontend-service:34:mlflow session created
+[2023-12-20 13:32:32,948] INFO:frontend-service:55:no data update
+[2023-12-20 13:32:32,948] INFO:frontend-service:56:query loop complete
+[2023-12-20 13:33:32,949] INFO:frontend-service:55:no data update
+[2023-12-20 13:33:32,953] INFO:frontend-service:56:query loop complete
+[2023-12-20 13:33:57,249] INFO:frontend-service:95:creating connection engine
+[2023-12-20 13:33:57,288] INFO:frontend-service:99:creating model tables
+[2023-12-20 13:33:58,934] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 13:33:58,936] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 13:33:58,937] INFO:frontend-service:95:creating connection engine
+[2023-12-20 13:33:58,939] INFO:frontend-service:99:creating model tables
+[2023-12-20 13:34:00,522] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 13:34:00,523] INFO:frontend-service:26:feature-service session created
+[2023-12-20 13:34:00,524] INFO:frontend-service:111:creating connection engine
+[2023-12-20 13:34:00,528] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 13:34:00,529] INFO:frontend-service:34:mlflow session created
+[2023-12-20 13:34:32,956] INFO:frontend-service:55:no data update
+[2023-12-20 13:34:32,956] INFO:frontend-service:56:query loop complete
+[2023-12-20 13:35:31,258] INFO:frontend-service:95:creating connection engine
+[2023-12-20 13:35:31,299] INFO:frontend-service:99:creating model tables
+[2023-12-20 13:35:32,889] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 13:35:32,890] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 13:35:32,891] INFO:frontend-service:95:creating connection engine
+[2023-12-20 13:35:32,891] INFO:frontend-service:99:creating model tables
+[2023-12-20 13:35:32,957] INFO:frontend-service:55:no data update
+[2023-12-20 13:35:32,958] INFO:frontend-service:56:query loop complete
+[2023-12-20 13:35:34,486] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 13:35:34,486] INFO:frontend-service:26:feature-service session created
+[2023-12-20 13:35:34,487] INFO:frontend-service:111:creating connection engine
+[2023-12-20 13:35:34,487] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 13:35:34,488] INFO:frontend-service:34:mlflow session created
+[2023-12-20 13:36:32,961] INFO:frontend-service:55:no data update
+[2023-12-20 13:36:32,962] INFO:frontend-service:56:query loop complete
+[2023-12-20 13:37:00,775] INFO:frontend-service:95:creating connection engine
+[2023-12-20 13:37:00,817] INFO:frontend-service:99:creating model tables
+[2023-12-20 13:37:02,389] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 13:37:02,390] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 13:37:02,390] INFO:frontend-service:95:creating connection engine
+[2023-12-20 13:37:02,391] INFO:frontend-service:99:creating model tables
+[2023-12-20 13:37:03,885] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 13:37:03,886] INFO:frontend-service:26:feature-service session created
+[2023-12-20 13:37:03,886] INFO:frontend-service:111:creating connection engine
+[2023-12-20 13:37:03,889] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 13:37:03,890] INFO:frontend-service:34:mlflow session created
+[2023-12-20 13:37:32,963] INFO:frontend-service:55:no data update
+[2023-12-20 13:37:32,964] INFO:frontend-service:56:query loop complete
+[2023-12-20 13:37:57,576] INFO:frontend-service:95:creating connection engine
+[2023-12-20 13:37:57,618] INFO:frontend-service:99:creating model tables
+[2023-12-20 13:37:59,207] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 13:37:59,208] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 13:37:59,209] INFO:frontend-service:95:creating connection engine
+[2023-12-20 13:37:59,211] INFO:frontend-service:99:creating model tables
+[2023-12-20 13:38:00,811] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 13:38:00,812] INFO:frontend-service:26:feature-service session created
+[2023-12-20 13:38:00,814] INFO:frontend-service:111:creating connection engine
+[2023-12-20 13:38:00,815] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 13:38:00,816] INFO:frontend-service:34:mlflow session created
+[2023-12-20 13:38:32,966] INFO:frontend-service:55:no data update
+[2023-12-20 13:38:32,969] INFO:frontend-service:56:query loop complete
+[2023-12-20 13:39:32,971] INFO:frontend-service:55:no data update
+[2023-12-20 13:39:32,972] INFO:frontend-service:56:query loop complete
+[2023-12-20 13:40:32,973] INFO:frontend-service:55:no data update
+[2023-12-20 13:40:32,973] INFO:frontend-service:56:query loop complete
+[2023-12-20 13:41:32,975] INFO:frontend-service:55:no data update
+[2023-12-20 13:41:32,978] INFO:frontend-service:56:query loop complete
+[2023-12-20 13:41:36,885] INFO:frontend-service:95:creating connection engine
+[2023-12-20 13:41:36,928] INFO:frontend-service:99:creating model tables
+[2023-12-20 13:41:38,530] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 13:41:38,531] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 13:41:38,533] INFO:frontend-service:95:creating connection engine
+[2023-12-20 13:41:38,535] INFO:frontend-service:99:creating model tables
+[2023-12-20 13:41:40,138] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 13:41:40,138] INFO:frontend-service:26:feature-service session created
+[2023-12-20 13:41:40,139] INFO:frontend-service:111:creating connection engine
+[2023-12-20 13:41:40,139] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 13:41:40,139] INFO:frontend-service:34:mlflow session created
+[2023-12-20 13:42:32,981] INFO:frontend-service:55:no data update
+[2023-12-20 13:42:32,982] INFO:frontend-service:56:query loop complete
+[2023-12-20 13:43:32,983] INFO:frontend-service:55:no data update
+[2023-12-20 13:43:32,985] INFO:frontend-service:56:query loop complete
+[2023-12-20 13:44:32,988] INFO:frontend-service:55:no data update
+[2023-12-20 13:44:32,988] INFO:frontend-service:56:query loop complete
+[2023-12-20 13:45:32,989] INFO:frontend-service:55:no data update
+[2023-12-20 13:45:32,990] INFO:frontend-service:56:query loop complete
+[2023-12-20 13:46:32,991] INFO:frontend-service:55:no data update
+[2023-12-20 13:46:32,992] INFO:frontend-service:56:query loop complete
+[2023-12-20 13:46:40,275] INFO:frontend-service:95:creating connection engine
+[2023-12-20 13:46:40,315] INFO:frontend-service:99:creating model tables
+[2023-12-20 13:46:42,119] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 13:46:42,121] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 13:46:42,123] INFO:frontend-service:95:creating connection engine
+[2023-12-20 13:46:42,124] INFO:frontend-service:99:creating model tables
+[2023-12-20 13:46:43,837] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 13:46:43,838] INFO:frontend-service:26:feature-service session created
+[2023-12-20 13:46:43,838] INFO:frontend-service:111:creating connection engine
+[2023-12-20 13:46:43,839] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 13:46:43,839] INFO:frontend-service:34:mlflow session created
+[2023-12-20 13:47:32,994] INFO:frontend-service:55:no data update
+[2023-12-20 13:47:32,997] INFO:frontend-service:56:query loop complete
+[2023-12-20 13:48:33,003] INFO:frontend-service:55:no data update
+[2023-12-20 13:48:33,012] INFO:frontend-service:56:query loop complete
+[2023-12-20 13:49:20,906] INFO:frontend-service:95:creating connection engine
+[2023-12-20 13:49:20,947] INFO:frontend-service:99:creating model tables
+[2023-12-20 13:49:22,473] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 13:49:22,476] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 13:49:22,477] INFO:frontend-service:95:creating connection engine
+[2023-12-20 13:49:22,480] INFO:frontend-service:99:creating model tables
+[2023-12-20 13:49:24,033] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 13:49:24,034] INFO:frontend-service:26:feature-service session created
+[2023-12-20 13:49:24,035] INFO:frontend-service:111:creating connection engine
+[2023-12-20 13:49:24,036] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 13:49:24,036] INFO:frontend-service:34:mlflow session created
+[2023-12-20 13:49:33,014] INFO:frontend-service:55:no data update
+[2023-12-20 13:49:33,015] INFO:frontend-service:56:query loop complete
+[2023-12-20 13:50:33,017] INFO:frontend-service:55:no data update
+[2023-12-20 13:50:33,019] INFO:frontend-service:56:query loop complete
+[2023-12-20 13:51:02,290] INFO:frontend-service:95:creating connection engine
+[2023-12-20 13:51:02,328] INFO:frontend-service:99:creating model tables
+[2023-12-20 13:51:03,883] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 13:51:03,885] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 13:51:03,886] INFO:frontend-service:95:creating connection engine
+[2023-12-20 13:51:03,886] INFO:frontend-service:99:creating model tables
+[2023-12-20 13:51:05,478] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 13:51:05,478] INFO:frontend-service:26:feature-service session created
+[2023-12-20 13:51:05,479] INFO:frontend-service:111:creating connection engine
+[2023-12-20 13:51:05,480] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 13:51:05,481] INFO:frontend-service:34:mlflow session created
+[2023-12-20 13:51:33,022] INFO:frontend-service:55:no data update
+[2023-12-20 13:51:33,024] INFO:frontend-service:56:query loop complete
+[2023-12-20 13:52:33,027] INFO:frontend-service:55:no data update
+[2023-12-20 13:52:33,030] INFO:frontend-service:56:query loop complete
+[2023-12-20 13:53:33,032] INFO:frontend-service:55:no data update
+[2023-12-20 13:53:33,034] INFO:frontend-service:56:query loop complete
+[2023-12-20 13:54:31,843] INFO:frontend-service:95:creating connection engine
+[2023-12-20 13:54:31,880] INFO:frontend-service:99:creating model tables
+[2023-12-20 13:54:33,036] INFO:frontend-service:55:no data update
+[2023-12-20 13:54:33,039] INFO:frontend-service:56:query loop complete
+[2023-12-20 13:54:33,598] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 13:54:33,601] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 13:54:33,602] INFO:frontend-service:95:creating connection engine
+[2023-12-20 13:54:33,605] INFO:frontend-service:99:creating model tables
+[2023-12-20 13:54:35,197] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 13:54:35,197] INFO:frontend-service:26:feature-service session created
+[2023-12-20 13:54:35,198] INFO:frontend-service:111:creating connection engine
+[2023-12-20 13:54:35,200] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 13:54:35,200] INFO:frontend-service:34:mlflow session created
+[2023-12-20 13:55:33,041] INFO:frontend-service:55:no data update
+[2023-12-20 13:55:33,041] INFO:frontend-service:56:query loop complete
+[2023-12-20 13:56:33,043] INFO:frontend-service:55:no data update
+[2023-12-20 13:56:33,044] INFO:frontend-service:56:query loop complete
+[2023-12-20 13:57:33,045] INFO:frontend-service:55:no data update
+[2023-12-20 13:57:33,047] INFO:frontend-service:56:query loop complete
+[2023-12-20 13:58:33,049] INFO:frontend-service:55:no data update
+[2023-12-20 13:58:33,050] INFO:frontend-service:56:query loop complete
+[2023-12-20 13:59:33,051] INFO:frontend-service:55:no data update
+[2023-12-20 13:59:33,053] INFO:frontend-service:56:query loop complete
+[2023-12-20 14:01:34,109] INFO:frontend-service:51:hour dataframe updated and saved: 2023-12-20 19:00:00
+[2023-12-20 14:02:34,111] INFO:frontend-service:55:no data update
+[2023-12-20 14:02:34,114] INFO:frontend-service:56:query loop complete
+[2023-12-20 14:03:34,117] INFO:frontend-service:55:no data update
+[2023-12-20 14:03:34,119] INFO:frontend-service:56:query loop complete
+[2023-12-20 14:04:34,122] INFO:frontend-service:55:no data update
+[2023-12-20 14:04:34,124] INFO:frontend-service:56:query loop complete
+[2023-12-20 14:05:34,126] INFO:frontend-service:55:no data update
+[2023-12-20 14:05:34,127] INFO:frontend-service:56:query loop complete
+[2023-12-20 14:06:34,128] INFO:frontend-service:55:no data update
+[2023-12-20 14:06:34,128] INFO:frontend-service:56:query loop complete
+[2023-12-20 14:07:34,130] INFO:frontend-service:55:no data update
+[2023-12-20 14:07:34,132] INFO:frontend-service:56:query loop complete
+[2023-12-20 14:08:34,135] INFO:frontend-service:55:no data update
+[2023-12-20 14:08:34,136] INFO:frontend-service:56:query loop complete
+[2023-12-20 14:08:58,296] INFO:frontend-service:95:creating connection engine
+[2023-12-20 14:08:58,343] INFO:frontend-service:99:creating model tables
+[2023-12-20 14:09:00,108] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 14:09:00,108] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 14:09:00,108] INFO:frontend-service:95:creating connection engine
+[2023-12-20 14:09:00,109] INFO:frontend-service:99:creating model tables
+[2023-12-20 14:09:01,743] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 14:09:01,743] INFO:frontend-service:26:feature-service session created
+[2023-12-20 14:09:01,744] INFO:frontend-service:111:creating connection engine
+[2023-12-20 14:09:01,744] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 14:09:01,746] INFO:frontend-service:34:mlflow session created
+[2023-12-20 14:09:34,137] INFO:frontend-service:55:no data update
+[2023-12-20 14:09:34,139] INFO:frontend-service:56:query loop complete
+[2023-12-20 14:10:06,986] INFO:frontend-service:95:creating connection engine
+[2023-12-20 14:10:07,024] INFO:frontend-service:99:creating model tables
+[2023-12-20 14:10:08,582] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 14:10:08,584] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 14:10:08,585] INFO:frontend-service:95:creating connection engine
+[2023-12-20 14:10:08,585] INFO:frontend-service:99:creating model tables
+[2023-12-20 14:10:10,229] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 14:10:10,231] INFO:frontend-service:26:feature-service session created
+[2023-12-20 14:10:10,232] INFO:frontend-service:111:creating connection engine
+[2023-12-20 14:10:10,234] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 14:10:10,236] INFO:frontend-service:34:mlflow session created
+[2023-12-20 14:10:34,141] INFO:frontend-service:55:no data update
+[2023-12-20 14:10:34,145] INFO:frontend-service:56:query loop complete
+[2023-12-20 14:11:24,048] INFO:frontend-service:95:creating connection engine
+[2023-12-20 14:11:24,086] INFO:frontend-service:99:creating model tables
+[2023-12-20 14:11:25,870] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 14:11:25,871] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 14:11:25,873] INFO:frontend-service:95:creating connection engine
+[2023-12-20 14:11:25,875] INFO:frontend-service:99:creating model tables
+[2023-12-20 14:11:27,621] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 14:11:27,622] INFO:frontend-service:26:feature-service session created
+[2023-12-20 14:11:27,623] INFO:frontend-service:111:creating connection engine
+[2023-12-20 14:11:27,624] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 14:11:27,624] INFO:frontend-service:34:mlflow session created
+[2023-12-20 14:11:34,148] INFO:frontend-service:55:no data update
+[2023-12-20 14:11:34,149] INFO:frontend-service:56:query loop complete
+[2023-12-20 14:12:34,152] INFO:frontend-service:55:no data update
+[2023-12-20 14:12:34,153] INFO:frontend-service:56:query loop complete
+[2023-12-20 14:12:55,665] INFO:frontend-service:95:creating connection engine
+[2023-12-20 14:12:55,705] INFO:frontend-service:99:creating model tables
+[2023-12-20 14:12:57,468] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 14:12:57,469] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 14:12:57,470] INFO:frontend-service:95:creating connection engine
+[2023-12-20 14:12:57,471] INFO:frontend-service:99:creating model tables
+[2023-12-20 14:12:59,141] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 14:12:59,144] INFO:frontend-service:26:feature-service session created
+[2023-12-20 14:12:59,145] INFO:frontend-service:111:creating connection engine
+[2023-12-20 14:12:59,148] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 14:12:59,150] INFO:frontend-service:34:mlflow session created
+[2023-12-20 14:13:34,154] INFO:frontend-service:55:no data update
+[2023-12-20 14:13:34,154] INFO:frontend-service:56:query loop complete
+[2023-12-20 14:14:19,532] INFO:frontend-service:95:creating connection engine
+[2023-12-20 14:14:19,582] INFO:frontend-service:99:creating model tables
+[2023-12-20 14:14:21,303] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 14:14:21,304] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 14:14:21,304] INFO:frontend-service:95:creating connection engine
+[2023-12-20 14:14:21,305] INFO:frontend-service:99:creating model tables
+[2023-12-20 14:14:23,029] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 14:14:23,032] INFO:frontend-service:26:feature-service session created
+[2023-12-20 14:14:23,034] INFO:frontend-service:111:creating connection engine
+[2023-12-20 14:14:23,037] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 14:14:23,039] INFO:frontend-service:34:mlflow session created
+[2023-12-20 14:14:34,155] INFO:frontend-service:55:no data update
+[2023-12-20 14:14:34,157] INFO:frontend-service:56:query loop complete
+[2023-12-20 14:14:48,565] INFO:frontend-service:95:creating connection engine
+[2023-12-20 14:14:48,603] INFO:frontend-service:99:creating model tables
+[2023-12-20 14:14:50,397] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 14:14:50,400] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 14:14:50,401] INFO:frontend-service:95:creating connection engine
+[2023-12-20 14:14:50,404] INFO:frontend-service:99:creating model tables
+[2023-12-20 14:14:52,111] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 14:14:52,113] INFO:frontend-service:26:feature-service session created
+[2023-12-20 14:14:52,115] INFO:frontend-service:111:creating connection engine
+[2023-12-20 14:14:52,118] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 14:14:52,119] INFO:frontend-service:34:mlflow session created
+[2023-12-20 14:15:34,160] INFO:frontend-service:55:no data update
+[2023-12-20 14:15:34,161] INFO:frontend-service:56:query loop complete
+[2023-12-20 14:16:04,471] INFO:frontend-service:95:creating connection engine
+[2023-12-20 14:16:04,511] INFO:frontend-service:99:creating model tables
+[2023-12-20 14:16:06,079] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 14:16:06,085] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 14:16:06,104] INFO:frontend-service:95:creating connection engine
+[2023-12-20 14:16:06,105] INFO:frontend-service:99:creating model tables
+[2023-12-20 14:16:07,679] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 14:16:07,680] INFO:frontend-service:26:feature-service session created
+[2023-12-20 14:16:07,683] INFO:frontend-service:111:creating connection engine
+[2023-12-20 14:16:07,685] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 14:16:07,686] INFO:frontend-service:34:mlflow session created
+[2023-12-20 14:16:34,162] INFO:frontend-service:55:no data update
+[2023-12-20 14:16:34,164] INFO:frontend-service:56:query loop complete
+[2023-12-20 14:17:34,166] INFO:frontend-service:55:no data update
+[2023-12-20 14:17:34,167] INFO:frontend-service:56:query loop complete
+[2023-12-20 14:17:55,085] INFO:frontend-service:95:creating connection engine
+[2023-12-20 14:17:55,125] INFO:frontend-service:99:creating model tables
+[2023-12-20 14:17:56,739] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 14:17:56,741] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 14:17:56,742] INFO:frontend-service:95:creating connection engine
+[2023-12-20 14:17:56,744] INFO:frontend-service:99:creating model tables
+[2023-12-20 14:17:58,346] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 14:17:58,346] INFO:frontend-service:26:feature-service session created
+[2023-12-20 14:17:58,346] INFO:frontend-service:111:creating connection engine
+[2023-12-20 14:17:58,347] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 14:17:58,347] INFO:frontend-service:34:mlflow session created
+[2023-12-20 14:18:34,169] INFO:frontend-service:55:no data update
+[2023-12-20 14:18:34,170] INFO:frontend-service:56:query loop complete
+[2023-12-20 14:19:13,916] INFO:frontend-service:95:creating connection engine
+[2023-12-20 14:19:13,958] INFO:frontend-service:99:creating model tables
+[2023-12-20 14:19:15,618] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 14:19:15,620] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 14:19:15,622] INFO:frontend-service:95:creating connection engine
+[2023-12-20 14:19:15,624] INFO:frontend-service:99:creating model tables
+[2023-12-20 14:19:17,345] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 14:19:17,347] INFO:frontend-service:26:feature-service session created
+[2023-12-20 14:19:17,348] INFO:frontend-service:111:creating connection engine
+[2023-12-20 14:19:17,351] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 14:19:17,351] INFO:frontend-service:34:mlflow session created
+[2023-12-20 14:19:34,172] INFO:frontend-service:55:no data update
+[2023-12-20 14:19:34,173] INFO:frontend-service:56:query loop complete
+[2023-12-20 14:20:34,175] INFO:frontend-service:55:no data update
+[2023-12-20 14:20:34,176] INFO:frontend-service:56:query loop complete
+[2023-12-20 14:21:34,233] INFO:frontend-service:55:no data update
+[2023-12-20 14:21:34,264] INFO:frontend-service:56:query loop complete
+[2023-12-20 14:21:34,869] INFO:frontend-service:95:creating connection engine
+[2023-12-20 14:21:34,910] INFO:frontend-service:99:creating model tables
+[2023-12-20 14:21:36,456] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 14:21:36,457] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 14:21:36,458] INFO:frontend-service:95:creating connection engine
+[2023-12-20 14:21:36,458] INFO:frontend-service:99:creating model tables
+[2023-12-20 14:21:38,096] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 14:21:38,096] INFO:frontend-service:26:feature-service session created
+[2023-12-20 14:21:38,097] INFO:frontend-service:111:creating connection engine
+[2023-12-20 14:21:38,098] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 14:21:38,098] INFO:frontend-service:34:mlflow session created
+[2023-12-20 14:22:34,271] INFO:frontend-service:55:no data update
+[2023-12-20 14:22:34,272] INFO:frontend-service:56:query loop complete
+[2023-12-20 14:22:58,056] INFO:frontend-service:95:creating connection engine
+[2023-12-20 14:22:58,098] INFO:frontend-service:99:creating model tables
+[2023-12-20 14:22:59,707] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 14:22:59,708] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 14:22:59,708] INFO:frontend-service:95:creating connection engine
+[2023-12-20 14:22:59,710] INFO:frontend-service:99:creating model tables
+[2023-12-20 14:23:01,301] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 14:23:01,302] INFO:frontend-service:26:feature-service session created
+[2023-12-20 14:23:01,304] INFO:frontend-service:111:creating connection engine
+[2023-12-20 14:23:01,306] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 14:23:01,308] INFO:frontend-service:34:mlflow session created
+[2023-12-20 14:23:34,273] INFO:frontend-service:55:no data update
+[2023-12-20 14:23:34,273] INFO:frontend-service:56:query loop complete
+[2023-12-20 14:23:45,983] INFO:frontend-service:95:creating connection engine
+[2023-12-20 14:23:46,026] INFO:frontend-service:99:creating model tables
+[2023-12-20 14:23:47,581] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 14:23:47,582] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 14:23:47,583] INFO:frontend-service:95:creating connection engine
+[2023-12-20 14:23:47,584] INFO:frontend-service:99:creating model tables
+[2023-12-20 14:23:49,101] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 14:23:49,102] INFO:frontend-service:26:feature-service session created
+[2023-12-20 14:23:49,103] INFO:frontend-service:111:creating connection engine
+[2023-12-20 14:23:49,105] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 14:23:49,106] INFO:frontend-service:34:mlflow session created
+[2023-12-20 14:24:27,884] INFO:frontend-service:95:creating connection engine
+[2023-12-20 14:24:27,928] INFO:frontend-service:99:creating model tables
+[2023-12-20 14:24:29,436] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 14:24:29,438] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 14:24:29,440] INFO:frontend-service:95:creating connection engine
+[2023-12-20 14:24:29,441] INFO:frontend-service:99:creating model tables
+[2023-12-20 14:24:30,997] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 14:24:30,998] INFO:frontend-service:26:feature-service session created
+[2023-12-20 14:24:30,999] INFO:frontend-service:111:creating connection engine
+[2023-12-20 14:24:31,000] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 14:24:31,000] INFO:frontend-service:34:mlflow session created
+[2023-12-20 14:24:34,275] INFO:frontend-service:55:no data update
+[2023-12-20 14:24:34,275] INFO:frontend-service:56:query loop complete
+[2023-12-20 14:25:34,277] INFO:frontend-service:55:no data update
+[2023-12-20 14:25:34,279] INFO:frontend-service:56:query loop complete
+[2023-12-20 14:25:50,574] INFO:frontend-service:95:creating connection engine
+[2023-12-20 14:25:50,618] INFO:frontend-service:99:creating model tables
+[2023-12-20 14:25:52,213] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 14:25:52,213] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 14:25:52,214] INFO:frontend-service:95:creating connection engine
+[2023-12-20 14:25:52,214] INFO:frontend-service:99:creating model tables
+[2023-12-20 14:25:53,775] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 14:25:53,777] INFO:frontend-service:26:feature-service session created
+[2023-12-20 14:25:53,778] INFO:frontend-service:111:creating connection engine
+[2023-12-20 14:25:53,780] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 14:25:53,781] INFO:frontend-service:34:mlflow session created
+[2023-12-20 14:26:34,281] INFO:frontend-service:55:no data update
+[2023-12-20 14:26:34,281] INFO:frontend-service:56:query loop complete
+[2023-12-20 14:26:40,809] INFO:frontend-service:95:creating connection engine
+[2023-12-20 14:26:40,850] INFO:frontend-service:99:creating model tables
+[2023-12-20 14:26:42,378] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 14:26:42,380] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 14:26:42,381] INFO:frontend-service:95:creating connection engine
+[2023-12-20 14:26:42,383] INFO:frontend-service:99:creating model tables
+[2023-12-20 14:26:43,898] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 14:26:43,899] INFO:frontend-service:26:feature-service session created
+[2023-12-20 14:26:43,900] INFO:frontend-service:111:creating connection engine
+[2023-12-20 14:26:43,901] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 14:26:43,902] INFO:frontend-service:34:mlflow session created
+[2023-12-20 14:27:34,284] INFO:frontend-service:55:no data update
+[2023-12-20 14:27:34,287] INFO:frontend-service:56:query loop complete
+[2023-12-20 14:28:25,567] INFO:frontend-service:95:creating connection engine
+[2023-12-20 14:28:25,611] INFO:frontend-service:99:creating model tables
+[2023-12-20 14:28:27,354] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 14:28:27,355] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 14:28:27,355] INFO:frontend-service:95:creating connection engine
+[2023-12-20 14:28:27,356] INFO:frontend-service:99:creating model tables
+[2023-12-20 14:28:29,017] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 14:28:29,019] INFO:frontend-service:26:feature-service session created
+[2023-12-20 14:28:29,020] INFO:frontend-service:111:creating connection engine
+[2023-12-20 14:28:29,023] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 14:28:29,023] INFO:frontend-service:34:mlflow session created
+[2023-12-20 14:28:34,292] INFO:frontend-service:55:no data update
+[2023-12-20 14:28:34,292] INFO:frontend-service:56:query loop complete
+[2023-12-20 14:29:34,293] INFO:frontend-service:55:no data update
+[2023-12-20 14:29:34,294] INFO:frontend-service:56:query loop complete
+[2023-12-20 14:30:08,327] INFO:frontend-service:95:creating connection engine
+[2023-12-20 14:30:08,366] INFO:frontend-service:99:creating model tables
+[2023-12-20 14:30:09,931] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 14:30:09,933] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 14:30:09,934] INFO:frontend-service:95:creating connection engine
+[2023-12-20 14:30:09,936] INFO:frontend-service:99:creating model tables
+[2023-12-20 14:30:11,456] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 14:30:11,457] INFO:frontend-service:26:feature-service session created
+[2023-12-20 14:30:11,457] INFO:frontend-service:111:creating connection engine
+[2023-12-20 14:30:11,458] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 14:30:11,458] INFO:frontend-service:34:mlflow session created
+[2023-12-20 14:30:34,296] INFO:frontend-service:55:no data update
+[2023-12-20 14:30:34,298] INFO:frontend-service:56:query loop complete
+[2023-12-20 14:31:34,300] INFO:frontend-service:55:no data update
+[2023-12-20 14:31:34,301] INFO:frontend-service:56:query loop complete
+[2023-12-20 14:32:34,302] INFO:frontend-service:55:no data update
+[2023-12-20 14:32:34,305] INFO:frontend-service:56:query loop complete
+[2023-12-20 14:33:34,308] INFO:frontend-service:55:no data update
+[2023-12-20 14:33:34,309] INFO:frontend-service:56:query loop complete
+[2023-12-20 14:34:33,924] INFO:frontend-service:95:creating connection engine
+[2023-12-20 14:34:33,997] INFO:frontend-service:99:creating model tables
+[2023-12-20 14:34:34,310] INFO:frontend-service:55:no data update
+[2023-12-20 14:34:34,319] INFO:frontend-service:56:query loop complete
+[2023-12-20 14:34:35,569] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 14:34:35,570] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 14:34:35,571] INFO:frontend-service:95:creating connection engine
+[2023-12-20 14:34:35,571] INFO:frontend-service:99:creating model tables
+[2023-12-20 14:34:37,130] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 14:34:37,131] INFO:frontend-service:26:feature-service session created
+[2023-12-20 14:34:37,133] INFO:frontend-service:111:creating connection engine
+[2023-12-20 14:34:37,135] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 14:34:37,137] INFO:frontend-service:34:mlflow session created
+[2023-12-20 14:35:24,386] INFO:frontend-service:95:creating connection engine
+[2023-12-20 14:35:24,430] INFO:frontend-service:99:creating model tables
+[2023-12-20 14:35:26,049] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 14:35:26,049] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 14:35:26,050] INFO:frontend-service:95:creating connection engine
+[2023-12-20 14:35:26,050] INFO:frontend-service:99:creating model tables
+[2023-12-20 14:35:27,689] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 14:35:27,689] INFO:frontend-service:26:feature-service session created
+[2023-12-20 14:35:27,690] INFO:frontend-service:111:creating connection engine
+[2023-12-20 14:35:27,690] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 14:35:27,690] INFO:frontend-service:34:mlflow session created
+[2023-12-20 14:35:34,322] INFO:frontend-service:55:no data update
+[2023-12-20 14:35:34,324] INFO:frontend-service:56:query loop complete
+[2023-12-20 14:36:34,328] INFO:frontend-service:55:no data update
+[2023-12-20 14:36:34,330] INFO:frontend-service:56:query loop complete
+[2023-12-20 14:37:34,333] INFO:frontend-service:55:no data update
+[2023-12-20 14:37:34,333] INFO:frontend-service:56:query loop complete
+[2023-12-20 14:38:34,334] INFO:frontend-service:55:no data update
+[2023-12-20 14:38:34,337] INFO:frontend-service:56:query loop complete
+[2023-12-20 14:39:34,340] INFO:frontend-service:55:no data update
+[2023-12-20 14:39:34,341] INFO:frontend-service:56:query loop complete
+[2023-12-20 14:40:34,343] INFO:frontend-service:55:no data update
+[2023-12-20 14:40:34,344] INFO:frontend-service:56:query loop complete
+[2023-12-20 14:41:03,951] INFO:frontend-service:95:creating connection engine
+[2023-12-20 14:41:03,995] INFO:frontend-service:99:creating model tables
+[2023-12-20 14:41:05,610] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 14:41:05,613] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 14:41:05,614] INFO:frontend-service:95:creating connection engine
+[2023-12-20 14:41:05,616] INFO:frontend-service:99:creating model tables
+[2023-12-20 14:41:07,146] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 14:41:07,147] INFO:frontend-service:26:feature-service session created
+[2023-12-20 14:41:07,147] INFO:frontend-service:111:creating connection engine
+[2023-12-20 14:41:07,148] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 14:41:07,148] INFO:frontend-service:34:mlflow session created
+[2023-12-20 14:41:34,346] INFO:frontend-service:55:no data update
+[2023-12-20 14:41:34,348] INFO:frontend-service:56:query loop complete
+[2023-12-20 14:42:34,351] INFO:frontend-service:55:no data update
+[2023-12-20 14:42:34,352] INFO:frontend-service:56:query loop complete
+[2023-12-20 14:43:34,355] INFO:frontend-service:55:no data update
+[2023-12-20 14:43:34,356] INFO:frontend-service:56:query loop complete
+[2023-12-20 14:44:34,357] INFO:frontend-service:55:no data update
+[2023-12-20 14:44:34,358] INFO:frontend-service:56:query loop complete
+[2023-12-20 14:45:34,359] INFO:frontend-service:55:no data update
+[2023-12-20 14:45:34,361] INFO:frontend-service:56:query loop complete
+[2023-12-20 14:46:34,364] INFO:frontend-service:55:no data update
+[2023-12-20 14:46:34,366] INFO:frontend-service:56:query loop complete
+[2023-12-20 14:47:34,369] INFO:frontend-service:55:no data update
+[2023-12-20 14:47:34,369] INFO:frontend-service:56:query loop complete
+[2023-12-20 14:48:34,371] INFO:frontend-service:55:no data update
+[2023-12-20 14:48:34,373] INFO:frontend-service:56:query loop complete
+[2023-12-20 14:49:34,374] INFO:frontend-service:55:no data update
+[2023-12-20 14:49:34,374] INFO:frontend-service:56:query loop complete
+[2023-12-20 14:50:34,383] INFO:frontend-service:55:no data update
+[2023-12-20 14:50:34,386] INFO:frontend-service:56:query loop complete
+[2023-12-20 14:50:53,851] INFO:frontend-service:95:creating connection engine
+[2023-12-20 14:50:53,900] INFO:frontend-service:99:creating model tables
+[2023-12-20 14:50:55,445] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 14:50:55,447] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 14:50:55,448] INFO:frontend-service:95:creating connection engine
+[2023-12-20 14:50:55,450] INFO:frontend-service:99:creating model tables
+[2023-12-20 14:50:57,120] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 14:50:57,121] INFO:frontend-service:26:feature-service session created
+[2023-12-20 14:50:57,122] INFO:frontend-service:111:creating connection engine
+[2023-12-20 14:50:57,122] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 14:50:57,123] INFO:frontend-service:34:mlflow session created
+[2023-12-20 14:51:29,947] INFO:frontend-service:95:creating connection engine
+[2023-12-20 14:51:29,992] INFO:frontend-service:99:creating model tables
+[2023-12-20 14:51:31,605] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 14:51:31,606] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 14:51:31,607] INFO:frontend-service:95:creating connection engine
+[2023-12-20 14:51:31,609] INFO:frontend-service:99:creating model tables
+[2023-12-20 14:51:33,319] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 14:51:33,321] INFO:frontend-service:26:feature-service session created
+[2023-12-20 14:51:33,322] INFO:frontend-service:111:creating connection engine
+[2023-12-20 14:51:33,324] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 14:51:33,325] INFO:frontend-service:34:mlflow session created
+[2023-12-20 14:51:34,390] INFO:frontend-service:55:no data update
+[2023-12-20 14:51:34,390] INFO:frontend-service:56:query loop complete
+[2023-12-20 14:52:34,391] INFO:frontend-service:55:no data update
+[2023-12-20 14:52:34,393] INFO:frontend-service:56:query loop complete
+[2023-12-20 14:52:53,680] INFO:frontend-service:95:creating connection engine
+[2023-12-20 14:52:53,716] INFO:frontend-service:99:creating model tables
+[2023-12-20 14:52:55,359] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 14:52:55,360] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 14:52:55,361] INFO:frontend-service:95:creating connection engine
+[2023-12-20 14:52:55,362] INFO:frontend-service:99:creating model tables
+[2023-12-20 14:52:56,981] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 14:52:56,983] INFO:frontend-service:26:feature-service session created
+[2023-12-20 14:52:56,984] INFO:frontend-service:111:creating connection engine
+[2023-12-20 14:52:56,987] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 14:52:56,989] INFO:frontend-service:34:mlflow session created
+[2023-12-20 14:53:34,395] INFO:frontend-service:55:no data update
+[2023-12-20 14:53:34,400] INFO:frontend-service:56:query loop complete
+[2023-12-20 14:54:05,265] INFO:frontend-service:95:creating connection engine
+[2023-12-20 14:54:05,308] INFO:frontend-service:99:creating model tables
+[2023-12-20 14:54:06,959] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 14:54:06,959] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 14:54:06,960] INFO:frontend-service:95:creating connection engine
+[2023-12-20 14:54:06,960] INFO:frontend-service:99:creating model tables
+[2023-12-20 14:54:08,569] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 14:54:08,572] INFO:frontend-service:26:feature-service session created
+[2023-12-20 14:54:08,573] INFO:frontend-service:111:creating connection engine
+[2023-12-20 14:54:08,575] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 14:54:08,576] INFO:frontend-service:34:mlflow session created
+[2023-12-20 14:54:34,404] INFO:frontend-service:55:no data update
+[2023-12-20 14:54:34,406] INFO:frontend-service:56:query loop complete
+[2023-12-20 14:55:34,408] INFO:frontend-service:55:no data update
+[2023-12-20 14:55:34,408] INFO:frontend-service:56:query loop complete
+[2023-12-20 14:56:24,488] INFO:frontend-service:95:creating connection engine
+[2023-12-20 14:56:24,531] INFO:frontend-service:99:creating model tables
+[2023-12-20 14:56:26,042] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 14:56:26,042] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 14:56:26,043] INFO:frontend-service:95:creating connection engine
+[2023-12-20 14:56:26,047] INFO:frontend-service:99:creating model tables
+[2023-12-20 14:56:27,659] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 14:56:27,660] INFO:frontend-service:26:feature-service session created
+[2023-12-20 14:56:27,661] INFO:frontend-service:111:creating connection engine
+[2023-12-20 14:56:27,661] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 14:56:27,662] INFO:frontend-service:34:mlflow session created
+[2023-12-20 14:56:34,409] INFO:frontend-service:55:no data update
+[2023-12-20 14:56:34,411] INFO:frontend-service:56:query loop complete
+[2023-12-20 14:57:30,548] INFO:frontend-service:95:creating connection engine
+[2023-12-20 14:57:30,592] INFO:frontend-service:99:creating model tables
+[2023-12-20 14:57:32,204] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 14:57:32,204] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 14:57:32,204] INFO:frontend-service:95:creating connection engine
+[2023-12-20 14:57:32,205] INFO:frontend-service:99:creating model tables
+[2023-12-20 14:57:33,837] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 14:57:33,837] INFO:frontend-service:26:feature-service session created
+[2023-12-20 14:57:33,837] INFO:frontend-service:111:creating connection engine
+[2023-12-20 14:57:33,837] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 14:57:33,837] INFO:frontend-service:34:mlflow session created
+[2023-12-20 14:57:34,414] INFO:frontend-service:55:no data update
+[2023-12-20 14:57:34,414] INFO:frontend-service:56:query loop complete
+[2023-12-20 14:58:34,415] INFO:frontend-service:55:no data update
+[2023-12-20 14:58:34,417] INFO:frontend-service:56:query loop complete
+[2023-12-20 14:59:34,420] INFO:frontend-service:55:no data update
+[2023-12-20 14:59:34,421] INFO:frontend-service:56:query loop complete
+[2023-12-20 15:00:34,301] INFO:frontend-service:95:creating connection engine
+[2023-12-20 15:00:34,347] INFO:frontend-service:99:creating model tables
+[2023-12-20 15:00:41,772] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 15:00:41,774] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 15:00:41,775] INFO:frontend-service:95:creating connection engine
+[2023-12-20 15:00:41,777] INFO:frontend-service:99:creating model tables
+[2023-12-20 15:00:51,645] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 15:00:51,646] INFO:frontend-service:26:feature-service session created
+[2023-12-20 15:00:51,646] INFO:frontend-service:111:creating connection engine
+[2023-12-20 15:00:51,647] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 15:00:51,648] INFO:frontend-service:34:mlflow session created
+[2023-12-20 15:01:35,502] INFO:frontend-service:51:hour dataframe updated and saved: 2023-12-20 20:00:00
+[2023-12-20 15:02:02,012] INFO:frontend-service:95:creating connection engine
+[2023-12-20 15:02:02,058] INFO:frontend-service:99:creating model tables
+[2023-12-20 15:02:03,640] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 15:02:03,640] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 15:02:03,641] INFO:frontend-service:95:creating connection engine
+[2023-12-20 15:02:03,641] INFO:frontend-service:99:creating model tables
+[2023-12-20 15:02:05,213] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 15:02:05,214] INFO:frontend-service:26:feature-service session created
+[2023-12-20 15:02:05,214] INFO:frontend-service:111:creating connection engine
+[2023-12-20 15:02:05,214] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 15:02:05,215] INFO:frontend-service:34:mlflow session created
+[2023-12-20 15:02:35,518] INFO:frontend-service:55:no data update
+[2023-12-20 15:02:35,519] INFO:frontend-service:56:query loop complete
+[2023-12-20 15:03:35,520] INFO:frontend-service:55:no data update
+[2023-12-20 15:03:35,521] INFO:frontend-service:56:query loop complete
+[2023-12-20 15:04:35,523] INFO:frontend-service:55:no data update
+[2023-12-20 15:04:35,524] INFO:frontend-service:56:query loop complete
+[2023-12-20 15:05:35,525] INFO:frontend-service:55:no data update
+[2023-12-20 15:05:35,526] INFO:frontend-service:56:query loop complete
+[2023-12-20 15:06:35,528] INFO:frontend-service:55:no data update
+[2023-12-20 15:06:35,529] INFO:frontend-service:56:query loop complete
+[2023-12-20 15:07:35,531] INFO:frontend-service:55:no data update
+[2023-12-20 15:07:35,532] INFO:frontend-service:56:query loop complete
+[2023-12-20 15:08:35,533] INFO:frontend-service:55:no data update
+[2023-12-20 15:08:35,534] INFO:frontend-service:56:query loop complete
+[2023-12-20 15:09:35,535] INFO:frontend-service:55:no data update
+[2023-12-20 15:09:35,538] INFO:frontend-service:56:query loop complete
+[2023-12-20 15:10:35,540] INFO:frontend-service:55:no data update
+[2023-12-20 15:10:35,540] INFO:frontend-service:56:query loop complete
+[2023-12-20 15:11:35,544] INFO:frontend-service:55:no data update
+[2023-12-20 15:11:35,546] INFO:frontend-service:56:query loop complete
+[2023-12-20 15:11:51,220] INFO:frontend-service:95:creating connection engine
+[2023-12-20 15:11:51,263] INFO:frontend-service:99:creating model tables
+[2023-12-20 15:11:52,857] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 15:11:52,859] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 15:11:52,860] INFO:frontend-service:95:creating connection engine
+[2023-12-20 15:11:52,862] INFO:frontend-service:99:creating model tables
+[2023-12-20 15:11:54,450] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 15:11:54,452] INFO:frontend-service:26:feature-service session created
+[2023-12-20 15:11:54,454] INFO:frontend-service:111:creating connection engine
+[2023-12-20 15:11:54,456] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 15:11:54,457] INFO:frontend-service:34:mlflow session created
+[2023-12-20 15:12:35,549] INFO:frontend-service:55:no data update
+[2023-12-20 15:12:35,550] INFO:frontend-service:56:query loop complete
+[2023-12-20 15:13:35,569] INFO:frontend-service:55:no data update
+[2023-12-20 15:13:35,596] INFO:frontend-service:56:query loop complete
+[2023-12-20 15:14:35,599] INFO:frontend-service:55:no data update
+[2023-12-20 15:14:35,600] INFO:frontend-service:56:query loop complete
+[2023-12-20 15:15:35,601] INFO:frontend-service:55:no data update
+[2023-12-20 15:15:35,603] INFO:frontend-service:56:query loop complete
+[2023-12-20 15:16:17,216] INFO:frontend-service:95:creating connection engine
+[2023-12-20 15:16:17,257] INFO:frontend-service:99:creating model tables
+[2023-12-20 15:16:19,209] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 15:16:19,211] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 15:16:19,214] INFO:frontend-service:95:creating connection engine
+[2023-12-20 15:16:19,215] INFO:frontend-service:99:creating model tables
+[2023-12-20 15:16:20,838] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 15:16:20,840] INFO:frontend-service:26:feature-service session created
+[2023-12-20 15:16:20,840] INFO:frontend-service:111:creating connection engine
+[2023-12-20 15:16:20,841] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 15:16:20,841] INFO:frontend-service:34:mlflow session created
+[2023-12-20 15:16:35,606] INFO:frontend-service:55:no data update
+[2023-12-20 15:16:35,607] INFO:frontend-service:56:query loop complete
+[2023-12-20 15:17:24,267] INFO:frontend-service:95:creating connection engine
+[2023-12-20 15:17:24,304] INFO:frontend-service:99:creating model tables
+[2023-12-20 15:17:25,866] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 15:17:25,867] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 15:17:25,868] INFO:frontend-service:95:creating connection engine
+[2023-12-20 15:17:25,869] INFO:frontend-service:99:creating model tables
+[2023-12-20 15:17:27,408] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 15:17:27,411] INFO:frontend-service:26:feature-service session created
+[2023-12-20 15:17:27,412] INFO:frontend-service:111:creating connection engine
+[2023-12-20 15:17:27,416] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 15:17:27,418] INFO:frontend-service:34:mlflow session created
+[2023-12-20 15:17:35,609] INFO:frontend-service:55:no data update
+[2023-12-20 15:17:35,609] INFO:frontend-service:56:query loop complete
+[2023-12-20 15:18:35,612] INFO:frontend-service:55:no data update
+[2023-12-20 15:18:35,614] INFO:frontend-service:56:query loop complete
+[2023-12-20 15:19:35,617] INFO:frontend-service:55:no data update
+[2023-12-20 15:19:35,619] INFO:frontend-service:56:query loop complete
+[2023-12-20 15:20:35,621] INFO:frontend-service:55:no data update
+[2023-12-20 15:20:35,622] INFO:frontend-service:56:query loop complete
+[2023-12-20 15:21:32,019] INFO:frontend-service:95:creating connection engine
+[2023-12-20 15:21:32,064] INFO:frontend-service:99:creating model tables
+[2023-12-20 15:21:33,704] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 15:21:33,705] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 15:21:33,706] INFO:frontend-service:95:creating connection engine
+[2023-12-20 15:21:33,708] INFO:frontend-service:99:creating model tables
+[2023-12-20 15:21:35,325] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 15:21:35,327] INFO:frontend-service:26:feature-service session created
+[2023-12-20 15:21:35,328] INFO:frontend-service:111:creating connection engine
+[2023-12-20 15:21:35,331] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 15:21:35,333] INFO:frontend-service:34:mlflow session created
+[2023-12-20 15:21:35,624] INFO:frontend-service:55:no data update
+[2023-12-20 15:21:35,624] INFO:frontend-service:56:query loop complete
+[2023-12-20 15:22:35,628] INFO:frontend-service:55:no data update
+[2023-12-20 15:22:35,629] INFO:frontend-service:56:query loop complete
+[2023-12-20 15:22:43,074] INFO:frontend-service:95:creating connection engine
+[2023-12-20 15:22:43,114] INFO:frontend-service:99:creating model tables
+[2023-12-20 15:22:44,714] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 15:22:44,715] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 15:22:44,716] INFO:frontend-service:95:creating connection engine
+[2023-12-20 15:22:44,717] INFO:frontend-service:99:creating model tables
+[2023-12-20 15:22:46,223] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 15:22:46,224] INFO:frontend-service:26:feature-service session created
+[2023-12-20 15:22:46,224] INFO:frontend-service:111:creating connection engine
+[2023-12-20 15:22:46,225] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 15:22:46,226] INFO:frontend-service:34:mlflow session created
+[2023-12-20 15:23:35,629] INFO:frontend-service:55:no data update
+[2023-12-20 15:23:35,631] INFO:frontend-service:56:query loop complete
+[2023-12-20 15:23:40,866] INFO:frontend-service:95:creating connection engine
+[2023-12-20 15:23:40,905] INFO:frontend-service:99:creating model tables
+[2023-12-20 15:23:42,468] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 15:23:42,470] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 15:23:42,471] INFO:frontend-service:95:creating connection engine
+[2023-12-20 15:23:42,473] INFO:frontend-service:99:creating model tables
+[2023-12-20 15:23:44,142] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 15:23:44,143] INFO:frontend-service:26:feature-service session created
+[2023-12-20 15:23:44,143] INFO:frontend-service:111:creating connection engine
+[2023-12-20 15:23:44,144] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 15:23:44,145] INFO:frontend-service:34:mlflow session created
+[2023-12-20 15:24:35,634] INFO:frontend-service:55:no data update
+[2023-12-20 15:24:35,637] INFO:frontend-service:56:query loop complete
+[2023-12-20 15:25:35,639] INFO:frontend-service:55:no data update
+[2023-12-20 15:25:35,642] INFO:frontend-service:56:query loop complete
+[2023-12-20 15:26:35,644] INFO:frontend-service:55:no data update
+[2023-12-20 15:26:35,647] INFO:frontend-service:56:query loop complete
+[2023-12-20 15:27:35,650] INFO:frontend-service:55:no data update
+[2023-12-20 15:27:35,652] INFO:frontend-service:56:query loop complete
+[2023-12-20 15:28:35,655] INFO:frontend-service:55:no data update
+[2023-12-20 15:28:35,658] INFO:frontend-service:56:query loop complete
+[2023-12-20 15:29:35,661] INFO:frontend-service:55:no data update
+[2023-12-20 15:29:35,661] INFO:frontend-service:56:query loop complete
+[2023-12-20 15:30:35,663] INFO:frontend-service:55:no data update
+[2023-12-20 15:30:35,666] INFO:frontend-service:56:query loop complete
+[2023-12-20 15:31:35,667] INFO:frontend-service:55:no data update
+[2023-12-20 15:31:35,669] INFO:frontend-service:56:query loop complete
+[2023-12-20 15:32:35,671] INFO:frontend-service:55:no data update
+[2023-12-20 15:32:35,672] INFO:frontend-service:56:query loop complete
+[2023-12-20 15:33:07,809] INFO:frontend-service:95:creating connection engine
+[2023-12-20 15:33:07,849] INFO:frontend-service:99:creating model tables
+[2023-12-20 15:33:09,422] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 15:33:09,423] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 15:33:09,425] INFO:frontend-service:95:creating connection engine
+[2023-12-20 15:33:09,427] INFO:frontend-service:99:creating model tables
+[2023-12-20 15:33:11,103] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 15:33:11,104] INFO:frontend-service:26:feature-service session created
+[2023-12-20 15:33:11,105] INFO:frontend-service:111:creating connection engine
+[2023-12-20 15:33:11,107] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 15:33:11,108] INFO:frontend-service:34:mlflow session created
+[2023-12-20 15:33:35,673] INFO:frontend-service:55:no data update
+[2023-12-20 15:33:35,674] INFO:frontend-service:56:query loop complete
+[2023-12-20 15:33:43,939] INFO:frontend-service:95:creating connection engine
+[2023-12-20 15:33:43,982] INFO:frontend-service:99:creating model tables
+[2023-12-20 15:33:45,558] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 15:33:45,559] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 15:33:45,559] INFO:frontend-service:95:creating connection engine
+[2023-12-20 15:33:45,560] INFO:frontend-service:99:creating model tables
+[2023-12-20 15:33:47,038] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 15:33:47,040] INFO:frontend-service:26:feature-service session created
+[2023-12-20 15:33:47,040] INFO:frontend-service:111:creating connection engine
+[2023-12-20 15:33:47,041] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 15:33:47,042] INFO:frontend-service:34:mlflow session created
+[2023-12-20 15:34:32,723] INFO:frontend-service:95:creating connection engine
+[2023-12-20 15:34:32,765] INFO:frontend-service:99:creating model tables
+[2023-12-20 15:34:34,422] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 15:34:34,422] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 15:34:34,423] INFO:frontend-service:95:creating connection engine
+[2023-12-20 15:34:34,423] INFO:frontend-service:99:creating model tables
+[2023-12-20 15:34:35,676] INFO:frontend-service:55:no data update
+[2023-12-20 15:34:35,678] INFO:frontend-service:56:query loop complete
+[2023-12-20 15:34:36,114] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 15:34:36,116] INFO:frontend-service:26:feature-service session created
+[2023-12-20 15:34:36,116] INFO:frontend-service:111:creating connection engine
+[2023-12-20 15:34:36,118] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 15:34:36,119] INFO:frontend-service:34:mlflow session created
+[2023-12-20 15:35:17,122] INFO:frontend-service:95:creating connection engine
+[2023-12-20 15:35:17,171] INFO:frontend-service:99:creating model tables
+[2023-12-20 15:35:18,901] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 15:35:18,902] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 15:35:18,903] INFO:frontend-service:95:creating connection engine
+[2023-12-20 15:35:18,903] INFO:frontend-service:99:creating model tables
+[2023-12-20 15:35:20,623] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 15:35:20,624] INFO:frontend-service:26:feature-service session created
+[2023-12-20 15:35:20,625] INFO:frontend-service:111:creating connection engine
+[2023-12-20 15:35:20,626] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 15:35:20,627] INFO:frontend-service:34:mlflow session created
+[2023-12-20 15:35:35,683] INFO:frontend-service:55:no data update
+[2023-12-20 15:35:35,686] INFO:frontend-service:56:query loop complete
+[2023-12-20 15:36:18,168] INFO:frontend-service:95:creating connection engine
+[2023-12-20 15:36:18,206] INFO:frontend-service:99:creating model tables
+[2023-12-20 15:36:19,821] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 15:36:19,822] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 15:36:19,824] INFO:frontend-service:95:creating connection engine
+[2023-12-20 15:36:19,826] INFO:frontend-service:99:creating model tables
+[2023-12-20 15:36:21,427] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 15:36:21,429] INFO:frontend-service:26:feature-service session created
+[2023-12-20 15:36:21,430] INFO:frontend-service:111:creating connection engine
+[2023-12-20 15:36:21,432] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 15:36:21,434] INFO:frontend-service:34:mlflow session created
+[2023-12-20 15:36:35,688] INFO:frontend-service:55:no data update
+[2023-12-20 15:36:35,688] INFO:frontend-service:56:query loop complete
+[2023-12-20 15:37:21,292] INFO:frontend-service:95:creating connection engine
+[2023-12-20 15:37:21,330] INFO:frontend-service:99:creating model tables
+[2023-12-20 15:37:22,935] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 15:37:22,936] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 15:37:22,937] INFO:frontend-service:95:creating connection engine
+[2023-12-20 15:37:22,938] INFO:frontend-service:99:creating model tables
+[2023-12-20 15:37:24,575] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 15:37:24,576] INFO:frontend-service:26:feature-service session created
+[2023-12-20 15:37:24,576] INFO:frontend-service:111:creating connection engine
+[2023-12-20 15:37:24,577] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 15:37:24,577] INFO:frontend-service:34:mlflow session created
+[2023-12-20 15:37:35,690] INFO:frontend-service:55:no data update
+[2023-12-20 15:37:35,691] INFO:frontend-service:56:query loop complete
+[2023-12-20 15:38:09,708] INFO:frontend-service:95:creating connection engine
+[2023-12-20 15:38:09,753] INFO:frontend-service:99:creating model tables
+[2023-12-20 15:38:11,375] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 15:38:11,377] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 15:38:11,378] INFO:frontend-service:95:creating connection engine
+[2023-12-20 15:38:11,380] INFO:frontend-service:99:creating model tables
+[2023-12-20 15:38:12,953] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 15:38:12,954] INFO:frontend-service:26:feature-service session created
+[2023-12-20 15:38:12,954] INFO:frontend-service:111:creating connection engine
+[2023-12-20 15:38:12,955] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 15:38:12,956] INFO:frontend-service:34:mlflow session created
+[2023-12-20 15:38:35,692] INFO:frontend-service:55:no data update
+[2023-12-20 15:38:35,692] INFO:frontend-service:56:query loop complete
+[2023-12-20 15:38:55,504] INFO:frontend-service:95:creating connection engine
+[2023-12-20 15:38:55,543] INFO:frontend-service:99:creating model tables
+[2023-12-20 15:38:57,134] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 15:38:57,136] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 15:38:57,137] INFO:frontend-service:95:creating connection engine
+[2023-12-20 15:38:57,139] INFO:frontend-service:99:creating model tables
+[2023-12-20 15:38:58,774] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 15:38:58,775] INFO:frontend-service:26:feature-service session created
+[2023-12-20 15:38:58,776] INFO:frontend-service:111:creating connection engine
+[2023-12-20 15:38:58,776] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 15:38:58,777] INFO:frontend-service:34:mlflow session created
+[2023-12-20 15:39:35,696] INFO:frontend-service:55:no data update
+[2023-12-20 15:39:35,697] INFO:frontend-service:56:query loop complete
+[2023-12-20 15:40:32,132] INFO:frontend-service:95:creating connection engine
+[2023-12-20 15:40:32,173] INFO:frontend-service:99:creating model tables
+[2023-12-20 15:40:33,702] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 15:40:33,704] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 15:40:33,706] INFO:frontend-service:95:creating connection engine
+[2023-12-20 15:40:33,708] INFO:frontend-service:99:creating model tables
+[2023-12-20 15:40:35,315] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 15:40:35,316] INFO:frontend-service:26:feature-service session created
+[2023-12-20 15:40:35,316] INFO:frontend-service:111:creating connection engine
+[2023-12-20 15:40:35,318] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 15:40:35,318] INFO:frontend-service:34:mlflow session created
+[2023-12-20 15:40:35,700] INFO:frontend-service:55:no data update
+[2023-12-20 15:40:35,700] INFO:frontend-service:56:query loop complete
+[2023-12-20 15:41:35,701] INFO:frontend-service:55:no data update
+[2023-12-20 15:41:35,701] INFO:frontend-service:56:query loop complete
+[2023-12-20 15:42:23,735] INFO:frontend-service:95:creating connection engine
+[2023-12-20 15:42:23,774] INFO:frontend-service:99:creating model tables
+[2023-12-20 15:42:25,412] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 15:42:25,415] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 15:42:25,416] INFO:frontend-service:95:creating connection engine
+[2023-12-20 15:42:25,418] INFO:frontend-service:99:creating model tables
+[2023-12-20 15:42:27,012] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 15:42:27,013] INFO:frontend-service:26:feature-service session created
+[2023-12-20 15:42:27,014] INFO:frontend-service:111:creating connection engine
+[2023-12-20 15:42:27,014] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 15:42:27,015] INFO:frontend-service:34:mlflow session created
+[2023-12-20 15:42:35,704] INFO:frontend-service:55:no data update
+[2023-12-20 15:42:35,718] INFO:frontend-service:56:query loop complete
+[2023-12-20 15:43:35,751] INFO:frontend-service:55:no data update
+[2023-12-20 15:43:35,752] INFO:frontend-service:56:query loop complete
+[2023-12-20 15:43:39,418] INFO:frontend-service:95:creating connection engine
+[2023-12-20 15:43:39,460] INFO:frontend-service:99:creating model tables
+[2023-12-20 15:43:41,132] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 15:43:41,132] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 15:43:41,132] INFO:frontend-service:95:creating connection engine
+[2023-12-20 15:43:41,133] INFO:frontend-service:99:creating model tables
+[2023-12-20 15:43:42,633] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 15:43:42,633] INFO:frontend-service:26:feature-service session created
+[2023-12-20 15:43:42,633] INFO:frontend-service:111:creating connection engine
+[2023-12-20 15:43:42,634] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 15:43:42,634] INFO:frontend-service:34:mlflow session created
+[2023-12-20 15:44:30,212] INFO:frontend-service:95:creating connection engine
+[2023-12-20 15:44:30,253] INFO:frontend-service:99:creating model tables
+[2023-12-20 15:44:31,892] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 15:44:31,893] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 15:44:31,893] INFO:frontend-service:95:creating connection engine
+[2023-12-20 15:44:31,894] INFO:frontend-service:99:creating model tables
+[2023-12-20 15:44:33,536] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 15:44:33,537] INFO:frontend-service:26:feature-service session created
+[2023-12-20 15:44:33,537] INFO:frontend-service:111:creating connection engine
+[2023-12-20 15:44:33,537] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 15:44:33,538] INFO:frontend-service:34:mlflow session created
+[2023-12-20 15:44:35,753] INFO:frontend-service:55:no data update
+[2023-12-20 15:44:35,753] INFO:frontend-service:56:query loop complete
+[2023-12-20 15:45:35,755] INFO:frontend-service:55:no data update
+[2023-12-20 15:45:35,757] INFO:frontend-service:56:query loop complete
+[2023-12-20 15:45:45,066] INFO:frontend-service:95:creating connection engine
+[2023-12-20 15:45:45,107] INFO:frontend-service:99:creating model tables
+[2023-12-20 15:45:46,792] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 15:45:46,793] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 15:45:46,793] INFO:frontend-service:95:creating connection engine
+[2023-12-20 15:45:46,794] INFO:frontend-service:99:creating model tables
+[2023-12-20 15:45:48,414] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 15:45:48,415] INFO:frontend-service:26:feature-service session created
+[2023-12-20 15:45:48,415] INFO:frontend-service:111:creating connection engine
+[2023-12-20 15:45:48,416] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 15:45:48,417] INFO:frontend-service:34:mlflow session created
+[2023-12-20 15:46:35,759] INFO:frontend-service:55:no data update
+[2023-12-20 15:46:35,761] INFO:frontend-service:56:query loop complete
+[2023-12-20 15:47:35,765] INFO:frontend-service:55:no data update
+[2023-12-20 15:47:35,765] INFO:frontend-service:56:query loop complete
+[2023-12-20 15:48:35,767] INFO:frontend-service:55:no data update
+[2023-12-20 15:48:35,767] INFO:frontend-service:56:query loop complete
+[2023-12-20 15:49:16,801] INFO:frontend-service:95:creating connection engine
+[2023-12-20 15:49:16,839] INFO:frontend-service:99:creating model tables
+[2023-12-20 15:49:18,414] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 15:49:18,414] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 15:49:18,414] INFO:frontend-service:95:creating connection engine
+[2023-12-20 15:49:18,416] INFO:frontend-service:99:creating model tables
+[2023-12-20 15:49:19,991] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 15:49:19,991] INFO:frontend-service:26:feature-service session created
+[2023-12-20 15:49:19,992] INFO:frontend-service:111:creating connection engine
+[2023-12-20 15:49:19,992] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 15:49:19,993] INFO:frontend-service:34:mlflow session created
+[2023-12-20 15:49:35,769] INFO:frontend-service:55:no data update
+[2023-12-20 15:49:35,771] INFO:frontend-service:56:query loop complete
+[2023-12-20 15:49:55,340] INFO:frontend-service:95:creating connection engine
+[2023-12-20 15:49:55,383] INFO:frontend-service:99:creating model tables
+[2023-12-20 15:49:57,049] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 15:49:57,052] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 15:49:57,053] INFO:frontend-service:95:creating connection engine
+[2023-12-20 15:49:57,055] INFO:frontend-service:99:creating model tables
+[2023-12-20 15:49:58,689] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 15:49:58,691] INFO:frontend-service:26:feature-service session created
+[2023-12-20 15:49:58,691] INFO:frontend-service:111:creating connection engine
+[2023-12-20 15:49:58,692] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 15:49:58,692] INFO:frontend-service:34:mlflow session created
+[2023-12-20 15:50:35,773] INFO:frontend-service:55:no data update
+[2023-12-20 15:50:35,773] INFO:frontend-service:56:query loop complete
+[2023-12-20 15:51:35,775] INFO:frontend-service:55:no data update
+[2023-12-20 15:51:35,777] INFO:frontend-service:56:query loop complete
+[2023-12-20 15:52:35,807] INFO:frontend-service:55:no data update
+[2023-12-20 15:52:35,821] INFO:frontend-service:56:query loop complete
+[2023-12-20 15:52:50,084] INFO:frontend-service:95:creating connection engine
+[2023-12-20 15:52:50,147] INFO:frontend-service:99:creating model tables
+[2023-12-20 15:52:51,773] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 15:52:51,776] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 15:52:51,780] INFO:frontend-service:95:creating connection engine
+[2023-12-20 15:52:51,790] INFO:frontend-service:99:creating model tables
+[2023-12-20 15:52:53,311] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 15:52:53,313] INFO:frontend-service:26:feature-service session created
+[2023-12-20 15:52:53,314] INFO:frontend-service:111:creating connection engine
+[2023-12-20 15:52:53,316] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 15:52:53,318] INFO:frontend-service:34:mlflow session created
+[2023-12-20 15:53:35,840] INFO:frontend-service:55:no data update
+[2023-12-20 15:53:35,841] INFO:frontend-service:56:query loop complete
+[2023-12-20 15:54:04,884] INFO:frontend-service:95:creating connection engine
+[2023-12-20 15:54:04,927] INFO:frontend-service:99:creating model tables
+[2023-12-20 15:54:06,492] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 15:54:06,494] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 15:54:06,495] INFO:frontend-service:95:creating connection engine
+[2023-12-20 15:54:06,497] INFO:frontend-service:99:creating model tables
+[2023-12-20 15:54:08,130] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 15:54:08,131] INFO:frontend-service:26:feature-service session created
+[2023-12-20 15:54:08,131] INFO:frontend-service:111:creating connection engine
+[2023-12-20 15:54:08,132] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 15:54:08,132] INFO:frontend-service:34:mlflow session created
+[2023-12-20 15:54:35,842] INFO:frontend-service:55:no data update
+[2023-12-20 15:54:35,842] INFO:frontend-service:56:query loop complete
+[2023-12-20 15:54:36,822] INFO:frontend-service:95:creating connection engine
+[2023-12-20 15:54:36,863] INFO:frontend-service:99:creating model tables
+[2023-12-20 15:54:38,451] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 15:54:38,452] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 15:54:38,452] INFO:frontend-service:95:creating connection engine
+[2023-12-20 15:54:38,453] INFO:frontend-service:99:creating model tables
+[2023-12-20 15:54:40,131] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 15:54:40,132] INFO:frontend-service:26:feature-service session created
+[2023-12-20 15:54:40,132] INFO:frontend-service:111:creating connection engine
+[2023-12-20 15:54:40,133] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 15:54:40,134] INFO:frontend-service:34:mlflow session created
+[2023-12-20 15:55:35,843] INFO:frontend-service:55:no data update
+[2023-12-20 15:55:35,845] INFO:frontend-service:56:query loop complete
+[2023-12-20 15:56:35,849] INFO:frontend-service:55:no data update
+[2023-12-20 15:56:35,849] INFO:frontend-service:56:query loop complete
+[2023-12-20 15:56:41,720] INFO:frontend-service:95:creating connection engine
+[2023-12-20 15:56:41,761] INFO:frontend-service:99:creating model tables
+[2023-12-20 15:56:43,372] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 15:56:43,373] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 15:56:43,373] INFO:frontend-service:95:creating connection engine
+[2023-12-20 15:56:43,374] INFO:frontend-service:99:creating model tables
+[2023-12-20 15:56:45,006] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 15:56:45,008] INFO:frontend-service:26:feature-service session created
+[2023-12-20 15:56:45,009] INFO:frontend-service:111:creating connection engine
+[2023-12-20 15:56:45,012] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 15:56:45,013] INFO:frontend-service:34:mlflow session created
+[2023-12-20 15:57:35,850] INFO:frontend-service:55:no data update
+[2023-12-20 15:57:35,851] INFO:frontend-service:56:query loop complete
+[2023-12-20 15:57:50,519] INFO:frontend-service:95:creating connection engine
+[2023-12-20 15:57:50,557] INFO:frontend-service:99:creating model tables
+[2023-12-20 15:57:52,164] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 15:57:52,165] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 15:57:52,166] INFO:frontend-service:95:creating connection engine
+[2023-12-20 15:57:52,168] INFO:frontend-service:99:creating model tables
+[2023-12-20 15:57:53,804] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 15:57:53,805] INFO:frontend-service:26:feature-service session created
+[2023-12-20 15:57:53,806] INFO:frontend-service:111:creating connection engine
+[2023-12-20 15:57:53,809] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 15:57:53,810] INFO:frontend-service:34:mlflow session created
+[2023-12-20 15:58:30,899] INFO:frontend-service:95:creating connection engine
+[2023-12-20 15:58:30,938] INFO:frontend-service:99:creating model tables
+[2023-12-20 15:58:32,484] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 15:58:32,485] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 15:58:32,486] INFO:frontend-service:95:creating connection engine
+[2023-12-20 15:58:32,487] INFO:frontend-service:99:creating model tables
+[2023-12-20 15:58:34,096] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 15:58:34,097] INFO:frontend-service:26:feature-service session created
+[2023-12-20 15:58:34,098] INFO:frontend-service:111:creating connection engine
+[2023-12-20 15:58:34,099] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 15:58:34,099] INFO:frontend-service:34:mlflow session created
+[2023-12-20 15:58:35,852] INFO:frontend-service:55:no data update
+[2023-12-20 15:58:35,853] INFO:frontend-service:56:query loop complete
+[2023-12-20 15:59:35,854] INFO:frontend-service:55:no data update
+[2023-12-20 15:59:35,855] INFO:frontend-service:56:query loop complete
+[2023-12-20 16:00:18,719] INFO:frontend-service:95:creating connection engine
+[2023-12-20 16:00:18,761] INFO:frontend-service:99:creating model tables
+[2023-12-20 16:00:20,410] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 16:00:20,412] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 16:00:20,413] INFO:frontend-service:95:creating connection engine
+[2023-12-20 16:00:20,415] INFO:frontend-service:99:creating model tables
+[2023-12-20 16:00:22,096] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 16:00:22,098] INFO:frontend-service:26:feature-service session created
+[2023-12-20 16:00:22,099] INFO:frontend-service:111:creating connection engine
+[2023-12-20 16:00:22,101] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 16:00:22,102] INFO:frontend-service:34:mlflow session created
+[2023-12-20 16:01:33,698] INFO:frontend-service:51:hour dataframe updated and saved: 2023-12-20 21:00:00
+[2023-12-20 16:01:57,232] INFO:frontend-service:95:creating connection engine
+[2023-12-20 16:01:57,290] INFO:frontend-service:99:creating model tables
+[2023-12-20 16:01:58,930] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 16:01:58,931] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 16:01:58,932] INFO:frontend-service:95:creating connection engine
+[2023-12-20 16:01:58,932] INFO:frontend-service:99:creating model tables
+[2023-12-20 16:02:00,527] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 16:02:00,530] INFO:frontend-service:26:feature-service session created
+[2023-12-20 16:02:00,531] INFO:frontend-service:111:creating connection engine
+[2023-12-20 16:02:00,534] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 16:02:00,536] INFO:frontend-service:34:mlflow session created
+[2023-12-20 16:02:33,700] INFO:frontend-service:55:no data update
+[2023-12-20 16:02:33,702] INFO:frontend-service:56:query loop complete
+[2023-12-20 16:02:41,954] INFO:frontend-service:95:creating connection engine
+[2023-12-20 16:02:41,994] INFO:frontend-service:99:creating model tables
+[2023-12-20 16:02:43,602] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 16:02:43,603] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 16:02:43,605] INFO:frontend-service:95:creating connection engine
+[2023-12-20 16:02:43,607] INFO:frontend-service:99:creating model tables
+[2023-12-20 16:02:45,242] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 16:02:45,244] INFO:frontend-service:26:feature-service session created
+[2023-12-20 16:02:45,245] INFO:frontend-service:111:creating connection engine
+[2023-12-20 16:02:45,247] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 16:02:45,249] INFO:frontend-service:34:mlflow session created
+[2023-12-20 16:03:33,704] INFO:frontend-service:55:no data update
+[2023-12-20 16:03:33,705] INFO:frontend-service:56:query loop complete
+[2023-12-20 16:04:33,707] INFO:frontend-service:55:no data update
+[2023-12-20 16:04:33,708] INFO:frontend-service:56:query loop complete
+[2023-12-20 16:05:33,711] INFO:frontend-service:55:no data update
+[2023-12-20 16:05:33,712] INFO:frontend-service:56:query loop complete
+[2023-12-20 16:05:42,376] INFO:frontend-service:95:creating connection engine
+[2023-12-20 16:05:42,416] INFO:frontend-service:99:creating model tables
+[2023-12-20 16:05:44,051] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 16:05:44,051] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 16:05:44,051] INFO:frontend-service:95:creating connection engine
+[2023-12-20 16:05:44,052] INFO:frontend-service:99:creating model tables
+[2023-12-20 16:05:45,646] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 16:05:45,647] INFO:frontend-service:26:feature-service session created
+[2023-12-20 16:05:45,647] INFO:frontend-service:111:creating connection engine
+[2023-12-20 16:05:45,648] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 16:05:45,648] INFO:frontend-service:34:mlflow session created
+[2023-12-20 16:06:12,574] INFO:frontend-service:95:creating connection engine
+[2023-12-20 16:06:12,612] INFO:frontend-service:99:creating model tables
+[2023-12-20 16:06:14,188] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 16:06:14,190] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 16:06:14,192] INFO:frontend-service:95:creating connection engine
+[2023-12-20 16:06:14,195] INFO:frontend-service:99:creating model tables
+[2023-12-20 16:06:15,919] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 16:06:15,922] INFO:frontend-service:26:feature-service session created
+[2023-12-20 16:06:15,922] INFO:frontend-service:111:creating connection engine
+[2023-12-20 16:06:15,923] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 16:06:15,924] INFO:frontend-service:34:mlflow session created
+[2023-12-20 16:06:33,722] INFO:frontend-service:55:no data update
+[2023-12-20 16:06:33,723] INFO:frontend-service:56:query loop complete
+[2023-12-20 16:07:01,095] INFO:frontend-service:95:creating connection engine
+[2023-12-20 16:07:01,134] INFO:frontend-service:99:creating model tables
+[2023-12-20 16:07:02,680] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 16:07:02,683] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 16:07:02,684] INFO:frontend-service:95:creating connection engine
+[2023-12-20 16:07:02,687] INFO:frontend-service:99:creating model tables
+[2023-12-20 16:07:04,341] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 16:07:04,343] INFO:frontend-service:26:feature-service session created
+[2023-12-20 16:07:04,344] INFO:frontend-service:111:creating connection engine
+[2023-12-20 16:07:04,346] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 16:07:04,348] INFO:frontend-service:34:mlflow session created
+[2023-12-20 16:07:33,724] INFO:frontend-service:55:no data update
+[2023-12-20 16:07:33,725] INFO:frontend-service:56:query loop complete
+[2023-12-20 16:08:33,726] INFO:frontend-service:55:no data update
+[2023-12-20 16:08:33,727] INFO:frontend-service:56:query loop complete
+[2023-12-20 16:08:52,860] INFO:frontend-service:95:creating connection engine
+[2023-12-20 16:08:52,903] INFO:frontend-service:99:creating model tables
+[2023-12-20 16:08:54,563] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 16:08:54,566] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 16:08:54,567] INFO:frontend-service:95:creating connection engine
+[2023-12-20 16:08:54,570] INFO:frontend-service:99:creating model tables
+[2023-12-20 16:08:56,103] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 16:08:56,104] INFO:frontend-service:26:feature-service session created
+[2023-12-20 16:08:56,105] INFO:frontend-service:111:creating connection engine
+[2023-12-20 16:08:56,105] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 16:08:56,106] INFO:frontend-service:34:mlflow session created
+[2023-12-20 16:09:33,728] INFO:frontend-service:55:no data update
+[2023-12-20 16:09:33,729] INFO:frontend-service:56:query loop complete
+[2023-12-20 16:10:33,730] INFO:frontend-service:55:no data update
+[2023-12-20 16:10:33,731] INFO:frontend-service:56:query loop complete
+[2023-12-20 16:11:33,733] INFO:frontend-service:55:no data update
+[2023-12-20 16:11:33,733] INFO:frontend-service:56:query loop complete
+[2023-12-20 16:12:33,735] INFO:frontend-service:55:no data update
+[2023-12-20 16:12:33,736] INFO:frontend-service:56:query loop complete
+[2023-12-20 16:12:39,804] INFO:frontend-service:95:creating connection engine
+[2023-12-20 16:12:39,842] INFO:frontend-service:99:creating model tables
+[2023-12-20 16:12:41,475] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 16:12:41,476] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 16:12:41,476] INFO:frontend-service:95:creating connection engine
+[2023-12-20 16:12:41,477] INFO:frontend-service:99:creating model tables
+[2023-12-20 16:12:42,985] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 16:12:42,986] INFO:frontend-service:26:feature-service session created
+[2023-12-20 16:12:42,988] INFO:frontend-service:111:creating connection engine
+[2023-12-20 16:12:42,991] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 16:12:42,993] INFO:frontend-service:34:mlflow session created
+[2023-12-20 16:13:33,737] INFO:frontend-service:55:no data update
+[2023-12-20 16:13:33,737] INFO:frontend-service:56:query loop complete
+[2023-12-20 16:14:33,738] INFO:frontend-service:55:no data update
+[2023-12-20 16:14:33,738] INFO:frontend-service:56:query loop complete
+[2023-12-20 16:15:33,740] INFO:frontend-service:55:no data update
+[2023-12-20 16:15:33,740] INFO:frontend-service:56:query loop complete
+[2023-12-20 16:16:33,741] INFO:frontend-service:55:no data update
+[2023-12-20 16:16:33,744] INFO:frontend-service:56:query loop complete
+[2023-12-20 16:17:13,587] INFO:frontend-service:95:creating connection engine
+[2023-12-20 16:17:13,626] INFO:frontend-service:99:creating model tables
+[2023-12-20 16:17:15,280] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 16:17:15,281] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 16:17:15,282] INFO:frontend-service:95:creating connection engine
+[2023-12-20 16:17:15,284] INFO:frontend-service:99:creating model tables
+[2023-12-20 16:17:16,879] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 16:17:16,881] INFO:frontend-service:26:feature-service session created
+[2023-12-20 16:17:16,883] INFO:frontend-service:111:creating connection engine
+[2023-12-20 16:17:16,885] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 16:17:16,888] INFO:frontend-service:34:mlflow session created
+[2023-12-20 16:17:33,747] INFO:frontend-service:55:no data update
+[2023-12-20 16:17:33,747] INFO:frontend-service:56:query loop complete
+[2023-12-20 16:18:33,749] INFO:frontend-service:55:no data update
+[2023-12-20 16:18:33,749] INFO:frontend-service:56:query loop complete
+[2023-12-20 16:18:36,482] INFO:frontend-service:95:creating connection engine
+[2023-12-20 16:18:36,522] INFO:frontend-service:99:creating model tables
+[2023-12-20 16:18:38,113] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 16:18:38,114] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 16:18:38,115] INFO:frontend-service:95:creating connection engine
+[2023-12-20 16:18:38,117] INFO:frontend-service:99:creating model tables
+[2023-12-20 16:18:39,713] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 16:18:39,713] INFO:frontend-service:26:feature-service session created
+[2023-12-20 16:18:39,714] INFO:frontend-service:111:creating connection engine
+[2023-12-20 16:18:39,715] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 16:18:39,715] INFO:frontend-service:34:mlflow session created
+[2023-12-20 16:19:16,692] INFO:frontend-service:95:creating connection engine
+[2023-12-20 16:19:16,732] INFO:frontend-service:99:creating model tables
+[2023-12-20 16:19:18,353] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 16:19:18,354] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 16:19:18,355] INFO:frontend-service:95:creating connection engine
+[2023-12-20 16:19:18,356] INFO:frontend-service:99:creating model tables
+[2023-12-20 16:19:19,952] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 16:19:19,953] INFO:frontend-service:26:feature-service session created
+[2023-12-20 16:19:19,954] INFO:frontend-service:111:creating connection engine
+[2023-12-20 16:19:19,955] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 16:19:19,955] INFO:frontend-service:34:mlflow session created
+[2023-12-20 16:19:33,754] INFO:frontend-service:55:no data update
+[2023-12-20 16:19:33,755] INFO:frontend-service:56:query loop complete
+[2023-12-20 16:20:33,756] INFO:frontend-service:55:no data update
+[2023-12-20 16:20:33,757] INFO:frontend-service:56:query loop complete
+[2023-12-20 16:20:36,773] INFO:frontend-service:95:creating connection engine
+[2023-12-20 16:20:36,812] INFO:frontend-service:99:creating model tables
+[2023-12-20 16:20:38,517] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 16:20:38,520] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 16:20:38,521] INFO:frontend-service:95:creating connection engine
+[2023-12-20 16:20:38,524] INFO:frontend-service:99:creating model tables
+[2023-12-20 16:20:40,152] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 16:20:40,153] INFO:frontend-service:26:feature-service session created
+[2023-12-20 16:20:40,154] INFO:frontend-service:111:creating connection engine
+[2023-12-20 16:20:40,155] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 16:20:40,156] INFO:frontend-service:34:mlflow session created
+[2023-12-20 16:21:33,763] INFO:frontend-service:55:no data update
+[2023-12-20 16:21:33,765] INFO:frontend-service:56:query loop complete
+[2023-12-20 16:21:48,955] INFO:frontend-service:95:creating connection engine
+[2023-12-20 16:21:48,995] INFO:frontend-service:99:creating model tables
+[2023-12-20 16:21:50,516] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 16:21:50,517] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 16:21:50,518] INFO:frontend-service:95:creating connection engine
+[2023-12-20 16:21:50,520] INFO:frontend-service:99:creating model tables
+[2023-12-20 16:21:52,174] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 16:21:52,176] INFO:frontend-service:26:feature-service session created
+[2023-12-20 16:21:52,177] INFO:frontend-service:111:creating connection engine
+[2023-12-20 16:21:52,179] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 16:21:52,180] INFO:frontend-service:34:mlflow session created
+[2023-12-20 16:22:33,767] INFO:frontend-service:55:no data update
+[2023-12-20 16:22:33,769] INFO:frontend-service:56:query loop complete
+[2023-12-20 16:23:03,989] INFO:frontend-service:95:creating connection engine
+[2023-12-20 16:23:04,032] INFO:frontend-service:99:creating model tables
+[2023-12-20 16:23:05,711] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 16:23:05,713] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 16:23:05,713] INFO:frontend-service:95:creating connection engine
+[2023-12-20 16:23:05,714] INFO:frontend-service:99:creating model tables
+[2023-12-20 16:23:07,236] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 16:23:07,238] INFO:frontend-service:26:feature-service session created
+[2023-12-20 16:23:07,239] INFO:frontend-service:111:creating connection engine
+[2023-12-20 16:23:07,242] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 16:23:07,243] INFO:frontend-service:34:mlflow session created
+[2023-12-20 16:23:33,772] INFO:frontend-service:55:no data update
+[2023-12-20 16:23:33,773] INFO:frontend-service:56:query loop complete
+[2023-12-20 16:24:33,776] INFO:frontend-service:55:no data update
+[2023-12-20 16:24:33,778] INFO:frontend-service:56:query loop complete
+[2023-12-20 16:25:33,780] INFO:frontend-service:55:no data update
+[2023-12-20 16:25:33,780] INFO:frontend-service:56:query loop complete
+[2023-12-20 16:26:06,906] INFO:frontend-service:95:creating connection engine
+[2023-12-20 16:26:06,953] INFO:frontend-service:99:creating model tables
+[2023-12-20 16:26:08,554] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 16:26:08,554] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 16:26:08,554] INFO:frontend-service:95:creating connection engine
+[2023-12-20 16:26:08,555] INFO:frontend-service:99:creating model tables
+[2023-12-20 16:26:10,114] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 16:26:10,116] INFO:frontend-service:26:feature-service session created
+[2023-12-20 16:26:10,117] INFO:frontend-service:111:creating connection engine
+[2023-12-20 16:26:10,119] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 16:26:10,121] INFO:frontend-service:34:mlflow session created
+[2023-12-20 16:26:33,782] INFO:frontend-service:55:no data update
+[2023-12-20 16:26:33,785] INFO:frontend-service:56:query loop complete
+[2023-12-20 16:27:08,766] INFO:frontend-service:95:creating connection engine
+[2023-12-20 16:27:08,809] INFO:frontend-service:99:creating model tables
+[2023-12-20 16:27:10,409] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 16:27:10,410] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 16:27:10,411] INFO:frontend-service:95:creating connection engine
+[2023-12-20 16:27:10,412] INFO:frontend-service:99:creating model tables
+[2023-12-20 16:27:12,017] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 16:27:12,018] INFO:frontend-service:26:feature-service session created
+[2023-12-20 16:27:12,019] INFO:frontend-service:111:creating connection engine
+[2023-12-20 16:27:12,020] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 16:27:12,020] INFO:frontend-service:34:mlflow session created
+[2023-12-20 16:27:33,787] INFO:frontend-service:55:no data update
+[2023-12-20 16:27:33,790] INFO:frontend-service:56:query loop complete
+[2023-12-20 16:28:33,793] INFO:frontend-service:55:no data update
+[2023-12-20 16:28:33,794] INFO:frontend-service:56:query loop complete
+[2023-12-20 16:29:33,796] INFO:frontend-service:55:no data update
+[2023-12-20 16:29:33,796] INFO:frontend-service:56:query loop complete
+[2023-12-20 16:30:33,797] INFO:frontend-service:55:no data update
+[2023-12-20 16:30:33,799] INFO:frontend-service:56:query loop complete
+[2023-12-20 16:31:33,801] INFO:frontend-service:55:no data update
+[2023-12-20 16:31:33,807] INFO:frontend-service:56:query loop complete
+[2023-12-20 16:31:45,427] INFO:frontend-service:95:creating connection engine
+[2023-12-20 16:31:45,511] INFO:frontend-service:99:creating model tables
+[2023-12-20 16:31:47,127] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 16:31:47,129] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 16:31:47,131] INFO:frontend-service:95:creating connection engine
+[2023-12-20 16:31:47,136] INFO:frontend-service:99:creating model tables
+[2023-12-20 16:31:48,727] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 16:31:48,728] INFO:frontend-service:26:feature-service session created
+[2023-12-20 16:31:48,728] INFO:frontend-service:111:creating connection engine
+[2023-12-20 16:31:48,730] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 16:31:48,730] INFO:frontend-service:34:mlflow session created
+[2023-12-20 16:32:33,809] INFO:frontend-service:55:no data update
+[2023-12-20 16:32:33,812] INFO:frontend-service:56:query loop complete
+[2023-12-20 16:33:33,814] INFO:frontend-service:55:no data update
+[2023-12-20 16:33:33,815] INFO:frontend-service:56:query loop complete
+[2023-12-20 16:34:33,817] INFO:frontend-service:55:no data update
+[2023-12-20 16:34:33,818] INFO:frontend-service:56:query loop complete
+[2023-12-20 16:35:33,820] INFO:frontend-service:55:no data update
+[2023-12-20 16:35:33,822] INFO:frontend-service:56:query loop complete
+[2023-12-20 16:36:33,824] INFO:frontend-service:55:no data update
+[2023-12-20 16:36:33,824] INFO:frontend-service:56:query loop complete
+[2023-12-20 16:37:33,825] INFO:frontend-service:55:no data update
+[2023-12-20 16:37:33,828] INFO:frontend-service:56:query loop complete
+[2023-12-20 16:38:33,831] INFO:frontend-service:55:no data update
+[2023-12-20 16:38:33,834] INFO:frontend-service:56:query loop complete
+[2023-12-20 16:39:33,836] INFO:frontend-service:55:no data update
+[2023-12-20 16:39:33,837] INFO:frontend-service:56:query loop complete
+[2023-12-20 16:40:33,839] INFO:frontend-service:55:no data update
+[2023-12-20 16:40:33,841] INFO:frontend-service:56:query loop complete
+[2023-12-20 16:40:46,103] INFO:frontend-service:95:creating connection engine
+[2023-12-20 16:40:46,163] INFO:frontend-service:99:creating model tables
+[2023-12-20 16:40:47,908] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 16:40:47,909] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 16:40:47,910] INFO:frontend-service:95:creating connection engine
+[2023-12-20 16:40:47,912] INFO:frontend-service:99:creating model tables
+[2023-12-20 16:40:49,582] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 16:40:49,583] INFO:frontend-service:26:feature-service session created
+[2023-12-20 16:40:49,584] INFO:frontend-service:111:creating connection engine
+[2023-12-20 16:40:49,586] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 16:40:49,587] INFO:frontend-service:34:mlflow session created
+[2023-12-20 16:41:33,843] INFO:frontend-service:55:no data update
+[2023-12-20 16:41:33,846] INFO:frontend-service:56:query loop complete
+[2023-12-20 16:42:33,849] INFO:frontend-service:55:no data update
+[2023-12-20 16:42:33,850] INFO:frontend-service:56:query loop complete
+[2023-12-20 16:43:33,851] INFO:frontend-service:55:no data update
+[2023-12-20 16:43:33,853] INFO:frontend-service:56:query loop complete
+[2023-12-20 16:44:33,856] INFO:frontend-service:55:no data update
+[2023-12-20 16:44:33,857] INFO:frontend-service:56:query loop complete
+[2023-12-20 16:45:33,858] INFO:frontend-service:55:no data update
+[2023-12-20 16:45:33,859] INFO:frontend-service:56:query loop complete
+[2023-12-20 16:46:33,861] INFO:frontend-service:55:no data update
+[2023-12-20 16:46:33,866] INFO:frontend-service:56:query loop complete
+[2023-12-20 16:52:11,375] INFO:frontend-service:95:creating connection engine
+[2023-12-20 16:52:11,431] INFO:frontend-service:99:creating model tables
+[2023-12-20 16:52:11,776] INFO:frontend-service:26:entering save_down function
+[2023-12-20 16:52:12,341] INFO:frontend-service:29:entering websocket connection loop
+[2023-12-20 16:52:12,342] INFO:frontend-service:34:websocket connected successfully
+[2023-12-20 16:52:12,432] INFO:frontend-service:47:websocket authenticated successfully
+[2023-12-20 16:52:12,433] INFO:frontend-service:51:websocket streaming
+[2023-12-20 16:52:13,037] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 16:52:13,038] INFO:frontend-service:30:feature-service session created
+[2023-12-20 16:52:13,038] INFO:frontend-service:32:getting latest database datetime record
+[2023-12-20 16:52:13,183] INFO:frontend-service:36:initial hour datetime ID: 2023-12-20 21:00:00
+[2023-12-20 16:52:18,443] INFO:frontend-service:95:creating connection engine
+[2023-12-20 16:52:18,489] INFO:frontend-service:99:creating model tables
+[2023-12-20 16:52:27,828] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 16:52:27,830] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 16:52:27,832] INFO:frontend-service:95:creating connection engine
+[2023-12-20 16:52:27,836] INFO:frontend-service:99:creating model tables
+[2023-12-20 16:52:36,485] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 16:52:36,486] INFO:frontend-service:26:feature-service session created
+[2023-12-20 16:52:36,487] INFO:frontend-service:111:creating connection engine
+[2023-12-20 16:52:36,490] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 16:52:36,491] INFO:frontend-service:34:mlflow session created
+[2023-12-20 16:53:11,444] INFO:frontend-service:40:initial hour dataframe update and saved: 2023-12-20 21:00:00
+[2023-12-20 16:53:11,444] INFO:frontend-service:55:no data update
+[2023-12-20 16:53:11,445] INFO:frontend-service:56:query loop complete
+[2023-12-20 16:53:29,949] INFO:frontend-service:95:creating connection engine
+[2023-12-20 16:53:29,998] INFO:frontend-service:99:creating model tables
+[2023-12-20 16:53:31,575] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 16:53:31,577] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 16:53:31,578] INFO:frontend-service:95:creating connection engine
+[2023-12-20 16:53:31,581] INFO:frontend-service:99:creating model tables
+[2023-12-20 16:53:33,216] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 16:53:33,218] INFO:frontend-service:26:feature-service session created
+[2023-12-20 16:53:33,219] INFO:frontend-service:111:creating connection engine
+[2023-12-20 16:53:33,222] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 16:53:33,223] INFO:frontend-service:34:mlflow session created
+[2023-12-20 16:54:11,447] INFO:frontend-service:55:no data update
+[2023-12-20 16:54:11,447] INFO:frontend-service:56:query loop complete
+[2023-12-20 16:55:11,449] INFO:frontend-service:55:no data update
+[2023-12-20 16:55:11,450] INFO:frontend-service:56:query loop complete
+[2023-12-20 16:56:11,452] INFO:frontend-service:55:no data update
+[2023-12-20 16:56:11,453] INFO:frontend-service:56:query loop complete
+[2023-12-20 16:56:31,925] INFO:frontend-service:95:creating connection engine
+[2023-12-20 16:56:31,966] INFO:frontend-service:99:creating model tables
+[2023-12-20 16:56:33,555] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 16:56:33,556] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 16:56:33,556] INFO:frontend-service:95:creating connection engine
+[2023-12-20 16:56:33,557] INFO:frontend-service:99:creating model tables
+[2023-12-20 16:56:35,194] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 16:56:35,196] INFO:frontend-service:26:feature-service session created
+[2023-12-20 16:56:35,197] INFO:frontend-service:111:creating connection engine
+[2023-12-20 16:56:35,199] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 16:56:35,200] INFO:frontend-service:34:mlflow session created
+[2023-12-20 16:57:11,455] INFO:frontend-service:55:no data update
+[2023-12-20 16:57:11,455] INFO:frontend-service:56:query loop complete
+[2023-12-20 16:57:15,956] INFO:frontend-service:95:creating connection engine
+[2023-12-20 16:57:15,995] INFO:frontend-service:99:creating model tables
+[2023-12-20 16:57:17,572] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 16:57:17,572] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 16:57:17,573] INFO:frontend-service:95:creating connection engine
+[2023-12-20 16:57:17,574] INFO:frontend-service:99:creating model tables
+[2023-12-20 16:57:19,212] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 16:57:19,213] INFO:frontend-service:26:feature-service session created
+[2023-12-20 16:57:19,213] INFO:frontend-service:111:creating connection engine
+[2023-12-20 16:57:19,214] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 16:57:19,214] INFO:frontend-service:34:mlflow session created
+[2023-12-20 16:58:11,456] INFO:frontend-service:55:no data update
+[2023-12-20 16:58:11,457] INFO:frontend-service:56:query loop complete
+[2023-12-20 16:59:06,801] INFO:frontend-service:95:creating connection engine
+[2023-12-20 16:59:06,843] INFO:frontend-service:99:creating model tables
+[2023-12-20 16:59:08,474] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 16:59:08,474] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 16:59:08,475] INFO:frontend-service:95:creating connection engine
+[2023-12-20 16:59:08,475] INFO:frontend-service:99:creating model tables
+[2023-12-20 16:59:10,091] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 16:59:10,093] INFO:frontend-service:26:feature-service session created
+[2023-12-20 16:59:10,094] INFO:frontend-service:111:creating connection engine
+[2023-12-20 16:59:10,097] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 16:59:10,098] INFO:frontend-service:34:mlflow session created
+[2023-12-20 16:59:11,464] INFO:frontend-service:55:no data update
+[2023-12-20 16:59:11,465] INFO:frontend-service:56:query loop complete
+[2023-12-20 17:00:44,677] INFO:frontend-service:95:creating connection engine
+[2023-12-20 17:00:44,730] INFO:frontend-service:99:creating model tables
+[2023-12-20 17:00:46,241] INFO:frontend-service:51:hour dataframe updated and saved: 2023-12-20 22:00:00
+[2023-12-20 17:00:46,383] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 17:00:46,384] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 17:00:46,385] INFO:frontend-service:95:creating connection engine
+[2023-12-20 17:00:46,386] INFO:frontend-service:99:creating model tables
+[2023-12-20 17:00:48,050] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 17:00:48,051] INFO:frontend-service:26:feature-service session created
+[2023-12-20 17:00:48,051] INFO:frontend-service:111:creating connection engine
+[2023-12-20 17:00:48,052] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 17:00:48,052] INFO:frontend-service:34:mlflow session created
+[2023-12-20 17:01:20,341] INFO:frontend-service:95:creating connection engine
+[2023-12-20 17:01:20,385] INFO:frontend-service:99:creating model tables
+[2023-12-20 17:01:22,063] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 17:01:22,075] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 17:01:22,075] INFO:frontend-service:95:creating connection engine
+[2023-12-20 17:01:22,077] INFO:frontend-service:99:creating model tables
+[2023-12-20 17:01:23,730] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 17:01:23,731] INFO:frontend-service:26:feature-service session created
+[2023-12-20 17:01:23,733] INFO:frontend-service:111:creating connection engine
+[2023-12-20 17:01:23,736] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 17:01:23,737] INFO:frontend-service:34:mlflow session created
+[2023-12-20 17:01:46,242] INFO:frontend-service:55:no data update
+[2023-12-20 17:01:46,245] INFO:frontend-service:56:query loop complete
+[2023-12-20 17:02:46,248] INFO:frontend-service:55:no data update
+[2023-12-20 17:02:46,248] INFO:frontend-service:56:query loop complete
+[2023-12-20 17:03:46,250] INFO:frontend-service:55:no data update
+[2023-12-20 17:03:46,251] INFO:frontend-service:56:query loop complete
+[2023-12-20 17:04:17,859] INFO:frontend-service:95:creating connection engine
+[2023-12-20 17:04:17,904] INFO:frontend-service:99:creating model tables
+[2023-12-20 17:04:19,512] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 17:04:19,514] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 17:04:19,515] INFO:frontend-service:95:creating connection engine
+[2023-12-20 17:04:19,517] INFO:frontend-service:99:creating model tables
+[2023-12-20 17:04:21,168] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 17:04:21,168] INFO:frontend-service:26:feature-service session created
+[2023-12-20 17:04:21,168] INFO:frontend-service:111:creating connection engine
+[2023-12-20 17:04:21,169] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 17:04:21,169] INFO:frontend-service:34:mlflow session created
+[2023-12-20 17:04:46,253] INFO:frontend-service:55:no data update
+[2023-12-20 17:04:46,254] INFO:frontend-service:56:query loop complete
+[2023-12-20 17:05:46,255] INFO:frontend-service:55:no data update
+[2023-12-20 17:05:46,257] INFO:frontend-service:56:query loop complete
+[2023-12-20 17:06:29,403] INFO:frontend-service:95:creating connection engine
+[2023-12-20 17:06:29,446] INFO:frontend-service:99:creating model tables
+[2023-12-20 17:06:31,030] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 17:06:31,031] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 17:06:31,031] INFO:frontend-service:95:creating connection engine
+[2023-12-20 17:06:31,032] INFO:frontend-service:99:creating model tables
+[2023-12-20 17:06:32,620] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 17:06:32,622] INFO:frontend-service:26:feature-service session created
+[2023-12-20 17:06:32,623] INFO:frontend-service:111:creating connection engine
+[2023-12-20 17:06:32,626] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 17:06:32,627] INFO:frontend-service:34:mlflow session created
+[2023-12-20 17:06:46,259] INFO:frontend-service:55:no data update
+[2023-12-20 17:06:46,260] INFO:frontend-service:56:query loop complete
+[2023-12-20 17:07:40,990] INFO:frontend-service:95:creating connection engine
+[2023-12-20 17:07:41,028] INFO:frontend-service:99:creating model tables
+[2023-12-20 17:07:42,629] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 17:07:42,630] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 17:07:42,631] INFO:frontend-service:95:creating connection engine
+[2023-12-20 17:07:42,631] INFO:frontend-service:99:creating model tables
+[2023-12-20 17:07:44,230] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 17:07:44,230] INFO:frontend-service:26:feature-service session created
+[2023-12-20 17:07:44,231] INFO:frontend-service:111:creating connection engine
+[2023-12-20 17:07:44,232] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 17:07:44,232] INFO:frontend-service:34:mlflow session created
+[2023-12-20 17:07:46,263] INFO:frontend-service:55:no data update
+[2023-12-20 17:07:46,263] INFO:frontend-service:56:query loop complete
+[2023-12-20 17:08:22,204] INFO:frontend-service:95:creating connection engine
+[2023-12-20 17:08:22,241] INFO:frontend-service:99:creating model tables
+[2023-12-20 17:08:23,859] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 17:08:23,861] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 17:08:23,861] INFO:frontend-service:95:creating connection engine
+[2023-12-20 17:08:23,863] INFO:frontend-service:99:creating model tables
+[2023-12-20 17:08:25,499] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 17:08:25,501] INFO:frontend-service:26:feature-service session created
+[2023-12-20 17:08:25,502] INFO:frontend-service:111:creating connection engine
+[2023-12-20 17:08:25,505] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 17:08:25,506] INFO:frontend-service:34:mlflow session created
+[2023-12-20 17:08:46,265] INFO:frontend-service:55:no data update
+[2023-12-20 17:08:46,266] INFO:frontend-service:56:query loop complete
+[2023-12-20 17:09:02,963] INFO:frontend-service:95:creating connection engine
+[2023-12-20 17:09:03,004] INFO:frontend-service:99:creating model tables
+[2023-12-20 17:09:04,589] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 17:09:04,592] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 17:09:04,593] INFO:frontend-service:95:creating connection engine
+[2023-12-20 17:09:04,597] INFO:frontend-service:99:creating model tables
+[2023-12-20 17:09:06,246] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 17:09:06,248] INFO:frontend-service:26:feature-service session created
+[2023-12-20 17:09:06,250] INFO:frontend-service:111:creating connection engine
+[2023-12-20 17:09:06,252] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 17:09:06,253] INFO:frontend-service:34:mlflow session created
+[2023-12-20 17:09:46,267] INFO:frontend-service:55:no data update
+[2023-12-20 17:09:46,269] INFO:frontend-service:56:query loop complete
+[2023-12-20 17:10:35,781] INFO:frontend-service:95:creating connection engine
+[2023-12-20 17:10:35,819] INFO:frontend-service:99:creating model tables
+[2023-12-20 17:10:37,508] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 17:10:37,510] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 17:10:37,512] INFO:frontend-service:95:creating connection engine
+[2023-12-20 17:10:37,514] INFO:frontend-service:99:creating model tables
+[2023-12-20 17:10:39,069] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 17:10:39,072] INFO:frontend-service:26:feature-service session created
+[2023-12-20 17:10:39,074] INFO:frontend-service:111:creating connection engine
+[2023-12-20 17:10:39,077] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 17:10:39,079] INFO:frontend-service:34:mlflow session created
+[2023-12-20 17:10:46,278] INFO:frontend-service:55:no data update
+[2023-12-20 17:10:46,284] INFO:frontend-service:56:query loop complete
+[2023-12-20 17:11:41,248] INFO:frontend-service:95:creating connection engine
+[2023-12-20 17:11:41,294] INFO:frontend-service:99:creating model tables
+[2023-12-20 17:11:42,948] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 17:11:42,951] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 17:11:42,952] INFO:frontend-service:95:creating connection engine
+[2023-12-20 17:11:42,954] INFO:frontend-service:99:creating model tables
+[2023-12-20 17:11:44,537] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 17:11:44,539] INFO:frontend-service:26:feature-service session created
+[2023-12-20 17:11:44,540] INFO:frontend-service:111:creating connection engine
+[2023-12-20 17:11:44,542] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 17:11:44,543] INFO:frontend-service:34:mlflow session created
+[2023-12-20 17:11:46,289] INFO:frontend-service:55:no data update
+[2023-12-20 17:11:46,291] INFO:frontend-service:56:query loop complete
+[2023-12-20 17:12:46,295] INFO:frontend-service:55:no data update
+[2023-12-20 17:12:46,296] INFO:frontend-service:56:query loop complete
+[2023-12-20 17:13:46,297] INFO:frontend-service:55:no data update
+[2023-12-20 17:13:46,297] INFO:frontend-service:56:query loop complete
+[2023-12-20 17:14:46,298] INFO:frontend-service:55:no data update
+[2023-12-20 17:14:46,299] INFO:frontend-service:56:query loop complete
+[2023-12-20 17:15:46,301] INFO:frontend-service:55:no data update
+[2023-12-20 17:15:46,302] INFO:frontend-service:56:query loop complete
+[2023-12-20 17:16:46,302] INFO:frontend-service:55:no data update
+[2023-12-20 17:16:46,303] INFO:frontend-service:56:query loop complete
+[2023-12-20 17:17:46,304] INFO:frontend-service:55:no data update
+[2023-12-20 17:17:46,305] INFO:frontend-service:56:query loop complete
+[2023-12-20 17:18:46,306] INFO:frontend-service:55:no data update
+[2023-12-20 17:18:46,307] INFO:frontend-service:56:query loop complete
+[2023-12-20 17:19:46,308] INFO:frontend-service:55:no data update
+[2023-12-20 17:19:46,309] INFO:frontend-service:56:query loop complete
+[2023-12-20 17:20:46,310] INFO:frontend-service:55:no data update
+[2023-12-20 17:20:46,310] INFO:frontend-service:56:query loop complete
+[2023-12-20 17:21:46,311] INFO:frontend-service:55:no data update
+[2023-12-20 17:21:46,312] INFO:frontend-service:56:query loop complete
+[2023-12-20 17:22:46,313] INFO:frontend-service:55:no data update
+[2023-12-20 17:22:46,319] INFO:frontend-service:56:query loop complete
+[2023-12-20 17:23:46,321] INFO:frontend-service:55:no data update
+[2023-12-20 17:23:46,321] INFO:frontend-service:56:query loop complete
+[2023-12-20 17:24:46,323] INFO:frontend-service:55:no data update
+[2023-12-20 17:24:46,324] INFO:frontend-service:56:query loop complete
+[2023-12-20 17:25:46,325] INFO:frontend-service:55:no data update
+[2023-12-20 17:25:46,325] INFO:frontend-service:56:query loop complete
+[2023-12-20 17:26:46,327] INFO:frontend-service:55:no data update
+[2023-12-20 17:26:46,328] INFO:frontend-service:56:query loop complete
+[2023-12-20 17:27:46,329] INFO:frontend-service:55:no data update
+[2023-12-20 17:27:46,329] INFO:frontend-service:56:query loop complete
+[2023-12-20 17:28:46,330] INFO:frontend-service:55:no data update
+[2023-12-20 17:28:46,331] INFO:frontend-service:56:query loop complete
+[2023-12-20 17:29:46,333] INFO:frontend-service:55:no data update
+[2023-12-20 17:29:46,333] INFO:frontend-service:56:query loop complete
+[2023-12-20 17:30:46,335] INFO:frontend-service:55:no data update
+[2023-12-20 17:30:46,336] INFO:frontend-service:56:query loop complete
+[2023-12-20 17:31:46,337] INFO:frontend-service:55:no data update
+[2023-12-20 17:31:46,337] INFO:frontend-service:56:query loop complete
+[2023-12-20 17:32:46,339] INFO:frontend-service:55:no data update
+[2023-12-20 17:32:46,339] INFO:frontend-service:56:query loop complete
+[2023-12-20 17:33:46,341] INFO:frontend-service:55:no data update
+[2023-12-20 17:33:46,341] INFO:frontend-service:56:query loop complete
+[2023-12-20 17:34:46,343] INFO:frontend-service:55:no data update
+[2023-12-20 17:34:46,343] INFO:frontend-service:56:query loop complete
+[2023-12-20 17:35:46,344] INFO:frontend-service:55:no data update
+[2023-12-20 17:35:46,344] INFO:frontend-service:56:query loop complete
+[2023-12-20 17:36:46,346] INFO:frontend-service:55:no data update
+[2023-12-20 17:36:46,347] INFO:frontend-service:56:query loop complete
+[2023-12-20 17:37:02,562] INFO:frontend-service:95:creating connection engine
+[2023-12-20 17:37:02,603] INFO:frontend-service:99:creating model tables
+[2023-12-20 17:37:04,191] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 17:37:04,192] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 17:37:04,192] INFO:frontend-service:95:creating connection engine
+[2023-12-20 17:37:04,193] INFO:frontend-service:99:creating model tables
+[2023-12-20 17:37:05,724] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 17:37:05,725] INFO:frontend-service:26:feature-service session created
+[2023-12-20 17:37:05,725] INFO:frontend-service:111:creating connection engine
+[2023-12-20 17:37:05,726] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 17:37:05,727] INFO:frontend-service:34:mlflow session created
+[2023-12-20 17:37:46,349] INFO:frontend-service:55:no data update
+[2023-12-20 17:37:46,354] INFO:frontend-service:56:query loop complete
+[2023-12-20 17:52:50,779] INFO:frontend-service:95:creating connection engine
+[2023-12-20 17:52:50,823] INFO:frontend-service:99:creating model tables
+[2023-12-20 17:52:52,700] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 17:52:52,702] INFO:frontend-service:20:prediction-service session created
+[2023-12-20 17:52:52,703] INFO:frontend-service:95:creating connection engine
+[2023-12-20 17:52:52,704] INFO:frontend-service:99:creating model tables
+[2023-12-20 17:52:54,250] INFO:frontend-service:103:defining and returning session object
+[2023-12-20 17:52:54,252] INFO:frontend-service:26:feature-service session created
+[2023-12-20 17:52:54,254] INFO:frontend-service:111:creating connection engine
+[2023-12-20 17:52:54,256] INFO:frontend-service:115:defining and returning session object
+[2023-12-20 17:52:54,257] INFO:frontend-service:32:mlflow session created

@@ -52,7 +52,9 @@ layout = dbc.Container([
                 ),
                 html.Div(id='model-list'),
                 dcc.Store(id='stored-model-id'),
-                html.Div(id='model-details')
+                html.Div(id='model-details'),
+                html.P(''),
+                dcc.Link("model performance", href="/dashboard_pages/page4")
             ], style=style_dict, className="auto-width")
         ], width=3),
 
@@ -73,11 +75,6 @@ layout = dbc.Container([
                     ),
                 ], style=style_dict)
             ]),
-            dbc.Row([
-                html.Div([
-                    html.H5("Prediction History"),
-                    html.Div(id='prediction-table')
-                ], style=style_dict)])
         ], width=7),
 
         dbc.Col([
@@ -135,14 +132,14 @@ def metrics_dropdown(metric_value):
     prevent_initial_call=True
 )
 def model_details(href_input):
-    # check if href address has model ID extension split address to get model ID
+    # check href address has model ID extension split address to get model ID
     if "-" not in list(href_input):
         model_id_clicked = None
         return "", model_id_clicked
     else:
         model_id_clicked = str(href_input.split('-')[1])
 
-    # if model ID present in href query model info
+    # check model ID present in href query model info
     model_info_query = get_model_info(
         logger, session_prediction_service, model_id_clicked)
     if not model_info_query:
@@ -192,7 +189,7 @@ def update_live_prediction(stored_model_id, n_intervals):
     live_datetime_value_time = live_datetime_value_obj.strftime("%H:%M:%S")
     live_datetime_value_date = live_datetime_value_obj.strftime("%Y-%m-%d")
 
-    # if no model ID selected, return only price
+    # check no model ID selected, return only price
     if not stored_model_id:
         current_price_details = html.Div([
             html.P("current:"),
@@ -456,61 +453,13 @@ def update_graph(stored_model_id, n_intervals):
     return fig
 
 
-# populate and return predition table for stored model ID
-@app.callback(
-    Output('prediction-table', 'children'),
-    Input('stored-model-id', 'data')
-)
-def prediction_table(stored_model_id):
-    # check if stored model present
-    if not stored_model_id:
-        return "Select a model to view prediction history."
-
-    # get model info from stored_model_id
-    model_info_query = get_model_info(
-        logger, session_prediction_service, stored_model_id)
-
-    # get prediction results
-    df_prediction_results = get_live_predicted_results_df(
-        logger, session_prediction_service, stored_model_id)
-
-    # check if prediction results exist yet
-    if len(df_prediction_results) == 0:
-        return "no prediction results available."
-
-    return [
-        html.Footer(html.Small(f"ID: {stored_model_id}")),
-        html.Footer(html.Small(
-            f"prediction type: {model_info_query.prediction_type}")),
-        html.P(""),
-        dash_table.DataTable(
-            id='table',
-            columns=[{"name": col.replace("_", " "), "id": col}
-                     for col in df_prediction_results.columns],
-            data=df_prediction_results.reset_index().to_dict('records'),
-            style_table={'margin': 'auto'},
-            style_header={
-                'backgroundColor': 'lightgrey',
-                'fontWeight': 'bold',
-                'fontSize': '12px',
-                'fontFamily': 'Arial'
-            },
-            style_cell={
-                'fontSize': '12px',
-                'fontFamily': 'Arial',
-                'textAlign': 'center'
-            }
-        )
-    ]
-
-
 # populate and return future preditions table for stored model ID
 @app.callback(
     Output('future-prediction-table', 'children'),
     Input('stored-model-id', 'data')
 )
 def future_predictions_table(stored_model_id):
-    # check if stored model present
+    # check stored model present
     if not stored_model_id:
         return "Select a model to view live prediction."
 
@@ -522,7 +471,7 @@ def future_predictions_table(stored_model_id):
     df_future_predictions = get_live_predictions_df(
         logger, session_prediction_service, stored_model_id, current_datetime()[1])
 
-    # check if prediction results exist yet
+    # check prediction results exist yet
     if len(df_future_predictions) == 0:
         return "no predictions yet."
 

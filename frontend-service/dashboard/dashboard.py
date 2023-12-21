@@ -9,7 +9,7 @@ import datetime
 import pandas as pd
 
 from dashboard_init import app, logger, session_prediction_service
-from dashboard_pages import page1, page2, page3, page4
+from dashboard_pages import page1, page2, page3, page4, page5
 from app.query import current_datetime, get_active_models
 from app.prediction_metrics import get_avg_prediction
 
@@ -25,8 +25,10 @@ app.layout = html.Div([
                         href="/dashboard_pages/page2")),
             dbc.NavItem(dbc.NavLink("3) Live Predictions",
                         href="/dashboard_pages/page3")),
+            # dbc.NavItem(dbc.NavLink("Ranking",
+            #             href="/dashboard_pages/page4")),
             dbc.NavItem(dbc.NavLink("System Info",
-                        href="/dashboard_pages/page4"))
+                        href="/dashboard_pages/page5"))
         ],
         brand=html.H4("Price Prediction App"),
         color="#050505",
@@ -140,6 +142,8 @@ def display_page(pathname):
         return page3.layout
     elif pathname == '/dashboard_pages/page4':
         return page4.layout
+    elif pathname == '/dashboard_pages/page5':
+        return page5.layout
     else:
         return home_layout
 
@@ -215,7 +219,7 @@ def update_table(n_intervals):
                              style={'width': '20%',
                                     'height': 'auto',
                                     'object-fit': 'cover'}),
-                    'BTC/USD'], style={'width': '120px', 'padding': '10px'}),
+                    'btc/usd'], style={'width': '120px', 'padding': '10px'}),
                 html.Td(f'{num_active_models} models',
                         style={'padding': '10px'}),
                 html.Td(f'{live_price_value_formatted}',
