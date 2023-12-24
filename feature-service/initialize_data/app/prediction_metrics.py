@@ -135,8 +135,8 @@ def get_live_predictions_df(logger, session, selected_model_id, current_datetime
     })
 
     df_predictions = df_predictions.sort_values(by='datetime', ascending=True)
-    df_predictions['prediction_price_threshold'] = df_predictions['prediction_price_threshold'].astype(
-        float).round(2)
+    df_predictions['prediction_price_threshold'] = df_predictions['prediction_price_threshold']\
+        .astype(float).round(2)
 
     if current_datetime:
         # slice for future predictions only
@@ -151,15 +151,18 @@ def get_live_predictions_df(logger, session, selected_model_id, current_datetime
             .dt.components['hours']
         df_predictions['next_prediction'] = df_predictions['next_prediction'].apply(
             lambda x: f"{x} hours")
-
-        # reorder and name headers
+        
+        # reorder/format and name headers
+        df_predictions['predicted'] = df_predictions['predicted'].replace({0: 'down', 1: 'up'})
+        df_predictions['prediction_price_threshold'] = df_predictions['prediction_price_threshold']\
+            .apply(lambda x: f"${x:,.2f}")
         df_predictions = df_predictions.drop('datetime', axis=1)
         df_predictions = df_predictions[[
             'next_prediction', 'prediction_price_threshold', 'predicted']]
         df_predictions = df_predictions.rename(
-            columns={'next_prediction': 'next prediction',
+            columns={'next_prediction': 'timeframe',
                      'prediction_price_threshold': 'threshold',
-                     'predicted': 'predicted'})
+                     'predicted': 'prediction'})
 
         return df_predictions
 

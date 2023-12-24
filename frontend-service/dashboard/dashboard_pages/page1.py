@@ -294,8 +294,8 @@ def update_label_info(selected_output, relayout_data,
     # define HTML children output
     selected_labels_info = html.Div([
         html.Li(f"output: {selected_output_str}"),
-        html.Li(f"start: {range_end}"),
-        html.Li(f"end: {range_start}"),
+        html.Li(f"start: {range_start}"),
+        html.Li(f"end: {range_end}"),
         html.Li(f"lookahead: {lookahead_timestep} hours"),
         html.Li(f"percent change: + {lookahead_threshold} %"),
         html.P("")

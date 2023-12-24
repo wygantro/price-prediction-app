@@ -22,7 +22,6 @@ dag = DAG(
     'eth_hour_price_dag',
     default_args=default_args,
     schedule_interval='5 * * * *',
-    #schedule_interval='@hourly',
     catchup=False
 )
 
@@ -31,39 +30,39 @@ def eth_hour_price_to_db():
 
     from app.commit import current_datetime
     from app.get_data import eth_hour_price
-    from app.test_service_models import Hour_eth_price_data
+    from app.feature_service_models import Hour_eth_price_data
 
     # delay function execution
     time.sleep(20)
 
     try:
-        engine = create_engine('postgresql://user:postgres@172.30.192.3:5432/test-service-db')
+        engine = create_engine('postgresql://user:postgres@172.30.192.3:5432/feature-service-db')
         Session = sessionmaker(bind=engine)
         session = Session()
 
         # get eth hour price
-        eth_hour_price = eth_hour_price(current_datetime()[1])
+        eth_hour_price_data = eth_hour_price(current_datetime()[1])
 
         new_data = Hour_eth_price_data(
             hour_datetime_id=current_datetime()[1],
-            eth_hour_price_open=eth_hour_price[1],
-            eth_hour_price_close=eth_hour_price[2],
-            eth_hour_price_high=eth_hour_price[3],
-            eth_hour_price_low=eth_hour_price[4],
-            eth_hour_price_vol=eth_hour_price[5],
-            eth_hour_price_vol_weight_avg=eth_hour_price[6]
+            eth_hour_price_open=eth_hour_price_data[1],
+            eth_hour_price_close=eth_hour_price_data[2],
+            eth_hour_price_high=eth_hour_price_data[3],
+            eth_hour_price_low=eth_hour_price_data[4],
+            eth_hour_price_vol=eth_hour_price_data[5],
+            eth_hour_price_vol_weight_avg=eth_hour_price_data[6]
             )
         session.add(new_data)
         session.commit()
         session.close()
-        print("Data saved to database successfully")
+        print("data saved to database successfully")
 
     except Exception as e:
-        print(f"Error: {e}")
+        print(f"error: {e}")
         session.rollback()
-        print("Transaction rolled back")
+        print("transaction rolled back")
 
-# define a PythonOperator to execute the function
+# define PythonOperator to execute the function
 call_api_task = PythonOperator(
     task_id='eth_hour_price_to_db_task',
     python_callable=eth_hour_price_to_db,

@@ -60,7 +60,7 @@ class Model_binaries(Base):
     model_info_id = Column(String(), ForeignKey(
         'model_directory_info.model_id'), unique=True)
 
-    model_binary = Column(LargeBinary())
+    #model_binary = Column(LargeBinary())
     classification_test_report_binary = Column(LargeBinary())
     confusion_matrix_binary = Column(LargeBinary())
     fpr_binary = Column(LargeBinary())
@@ -79,8 +79,8 @@ class Prediction_records(Base):
     model_prediction_id = Column(
         String, ForeignKey('model_directory_info.model_id'))
 
-    prediction_id = Column(String())
-    datetime_entry = Column(DateTime())
+    #prediction_id = Column(String())
+    #datetime_entry = Column(DateTime())
     current_datetime = Column(DateTime())
     current_price = Column(Numeric())
     percent_change_threshold = Column(Numeric())

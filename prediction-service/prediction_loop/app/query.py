@@ -287,7 +287,7 @@ def get_mlflow_model_info(logger, session, models_id_input):
 
     Args:
          logger (logging.Logger): Initialized logger object
-         engine_mlflow (sqlalchemy.orm.session.Session): SQLAlchemy object
+         session_mlflow (sqlalchemy.orm.session.Session): SQLAlchemy object
          models_id_input (str): model ID input
 
     Returns:

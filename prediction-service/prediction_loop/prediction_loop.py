@@ -121,8 +121,6 @@ def prediction_loop():
                     logging.INFO, f"committing prediction entry {prediction_entry_id}")
                 try:
                     new_prediction = Prediction_records(prediction_entry_id=prediction_entry_id,
-                                                        prediction_id=prediction_id,
-                                                        datetime_entry=hour_datetime_id,
                                                         current_datetime=current_price_datetime,
                                                         current_price=current_price,
                                                         percent_change_threshold=percent_change_threshold,
@@ -236,8 +234,6 @@ def prediction_loop():
                             logging.INFO, f"committing prediction entry {prediction_entry_id}")
                         try:
                             new_prediction_i = Prediction_records(prediction_entry_id=prediction_entry_id,
-                                                                  #prediction_id=prediction_id,
-                                                                  #datetime_entry=hour_datetime_id,
                                                                   current_datetime=price_datetime_i,
                                                                   current_price=price_i,
                                                                   percent_change_threshold=percent_change_threshold,

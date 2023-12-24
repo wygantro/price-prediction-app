@@ -88,8 +88,8 @@ def create_db_models(logger, db_url, database_service):
     from sqlalchemy import create_engine
     from sqlalchemy.orm import sessionmaker
 
-    if database_service == 'feature-service' or database_service == 'prediction-service':
-        from app.feature_service_models import Base
+    if database_service == 'feature-service':
+        from app.feature_service_models import Base as Base_feature_service
 
         # create database engine
         logger.log(logging.INFO, "creating connection engine")
@@ -97,13 +97,29 @@ def create_db_models(logger, db_url, database_service):
 
         # create tables with Base object from models
         logger.log(logging.INFO, "creating model tables")
-        Base.metadata.create_all(engine)
+        Base_feature_service.metadata.create_all(engine)
 
         # define and return session object
         logger.log(logging.INFO, "defining and returning session object")
         Session = sessionmaker(bind=engine)
         session = Session()
-        
+        return session
+
+    elif database_service == 'prediction-service':
+        from app.prediction_service_models import Base as Base_prediction_service
+
+        # create database engine
+        logger.log(logging.INFO, "creating connection engine")
+        engine = create_engine(db_url)
+
+        # create tables with Base object from models
+        logger.log(logging.INFO, "creating model tables")
+        Base_prediction_service.metadata.create_all(engine)
+
+        # define and return session object
+        logger.log(logging.INFO, "defining and returning session object")
+        Session = sessionmaker(bind=engine)
+        session = Session()
         return session
 
     elif database_service == 'mlflow':
