@@ -95,7 +95,6 @@ def prediction_loop():
             deployed_models_lst = session_prediction_service.query(
                 Model_directory_info).filter(Model_directory_info.deployed_status == True).all()
             prediction_id = f"prediction_{len(deployed_models_lst)}_{int(datetime.datetime.now().timestamp())}"
-            n = 0
             for deployed_model in deployed_models_lst:
                 prediction_model_id = deployed_model.model_id
                 prediction_lookahead = deployed_model.labels.lookahead_value
@@ -103,7 +102,7 @@ def prediction_loop():
 
                 # calculate prediction datetime/threshold value
                 predicted_value_datetime = current_price_datetime + \
-                    datetime.timedelta(hours=int(prediction_lookahead)) # - 1) 
+                    datetime.timedelta(hours=int(prediction_lookahead)) # - 1) ???
                 predicted_price_threshold = current_price * \
                     float(1 + percent_change_threshold / 100)
                     
@@ -189,21 +188,21 @@ def prediction_loop():
 
             # check if added deployed models
             if len(deployed_models) < len(deployed_models_update):
-                print("new model was deployed!")
+                print("new model was deployed!") # log here
                 # find added model ID and store in list
                 model_added = deployed_models_set.symmetric_difference(deployed_models_update_set)
                 model_added_lst = list(model_added)
 
                 # call add prediction entries from list of added models
                 for model_id in model_added_lst:
-                    print(f"adding {model_id}")
+                    print(f"adding {model_id}") # log here 
                     # get added model info and prediction model object
                     added_model_obj = session_prediction_service.query(Model_directory_info)\
                         .filter(Model_directory_info.model_id == model_id).first()
                     model_lookahead = added_model_obj.labels.lookahead_value
                     percent_change_threshold = added_model_obj.labels.percent_change_threshold
                     model = get_model_object_gcs(logger, session_mlflow, model_id)
-                    print(model)
+                    print(model) # log here
 
                     # load dataframe from volume
                     df = pd.read_csv('./dataframes/hour_data.csv')
@@ -226,7 +225,7 @@ def prediction_loop():
                         prediction_entry_id = f"{datetime.datetime.now().timestamp()}"
 
                         # calculate prediction datetime/threshold value
-                        predicted_value_datetime_i = price_datetime_i + datetime.timedelta(hours=int(model_lookahead))# - 1)
+                        predicted_value_datetime_i = price_datetime_i + datetime.timedelta(hours=int(model_lookahead))# - 1) ???
                         predicted_price_threshold_i = price_i * float(1 + percent_change_threshold / 100)
 
                         # commit prediction data to database

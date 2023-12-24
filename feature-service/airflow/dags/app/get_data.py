@@ -45,7 +45,7 @@ def daily_price(logger, date_daily):
     Returns: None
     """
     import datetime
-    #import os
+    import os
     import requests
 
     logger.log(logging.INFO, f"getting daily price data for: {date_daily}")
@@ -300,7 +300,7 @@ def minute_price(logger, date_minute, next_url=None):
     Returns: None
     """
     import datetime
-    #import os
+    import os
     import requests
 
     logger.log(logging.INFO, f"getting minute price data for: {date_minute}")
@@ -308,9 +308,8 @@ def minute_price(logger, date_minute, next_url=None):
     date = date_input.strftime("%Y-%m-%d")
 
     # connect to polygon.io and get minute price data
-    #polygon_api_key = os.environ["POLYGON_API_KEY"]
-    #url = f"https://api.polygon.io/v2/aggs/ticker/X:BTCUSD/range/1/minute/{date}/{date}?adjusted=true&sort=asc&limit=5000&apiKey={polygon_api_key}"
-    url = f"https://api.polygon.io/v2/aggs/ticker/X:BTCUSD/range/1/hour/{date}/{date}?adjusted=true&sort=asc&limit=120&apiKey=68V4qcNzPdz7NuKkNvG5Hj2Z1O4hbvJj"
+    polygon_api_key = os.environ["POLYGON_API_KEY"]
+    url = f"https://api.polygon.io/v2/aggs/ticker/X:BTCUSD/range/1/minute/{date}/{date}?adjusted=true&sort=asc&limit=5000&apiKey={polygon_api_key}"
     r = requests.get(url)
     data = r.json()
 
@@ -351,7 +350,7 @@ def eth_daily_price(date_daily):
     date = date_daily.strftime("%Y-%m-%d")
 
     # connect to polygon.io and get daily price data
-    polygon_api_key = '68V4qcNzPdz7NuKkNvG5Hj2Z1O4hbvJj' #os.environ["POLYGON_API_KEY"]
+    polygon_api_key = os.environ["POLYGON_API_KEY"]
     url = f"https://api.polygon.io/v2/aggs/grouped/locale/global/market/crypto/{date}?adjusted=true&apiKey={polygon_api_key}"
     r = requests.get(url)
 
@@ -399,7 +398,7 @@ def eth_hour_price(date_hour, next_url=None):
     date = date_hour.strftime("%Y-%m-%d")
 
     # initial api hour price call
-    polygon_api_key = '68V4qcNzPdz7NuKkNvG5Hj2Z1O4hbvJj' #os.environ["POLYGON_API_KEY"]
+    polygon_api_key = os.environ["POLYGON_API_KEY"]
     url = f"https://api.polygon.io/v2/aggs/ticker/X:ETHUSD/range/1/hour/{date}/{date}?adjusted=true&sort=asc&limit=120&apiKey={polygon_api_key}"
     r = requests.get(url)
     data = r.json()
@@ -479,7 +478,7 @@ def eth_minute_price(date_minute, next_url=None):
     date = date_input.strftime("%Y-%m-%d")
 
     # connect to polygon.io and get minute price data
-    polygon_api_key = '68V4qcNzPdz7NuKkNvG5Hj2Z1O4hbvJj' #os.environ["POLYGON_API_KEY"]
+    polygon_api_key = os.environ["POLYGON_API_KEY"]
     url = f"https://api.polygon.io/v2/aggs/ticker/X:ETHUSD/range/1/minute/{date}/{date}?adjusted=true&sort=asc&limit=5000&apiKey={polygon_api_key}"
     r = requests.get(url)
     data = r.json()

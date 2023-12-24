@@ -17,18 +17,18 @@ def connect_url(database_service):
 
     # check connection service
     if database_service == 'feature-service':
-        db_name = 'feature-service-db' #os.environ["DB_FEATURE_SERVICE_NAME"]
+        db_name = os.environ["DB_FEATURE_SERVICE_NAME"]
     elif database_service == 'prediction-service':
-        db_name = 'prediction-service-db' #os.environ["DB_PREDICTION_SERVICE_NAME"]
+        db_name = os.environ["DB_PREDICTION_SERVICE_NAME"]
     elif database_service == 'mlflow':
-        db_name = 'mlflow-db' #os.environ["DB_MLFLOW_NAME"]
+        db_name = os.environ["DB_MLFLOW_NAME"]
     else:
         pass
 
     # get production environment variables
-    db_user = 'user' #os.environ["DB_USER"]
-    db_pass = 'postgres' #os.environ["DB_PASS"]
-    db_host = '35.184.60.255' #os.environ["DB_HOST"]
-    db_port = '5432' #os.environ["DB_PORT"]
+    db_user = os.environ["DB_USER"]
+    db_pass = os.environ["DB_PASS"]
+    db_host = os.environ["DB_HOST"]
+    db_port = os.environ["DB_PORT"]
 
     return f"postgresql://{db_user}:{db_pass}@{db_host}:{db_port}/{db_name}"

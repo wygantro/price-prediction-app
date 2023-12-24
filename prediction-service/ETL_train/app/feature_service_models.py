@@ -7,6 +7,7 @@ from sqlalchemy.orm import declarative_base
 Base = declarative_base()
 
 
+# BTC price data
 class Daily_price_data(Base):
     __tablename__ = 'daily_price_data'
 
@@ -73,12 +74,55 @@ class Minute_price_data(Base):
         "Hour_price_data", back_populates="minute_price_data")
 
 
+# ETH price data
+class Daily_eth_price_data(Base):
+    __tablename__ = 'daily_eth_price_data'
+
+    daily_datetime_id = Column(DateTime(), primary_key=True)
+
+    # daily price data
+    eth_daily_price_open = Column(Numeric(15, 6))
+    eth_daily_price_close = Column(Numeric(15, 6))
+    eth_daily_price_high = Column(Numeric(15, 6))
+    eth_daily_price_low = Column(Numeric(15, 6))
+    eth_daily_price_vol = Column(Numeric(15, 6))
+    eth_daily_price_vol_weight_avg = Column(Numeric(15, 6))
+
+
+class Hour_eth_price_data(Base):
+    __tablename__ = 'hour_eth_price_data'
+
+    hour_datetime_id = Column(DateTime(), primary_key=True)
+
+    # hour price data
+    eth_hour_price_open = Column(Numeric(15, 6))
+    eth_hour_price_close = Column(Numeric(15, 6))
+    eth_hour_price_high = Column(Numeric(15, 6))
+    eth_hour_price_low = Column(Numeric(15, 6))
+    eth_hour_price_vol = Column(Numeric(15, 6))
+    eth_hour_price_vol_weight_avg = Column(Numeric(15, 6))
+
+
+class Minute_eth_price_data(Base):
+    __tablename__ = 'minute_eth_price_data'
+
+    minute_datetime_id = Column(DateTime(), primary_key=True)
+
+    # minute price data
+    eth_minute_price_open = Column(Numeric(15, 6))
+    eth_minute_price_close = Column(Numeric(15, 6))
+    eth_minute_price_high = Column(Numeric(15, 6))
+    eth_minute_price_low = Column(Numeric(15, 6))
+    eth_minute_price_vol = Column(Numeric(15, 6))
+    eth_minute_price_vol_weight_avg = Column(Numeric(15, 6))
+
+
 class Daily_feature_data(Base):
     __tablename__ = 'daily_feature_data'
 
     daily_feature_datetime_id = Column(DateTime(), primary_key=True)
 
-    # economic idicators
+    # economic indicators
     real_gdp_quarterly = Column(Numeric(15, 6))
     real_gdp_per_capita_quarterly = Column(Numeric(15, 6))
     treasury_yield_3m_daily = Column(Numeric(15, 6))

@@ -6,6 +6,7 @@ from dash.dependencies import Input, Output
 from dash.exceptions import PreventUpdate
 
 import datetime
+import numpy as np
 import pandas as pd
 import plotly.graph_objects as go
 
@@ -43,9 +44,15 @@ layout = dbc.Container([
         dbc.Col([
             dbc.Row([
                 html.Div([
-                    html.H5("Running Accuracy Error"),
-                    html.Div(id='metric-graph-details'),
-                    dcc.Graph(id='metric-comparison-graph'),
+                    html.Div(id='model-graph-details'),
+                    html.Div([
+                        html.Div([
+                            html.Div(id='accuracy-diff-graph'),
+                        ], style={'width': '48%', 'float': 'left'}),
+                        html.Div([
+                            html.Div(id='live-roc-curve'),
+                        ], style={'width': '48%', 'float': 'right'})
+                    ])
                 ], style=style_dict)
             ]),
             dbc.Row([
@@ -131,7 +138,7 @@ def model_details(href_input):
 
 # update metric graph info
 @app.callback(
-    Output('metric-graph-details', 'children'),
+    Output('model-graph-details', 'children'),
     Input('stored-ranking-model-id', 'data'),
     prevent_initial_call=True
 )
@@ -151,27 +158,31 @@ def update_live_prediction(stored_model_id):
     
     return model_details
 
-# update metric comparison graph
+# update accuracy difference graph
 @app.callback(
-    Output('metric-comparison-graph', 'figure'),
+    Output('accuracy-diff-graph', 'children'),
     Input('stored-ranking-model-id', 'data')
 )
-def update_graph(stored_model_id):
+def accuracy_diff_graph(stored_model_id):
+    # check for model ID input
+    if not stored_model_id:
+        return "No models selected"
+    
+    # get model details
+    model_details = get_model_info(
+        logger, session_prediction_service, stored_model_id)
+    if not model_details:
+        return f"No data available for model {stored_model_id}"
+    
     # initialize plotly Figure
     fig = go.Figure()
-
-    # check and get stored model ID info
-    model_info_query = get_model_info(logger, session_prediction_service, stored_model_id)
-    if not model_info_query:
-        stored_model_id = get_active_models(logger, session_prediction_service, 'running_accuracy')[0][0]
-        model_info_query = get_model_info(logger, session_prediction_service, stored_model_id)
 
     # get prediction results
     df_prediction_results = get_live_predicted_results_df(
         logger, session_prediction_service, stored_model_id)
     
     # get test accuracy reference and calculate difference
-    test_accuracy_ref = model_info_query.test_accuracy
+    test_accuracy_ref = model_details.test_accuracy
     accuracy_diff_lst = [float(item) - test_accuracy_ref for item in df_prediction_results['running_accuracy']]
 
     # add metrics data to graph
@@ -197,9 +208,74 @@ def update_graph(stored_model_id):
         name='no difference reference'
     )
     fig.update_yaxes(range=[1, -1])
-    fig.update_layout(showlegend=True)
+    fig.update_layout(showlegend=False)
 
-    return fig
+    # define dcc Graph child with fig
+    accuracy_diff_fig = [
+        html.P(f'Running Accuracy Difference (actual - test) = {accuracy_diff_lst[0]:.2f}'),
+        dcc.Graph(figure=fig, animate=True)
+    ]
+    return accuracy_diff_fig
+
+# live roc curve graph
+@app.callback(
+    Output('live-roc-curve', 'children'),
+    Input('stored-ranking-model-id', 'data')
+)
+def live_roc_curve_graph(stored_model_id):
+    # check for model ID input
+    if not stored_model_id:
+        return "No models selected"
+    
+    # get model details
+    model_details = get_model_info(
+        logger, session_prediction_service, stored_model_id)
+    if not model_details:
+        return f"No data available for model {stored_model_id}"
+
+    # initialize plotly Figure
+    fig = go.Figure()
+
+    
+    # get prediction results
+    df_prediction_results = get_live_predicted_results_df(
+        logger, session_prediction_service, stored_model_id)
+    running_fpr = df_prediction_results['running_FPR'].values.astype('float64') #.to_list() <class 'numpy.ndarray'>
+    running_tpr = df_prediction_results['running_FPR'].values.astype('float64') #.to_list() <class 'numpy.ndarray'>
+    #runnning_thresholds =  # <class 'numpy.ndarray'>
+    
+    # load baseline roc curve details
+    roc_auc = model_details.roc_auc
+    fpr = np.frombuffer(model_details.model_binaries.fpr_binary)
+    tpr = np.frombuffer(model_details.model_binaries.tpr_binary)
+    thresholds = np.frombuffer(model_details.model_binaries.thresholds_binary)
+
+    # define graph layout
+    layout = go.Layout(
+        xaxis=dict(title='False Positive Rate'),
+        yaxis=dict(title='True Positive Rate'),
+        hovermode='closest'
+    )
+
+    # define roc curve values
+    fig = go.Figure(
+        data=[go.Scatter(
+            x=fpr,
+            y=tpr,
+            mode='lines',
+            hoverinfo="text+x+y",
+            text=[f"Threshold: {str(t)}" for t in thresholds],
+            name='ROC Curve'
+        )
+        ], layout=layout)
+
+    # define dcc Graph child with fig
+    live_roc_curve_fig = [
+        html.P(f'Running ROC Area = {roc_auc:.2f}'),
+        dcc.Graph(figure=fig, animate=True)
+    ]
+
+    return live_roc_curve_fig
 
 
 # populate and return model history table for stored model ID

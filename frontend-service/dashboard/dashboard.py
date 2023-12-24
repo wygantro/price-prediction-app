@@ -25,8 +25,6 @@ app.layout = html.Div([
                         href="/dashboard_pages/page2")),
             dbc.NavItem(dbc.NavLink("3) Live Predictions",
                         href="/dashboard_pages/page3")),
-            # dbc.NavItem(dbc.NavLink("Ranking",
-            #             href="/dashboard_pages/page4")),
             dbc.NavItem(dbc.NavLink("System Info",
                         href="/dashboard_pages/page5"))
         ],
@@ -119,7 +117,9 @@ home_layout = html.Div([
         html.A(html.Img(src='./assets/github-mark.png', alt='image',
                         style={'width': '40px',
                                'height': '40px'}),
-                               href='https://github.com/wygantro/price-prediction-app', target='_blank')
+                               href='https://github.com/wygantro/price-prediction-app', target='_blank'),
+        html.P("   "),
+        html.A(html.H4("Docs"), href="/assets/documentation.html", target="_blank")
     ], style={'flex': 1,
               'textAlign': 'left',
               'padding': '40px',
