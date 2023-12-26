@@ -101,6 +101,30 @@ def get_roc_values(X_data, y_data, model):
     return fpr, tpr, thresholds, roc_auc
 
 
+def get_live_roc_values(y_actual, y_predicted):
+    """
+    Calculate live roc curve values for running predicted and actual
+    values.
+
+    Args:
+        y_actual (list): Actual results
+        y_predicted (list): Predicted results
+
+    Returns:
+        float: fpr value
+        float: tpr value
+        float: roc curve threshold value
+        float: roc_auc value
+    """
+    from sklearn.metrics import roc_curve, auc
+
+    # define and call roc_curve functions
+    fpr, tpr, thresholds = roc_curve(y_actual, y_predicted)
+    roc_auc = auc(fpr, tpr)
+
+    return fpr, tpr, thresholds, roc_auc
+
+
 def get_live_predictions_df(logger, session, selected_model_id, current_datetime=None):
     """
     Query and return current prediction values for given model ID.

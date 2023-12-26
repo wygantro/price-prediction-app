@@ -4,14 +4,16 @@ from dash import dcc, html, dash_table
 import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output
 from dash.exceptions import PreventUpdate
+import plotly.figure_factory as ff
 
 import datetime
 import numpy as np
 import pandas as pd
 import plotly.graph_objects as go
+from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 
 from app.query import current_datetime, get_model_info, get_active_models, get_live_minute_price_dataframe
-from app.prediction_metrics import get_current_prediction, get_live_predictions_df, get_live_predicted_results_df
+from app.prediction_metrics import get_current_prediction, get_live_predictions_df, get_live_predicted_results_df, get_live_roc_values
 from dashboard_init import app, logger, session_prediction_service, session_feature_service, style_dict
 
 # page 4 layout
@@ -50,7 +52,8 @@ layout = dbc.Container([
                             html.Div(id='accuracy-diff-graph'),
                         ], style={'width': '48%', 'float': 'left'}),
                         html.Div([
-                            html.Div(id='live-roc-curve'),
+                            html.Div(id='live-conf-matrix'),
+                            #html.Div(id='live-roc-curve'),
                         ], style={'width': '48%', 'float': 'right'})
                     ])
                 ], style=style_dict)
@@ -207,7 +210,7 @@ def accuracy_diff_graph(stored_model_id):
         line=dict(color="red", width=2, dash='dash'),
         name='no difference reference'
     )
-    fig.update_yaxes(range=[1, -1])
+    fig.update_yaxes(range=[-1, 1])
     fig.update_layout(showlegend=False)
 
     # define dcc Graph child with fig
@@ -217,12 +220,68 @@ def accuracy_diff_graph(stored_model_id):
     ]
     return accuracy_diff_fig
 
-# live roc curve graph
+# # live roc curve graph
+# @app.callback(
+#     Output('live-roc-curve', 'children'),
+#     Input('stored-ranking-model-id', 'data')
+# )
+# def live_roc_curve_graph(stored_model_id):
+#     # check for model ID input
+#     if not stored_model_id:
+#         return "No models selected"
+    
+#     # get model details
+#     model_details = get_model_info(
+#         logger, session_prediction_service, stored_model_id)
+#     if not model_details:
+#         return f"No data available for model {stored_model_id}"
+
+#     # initialize plotly Figure
+#     fig = go.Figure()
+
+#     # get prediction results
+#     df_prediction_results = get_live_predicted_results_df(
+#         logger, session_prediction_service, stored_model_id)
+#     y_live_actual = df_prediction_results['actual'].values.astype('int64')
+#     y_live_predicted = df_prediction_results['predicted'].values.astype('int64')
+
+#     # get live roc values
+#     fpr_live, tpr_live, thresholds_live, roc_auc_live = get_live_roc_values(y_live_actual, y_live_predicted)
+
+#     # define graph layout
+#     layout = go.Layout(
+#         xaxis=dict(title='False Positive Rate'),
+#         yaxis=dict(title='True Positive Rate'),
+#         hovermode='closest'
+#     )
+
+#     # define roc curve values
+#     fig = go.Figure(
+#         data=[go.Scatter(
+#             x=fpr_live,
+#             y=tpr_live,
+#             mode='lines',
+#             hoverinfo="text+x+y",
+#             text=[f"Threshold: {str(t)}" for t in thresholds_live],
+#             name='ROC Curve'
+#         )
+#         ], layout=layout)
+
+#     # define dcc Graph child with fig
+#     live_roc_curve_fig = [
+#         html.P(f'Running ROC Area = {roc_auc_live:.2f}'),
+#         dcc.Graph(figure=fig, animate=True)
+#     ]
+
+#     return live_roc_curve_fig
+
+
+# live confusion matrix
 @app.callback(
-    Output('live-roc-curve', 'children'),
+    Output('live-conf-matrix', 'children'),
     Input('stored-ranking-model-id', 'data')
 )
-def live_roc_curve_graph(stored_model_id):
+def live_conf_matrix(stored_model_id):
     # check for model ID input
     if not stored_model_id:
         return "No models selected"
@@ -236,46 +295,33 @@ def live_roc_curve_graph(stored_model_id):
     # initialize plotly Figure
     fig = go.Figure()
 
-    
     # get prediction results
     df_prediction_results = get_live_predicted_results_df(
         logger, session_prediction_service, stored_model_id)
-    running_fpr = df_prediction_results['running_FPR'].values.astype('float64') #.to_list() <class 'numpy.ndarray'>
-    running_tpr = df_prediction_results['running_FPR'].values.astype('float64') #.to_list() <class 'numpy.ndarray'>
-    #runnning_thresholds =  # <class 'numpy.ndarray'>
-    
-    # load baseline roc curve details
-    roc_auc = model_details.roc_auc
-    fpr = np.frombuffer(model_details.model_binaries.fpr_binary)
-    tpr = np.frombuffer(model_details.model_binaries.tpr_binary)
-    thresholds = np.frombuffer(model_details.model_binaries.thresholds_binary)
+    y_live_actual = df_prediction_results['actual'].values.astype('int64')
+    y_live_predicted = df_prediction_results['predicted'].values.astype('int64')
 
-    # define graph layout
-    layout = go.Layout(
-        xaxis=dict(title='False Positive Rate'),
-        yaxis=dict(title='True Positive Rate'),
-        hovermode='closest'
+    # label and define confusion matrix
+    labels = [0, 1]
+    confusion_matrix_def = confusion_matrix(y_live_actual, y_live_predicted, labels=labels)
+    tp_fp_ratio = confusion_matrix_def[1][1] / confusion_matrix_def[0][1]
+
+    # graph confusion matrix
+    fig = ff.create_annotated_heatmap(
+        confusion_matrix_def,
+        x=labels,
+        y=labels,
+        colorscale='Blues',
+        showscale=True
     )
 
-    # define roc curve values
-    fig = go.Figure(
-        data=[go.Scatter(
-            x=fpr,
-            y=tpr,
-            mode='lines',
-            hoverinfo="text+x+y",
-            text=[f"Threshold: {str(t)}" for t in thresholds],
-            name='ROC Curve'
-        )
-        ], layout=layout)
-
     # define dcc Graph child with fig
-    live_roc_curve_fig = [
-        html.P(f'Running ROC Area = {roc_auc:.2f}'),
+    live_conf_matrix_fig = [
+        html.P(f'True Positive to False Positive Ratio = {tp_fp_ratio:.2f}'),
         dcc.Graph(figure=fig, animate=True)
     ]
 
-    return live_roc_curve_fig
+    return live_conf_matrix_fig
 
 
 # populate and return model history table for stored model ID

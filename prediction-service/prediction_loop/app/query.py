@@ -356,8 +356,8 @@ def get_model_object_gcs(logger, session, models_id_input):
 
     # define SQLAlchemy query and get results
     query = text("""
-                SELECT * FROM model_versions
-                WHERE name = :value_name AND version = :value_version
+                    SELECT * FROM model_versions
+                    WHERE name = :value_name AND version = :value_version
                 """)
     result = session.execute(query, {"value_name": f"{models_id_input}",
                                      "value_version": 1})

@@ -102,7 +102,7 @@ def prediction_loop():
 
                 # calculate prediction datetime/threshold value
                 predicted_value_datetime = current_price_datetime + \
-                    datetime.timedelta(hours=int(prediction_lookahead)) # - 1) ???
+                    datetime.timedelta(hours=int(prediction_lookahead)) # - 1) #???
                 predicted_price_threshold = current_price * \
                     float(1 + percent_change_threshold / 100)
                     
@@ -225,7 +225,7 @@ def prediction_loop():
                         prediction_entry_id = f"{datetime.datetime.now().timestamp()}"
 
                         # calculate prediction datetime/threshold value
-                        predicted_value_datetime_i = price_datetime_i + datetime.timedelta(hours=int(model_lookahead))# - 1) ???
+                        predicted_value_datetime_i = price_datetime_i + datetime.timedelta(hours=int(model_lookahead))# - 1) #???
                         predicted_price_threshold_i = price_i * float(1 + percent_change_threshold / 100)
 
                         # commit prediction data to database
