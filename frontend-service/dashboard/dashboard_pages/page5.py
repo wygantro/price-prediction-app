@@ -5,7 +5,7 @@ from dash import html
 # define static layout for Grafana embedding
 layout = html.Div([
     html.Iframe(
-        src="http://34.72.106.126/d/df879a67-6383-4619-84b2-f123b9ebbf1f/price-prediction-app-dashboard?orgId=1&from=now-3h&to=now&refresh=auto&kiosk",
+        src="http://34.72.106.126/d/b6819fe2-e6a4-4ee2-a4e9-18945a0dce55/price-prediction-app?orgId=1&from=now-3h&to=now&refresh=auto&kiosk",
         width="100%",
         height="675",
         style={'border': 'none'}

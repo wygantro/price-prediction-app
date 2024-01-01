@@ -9,7 +9,7 @@ gcloud init
 2. Create api-keys for feature-service API connections
 ```bash
 kubectl create secret generic api-keys \
-    --from-literal=polygon_api_key=68V4qcNzPdz7NuKkNvG5Hj2Z1O4hbvJj
+    --from-literal=polygon_api_key=???
 ```
 
 
@@ -24,6 +24,7 @@ kubectl create secret generic api-keys \
 kubectl get pods --all-namespaces
 kubectl logs POD_NAME
 ```
+
 
 ## Feature Service Alembic Database Migration
 

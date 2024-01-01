@@ -7,8 +7,6 @@ import dash_bootstrap_components as dbc
 import logging
 import pandas as pd
 import plotly.io as pio
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
 
 # initialize logs
 logger = init_logger('frontend-service')
@@ -28,7 +26,7 @@ logger.log(logging.INFO, f"{database_service} session created")
 # initialize mlflow-db engine and session
 database_service = 'mlflow'
 db_url = connect_url(database_service)
-session_mlflow = create_db_models(logger, db_url, database_service) #Session() # create and connect session
+session_mlflow = create_db_models(logger, db_url, database_service)
 logger.log(logging.INFO, f"{database_service} session created")
 
 # define global style dictionary
@@ -58,4 +56,4 @@ app = dash.Dash(__name__,
                 external_stylesheets=[dbc.themes.BOOTSTRAP],
                 suppress_callback_exceptions=True)
 app.title = 'Price Prediction App'
-#server = app.server
+# server = app.server

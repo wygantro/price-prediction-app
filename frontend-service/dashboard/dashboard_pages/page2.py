@@ -1,16 +1,15 @@
 # ./dashboard_pages/page2.py
 
-#import dash
-import time
-from dash import dcc, html, dash_table
+# import dash
+
+from dash import dcc, html
 from dash.dependencies import Input, Output
 import dash_bootstrap_components as dbc
 import plotly.figure_factory as ff
 import plotly.graph_objects as go
 
-import pandas as pd
 import numpy as np
-import pickle
+import pandas as pd
 
 from app.query import get_labels_ids, get_labels_details, get_model_ids, get_model_info, get_mlflow_model_info
 from app.train_test import datetime_train_test_ranges
@@ -121,7 +120,8 @@ def labels_dropdown_details(labels_id_input):
         html.Li(f"start: {labels_details.labels_start_datetime}"),
         html.Li(f"end: {labels_details.labels_end_datetime}"),
         html.Li(f"lookahead: {labels_details.lookahead_value} hours"),
-        html.Li(f"percent change: + {labels_details.percent_change_threshold} %"),
+        html.Li(
+            f"percent change: + {labels_details.percent_change_threshold} %"),
         html.Li(f"trained models: {len(labels_details.model_info)}")
     ]
 
@@ -155,7 +155,7 @@ def models_dropdown_options(labels_id_input):
     Input('models-id-dropdown', 'value'),
     prevent_initial_call=True
 )
-def models_dropdown_details(models_id_input):    
+def models_dropdown_details(models_id_input):
     if not models_id_input:
         checkmark_value = []
         return "No models available for labels selected", checkmark_value
@@ -177,7 +177,8 @@ def models_dropdown_details(models_id_input):
         checkmark_value = []
 
     # define model metrics
-    model_metrics_query = get_model_info(logger, session_prediction_service, models_id_input)
+    model_metrics_query = get_model_info(
+        logger, session_prediction_service, models_id_input)
     train_accuracy_str = "{:.1%}".format(model_metrics_query.train_accuracy)
     test_accuracy_str = "{:.1%}".format(model_metrics_query.test_accuracy)
 
@@ -226,17 +227,17 @@ def update_deployed_status(models_id_input, deploy_model_checkbox):
                 'new_value': 'Production',
                 'record_id_name': models_id_input,
                 'record_id_version': 1
-                }
-            
+            }
+
             session_mlflow.execute(update_statement, params)
             session_mlflow.commit()
             session_mlflow.close()
 
             return [
                 html.Div('Deployed!'),
-                dbc.NavLink("view here", href=f"/dashboard_pages/page3", 
+                dbc.NavLink("view here", href=f"/dashboard_pages/page3",
                             style={"color": "blue", "text-decoration": "underline"})
-                ]
+            ]
 
         elif not deploy_model_checkbox:
             model_details.deployed_status = False
@@ -253,7 +254,7 @@ def update_deployed_status(models_id_input, deploy_model_checkbox):
                 'new_value': 'Staging',
                 'record_id_name': models_id_input,
                 'record_id_version': 1
-                }
+            }
 
             session_mlflow.execute(update_statement, params)
             session_mlflow.commit()
@@ -269,10 +270,10 @@ def update_deployed_status(models_id_input, deploy_model_checkbox):
 @app.callback(
     Output('price-profile-graph', 'figure'),
     Input('labels-id-dropdown', 'value'),
-    #Input('models-id-dropdown', 'value'),
+    # Input('models-id-dropdown', 'value'),
     prevent_initial_call=True
 )
-def price_profile_graph(labels_id_input):#, model_id_input):
+def price_profile_graph(labels_id_input):  # , model_id_input):
     df = pd.read_csv('./dataframes/hour_data.csv')
 
     if not labels_id_input:
@@ -309,8 +310,8 @@ def price_profile_graph(labels_id_input):#, model_id_input):
         df['hour_datetime_id'] = pd.to_datetime(df['hour_datetime_id'])
 
         # define range for dataframe based on labels info
-        start_date_i = df[df['hour_datetime_id']==start_date].index.item()
-        end_date_i = df[df['hour_datetime_id']==end_date].index.item()
+        start_date_i = df[df['hour_datetime_id'] == start_date].index.item()
+        end_date_i = df[df['hour_datetime_id'] == end_date].index.item()
         df_labeled = df.iloc[start_date_i:end_date_i]
         labels_datetime_list = df_labeled['hour_datetime_id'].to_list()
 
@@ -338,7 +339,7 @@ def price_profile_graph(labels_id_input):#, model_id_input):
         )
 
         # update figure shading train/test regions for model ID input
-        model_id_input=False # currently muted
+        model_id_input = False  # currently muted
         if model_id_input:
             # define list of tuples to shade train and test regions on graph
             datetime_train_test_ranges_list = datetime_train_test_ranges(

@@ -56,4 +56,5 @@ def dashboard_backend_loop(initialize=False):
                 logger.log(logging.INFO, "query loop complete")
             time.sleep(60)
 
+
 dashboard_backend_loop()

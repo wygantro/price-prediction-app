@@ -346,7 +346,7 @@ def eth_daily_price(date_daily):
     import os
     import requests
 
-    #logger.log(logging.INFO, f"getting daily price data for: {date_daily}")
+    # logger.log(logging.INFO, f"getting daily price data for: {date_daily}")
     date = date_daily.strftime("%Y-%m-%d")
 
     # connect to polygon.io and get daily price data
@@ -374,7 +374,6 @@ def eth_daily_price(date_daily):
     return eth_price_results_lst
 
 
-
 def eth_hour_price(date_hour, next_url=None):
     """
     Connect to hourly price API and return hourly price data.
@@ -394,7 +393,7 @@ def eth_hour_price(date_hour, next_url=None):
     import requests
     import time
 
-    #logger.log(logging.INFO, f"getting hour price data for: {date_hour}")
+    # logger.log(logging.INFO, f"getting hour price data for: {date_hour}")
     date = date_hour.strftime("%Y-%m-%d")
 
     # initial api hour price call
@@ -412,7 +411,7 @@ def eth_hour_price(date_hour, next_url=None):
     except IndexError:
         api_datetime_1 = None
 
-    # while loop over API datetime values and search for price data
+    # while loop over API datetime values and search for hour price data
     while api_datetime_0 != date_hour or api_datetime_1 != date_hour:
         if api_datetime_0 == date_hour:
             price_results_lst = [api_datetime_0,
@@ -473,7 +472,7 @@ def eth_minute_price(date_minute, next_url=None):
     import os
     import requests
 
-    #logger.log(logging.INFO, f"getting minute price data for: {date_minute}")
+    # logger.log(logging.INFO, f"getting minute price data for: {date_minute}")
     date_input = date_minute
     date = date_input.strftime("%Y-%m-%d")
 

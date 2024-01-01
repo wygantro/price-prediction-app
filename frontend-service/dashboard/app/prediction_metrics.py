@@ -21,12 +21,16 @@ def get_avg_prediction(logger, session, datetime_input):
         Prediction_records.lookahead_datetime > datetime_input).all()
 
     # average classification and prediction values
-    classification_lst = [
-        classification.prediction_value for classification in predictions_query]
-    classification_avg = sum(classification_lst) / len(classification_lst)
-    predictions_lst = [
-        prediction.prediction_threshold for prediction in predictions_query]
-    predictions_avg = sum(predictions_lst) / len(predictions_lst)
+    try:
+        classification_lst = [
+            classification.prediction_value for classification in predictions_query]
+        classification_avg = sum(classification_lst) / len(classification_lst)
+        predictions_lst = [
+            prediction.prediction_threshold for prediction in predictions_query]
+        predictions_avg = sum(predictions_lst) / len(predictions_lst)
+    except:
+        classification_avg = 0
+        predictions_avg = 0
 
     return classification_avg, predictions_avg
 
@@ -175,9 +179,10 @@ def get_live_predictions_df(logger, session, selected_model_id, current_datetime
             .dt.components['hours']
         df_predictions['next_prediction'] = df_predictions['next_prediction'].apply(
             lambda x: f"{x} hours")
-        
+
         # reorder/format and name headers
-        df_predictions['predicted'] = df_predictions['predicted'].replace({0: 'down', 1: 'up'})
+        df_predictions['predicted'] = df_predictions['predicted'].replace({
+                                                                          0: 'down', 1: 'up'})
         df_predictions['prediction_price_threshold'] = df_predictions['prediction_price_threshold']\
             .apply(lambda x: f"${x:,.2f}")
         df_predictions = df_predictions.drop('datetime', axis=1)

@@ -1,0 +1,14 @@
+README.md
+
+# ignore feature-service files
+./feature-service/initialize_data
+./feature-service/run/data/api_reference.txt
+./feature-service/run/Dockerfile
+
+# ignore frontend-service files
+./frontend-service/dashboard/Dockerfile1
+./frontend-service/dashboard/Dockerfile2
+
+# ignore prediction-service files
+./prediction-service/etl_train/README.md
+./prediction-service/prediction_loop/Dockerfile

@@ -41,7 +41,6 @@ def datetime_train_test_ranges(labels_datetime_list, train_ratio=0.8):
          datetime.datetime: train halfway timestamp
          datetime.datetime: test halfway timestamp
     """
-    import pandas as pd
 
     # resize dataframes into training set and split
     train_size = int(train_ratio * len(labels_datetime_list))

@@ -8,11 +8,8 @@ from app.prediction_metrics import get_live_predicted_results_df
 from app.query import current_datetime, get_full_feature_dataframe, get_model_object_gcs, deployed_model_lst
 
 import datetime
-from google.cloud import storage
-import joblib
 import logging
 import pandas as pd
-import pickle
 from sqlalchemy import desc, update
 import time
 
@@ -23,36 +20,30 @@ def prediction_loop():
     current input features for predictions. Then commits prediction
     records every hour.
 
-     Args:
-        initialize (bool): Initialization boolean input
-
     Returns: None
     """
     # run and load logger object
     logger = init_logger('prediction-service')
 
     # define sessions
-    # feature-service-db
     database_service = 'feature-service'
     db_url = connect_url(database_service)
     session_feature_service = create_db_models(
         logger, db_url, database_service)
     logger.log(logging.INFO, f"{database_service} session created")
 
-    # prediction-service-db
     database_service = 'prediction-service'
     db_url = connect_url(database_service)
     session_prediction_service = create_db_models(
         logger, db_url, database_service)
     logger.log(logging.INFO, f"{database_service} session created")
 
-    # mlflow-db engine
     database_service = 'mlflow'
     db_url = connect_url(database_service)
     session_mlflow = create_db_models(
         logger, db_url, database_service)
     logger.log(logging.INFO, f"{database_service} session created")
-    
+
     # get latest committed datetime values
     logger.log(logging.INFO, "getting latest database datetime record")
     latest_datetime_record = session_feature_service.query(
@@ -69,10 +60,9 @@ def prediction_loop():
     df = df.drop(['hour_datetime_id', 'daily_id'], axis=1)
     logger.log(
         logging.INFO, f"initial hour dataframe update and saved: {hour_datetime_id}")
-    
+
     # initialize active model IDs list
     deployed_models = deployed_model_lst(logger, session_prediction_service)
-    print(deployed_models)
 
     # enter prediction loop
     while True:
@@ -86,7 +76,11 @@ def prediction_loop():
             df = get_full_feature_dataframe(
                 logger, session_feature_service)
             df.to_csv('./dataframes/hour_data.csv', index=False)
+
+            # stage current feature inputs
             current_price_datetime = df['hour_datetime_id'].iloc[-1]
+            logger.log(
+                logging.INFO, f"prediction update for {current_price_datetime}")
             current_price = df['btc_hour_price_close'].iloc[-1]
             df = df.drop(['hour_datetime_id', 'daily_id'], axis=1)
             X_predict = df.tail(1)
@@ -102,14 +96,15 @@ def prediction_loop():
 
                 # calculate prediction datetime/threshold value
                 predicted_value_datetime = current_price_datetime + \
-                    datetime.timedelta(hours=int(prediction_lookahead)) # - 1) #???
+                    datetime.timedelta(hours=int(prediction_lookahead))
                 predicted_price_threshold = current_price * \
                     float(1 + percent_change_threshold / 100)
-                    
+
                 # get model_object from google cloud storage
                 logger.log(
                     logging.INFO, f"getting prediction model from GCS {prediction_model_id}")
-                model = get_model_object_gcs(logger, session_mlflow, prediction_model_id)
+                model = get_model_object_gcs(
+                    logger, session_mlflow, prediction_model_id)
 
                 # prediction entry ID
                 prediction_entry_id = f"{datetime.datetime.now().timestamp()}"
@@ -119,15 +114,17 @@ def prediction_loop():
                 logger.log(
                     logging.INFO, f"committing prediction entry {prediction_entry_id}")
                 try:
-                    new_prediction = Prediction_records(prediction_entry_id=prediction_entry_id,
-                                                        current_datetime=current_price_datetime,
-                                                        current_price=current_price,
-                                                        percent_change_threshold=percent_change_threshold,
-                                                        lookahead_steps=prediction_lookahead,
-                                                        lookahead_datetime=predicted_value_datetime,
-                                                        prediction_threshold=predicted_price_threshold,
-                                                        prediction_value=prediction_value,
-                                                        model_prediction_id=prediction_model_id)
+                    new_prediction = Prediction_records(
+                        prediction_entry_id=prediction_entry_id,
+                        current_datetime=current_price_datetime,
+                        current_price=current_price,
+                        percent_change_threshold=percent_change_threshold,
+                        lookahead_steps=prediction_lookahead,
+                        lookahead_datetime=predicted_value_datetime,
+                        prediction_threshold=predicted_price_threshold,
+                        prediction_value=prediction_value,
+                        model_prediction_id=prediction_model_id
+                    )
 
                     session_prediction_service.add(new_prediction)
                     session_prediction_service.commit()
@@ -144,7 +141,7 @@ def prediction_loop():
                     prediction_update = update(Model_directory_info).\
                         where(Model_directory_info.model_id == prediction_model_id).\
                         values(running_accuracy=float(df_prediction_results['running_accuracy'].iloc[0]),
-                                running_TPR=float(
+                               running_TPR=float(
                             df_prediction_results['running_TPR'].iloc[0]),
                         running_FPR=float(df_prediction_results['running_FPR'].iloc[0]))
                     session_prediction_service.execute(prediction_update)
@@ -161,7 +158,7 @@ def prediction_loop():
                         logging.INFO,
                         f"no metric to update for {prediction_entry_id}")
 
-                time.sleep(1)
+                time.sleep(0.1)
                 logger.log(
                     logging.INFO, f"prediction entry {prediction_entry_id} successfully")
 
@@ -177,10 +174,10 @@ def prediction_loop():
             logger.log(logging.INFO, f"no prediction update")
             logger.log(
                 logging.INFO, f"prediction loop complete: {current_datetime()[2]}")
-            
 
         # check for changeds in deployed model list
-        deployed_models_update = deployed_model_lst(logger, session_prediction_service)
+        deployed_models_update = deployed_model_lst(
+            logger, session_prediction_service)
         if deployed_models != deployed_models_update:
             # define model sets for comparison
             deployed_models_set = set(deployed_models)
@@ -188,36 +185,42 @@ def prediction_loop():
 
             # check if added deployed models
             if len(deployed_models) < len(deployed_models_update):
-                print("new model was deployed!") # log here
                 # find added model ID and store in list
-                model_added = deployed_models_set.symmetric_difference(deployed_models_update_set)
+                model_added = deployed_models_set.symmetric_difference(
+                    deployed_models_update_set)
+                logger.log(logging.INFO, "new model deployed")
                 model_added_lst = list(model_added)
 
                 # call add prediction entries from list of added models
                 for model_id in model_added_lst:
-                    print(f"adding {model_id}") # log here 
                     # get added model info and prediction model object
+                    logger.log(logging.INFO, f"adding model {model_id}")
                     added_model_obj = session_prediction_service.query(Model_directory_info)\
                         .filter(Model_directory_info.model_id == model_id).first()
                     model_lookahead = added_model_obj.labels.lookahead_value
                     percent_change_threshold = added_model_obj.labels.percent_change_threshold
-                    model = get_model_object_gcs(logger, session_mlflow, model_id)
-                    print(model) # log here
+                    model = get_model_object_gcs(
+                        logger, session_mlflow, model_id)
+                    logger.log(
+                        logging.INFO, f"model {model_id} object successfully pulled from GCS")
 
                     # load dataframe from volume
                     df = pd.read_csv('./dataframes/hour_data.csv')
 
-                    # initializing prediction entries
-                    for i in range(model_lookahead*10):
+                    # initialize prediction entries
+                    logger.log(
+                        logging.INFO, f"initializing predictions for model {model_id}")
+                    for i in range(model_lookahead*4):
                         # offset i for reverse indexing and slice dataframe
                         i_offset = -(i+1)
                         df_predict_i = df.iloc[:i_offset]
-                        
+
                         # get i_offset values
                         price_datetime_i = df_predict_i['hour_datetime_id'].iloc[-1]
                         price_datetime_i = pd.to_datetime(price_datetime_i)
                         price_i = df_predict_i['btc_hour_price_close'].iloc[-1]
-                        df_predict_i = df_predict_i.drop(['hour_datetime_id', 'daily_id'], axis=1)
+                        df_predict_i = df_predict_i.drop(
+                            ['hour_datetime_id', 'daily_id'], axis=1)
                         X_predict_i = df_predict_i.tail(1)
                         prediction_value_i = int(model.predict(X_predict_i)[0])
 
@@ -225,54 +228,60 @@ def prediction_loop():
                         prediction_entry_id = f"{datetime.datetime.now().timestamp()}"
 
                         # calculate prediction datetime/threshold value
-                        predicted_value_datetime_i = price_datetime_i + datetime.timedelta(hours=int(model_lookahead))# - 1) #???
-                        predicted_price_threshold_i = price_i * float(1 + percent_change_threshold / 100)
+                        predicted_value_datetime_i = price_datetime_i + \
+                            datetime.timedelta(hours=int(model_lookahead+1))
+                        predicted_price_threshold_i = price_i * \
+                            float(1 + percent_change_threshold / 100)
 
                         # commit prediction data to database
                         logger.log(
                             logging.INFO, f"committing prediction entry {prediction_entry_id}")
                         try:
-                            new_prediction_i = Prediction_records(prediction_entry_id=prediction_entry_id,
-                                                                  current_datetime=price_datetime_i,
-                                                                  current_price=price_i,
-                                                                  percent_change_threshold=percent_change_threshold,
-                                                                  lookahead_steps=model_lookahead,
-                                                                  lookahead_datetime=predicted_value_datetime_i,
-                                                                  prediction_threshold=predicted_price_threshold_i,
-                                                                  prediction_value=prediction_value_i,
-                                                                  model_prediction_id=model_id)
+                            new_prediction_i = Prediction_records(
+                                prediction_entry_id=prediction_entry_id,
+                                current_datetime=price_datetime_i,
+                                current_price=price_i,
+                                percent_change_threshold=percent_change_threshold,
+                                lookahead_steps=model_lookahead,
+                                lookahead_datetime=predicted_value_datetime_i,
+                                prediction_threshold=predicted_price_threshold_i,
+                                prediction_value=prediction_value_i,
+                                model_prediction_id=model_id
+                            )
 
                             session_prediction_service.add(new_prediction_i)
                             session_prediction_service.commit()
-                            print("predictions commited")
+                            logger.log(
+                                logging.INFO, f"prediction record committed for {model_id}")
 
                         except Exception as e:
                             session_prediction_service.rollback()
-                            print(f"rolledback error {e}")
+                            logger.log(
+                                logging.ERROR, f"prediction entry rolledback error: {e}")
                         session_prediction_service.close()
 
             # check if deleted deployed models
             elif len(deployed_models) > len(deployed_models_update):
-                print("model was deleted")
                 # find deleted model ID and store in list
-                model_deleted = deployed_models_update_set.symmetric_difference(deployed_models_set)
+                model_deleted = deployed_models_update_set.symmetric_difference(
+                    deployed_models_set)
                 model_deleted_lst = list(model_deleted)
-                
+
                 # call delete predictions function from list of deleted models
                 for model_id in model_deleted_lst:
-                    print(f"deleting {model_id}")
+                    logger.log(logging.INFO, f"deleting {model_id}")
                     session_prediction_service.query(Prediction_records)\
                         .filter(Prediction_records.model_prediction_id == model_id).delete()
                     session_prediction_service.commit()
                     session_prediction_service.close()
-                    print(f"{model_id} prediction entries deleted")
-                print(model_deleted_lst)
+                    logger.log(
+                        logging.INFO, f"{model_id} prediction entries deleted")
 
             # update deployed_models list
-            deployed_models = deployed_model_lst(logger, session_prediction_service)
-            print(deployed_models)
+            deployed_models = deployed_model_lst(
+                logger, session_prediction_service)
         else:
-            print("no change in deployed models list")
+            logger.log(logging.INFO, "no change in deployed models list")
 
         time.sleep(1)
 

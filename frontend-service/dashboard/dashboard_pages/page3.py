@@ -10,7 +10,7 @@ import pandas as pd
 import plotly.graph_objects as go
 
 from app.query import current_datetime, get_model_info, get_active_models, get_live_minute_price_dataframe
-from app.prediction_metrics import get_current_prediction, get_live_predictions_df, get_live_predicted_results_df
+from app.prediction_metrics import get_current_prediction, get_live_predictions_df
 from dashboard_init import app, logger, session_prediction_service, session_feature_service, style_dict
 
 # define initial scatter plot
@@ -103,10 +103,10 @@ def metrics_dropdown(metric_value):
         logger, session_prediction_service, metric_value)
     if not active_models:
         return "No active models. Activate models on previous page."
-    
+
     # format metric call
     metric_value_str = metric_value.replace("_", " ")
-    
+
     # ranked models HTML table
     metric_table = html.Table([
         html.Thead(
@@ -208,7 +208,8 @@ def update_live_prediction(stored_model_id, n_intervals):
         logger, session_prediction_service, stored_model_id)
 
     # get next prediction datetime value for model selected
-    next_prediction_datetime = current_datetime()[1] + datetime.timedelta(hours=1)
+    next_prediction_datetime = current_datetime(
+    )[1] + datetime.timedelta(hours=1)
 
     # get next prediction info
     current_prediction_info = get_current_prediction(
@@ -377,29 +378,29 @@ def update_graph(stored_model_id, n_intervals):
 
         # define a custom arrow marker
         arrow_marker_up = dict(
-                symbol="triangle-up",
-                size=8,
-                opacity=0.8,
-                line=dict(width=2, color='darkgrey'),
-                color='lightgreen'
-                )
-        
+            symbol="triangle-up",
+            size=8,
+            opacity=0.8,
+            line=dict(width=2, color='darkgrey'),
+            color='lightgreen'
+        )
+
         # define a custom arrow marker
         arrow_marker_down = dict(
-                symbol="triangle-down",
-                size=8,
-                opacity=0.8,
-                line=dict(width=2, color='darkgrey'),
-                color='red'
-                )
-        
+            symbol="triangle-down",
+            size=8,
+            opacity=0.8,
+            line=dict(width=2, color='darkgrey'),
+            color='red'
+        )
+
         # add price down prediction data
         df_predictions_down = df_predictions[df_predictions['predicted'] == 0]
         fig.add_trace(
             go.Scatter(
                 x=df_predictions_down['datetime'],
                 y=df_predictions_down['prediction_price_threshold'],
-                #line=dict(color='orange'),
+                # line=dict(color='orange'),
                 name='prediction down',
                 yaxis='y',
                 mode='markers',

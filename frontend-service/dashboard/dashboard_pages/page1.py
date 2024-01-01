@@ -12,7 +12,6 @@ import pandas as pd
 from app.prediction_service_models import Labels_directory
 from app.binary_classification import binary_classification_lookahead, datetime_classified_ranges
 from app.query import create_df_labels
-
 from dashboard_init import app, df, logger, session_prediction_service, style_dict
 
 
@@ -29,15 +28,15 @@ initial_fig.add_trace(
 
 # update y-axis and trace
 initial_fig.update_layout(
-        showlegend=False,
-        xaxis=dict(
-            rangeslider=dict(
-                visible=True
-                ),
-            type="date"
+    showlegend=False,
+    xaxis=dict(
+        rangeslider=dict(
+            visible=True
         ),
+        type="date"
+    ),
     yaxis=dict(title='price (usd)')
-    )
+)
 initial_fig.update_traces(line=dict(width=1),
                           selector=dict(mode='lines'))
 
@@ -52,7 +51,9 @@ layout = dbc.Container([
                         id='dropdown-select-output',
                         options=[
                             {'label': 'btc/usd (hour)',
-                             'value': 'btc_hour_price_close'}
+                             'value': 'btc_hour_price_close'},
+                            {'label': 'eth/usd (hour)',
+                             'value': 'eth_hour_price_close'}
                         ],
                         value='btc_hour_price_close',
                         multi=False
@@ -155,6 +156,8 @@ def select_feature(selected_feature):
     return selected_feature_msg
 
 # update graph with range, feature and label inputs
+
+
 @app.callback(
     Output('graph', 'figure'),
     Output('last-updated', 'children'),
@@ -171,7 +174,7 @@ def update_graph(graph_feature_value, lookahead_timestep,
         graph_feature_status = False
     elif graph_feature_value:
         graph_feature_status = True
-    
+
     # load dataframe
     df = pd.read_csv('./dataframes/hour_data.csv')
     last_updated = df['hour_datetime_id'].iloc[-1]
@@ -205,7 +208,7 @@ def update_graph(graph_feature_value, lookahead_timestep,
         # update secondary y axis specific to selected feature
         fig.update_layout(
             yaxis2=dict(
-                title='', #selected_feature_str,
+                title='',
                 overlaying='y',
                 side='right',
                 range=[min(df[graph_feature_value]),
@@ -220,7 +223,7 @@ def update_graph(graph_feature_value, lookahead_timestep,
         xaxis=dict(
             rangeslider=dict(
                 visible=True
-                ),
+            ),
             type="date"
         ),
         yaxis=dict(
@@ -283,8 +286,10 @@ def update_label_info(selected_output, relayout_data,
 
     # get selected datetime range from slider and format
     if relayout_data and 'xaxis.range' in relayout_data:
-        range_start = str(pd.to_datetime(relayout_data['xaxis.range'][0]).round("H"))
-        range_end = str(pd.to_datetime(relayout_data['xaxis.range'][1]).round("H"))
+        range_start = str(pd.to_datetime(
+            relayout_data['xaxis.range'][0]).round("H"))
+        range_end = str(pd.to_datetime(
+            relayout_data['xaxis.range'][1]).round("H"))
     else:
         # datetime object range frame dataframe
         df = pd.read_csv('./dataframes/hour_data.csv')
@@ -321,8 +326,9 @@ def save_label_info(selected_output, relayout_data,
     df = pd.read_csv('./dataframes/hour_data.csv')
 
     # get selected datetime range from slider and format
-    if relayout_data and 'xaxis.range' in relayout_data:            
-        range_start = pd.to_datetime(relayout_data['xaxis.range'][0]).round("H")
+    if relayout_data and 'xaxis.range' in relayout_data:
+        range_start = pd.to_datetime(
+            relayout_data['xaxis.range'][0]).round("H")
         range_end = pd.to_datetime(relayout_data['xaxis.range'][1]).round("H")
     else:
         range_start = df['hour_datetime_id'].iloc[0]
@@ -330,7 +336,8 @@ def save_label_info(selected_output, relayout_data,
 
     # slice the DataFrame based on the datetime range
     df['hour_datetime_id'] = pd.to_datetime(df['hour_datetime_id'])
-    df = df[(df['hour_datetime_id'] >= range_start) & (df['hour_datetime_id'] <= range_end)]
+    df = df[(df['hour_datetime_id'] >= range_start)
+            & (df['hour_datetime_id'] <= range_end)]
 
     ctx = dash.callback_context
     if ctx.triggered[0]['prop_id'] == 'save-button.n_clicks':
@@ -342,15 +349,16 @@ def save_label_info(selected_output, relayout_data,
 
         # create new database entry
         new_labels = Labels_directory(
-                labels_id=labels_id,
-                datetime_created=labels_created_datetime,
-                target_output=selected_output,
-                lookahead_value=lookahead_timestep,
-                percent_change_threshold=lookahead_threshold,
-                labels_start_datetime=range_start,
-                labels_end_datetime=range_end
-                )
-        
+            labels_id=labels_id,
+            datetime_created=labels_created_datetime,
+            target_output=selected_output,
+            frequency='hour',  # temporary
+            lookahead_value=lookahead_timestep,
+            percent_change_threshold=lookahead_threshold,
+            labels_start_datetime=range_start,
+            labels_end_datetime=range_end
+        )
+
         # commit labels info to database
         try:
             session_prediction_service.add(new_labels)
@@ -365,20 +373,20 @@ def save_label_info(selected_output, relayout_data,
     # define default HTML children output download CSV message
     rows, columns = df.shape
     labels_saved_info = html.Div([
-            html.Hr(),
-            html.P(""),
-            html.H6("Dataframe Summary:"),
-            html.P(f"rows: {rows}"),
-            html.P(f"feature columns: {columns}"),
-            html.Button("Download CSV", id="btn_csv"),
-            dcc.Download(id="download-dataframe-csv"),
-            html.P(""),
-            html.Small(save_btn_msg),
-            dbc.NavLink("next page", href="/dashboard_pages/page2",
-                        style={"color": "blue",
-                                "text-decoration": "underline"})
-            ])    
-    
+        html.Hr(),
+        html.P(""),
+        html.H6("Dataframe Summary:"),
+        html.P(f"rows: {rows}"),
+        html.P(f"feature columns: {columns}"),
+        html.Button("Download CSV", id="btn_csv"),
+        dcc.Download(id="download-dataframe-csv"),
+        html.P(""),
+        html.Small(save_btn_msg),
+        dbc.NavLink("next page", href="/dashboard_pages/page2",
+                    style={"color": "blue",
+                           "text-decoration": "underline"})
+    ])
+
     return labels_saved_info, labels_id
 
 

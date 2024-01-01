@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Documentation</title>
+    <title>Price Prediction App Documentation</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
+            margin: 40px;
+            margin-left: 250px;
+            margin-right: 250px;
         }
         h1 {
             color: #333;
@@ -19,31 +21,185 @@
 </head>
 <body>
     <header>
-        <h1>My Documentation</h1>
+        <h1>Price Prediction App Documentation</h1>
     </header>
+    <h3>What?</h3>
+    <p>Price Prediction App provides the basic infrastructure to train,
+        compare, and deploy machine learning models to classify future price
+        movements for different financial assets.</p>
+    <h3>Why?</h3>
+    <p>Deploying a live machine learning model to predict price movement can
+        involve a lot of software infrastructure setup to correctly train,
+        deploy, and visualize predictions/performance. Price Prediction App
+        aims to streamline this process by giving machine learning
+        practitioners the required infrastructure for training models on a
+        consistent dataset throughout their workflow and deployment.</p>
+    <h3>Who?</h3>
+    <p>data scientist, data analyst, machine learning engineer, quantitative
+        finance analyst/trader</p>
+    <h3>Workflow Diagram</h3>
+    <p>Price Prediction App facilitates the classification modeling workflow
+        in three steps. 1) Label future price movement and configure
+        training/test data into a CSV dataframe for offline EDA and training.
+        2) Upload and compare modeling train/test results. 3) Deploy and
+        visualize live price predictions and model performance.</p>
+    <img src="./documentation_assets/workflow_diagram.png" alt="img" width="900" height="300">
     <nav>
         <ul>
-            <li><a href="#section1">Section 1</a></li>
-            <li><a href="#section2">Section 2</a></li>
-            <li><a href="#section3">Section 3</a></li>
+            <li><a href="#step1">Step 1</a></li>
+            <li><a href="#step2">Step 2</a></li>
+            <li><a href="#step3">Step 3</a></li>
+            <li><a href="#system_info">System Info</a></li>
         </ul>
     </nav>
     <main>
-        <section id="section1">
-            <h2>Section 1</h2>
-            <p>This is the content of section 1.</p>
+        <section id="step1">
+            <h3>Step 1: Configure Dataframe</h3>
+            <p>Over 50 macroeconomic input pricing data points and features
+                sampled from 2017 and updated hourly are available for general
+                data analysis, model development, and live predictions. The
+                output price data is classified based on a simple lookahead
+                labeling strategy. Then, the dataset is configured and made
+                available as a datetime object indexed dataframe CSV file ready
+                for training machine learning classifiers. Training on the
+                provided dataset will ensure the trained models uploaded to the
+                platform can interface with these available input features.</p>
+            <ul>
+                <li>Click the "1) Configure Dataframe" link from the nav bar
+                    located at the top of the page.</li>
+                <img src="./documentation_assets/step1_link.png" alt="img" width="850" height="400">
+                <li>Select an output asset of interest in the first dropdown in
+                    the upper left corner to be used as the target/labeled
+                    output price data for training the classifier model.</li>
+                <li>Select available features/inputs from the second dropdown.
+                    This selection will add the feature trace to the price
+                    profile for exploration and visualization.</li>
+                <img src="./documentation_assets/step1_select_output_features.png" alt="img" width="850" height="400">
+                <li>Adjust data using the slider to the time range of interest
+                    and verify start/end time. This time range will be
+                    automatically applied to your final dataframe CSV file and
+                    will limit the number of observations (rows) available for
+                    training/testing.</li>
+                <img src="./documentation_assets/step1_range_selection.png" alt="img" width="850" height="400">
+                <li>The Price Prediction App currently has a simple, lookahead
+                    binary labeling capability for the selected historical
+                    data. The basic idea is if the selected historic output
+                    price increases above the percent change threshold within
+                    the lookahead timesteps, the row will be classified as 1
+                    (buy) at its original datetime index; otherwise, it will be
+                    classified as 0 (hold). The labeling strategy aims to
+                    identify historically bullish and bearish price movement</li>
+                <li>Label output price data by selecting your prediction
+                    lookahead and percent change threshold.</li>
+                <img src="./documentation_assets/step1_config_labels.png" alt="img" width="300" height="400">
+                <li>Then visualize the labeled historic bullish/buy
+                    (highlighted green) opportunities on the graph!</li>
+                <img src="./documentation_assets/step1_labeled_graph.png" alt="img" width="850" height="400">
+                <li>After confirming dataframe size and labeling properties,
+                    save labels info by clicking "Save" (this will record
+                    labels info in the database for retrieval during live
+                    deployment).</li>
+                <img src="./documentation_assets/step1_save_labels.png" alt="img" width="300" height="400">
+                <li>Download the CSV file for offline analysis and model training.</li>
+                <img src="./documentation_assets/step1_csv.png" alt="img" width="850" height="400">
+                <li>Select the "next page" link to confirm label availability
+                    and for trained prediction model upload/comparison.</li>
+            </ul>
         </section>
-        <section id="section2">
-            <h2>Section 2</h2>
-            <p>This is the content of section 2.</p>
+
+        <section id="step2">
+            <h3>Step 2: Explore Trained Models</h3>
+            <p></p>
+            <ul>
+                <li>Click "2) Models" link from nav bar located at the top of
+                    the page.</li>
+                <img src="./documentation_assets/step2_link.png" alt="img" width="600" height="50">
+                <li>Select labels ID from "Available Labels" dropdown.
+                    Information on lookahead values/threshold and number of
+                    trained models will appear below as well an updated
+                    timeframe on the price profile graph where the selected
+                    labeling is applicable.</li>
+                <img src="./documentation_assets/step2_select_labels.png" alt="img" width="850" height="400">
+                <li>Explore available trained models in the "Trained Models"
+                    dropdown. Basic model information will appear below along
+                    with a confusion matrix and ROC curve on the test set.</li>
+                <img src="./documentation_assets/step2_model_info.png" alt="img" width="850" height="400">
+                <li>For detailed model specific information, navigate to Price
+                    Prediction App MLflow directory. Click "powered by MLflow"
+                    link.</li>
+                <li>View all uploaded models, deployment status
+                    (staging/production) and basic tagging information from the
+                    Registered Models page. </li>
+                <img src="./documentation_assets/step2_mlflow_registry.png" alt="img" width="850" height="400">
+                <li>For model version parameters and metrics, click latest version
+                    associated with the model ID then click the associated source
+                    run.</li>
+                <img src="./documentation_assets/step2_mlflow_run.png" alt="img" width="850" height="200">
+                <img src="./documentation_assets/step2_mlflow_params_metrics.png" alt="img" width="850" height="400">
+                <li>Finally, to activate/deploy a specific model, check mark
+                    "activate" in model details and view live predictions on
+                    the next page by clicking "view here" or "3) Live
+                    Predictions" navigation bar located at the top of the page.</li>
+                <img src="./documentation_assets/step2_activate_checkmark.png" alt="img" width="425" height="100">
+            </ul>
         </section>
-        <section id="section3">
-            <h2>Section 3</h2>
-            <p>This is the content of section 3.</p>
+        <section id="step3">
+            <h3>Step 3: Live Price Predictions</h3>
+            <p>Price prediction models are trained offline/locally and uploaded
+                to the Price Prediction App's model directory database and API
+                via a designated MLFlow instance. Trained model
+                objects/artifacts are stored and retrieved from Google Cloud
+                Storage. All trained models must have an associated labels ID
+                to upload and deploy for live predictions.</p>
+            <ul>
+                <li>Click the "3) Live Predictions" link from the navigation
+                    bar located at the top of the page.</li>
+                <img src="./documentation_assets/step3_link.png" alt="img" width="600" height="50">
+                <li>View prediction results by selecting a model ID from the
+                    "Select Deployed Model" links. Also, the deployed model
+                    list is sorted by metric from the dropdown.</li>
+                <li>Model and labeling details are available under the list of
+                    deployed models.</li>
+                <img src="./documentation_assets/step3_live_price.png" alt="img" width="850" height="400">
+                <li>Information for the current prediction is in blue above the
+                    graph. The classification, price threshold, current error,
+                    and next prediction time.</li>
+                <li>Remaining predictions based on the lookahead value are
+                    available under "Next Predictions"</li>
+                <li>To access details on model performance and live prediction
+                    history, click the "model performance" link.</li>
+                <img src="./documentation_assets/step3_live_predictions.png" alt="img" width="850" height="400">
+                <li>Two performance visuals are available for the live
+                    prediction history, running accuracy difference trace, and
+                    a confusion matrix.</li>
+                <li>The running accuracy difference trace is simply a
+                    difference between running prediction accuracy and test
+                    accuracy. Values above 0 mean the model is performing
+                    better than its test accuracy.</li>
+                <li>The confusion matrix references the live prediction/results
+                    history results. All historic live predictions and results
+                    are available in this table.</li>
+                <img src="./documentation_assets/step3_live_performance.png" alt="img" width="850" height="400">
+                <img src="./documentation_assets/step3_prediction_table.png" alt="img" width="850" height="400">
+            </ul>
+        </section>
+        <section id="system_info">
+            <h3>System Info</h3>
+            <p>Basic server-side metrics from Google Cloud Computing are
+                available in the System Info section. Several dashboards
+                powered by Grafana provide monitoring capability connected via
+                Google Cloud APIs.</p>
+            <ul>
+                <li>Click the "System Info" link from the nav bar at the top of
+                    the page.</li>
+                <img src="./documentation_assets/system_info_link.png" alt="img" width="600" height="50">
+                <li>Embedded Grafana dashboard</li>
+                <img src="./documentation_assets/system_info_dashboard.png" alt="img" width="850" height="400">
+            </ul>
         </section>
     </main>
     <footer>
-        <p>&copy; 2023 Your Company</p>
+        <p>&copy; 2023 Price Prediction App</p>
     </footer>
 </body>
 </html>

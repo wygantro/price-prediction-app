@@ -295,13 +295,13 @@ def get_mlflow_model_info(logger, session, models_id_input):
     """
 
     result = session.execute(f"""
-                             SELECT * FROM registered_model_tags
-                             WHERE name = '{models_id_input}';
+                            SELECT * FROM registered_model_tags
+                            WHERE name = '{models_id_input}';
                              """)
     rows = result.fetchall()
 
     # append queried results to list
-    results_lst =[]
+    results_lst = []
     for row in rows:
         results_lst.append(row[1])
 
@@ -371,14 +371,14 @@ def get_model_object_gcs(logger, session, models_id_input):
     file_name = f"0/{model_run_id}/artifacts/{models_id_input}/model.pkl"
     bucket = storage_client.bucket(bucket_name)
     blob = bucket.blob(file_name)
-    
+
     # download pickle file and deserialize
     try:
         binary_model = blob.download_as_bytes()
         model = pickle.loads(binary_model)
     except Exception as e:
         print(f"An error occurred: {e}")
-    
+
     return model
 
 
@@ -400,7 +400,7 @@ def deployed_model_lst(logger, session):
     query_lst = session.query(Model_directory_info.model_id)\
         .filter(Model_directory_info.deployed_status == True)\
         .order_by(Model_directory_info.model_id).all()
-    
+
     deployed_model_lst = [model[0] for model in query_lst]
 
     return deployed_model_lst

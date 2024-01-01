@@ -8,8 +8,8 @@ def initial_daily_feature_df(logger, api_dict, *args_df, initialize=False):
     Initial daily feature API call over a set datetime range.
 
     This function takes in a reference dictionary to call AlphaVantage API 
-    data from 1/1/2017 to current datetime. Then tabulates and returns a 
-    dataframe of results. 
+    data from 1/1/2017 to current datetime. Then returns a dataframe of
+    results. 
 
     Args:
         logger (logging.Logger): Initialized logger object
@@ -37,7 +37,7 @@ def initial_daily_feature_df(logger, api_dict, *args_df, initialize=False):
     else:
         logger.log(logging.ERROR, "input reference dataframe required")
         raise ValueError("input reference dataframe required")
-    
+
     # deine end datetime and empty price dataframes
     end_date = datetime.today()
     D = 'D'
@@ -54,7 +54,7 @@ def initial_daily_feature_df(logger, api_dict, *args_df, initialize=False):
                              'btc_n_transactions': []})
     logger.log(logging.INFO,
                "requesting daily price conditions from polygon.io API")
-    
+
     # for loop over datetime values and request API
     for date_i in date_list:
         url = 'https://api.polygon.io/v2/aggs/grouped/locale/global/market/crypto/{date}?adjusted=true&apiKey=68V4qcNzPdz7NuKkNvG5Hj2Z1O4hbvJj'.format(
@@ -73,7 +73,7 @@ def initial_daily_feature_df(logger, api_dict, *args_df, initialize=False):
             btc_daily_price_info[0]['l'],
             btc_daily_price_info[0]['n']
         ]
-    
+
     # reformat df_price
     logger.log(logging.INFO, "storing price conditions in dictionary")
     df_price = df_price.set_index('date')
@@ -122,9 +122,9 @@ def initial_daily_feature_df(logger, api_dict, *args_df, initialize=False):
         ) - datetime.strptime(last_record['date'], "%Y-%m-%d")
         df = pd.concat([df, df_daily.tail(last_record_delta.days)]
                        ).reset_index(drop=True)
-        
+
         return df
-    
+
     else:
         logger.log(logging.ERROR, "check input df reference type")
         raise ValueError("check input df reference type")
@@ -132,7 +132,7 @@ def initial_daily_feature_df(logger, api_dict, *args_df, initialize=False):
 
 def commit_initial_daily_features(logger, session, df):
     """
-    Indexes input daily feature dataframe and commits to database
+    Indexes input daily feature dataframe and commits to database.
 
     This function takes in a reference dictionary to call AlphaVantage API 
     data from 1/1/2017 to current datetime. Then tabulates and returns a 

@@ -1,8 +1,9 @@
 # ./app/prediction_service_models.py
 
-from sqlalchemy import Column, DateTime, Numeric, ForeignKey, String, LargeBinary, Boolean, Integer, Float
-from sqlalchemy.orm import relationship
+from sqlalchemy import Boolean, Column, DateTime, Float, ForeignKey, Integer, LargeBinary, Numeric, String
 from sqlalchemy.orm import declarative_base
+from sqlalchemy.orm import relationship  
+
 
 Base = declarative_base()
 
@@ -14,6 +15,7 @@ class Labels_directory(Base):
 
     datetime_created = Column(DateTime())
     target_output = Column(String())
+    frequency = Column(String())
     lookahead_value = Column(Integer())
     percent_change_threshold = Column(Float())
     labels_start_datetime = Column(DateTime())
@@ -60,7 +62,7 @@ class Model_binaries(Base):
     model_info_id = Column(String(), ForeignKey(
         'model_directory_info.model_id'), unique=True)
 
-    #model_binary = Column(LargeBinary())
+    # model_binary = Column(LargeBinary())
     classification_test_report_binary = Column(LargeBinary())
     confusion_matrix_binary = Column(LargeBinary())
     fpr_binary = Column(LargeBinary())
@@ -79,8 +81,6 @@ class Prediction_records(Base):
     model_prediction_id = Column(
         String, ForeignKey('model_directory_info.model_id'))
 
-    #prediction_id = Column(String())
-    #datetime_entry = Column(DateTime())
     current_datetime = Column(DateTime())
     current_price = Column(Numeric())
     percent_change_threshold = Column(Numeric())

@@ -132,6 +132,6 @@ def create_db_models(logger, db_url, database_service):
         Session = sessionmaker(bind=engine)
         session = Session()
         return session
-    
+
     else:
         pass

@@ -8,7 +8,6 @@ from airflow.operators.python_operator import PythonOperator
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-# define the default_args dictionary
 default_args = {
     'owner': 'feature-service',
     'start_date': datetime(2023, 1, 1),
@@ -17,15 +16,14 @@ default_args = {
     'retry_delay': timedelta(minutes=5),
 }
 
-# define the DAG
 dag = DAG(
     'eth_daily_price_dag',
     default_args=default_args,
-    schedule_interval='10 1 * * *',
+    schedule_interval='10 0 * * *',
     catchup=False
 )
 
-# define a function to call the API and save data to the database
+
 def eth_daily_price_to_db():
 
     from app.commit import current_datetime
@@ -33,36 +31,35 @@ def eth_daily_price_to_db():
     from app.feature_service_models import Daily_eth_price_data
 
     # delay function execution
-    time.sleep(10)
+    time.sleep(30)
 
     try:
-        engine = create_engine('postgresql://user:postgres@172.30.192.3:5432/feature-service-db')
+        engine = create_engine()
         Session = sessionmaker(bind=engine)
         session = Session()
 
-        # get eth hour price
-        eth_daily_price_data = eth_daily_price(current_datetime()[0])
+        # get ETH previous day price
+        daily_datetime_input = current_datetime()[0] - timedelta(days=1)
+        eth_daily_price_data = eth_daily_price(daily_datetime_input)
 
         new_data = Daily_eth_price_data(
-            daily_datetime_id=current_datetime()[0],
+            daily_datetime_id=daily_datetime_input,
             eth_daily_price_open=eth_daily_price_data[1],
             eth_daily_price_close=eth_daily_price_data[2],
             eth_daily_price_high=eth_daily_price_data[3],
             eth_daily_price_low=eth_daily_price_data[4],
             eth_daily_price_vol=eth_daily_price_data[5],
             eth_daily_price_vol_weight_avg=eth_daily_price_data[6]
-            )
+        )
         session.add(new_data)
         session.commit()
         session.close()
-        print("data saved to database successfully")
 
     except Exception as e:
-        print(f"error: {e}")
         session.rollback()
-        print("transaction rolled back")
 
-# define a PythonOperator to execute the function
+
+# PythonOperator to execute the function
 call_api_task = PythonOperator(
     task_id='eth_daily_price_to_db_task',
     python_callable=eth_daily_price_to_db,

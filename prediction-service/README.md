@@ -42,6 +42,7 @@ target_metadata = prediction_service_models.Base.metadata
 4. Create migration
 ```bash
 alembic revision --autogenerate -m "message"
+alembic revision --autogenerate -m "initial migration"
 ```
 
 
@@ -54,4 +55,7 @@ alembic upgrade head
 6. Rollback migration (if needed)
 ```bash
 alembic downgrade -1
+
+# get current migration status
+alembic current
 ```

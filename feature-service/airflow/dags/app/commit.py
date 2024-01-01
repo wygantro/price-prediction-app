@@ -29,8 +29,8 @@ def current_datetime():
     hour_datetime_id = datetime.datetime(
         year=now.year, month=now.month, day=now.day, hour=now.hour)
     minute_datetime_id = datetime.datetime(year=now.year,
-        month=now.month, day=now.day, hour=now.hour, minute=now.minute)
-    
+                                           month=now.month, day=now.day, hour=now.hour, minute=now.minute)
+
     return daily_datetime_id, hour_datetime_id, minute_datetime_id
 
 

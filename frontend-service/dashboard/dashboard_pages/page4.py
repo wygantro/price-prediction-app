@@ -3,18 +3,14 @@
 from dash import dcc, html, dash_table
 import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output
-from dash.exceptions import PreventUpdate
 import plotly.figure_factory as ff
 
-import datetime
-import numpy as np
-import pandas as pd
 import plotly.graph_objects as go
-from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
+from sklearn.metrics import confusion_matrix
 
-from app.query import current_datetime, get_model_info, get_active_models, get_live_minute_price_dataframe
-from app.prediction_metrics import get_current_prediction, get_live_predictions_df, get_live_predicted_results_df, get_live_roc_values
-from dashboard_init import app, logger, session_prediction_service, session_feature_service, style_dict
+from app.query import get_model_info, get_active_models
+from app.prediction_metrics import get_live_predicted_results_df
+from dashboard_init import app, logger, session_prediction_service, style_dict
 
 # page 4 layout
 layout = dbc.Container([
@@ -53,7 +49,7 @@ layout = dbc.Container([
                         ], style={'width': '48%', 'float': 'left'}),
                         html.Div([
                             html.Div(id='live-conf-matrix'),
-                            #html.Div(id='live-roc-curve'),
+                            # html.Div(id='live-roc-curve'),
                         ], style={'width': '48%', 'float': 'right'})
                     ])
                 ], style=style_dict)
@@ -81,10 +77,10 @@ def metrics_dropdown(metric_value):
         logger, session_prediction_service, metric_value)
     if not active_models:
         return "No active models. Activate models on previous page."
-    
+
     # format metric call
     metric_value_str = metric_value.replace("_", " ")
-    
+
     # ranked models HTML table
     metric_table = html.Table([
         html.Thead(
@@ -111,15 +107,19 @@ def metrics_dropdown(metric_value):
 def model_details(href_input):
     # check href address has model ID extension split address to get model ID
     if "-" not in list(href_input):
-        model_id_clicked = get_active_models(logger, session_prediction_service, 'running_accuracy')[0][0]
+        model_id_clicked = get_active_models(
+            logger, session_prediction_service, 'running_accuracy')[0][0]
     else:
         model_id_clicked = str(href_input.split('-')[1])
 
     # check model ID present in href query model info
-    model_info_query = get_model_info(logger, session_prediction_service, model_id_clicked)
+    model_info_query = get_model_info(
+        logger, session_prediction_service, model_id_clicked)
     if not model_info_query:
-        stored_model_id = get_active_models(logger, session_prediction_service, 'running_accuracy')[0][0]
-        model_info_query = get_model_info(logger, session_prediction_service, stored_model_id)
+        stored_model_id = get_active_models(
+            logger, session_prediction_service, 'running_accuracy')[0][0]
+        model_info_query = get_model_info(
+            logger, session_prediction_service, stored_model_id)
 
     model_details = html.Div([
         html.Hr(),
@@ -145,23 +145,28 @@ def model_details(href_input):
     Input('stored-ranking-model-id', 'data'),
     prevent_initial_call=True
 )
-def update_live_prediction(stored_model_id):    
+def update_live_prediction(stored_model_id):
     # check model ID present in href query model info
     model_info_query = get_model_info(
         logger, session_prediction_service, stored_model_id)
     if not model_info_query:
-        stored_model_id = get_active_models(logger, session_prediction_service, 'running_accuracy')[0][0]
-        model_info_query = get_model_info(logger, session_prediction_service, stored_model_id)
-    
+        stored_model_id = get_active_models(
+            logger, session_prediction_service, 'running_accuracy')[0][0]
+        model_info_query = get_model_info(
+            logger, session_prediction_service, stored_model_id)
+
     model_details = [
         html.P(""),
         html.Footer(html.Small(f"ID: {stored_model_id}")),
-        html.Footer(html.Small(f"prediction type: {model_info_query.prediction_type}"))
-        ]
-    
+        html.Footer(html.Small(
+            f"prediction type: {model_info_query.prediction_type}"))
+    ]
+
     return model_details
 
 # update accuracy difference graph
+
+
 @app.callback(
     Output('accuracy-diff-graph', 'children'),
     Input('stored-ranking-model-id', 'data')
@@ -170,23 +175,24 @@ def accuracy_diff_graph(stored_model_id):
     # check for model ID input
     if not stored_model_id:
         return "No models selected"
-    
+
     # get model details
     model_details = get_model_info(
         logger, session_prediction_service, stored_model_id)
     if not model_details:
         return f"No data available for model {stored_model_id}"
-    
+
     # initialize plotly Figure
     fig = go.Figure()
 
     # get prediction results
     df_prediction_results = get_live_predicted_results_df(
         logger, session_prediction_service, stored_model_id)
-    
+
     # get test accuracy reference and calculate difference
     test_accuracy_ref = model_details.test_accuracy
-    accuracy_diff_lst = [float(item) - test_accuracy_ref for item in df_prediction_results['running_accuracy']]
+    accuracy_diff_lst = [float(
+        item) - test_accuracy_ref for item in df_prediction_results['running_accuracy']]
 
     # add metrics data to graph
     fig.add_trace(
@@ -215,65 +221,11 @@ def accuracy_diff_graph(stored_model_id):
 
     # define dcc Graph child with fig
     accuracy_diff_fig = [
-        html.P(f'Running Accuracy Difference (actual - test) = {accuracy_diff_lst[0]:.2f}'),
+        html.P(
+            f'Running Accuracy Difference (actual - test) = {accuracy_diff_lst[0]:.2f}'),
         dcc.Graph(figure=fig, animate=True)
     ]
     return accuracy_diff_fig
-
-# # live roc curve graph
-# @app.callback(
-#     Output('live-roc-curve', 'children'),
-#     Input('stored-ranking-model-id', 'data')
-# )
-# def live_roc_curve_graph(stored_model_id):
-#     # check for model ID input
-#     if not stored_model_id:
-#         return "No models selected"
-    
-#     # get model details
-#     model_details = get_model_info(
-#         logger, session_prediction_service, stored_model_id)
-#     if not model_details:
-#         return f"No data available for model {stored_model_id}"
-
-#     # initialize plotly Figure
-#     fig = go.Figure()
-
-#     # get prediction results
-#     df_prediction_results = get_live_predicted_results_df(
-#         logger, session_prediction_service, stored_model_id)
-#     y_live_actual = df_prediction_results['actual'].values.astype('int64')
-#     y_live_predicted = df_prediction_results['predicted'].values.astype('int64')
-
-#     # get live roc values
-#     fpr_live, tpr_live, thresholds_live, roc_auc_live = get_live_roc_values(y_live_actual, y_live_predicted)
-
-#     # define graph layout
-#     layout = go.Layout(
-#         xaxis=dict(title='False Positive Rate'),
-#         yaxis=dict(title='True Positive Rate'),
-#         hovermode='closest'
-#     )
-
-#     # define roc curve values
-#     fig = go.Figure(
-#         data=[go.Scatter(
-#             x=fpr_live,
-#             y=tpr_live,
-#             mode='lines',
-#             hoverinfo="text+x+y",
-#             text=[f"Threshold: {str(t)}" for t in thresholds_live],
-#             name='ROC Curve'
-#         )
-#         ], layout=layout)
-
-#     # define dcc Graph child with fig
-#     live_roc_curve_fig = [
-#         html.P(f'Running ROC Area = {roc_auc_live:.2f}'),
-#         dcc.Graph(figure=fig, animate=True)
-#     ]
-
-#     return live_roc_curve_fig
 
 
 # live confusion matrix
@@ -285,7 +237,7 @@ def live_conf_matrix(stored_model_id):
     # check for model ID input
     if not stored_model_id:
         return "No models selected"
-    
+
     # get model details
     model_details = get_model_info(
         logger, session_prediction_service, stored_model_id)
@@ -299,12 +251,19 @@ def live_conf_matrix(stored_model_id):
     df_prediction_results = get_live_predicted_results_df(
         logger, session_prediction_service, stored_model_id)
     y_live_actual = df_prediction_results['actual'].values.astype('int64')
-    y_live_predicted = df_prediction_results['predicted'].values.astype('int64')
+    y_live_predicted = df_prediction_results['predicted'].values.astype(
+        'int64')
 
     # label and define confusion matrix
     labels = [0, 1]
-    confusion_matrix_def = confusion_matrix(y_live_actual, y_live_predicted, labels=labels)
-    tp_fp_ratio = confusion_matrix_def[1][1] / confusion_matrix_def[0][1]
+    confusion_matrix_def = confusion_matrix(
+        y_live_actual, y_live_predicted, labels=labels)
+
+    # true positive / false positive ratio
+    if confusion_matrix_def[0][1] != 0:
+        tp_fp_ratio = confusion_matrix_def[1][1] / confusion_matrix_def[0][1]
+    else:
+        tp_fp_ratio = 0
 
     # graph confusion matrix
     fig = ff.create_annotated_heatmap(

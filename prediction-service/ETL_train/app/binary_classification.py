@@ -61,7 +61,7 @@ def datetime_classified_lst(labels, datetime_input):
         if labels[i] == 1:
             datetime_classified_lst.append(datetime.datetime.strptime(
                 datetime_input[i], "%Y-%m-%d %H:%M:%S"))
-            
+
     return datetime_classified_lst
 
 
@@ -83,7 +83,7 @@ def datetime_classified_ranges(labels_list, datetime_lst):
     # default return empty list
     if not labels_list:
         return []
-    
+
     # define labels range list and append start/end datetime tuples
     ranges = []
     start_idx = None
