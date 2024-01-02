@@ -10,7 +10,7 @@ pip install mlflow
 3. Initialize MLflow server and database
 ```bash
 mlflow server \
-    --backend-store-uri postgresql://user:postgres@35.184.60.255:5432/mlflow-db \
+    --backend-store-uri # mlflow db uri \
     --default-artifact-root ./mlflow-artifacts \
     --host 0.0.0.0 \
     --port 5000 \
@@ -19,7 +19,7 @@ mlflow server \
 Example :
 
 mlflow server \
-    --backend-store-uri postgresql://user:postgres@35.184.60.255:5432/mlflow-db \   
+    --backend-store-uri # mlflow db uri \   
     --default-artifact-root gs://mlflow_warehouse
 ```
 
@@ -27,8 +27,6 @@ mlflow server \
 ```bash
 http://<MLFLOW_SERVER_HOST>:<MLFLOW_SERVER_PORT>
 ``
-mlflow db upgrade --url postgresql://user:postgres@35.184.60.255:5432/mlflow-db
-
-
+mlflow db upgrade --url # mlflow db uri
 # Replace <MLFLOW_SERVER_HOST> and <MLFLOW_SERVER_PORT> with the host and port where you started the MLflow
 ```

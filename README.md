@@ -1,25 +1,26 @@
 # Price Prediction App
+Price Prediction App provides the basic infrastructure to train, compare, and deploy machine learning models to classify future price movements for different financial assets. This README provides a system overview and high level deployment details for the different services involved.
+
+web application: http://34.28.12.19:8050/
+
+blog:  ???
 
 ## System Overview
-<img src="./documentation/system_overview.png" width="450">
+The application was designed with three indepedent containerized services cooridinated in a single Kubernetes Engine cluster and two Cloud hosted databases.
 
-### details
-- item
-- item
-1. item_1
-2. item_2
+<img src="./documentation/system_overview.png" width="550">
+
+- Feature Service: connects with polygon.io and AlphVantage APIs and samples minute, hour and daily data and commits to feature service database to be used by the application's feature store.
+- Prediction Service: samples active prediction models and commits to prediction service database every hour.
+- Frontend Service: connected to feature service and prediction service database and serves as the application's user interface.
 
 ## System Diagram
-<img src="./documentation/system_diagram.png" width="450">
 
-### details
-- item
-- item
-1. item_1
-2. item_2
+<img src="./documentation/system_diagram.png" width="550">
 
 
 ## Main project Google Cloud Kubernetes Deployment
+<img src="./documentation/deployment_flow.png" width="550">
 
 1. Initialize Google Cloud
 ```bash
@@ -51,11 +52,11 @@ kubectl create secret generic cloudsql-db-credentials \
     --from-literal=db_feature_service_name=feature-service-db \
     --from-literal=db_prediction_service_name=prediction-service-db \
     --from-literal=db_mlflow_name=mlflow-db \
-    --from-literal=username=user \
-    --from-literal=password=postgres \
+    --from-literal=username=??? \
+    --from-literal=password=??? \
     --from-literal=db_name=feature-service-db \
-    --from-literal=db_host=172.30.192.3 \
-    --from-literal=db_port=5432
+    --from-literal=db_host=??? \
+    --from-literal=db_port=???
 ```
 
 

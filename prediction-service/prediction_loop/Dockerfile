@@ -14,9 +14,7 @@ ENV DB_PASS=postgres
 ENV DB_FEATURE_SERVICE_NAME=feature-service-db
 ENV DB_PREDICTION_SERVICE_NAME=prediction-service-db
 ENV DB_MLFLOW_NAME=mlflow-db
-ENV DB_HOST=172.30.192.3
-#ENV DB_HOST=35.184.60.255
-ENV DB_PORT=5432
+### removed host and port
 
 EXPOSE 8000
 

@@ -81,6 +81,43 @@ Table daily_feature_data {
   sar_usd_daily numeric
 }
 
+// ETH price data
+Table daily_eth_price_data {
+  daily_datetime_id datetime [primary key]
+  // daily price data
+  eth_daily_price_open numeric
+  eth_daily_price_close numeric
+  eth_daily_price_high numeric
+  eth_daily_price_low numeric
+  eth_daily_price_vol numeric
+  eth_daily_price_vol_weight_avg numeric
+}
+
+Table hour_eth_price_data {
+  hour_datetime_id datetime [primary key]
+  daily_id datetime
+  // hour price data
+  eth_hour_price_open numeric
+  eth_hour_price_close numeric
+  eth_hour_price_high numeric
+  eth_hour_price_low numeric
+  eth_hour_price_vol numeric
+  eth_hour_price_vol_weight_avg numeric
+}
+
+Table minute_eth_price_data {
+  minute_datetime_id datetime [primary key]
+  daily_id datetime
+  hour_id datetime
+  // minute price data
+  eth_minute_price_open numeric
+  eth_minute_price_close numeric
+  eth_minute_price_high numeric
+  eth_minute_price_low numeric
+  eth_minute_price_vol numeric
+  eth_minute_price_vol_weight_avg numeric
+}
+
 // table relationships
 Ref: daily_price_data.daily_datetime_id < hour_price_data.hour_datetime_id // one-to-many
 Ref: daily_price_data.daily_datetime_id < minute_price_data.minute_datetime_id // one-to-many

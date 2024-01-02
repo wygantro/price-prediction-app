@@ -35,7 +35,6 @@ Table model_binaries {
   model_binaries_id string [primary key]
   model_info_id string
 
-  model_binary binary
   classification_test_report_binary binary
   confusion_matrix_binary binary
   fpr_binary binary
@@ -47,8 +46,6 @@ Table prediction_records {
   prediction_entry_id string [primary key]
   model_prediction_id string
 
-  prediction_id string
-  datetime_entry datetime
   current_datetime datetime
   current_price numeric
   percent_change_threshold numeric
