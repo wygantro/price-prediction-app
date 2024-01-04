@@ -1,14 +1,14 @@
 # Price Prediction App
-Price Prediction App provides the basic infrastructure to train, compare, and deploy machine learning models to classify future price movements for different financial assets. This README provides a system overview and high level deployment details for the different services involved.
+Price Prediction App provides the basic infrastructure to train, compare, and deploy machine learning models to classify future price movements for different financial assets. This README details a system overview and high level deployment steps for the different services involved.
 
-web application: http://34.28.12.19:8050/
+link: http://34.28.12.19:8050/
 
 blog:  ???
 
 ## System Overview
 The application was designed with three indepedent containerized services cooridinated in a single Kubernetes Engine cluster and two Cloud hosted databases.
 
-<img src="./documentation/system_overview.png" width="550">
+<img src="./documentation/system_overview.png" width="650">
 
 - Feature Service: connects with polygon.io and AlphVantage APIs and samples minute, hour and daily data and commits to feature service database to be used by the application's feature store.
 - Prediction Service: samples active prediction models and commits to prediction service database every hour.
@@ -16,11 +16,11 @@ The application was designed with three indepedent containerized services coorid
 
 ## System Diagram
 
-<img src="./documentation/system_diagram.png" width="550">
+<img src="./documentation/system_diagram.png" width="750">
 
 
 ## Main project Google Cloud Kubernetes Deployment
-<img src="./documentation/deployment_flow.png" width="550">
+<img src="./documentation/deployment_flow.png" width="750">
 
 1. Initialize Google Cloud
 ```bash
