@@ -1,7 +1,9 @@
 # Price Prediction App
 Price Prediction App provides the basic infrastructure to train, compare, and deploy machine learning models to classify future price movements for different financial assets. This README details a system overview and high level deployment steps for the different services involved.
 
-link: http://34.28.12.19:8050/
+[project presentation PDF link](./documentation/price_prediction_app_presentation.pdf)
+
+link: http://34.28.12.19/
 
 blog:  ???
 
