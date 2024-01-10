@@ -1,11 +1,11 @@
 # Price Prediction App
 Price Prediction App provides the basic infrastructure to train, compare, and deploy machine learning models to classify future price movements for different financial assets. This README details a system overview and high level deployment steps for the different services involved.
 
-[project presentation PDF link](./documentation/price_prediction_app_presentation.pdf)
+[project presentation PDF](./documentation/price_prediction_app_presentation.pdf)
+
+[blog post](https://nycdatascience.com/blog/meetup/predictions-for-everyone-with-the-price-prediction-app-an-mlops-platform/)
 
 link: http://34.28.12.19/
-
-blog:  ???
 
 ## System Overview
 The application was designed with three indepedent containerized services cooridinated in a single Kubernetes Engine cluster and two Cloud hosted databases.
