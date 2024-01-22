@@ -46,7 +46,7 @@ layout = dbc.Container([
         dbc.Col([
             dbc.Row([
                 dbc.Col(html.Div([
-                    html.H5("Select Output"),
+                    html.H5("Select Output (step 1)"),
                     dcc.Dropdown(
                         id='dropdown-select-output',
                         options=[
@@ -62,7 +62,7 @@ layout = dbc.Container([
                 ], style=style_dict), width=6),
 
                 dbc.Col(html.Div([
-                    html.H5("Available Features"),
+                    html.H5("Available Features (step 2)"),
                     dcc.Dropdown(
                         id='dropdown-available-inputs',
                         options=[{'label': col.replace("_", " "), 'value': col}
@@ -76,10 +76,12 @@ layout = dbc.Container([
 
             dbc.Row([
                 dbc.Col(html.Div([
-                    html.H5("Graph"),
+                    #html.H5("Graph"),
                     dcc.Graph(id='graph',
                               figure=initial_fig,
-                              animate=True),
+                              animate=False,
+                              style={'height': '500px'}),
+                    html.H5("Select Range (step 4)"),
                     html.Div(id='last-updated')
                 ], style=style_dict))
             ])
@@ -88,7 +90,7 @@ layout = dbc.Container([
         dbc.Col(
             html.Div([
                 html.Div([
-                    html.H5("Label/Classify Output"),
+                    html.H5("Label and Classify Output (step 3)"),
                     html.H6("Lookahead timestep (hours): "),
                     dcc.Input(
                         id='lookahead-timestep',
@@ -116,7 +118,7 @@ layout = dbc.Container([
                         inline=True
                     ),
                     html.P(''),
-                    html.H6("Save Labels"),
+                    html.H6("Save Labels (step 5)"),
                     html.Button('Save', id='save-button', n_clicks=0),
                     html.Div(id='save-button-message')
                 ], style=style_dict),
