@@ -1,4 +1,4 @@
-# websocket_conn.py
+# ./app/websocket_conn.py
 
 import asyncio
 from app.app_init import init_logger
@@ -47,6 +47,7 @@ async def save_down(logger):
         else:
             logger.log(logging.WARNING, 'websocket authenticated failed')
             pass
+        # await asyncio.sleep(0.25)
         logger.log(logging.INFO, 'websocket streaming')
 
         data_buffer_lst = []
@@ -58,14 +59,12 @@ async def save_down(logger):
             await websocket.send(json.dumps(payload))
             msg = await websocket.recv()
             data = json.loads(msg)
-
             # append to list of dictionaries and save as json
             for i in range(len(data)):
                 data_buffer_lst.append(data[i])
 
             if len(data_buffer_lst) >= 10:
                 data_buffer_lst = data_buffer_lst[-10::]
-
             # append to dataframe and save as csv
             try:
                 # convert unix time to datetime object
@@ -82,7 +81,6 @@ async def save_down(logger):
             # slice dataframe greater than length 10 rows
             if len(data_buffer_df) >= 40:
                 data_buffer_df = data_buffer_df.tail(40)
-
             # save data_buffer_df
             file_path = './dataframes/data_buffer_df.csv'
             data_buffer_df.to_csv(file_path, index=False)

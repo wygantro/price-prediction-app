@@ -29,7 +29,8 @@ def current_datetime():
     hour_datetime_id = datetime.datetime(
         year=now.year, month=now.month, day=now.day, hour=now.hour)
     minute_datetime_id = datetime.datetime(year=now.year,
-                                           month=now.month, day=now.day, hour=now.hour, minute=now.minute)
+                                           month=now.month, day=now.day,
+                                           hour=now.hour, minute=now.minute)
 
     return daily_datetime_id, hour_datetime_id, minute_datetime_id
 
@@ -75,55 +76,6 @@ def commit_daily_data(logger, session, date_daily, daily_price_data):
         logger.log(logging.ERROR, f"an error occurred: {e}")
     finally:
         session.close()
-
-
-# intra daily freq data
-def commit_intra_daily_data(logger, session, intra_daily_price_update):
-    """
-    Queries latest daily price record and updates with intra daily data.
-
-    This function takes input logger and database session objects from 
-    application initialization. Then queries daily price data table and
-    gets latest record to update with intra daily price data list.
-
-    Args:
-        logger (logging.Logger): Initialized logger object
-        session (sqlalchemy.orm.session.Session): SQLAlchemy object
-        intra_daily_price_update (list): Indexable list from daily_price 
-        output
-
-    Returns: None
-    """
-    from app.feature_service_models import Daily_price_data
-    from sqlalchemy import desc
-
-    # intra daily update
-    latest_daily_price_record = session.query(Daily_price_data).order_by(
-        desc(Daily_price_data.daily_datetime_id)).first()
-    latest_daily_price_record_id = latest_daily_price_record.daily_datetime_id
-
-    if latest_daily_price_record_id == intra_daily_price_update[0]:
-        try:
-            latest_daily_price_record.btc_daily_price_open = intra_daily_price_update[1]
-            latest_daily_price_record.btc_daily_price_close = intra_daily_price_update[2]
-            latest_daily_price_record.btc_daily_price_high = intra_daily_price_update[3]
-            latest_daily_price_record.btc_daily_price_low = intra_daily_price_update[4]
-            latest_daily_price_record.btc_daily_price_vol = intra_daily_price_update[5]
-            latest_daily_price_record.btc_daily_price_vol_weight_avg = intra_daily_price_update[
-                6]
-            session.commit()
-            logger.log(
-                logging.INFO,
-                f"latest intra daily price data {latest_daily_price_record_id} updated"
-            )
-        except Exception as e:
-            session.rollback()
-            logger.log(logging.ERROR, f"an error occurred: {e}")
-        finally:
-            session.close()
-    else:
-        logger.log(
-            logging.INFO, "latest intra daily price data does not match API")
 
 
 # daily freq feature data
@@ -235,14 +187,16 @@ def commit_hour_data(logger, session, date_hour, hour_price_data):
 
     # commit hour price data
     try:
-        hour_data = Hour_price_data(hour_datetime_id=date_hour,
-                                    daily_id=date_hour.replace(hour=0),
-                                    btc_hour_price_open=hour_price_data[1],
-                                    btc_hour_price_close=hour_price_data[2],
-                                    btc_hour_price_high=hour_price_data[3],
-                                    btc_hour_price_low=hour_price_data[4],
-                                    btc_hour_price_vol=hour_price_data[5],
-                                    btc_hour_price_vol_weight_avg=hour_price_data[6])
+        hour_data = Hour_price_data(
+            hour_datetime_id=date_hour,
+            daily_id=date_hour.replace(hour=0),
+            btc_hour_price_open=hour_price_data[1],
+            btc_hour_price_close=hour_price_data[2],
+            btc_hour_price_high=hour_price_data[3],
+            btc_hour_price_low=hour_price_data[4],
+            btc_hour_price_vol=hour_price_data[5],
+            btc_hour_price_vol_weight_avg=hour_price_data[6]
+        )
 
         session.add(hour_data)
         session.commit()
@@ -255,53 +209,6 @@ def commit_hour_data(logger, session, date_hour, hour_price_data):
 
     finally:
         session.close()
-
-
-# update intra hour data
-def commit_intra_hour_data(logger, session, intra_hour_price_update):
-    """
-    Queries latest hour price record and updates with intra hour data.
-
-    This function takes input logger and database session objects from 
-    application initialization. Then queries hour data table and gets 
-    latest record to update with intra hour price data list.
-
-    Args:
-        logger (logging.Logger): Initialized logger object
-        session (sqlalchemy.orm.session.Session): SQLAlchemy object
-        intra_hour_price_update (list): Indexable list from hour_price 
-        output
-
-    Returns: None
-    """
-    from app.feature_service_models import Hour_price_data
-    from sqlalchemy import desc
-
-    # intra hour update
-    latest_hour_price_record = session.query(Hour_price_data).order_by(
-        desc(Hour_price_data.hour_datetime_id)).first()
-    latest_hour_price_record_id = latest_hour_price_record.hour_datetime_id
-
-    if latest_hour_price_record_id == intra_hour_price_update[0]:
-        try:
-            latest_hour_price_record.btc_hour_price_open = intra_hour_price_update[1]
-            latest_hour_price_record.btc_hour_price_close = intra_hour_price_update[2]
-            latest_hour_price_record.btc_hour_price_high = intra_hour_price_update[3]
-            latest_hour_price_record.btc_hour_price_low = intra_hour_price_update[4]
-            latest_hour_price_record.btc_hour_price_vol = intra_hour_price_update[5]
-            latest_hour_price_record. \
-                btc_hour_price_vol_weight_avg = intra_hour_price_update[6]
-            session.commit()
-            logger.log(
-                logging.INFO, f"latest intra hour price data {latest_hour_price_record_id} updated")
-        except Exception as e:
-            session.rollback()
-            logger.log(logging.ERROR, f"an error occurred: {e}")
-        finally:
-            session.close()
-    else:
-        logger.log(
-            logging.INFO, "latest intra hour price data does not match API")
 
 
 # minute freq data
@@ -341,6 +248,135 @@ def commit_minute_data(logger, session, date_minute, minute_price_data):
         session.commit()
         logger.log(
             logging.INFO, "minute data successfully committed to the database")
+
+    except Exception as e:
+        session.rollback()
+        logger.log(logging.ERROR, f"an error occurred: {e}")
+
+    finally:
+        session.close()
+
+
+#### ETH price data ####
+def commit_eth_daily_data(logger, session, date_daily, daily_price_data):
+    """
+    Index and commit daily datetime ID and price data.
+
+    This function takes input logger and database session objects from 
+    application initialization. Then takes a datetime object ID and 
+    daily price data list and commits to database.
+
+    Args:
+        logger (logging.Logger): Initialized logger object
+        session (sqlalchemy.orm.session.Session): SQLAlchemy object
+        date_daily (datetime.datetime): Daily datetime object timestamp 
+        daily_price_data (list): Indexable list from daily_price output
+
+    Returns: None
+    """
+    from app.feature_service_models import Daily_eth_price_data
+
+    # commit daily price data
+    try:
+        daily_data = Daily_eth_price_data(
+            daily_datetime_id=date_daily,
+            eth_daily_price_open=daily_price_data[1],
+            eth_daily_price_close=daily_price_data[2],
+            eth_daily_price_high=daily_price_data[3],
+            eth_daily_price_low=daily_price_data[4],
+            eth_daily_price_vol=daily_price_data[5],
+            eth_daily_price_vol_weight_avg=daily_price_data[6]
+        )
+
+        session.add(daily_data)
+        session.commit()
+        logger.log(
+            logging.INFO, "daily data successfully committed to the database")
+
+    except Exception as e:
+        session.rollback()
+        logger.log(logging.ERROR, f"an error occurred: {e}")
+    finally:
+        session.close()
+
+
+def commit_eth_hour_data(logger, session, date_hour, hour_price_data):
+    """
+    Index and commit hourly datetime ID and price data.
+
+    This function takes input logger and database session objects from 
+    application initialization. Then takes a datetime object ID and 
+    hourly price data list and commits to database.
+
+    Args:
+        logger (logging.Logger): Initialized logger object
+        session (sqlalchemy.orm.session.Session): SQLAlchemy object
+        date_hour (datetime.datetime): Hourly datetime object timestamp 
+        hour_price_data (list): Indexable list from hour_price output
+
+    Returns: None
+    """
+    from app.feature_service_models import Hour_eth_price_data
+
+    # commit hour price data
+    try:
+        hour_data = Hour_eth_price_data(
+            hour_datetime_id=date_hour,
+            eth_hour_price_open=hour_price_data[1],
+            eth_hour_price_close=hour_price_data[2],
+            eth_hour_price_high=hour_price_data[3],
+            eth_hour_price_low=hour_price_data[4],
+            eth_hour_price_vol=hour_price_data[5],
+            eth_hour_price_vol_weight_avg=hour_price_data[6]
+        )
+
+        session.add(hour_data)
+        session.commit()
+        logger.log(
+            logging.INFO, "hour data successfully committed to the database")
+
+    except Exception as e:
+        session.rollback()
+        logger.log(logging.ERROR, f"an error occurred: {e}")
+
+    finally:
+        session.close()
+
+
+def commit_eth_minute_data(logger, session, date_minute, minute_price_data):
+    """
+    Index and commit minute datetime ID and price data.
+
+    This function takes input logger and database session objects. Then
+    takes a datetime object ID and hourly price data list and commits to
+    database.
+
+    Args:
+        logger (logging.Logger): Initialized logger object
+        session (sqlalchemy.orm.session.Session): SQLAlchemy object
+        date_hour (datetime.datetime): Hourly datetime object timestamp 
+        minute_price_data (list): Indexable list from hour_price output
+
+    Returns: None
+    """
+    from app.feature_service_models import Minute_eth_price_data
+
+    # commit ETH minute price data
+    try:
+        hour_data = Minute_eth_price_data(
+            minute_datetime_id=date_minute,
+            eth_minute_price_open=minute_price_data[1],
+            eth_minute_price_close=minute_price_data[2],
+            eth_minute_price_high=minute_price_data[3],
+            eth_minute_price_low=minute_price_data[4],
+            eth_minute_price_vol=minute_price_data[5],
+            eth_minute_price_vol_weight_avg=minute_price_data[6]
+        )
+
+        session.add(hour_data)
+        session.commit()
+        logger.log(
+            logging.INFO, "hour data successfully committed to the database")
 
     except Exception as e:
         session.rollback()

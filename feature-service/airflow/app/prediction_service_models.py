@@ -1,8 +1,9 @@
 # ./app/prediction_service_models.py
 
-from sqlalchemy import Column, DateTime, Numeric, ForeignKey, String, LargeBinary, Boolean, Integer, Float
-from sqlalchemy.orm import relationship
+from sqlalchemy import Boolean, Column, DateTime, Float, ForeignKey, Integer, LargeBinary, Numeric, String
 from sqlalchemy.orm import declarative_base
+from sqlalchemy.orm import relationship  
+
 
 Base = declarative_base()
 
@@ -80,7 +81,6 @@ class Prediction_records(Base):
     model_prediction_id = Column(
         String, ForeignKey('model_directory_info.model_id'))
 
-    # prediction_id = Column(String())
     current_datetime = Column(DateTime())
     current_price = Column(Numeric())
     percent_change_threshold = Column(Numeric())

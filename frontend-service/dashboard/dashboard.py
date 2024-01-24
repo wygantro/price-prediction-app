@@ -223,7 +223,7 @@ def update_table(n_intervals):
                              style={'width': '20%',
                                     'height': 'auto',
                                     'object-fit': 'cover'}),
-                    'btc/usd'], style={'width': '120px', 'padding': '10px'}),
+                    'BTC/USD'], style={'width': '120px', 'padding': '10px'}),
                 html.Td(f'{num_active_models} models',
                         style={'padding': '10px'}),
                 html.Td(f'{live_price_value_formatted}',

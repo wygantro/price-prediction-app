@@ -59,27 +59,6 @@ def get_current_prediction(logger, session, selected_model_id, current_datetime)
     return current_prediction
 
 
-def get_model_ranking(logger, session):
-    """
-    Query and return deployed model ranking for roc_auc
-
-    Args:
-        logger (logging.Logger): Initialized logger object
-        session (sqlalchemy.orm.session.Session): SQLAlchemy object
-
-    Returns:
-        list: List of tuples
-    """
-    from app.prediction_service_models import Model_directory_info
-
-    # query and rank a list of tuples for model ID and roc_auc
-    model_ids = session.query(Model_directory_info.model_id,
-                              Model_directory_info.roc_auc).order_by(
-        Model_directory_info.roc_auc.desc()).all()
-
-    return model_ids
-
-
 def get_roc_values(X_data, y_data, model):
     """
     Calculate roc curve values for trained classification model.
@@ -100,30 +79,6 @@ def get_roc_values(X_data, y_data, model):
     # define and call roc_curve functions
     y_pred_prob = model.predict_proba(X_data)[:, 1]
     fpr, tpr, thresholds = roc_curve(y_data, y_pred_prob)
-    roc_auc = auc(fpr, tpr)
-
-    return fpr, tpr, thresholds, roc_auc
-
-
-def get_live_roc_values(y_actual, y_predicted):
-    """
-    Calculate live roc curve values for running predicted and actual
-    values.
-
-    Args:
-        y_actual (list): Actual results
-        y_predicted (list): Predicted results
-
-    Returns:
-        float: fpr value
-        float: tpr value
-        float: roc curve threshold value
-        float: roc_auc value
-    """
-    from sklearn.metrics import roc_curve, auc
-
-    # define and call roc_curve functions
-    fpr, tpr, thresholds = roc_curve(y_actual, y_predicted)
     roc_auc = auc(fpr, tpr)
 
     return fpr, tpr, thresholds, roc_auc
@@ -279,28 +234,3 @@ def get_live_predicted_results_df(logger, session, model_id):
     df = df.sort_values(by='datetime', ascending=False)
 
     return df
-
-
-def get_live_prediction_model_ranking(logger, session):
-    """
-    Query and return live prediction model ranking results.
-
-    Args:
-        logger (logging.Logger): Initialized logger object
-        session (sqlalchemy.orm.session.Session): SQLAlchemy object
-
-    Returns:
-        list: list of model ID strings
-    """
-    from app.prediction_service_models import Model_directory
-    from app.query import get_model_ids
-    from app.prediction_metrics import get_live_predicted_results_df
-
-    # get model IDs and rank
-    model_ids_list = get_model_ids(logger, session, labels_id_input=None)
-
-    for model_id in model_ids_list:
-        model_id_results = get_live_predicted_results_df(
-            logger, session, model_id['value']).iloc[0]
-
-    return model_ids_list

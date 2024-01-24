@@ -206,83 +206,83 @@ def hour_price(logger, date_hour, next_url=None):
     return price_results_lst
 
 
-def hour_features(logger, date_hour, next_url=None):
-    """
-    Connect to hourly price API and return hourly price features.
+# def hour_features(logger, date_hour, next_url=None):
+#     """
+#     Connect to hourly price API and return hourly price features.
 
-    This function takes input logger and hourly datetime reference object. 
-    Then takes a datetime object ID input to connect with AlphaVantage API and 
-    return feature values as list.
+#     This function takes input logger and hourly datetime reference object. 
+#     Then takes a datetime object ID input to connect with AlphaVantage API and 
+#     return feature values as list.
 
-    Args:
-        logger (logging.Logger): Initialized logger object
-        date_hour (datetime.datetime): Hourly datetime object timestamp 
+#     Args:
+#         logger (logging.Logger): Initialized logger object
+#         date_hour (datetime.datetime): Hourly datetime object timestamp 
 
-    Returns: None
-    """
-    import datetime
-    import os
-    import requests
-    import time
+#     Returns: None
+#     """
+#     import datetime
+#     import os
+#     import requests
+#     import time
 
-    logger.log(logging.INFO, f"getting hour feature data for: {date_hour}")
-    date = date_hour.strftime("%Y-%m-%d")
+#     logger.log(logging.INFO, f"getting hour feature data for: {date_hour}")
+#     date = date_hour.strftime("%Y-%m-%d")
 
-    # initial api hour price call
-    polygon_api_key = os.environ["POLYGON_API_KEY"]
-    url = f"https://api.polygon.io/v2/aggs/ticker/X:BTCUSD/range/1/hour/{date}/{date}?adjusted=true&sort=asc&limit=120&apiKey={polygon_api_key}"
-    r = requests.get(url)
-    data = r.json()
-    # check api index
-    try:
-        api_datetime_0 = datetime.datetime.utcfromtimestamp(
-            int(data['results'][0]['t']) / 1000.0)
-        api_datetime_1 = datetime.datetime.utcfromtimestamp(
-            int(data['results'][1]['t']) / 1000.0)
-    except IndexError:
-        api_datetime_1 = None
+#     # initial api hour price call
+#     polygon_api_key = os.environ["POLYGON_API_KEY"]
+#     url = f"https://api.polygon.io/v2/aggs/ticker/X:BTCUSD/range/1/hour/{date}/{date}?adjusted=true&sort=asc&limit=120&apiKey={polygon_api_key}"
+#     r = requests.get(url)
+#     data = r.json()
+#     # check api index
+#     try:
+#         api_datetime_0 = datetime.datetime.utcfromtimestamp(
+#             int(data['results'][0]['t']) / 1000.0)
+#         api_datetime_1 = datetime.datetime.utcfromtimestamp(
+#             int(data['results'][1]['t']) / 1000.0)
+#     except IndexError:
+#         api_datetime_1 = None
 
-    while api_datetime_0 != date_hour or api_datetime_1 != date_hour:
-        if api_datetime_0 == date_hour:
-            price_results_lst = [api_datetime_0,
-                                 data['results'][0]['o'],
-                                 data['results'][0]['c'],
-                                 data['results'][0]['h'],
-                                 data['results'][0]['l'],
-                                 data['results'][0]['v'],
-                                 data['results'][0]['vw']]
-            break
+#     while api_datetime_0 != date_hour or api_datetime_1 != date_hour:
+#         if api_datetime_0 == date_hour:
+#             price_results_lst = [api_datetime_0,
+#                                  data['results'][0]['o'],
+#                                  data['results'][0]['c'],
+#                                  data['results'][0]['h'],
+#                                  data['results'][0]['l'],
+#                                  data['results'][0]['v'],
+#                                  data['results'][0]['vw']]
+#             break
 
-        elif api_datetime_1 == date_hour:
-            price_results_lst = [api_datetime_1,
-                                 data['results'][1]['o'],
-                                 data['results'][1]['c'],
-                                 data['results'][1]['h'],
-                                 data['results'][1]['l'],
-                                 data['results'][1]['v'],
-                                 data['results'][1]['vw']]
-            break
+#         elif api_datetime_1 == date_hour:
+#             price_results_lst = [api_datetime_1,
+#                                  data['results'][1]['o'],
+#                                  data['results'][1]['c'],
+#                                  data['results'][1]['h'],
+#                                  data['results'][1]['l'],
+#                                  data['results'][1]['v'],
+#                                  data['results'][1]['vw']]
+#             break
 
-        else:
-            try:
-                next_url = data['next_url']
-            except KeyError:
-                next_url = None
+#         else:
+#             try:
+#                 next_url = data['next_url']
+#             except KeyError:
+#                 next_url = None
 
-            url = f"{next_url}&apiKey={polygon_api_key}"
-            r = requests.get(url)
-            data = r.json()
-            # check api index
-            try:
-                api_datetime_0 = datetime.datetime.utcfromtimestamp(
-                    int(data['results'][0]['t']) / 1000.0)
-                api_datetime_1 = datetime.datetime.utcfromtimestamp(
-                    int(data['results'][1]['t']) / 1000.0)
-            except IndexError:
-                api_datetime_1 = None
-        time.sleep(0.1)
+#             url = f"{next_url}&apiKey={polygon_api_key}"
+#             r = requests.get(url)
+#             data = r.json()
+#             # check api index
+#             try:
+#                 api_datetime_0 = datetime.datetime.utcfromtimestamp(
+#                     int(data['results'][0]['t']) / 1000.0)
+#                 api_datetime_1 = datetime.datetime.utcfromtimestamp(
+#                     int(data['results'][1]['t']) / 1000.0)
+#             except IndexError:
+#                 api_datetime_1 = None
+#         time.sleep(0.1)
 
-    return price_results_lst
+#     return price_results_lst
 
 
 def minute_price(logger, date_minute, next_url=None):
@@ -411,7 +411,7 @@ def eth_hour_price(date_hour, next_url=None):
     except IndexError:
         api_datetime_1 = None
 
-    # while loop over API datetime values and search for price data
+    # while loop over API datetime values and search for hour price data
     while api_datetime_0 != date_hour or api_datetime_1 != date_hour:
         if api_datetime_0 == date_hour:
             price_results_lst = [api_datetime_0,

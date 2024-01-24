@@ -40,31 +40,6 @@ def binary_classification_lookahead(timeseries, lookahead=12, threshold_percent=
     return labels_value, labels_binary
 
 
-def datetime_classified_lst(labels, datetime_input):
-    """
-    Sorts list of datetime values to include only labeled datetimes
-    based on indices of labeled price change input.
-
-    Args:
-        labels (list): Labeled lookahead price change values
-        datetime_input (list): List of datetime values corresponding
-        by index position
-
-    Returns:
-        list: list of only datetime values with labels
-    """
-    import datetime
-
-    # define datetime classified list and append values
-    datetime_classified_lst = []
-    for i in range(len(labels)):
-        if labels[i] == 1:
-            datetime_classified_lst.append(datetime.datetime.strptime(
-                datetime_input[i], "%Y-%m-%d %H:%M:%S"))
-
-    return datetime_classified_lst
-
-
 def datetime_classified_ranges(labels_list, datetime_lst):
     """
     Creates a list of tuples defining datetime range pairs of labeled

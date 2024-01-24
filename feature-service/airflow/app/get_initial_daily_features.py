@@ -8,8 +8,8 @@ def initial_daily_feature_df(logger, api_dict, *args_df, initialize=False):
     Initial daily feature API call over a set datetime range.
 
     This function takes in a reference dictionary to call AlphaVantage API 
-    data from 1/1/2017 to current datetime. Then tabulates and returns a 
-    dataframe of results. 
+    data from 1/1/2017 to current datetime. Then returns a dataframe of
+    results. 
 
     Args:
         logger (logging.Logger): Initialized logger object
@@ -132,7 +132,7 @@ def initial_daily_feature_df(logger, api_dict, *args_df, initialize=False):
 
 def commit_initial_daily_features(logger, session, df):
     """
-    Indexes input daily feature dataframe and commits to database
+    Indexes input daily feature dataframe and commits to database.
 
     This function takes in a reference dictionary to call AlphaVantage API 
     data from 1/1/2017 to current datetime. Then tabulates and returns a 

@@ -310,28 +310,6 @@ def get_mlflow_model_info(logger, session, models_id_input):
     return results_lst
 
 
-def get_model_object(logger, session, models_id_input):
-    """
-    Connects with database, queries all model objects for given deployed
-    model ID.
-
-    Args:
-         logger (logging.Logger): Initialized logger object
-         session (sqlalchemy.orm.session.Session): SQLAlchemy object
-         models_id_input (str): model ID input
-
-    Returns:
-         sqlalchemy.orm.query.Query: model info SQL alchemy object
-    """
-    from app.prediction_service_models import Model_binaries
-
-    # query model object for model ID
-    model_object = session.query(Model_binaries).filter(
-        Model_binaries.model_info_id == models_id_input).first()
-
-    return model_object
-
-
 def get_model_object_gcs(logger, session, models_id_input):
     """
     Connects with mlflow database, queries model run ID for given
@@ -347,7 +325,6 @@ def get_model_object_gcs(logger, session, models_id_input):
          sklearn.model_type: trained ML model object
     """
     from google.cloud import storage
-    import joblib
     import pickle
     from sqlalchemy import text
 
