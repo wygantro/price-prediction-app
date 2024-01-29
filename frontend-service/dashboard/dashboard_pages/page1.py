@@ -76,7 +76,6 @@ layout = dbc.Container([
 
             dbc.Row([
                 dbc.Col(html.Div([
-                    #html.H5("Graph"),
                     dcc.Graph(id='graph',
                               figure=initial_fig,
                               animate=False,

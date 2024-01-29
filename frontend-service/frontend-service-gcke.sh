@@ -31,7 +31,7 @@ gcloud container clusters get-credentials project-cluster
 kubectl apply -f frontend-pvc.yaml
 kubectl apply -f frontend-deployment.yaml
 kubectl apply -f frontend-service.yaml
-kubectl apply -f frontend-ingress.yaml
+#kubectl apply -f frontend-ingress.yaml
 
 echo "frontend-service deployed to GKE"
 

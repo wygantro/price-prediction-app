@@ -223,7 +223,7 @@ def accuracy_diff_graph(stored_model_id):
     accuracy_diff_fig = [
         html.P(
             f'Running Accuracy Difference (actual - test) = {accuracy_diff_lst[0]:.2f}'),
-        dcc.Graph(figure=fig, animate=True)
+        dcc.Graph(figure=fig, animate=False)
     ]
     return accuracy_diff_fig
 
@@ -277,7 +277,7 @@ def live_conf_matrix(stored_model_id):
     # define dcc Graph child with fig
     live_conf_matrix_fig = [
         html.P(f'True Positive to False Positive Ratio = {tp_fp_ratio:.2f}'),
-        dcc.Graph(figure=fig, animate=True)
+        dcc.Graph(figure=fig, animate=False)
     ]
 
     return live_conf_matrix_fig

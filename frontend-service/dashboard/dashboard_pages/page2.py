@@ -58,7 +58,7 @@ layout = dbc.Container([
                 html.Div([
                     html.H5("Price Profile"),
                     dcc.Graph(id='price-profile-graph',
-                              figure=initial_fig, animate=True),
+                              figure=initial_fig, animate=False),
                     html.Div(id='price-profile-details')
                 ], style=style_dict)
             ]),
@@ -483,7 +483,7 @@ def update_confusion_matrix_graph(model_id_input):
     )
 
     # define dcc Graph child with fig
-    confusion_matrix_fig_child = dcc.Graph(figure=fig, animate=True)
+    confusion_matrix_fig_child = dcc.Graph(figure=fig, animate=False)
 
     return confusion_matrix_fig_child
 
@@ -532,7 +532,7 @@ def update_roc_curve_graph(model_id_input):
     # define dcc Graph child with fig
     roc_curve_fig_child = [
         html.P(f'Area = {roc_auc:.2f}'),
-        dcc.Graph(figure=fig, animate=True)
+        dcc.Graph(figure=fig, animate=False)
     ]
 
     return roc_curve_fig_child

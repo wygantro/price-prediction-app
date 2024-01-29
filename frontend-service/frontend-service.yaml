@@ -10,5 +10,5 @@ spec:
   type: LoadBalancer
   ports:
   - protocol: TCP
-    port: 8050
+    port: 80
     targetPort: 8050

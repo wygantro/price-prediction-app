@@ -13,4 +13,4 @@ spec:
               service:
                 name: frontend-dashboard-service
                 port:
-                  number: 8050
+                  number: 80

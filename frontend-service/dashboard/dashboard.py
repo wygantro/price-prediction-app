@@ -13,9 +13,16 @@ from dashboard_pages import page1, page2, page3, page4, page5
 from app.query import current_datetime, get_active_models
 from app.prediction_metrics import get_avg_prediction
 
+# # set custom favicon .ico file
+# favicon_path = "assets/yellow_circle_dot.ico"
+
 # app layout
 app.layout = html.Div([
-    dcc.Location(id='url', refresh=False),
+    dcc.Location(id='url', refresh=True),
+    # html.Link(
+    #     rel='icon',
+    #     href=favicon_path,
+    # ),
     dbc.NavbarSimple(
         children=[
             dbc.NavItem(dbc.NavLink("Home", href="/")),
@@ -49,13 +56,12 @@ home_layout = html.Div([
                 html.Li("Deploy and get live predictions")])
         ], style={'flex': 1, 'textAlign': 'left', 'padding': '40px'})
     ], style={'width': '50%', 'float': 'left'}),
-
     # right side
     html.Div(id='model-serving-table',
              style={'width': '50%', 'float': 'left'}),
     dcc.Interval(
         id='table-update',
-        interval=5*1000
+        interval=1.5*1000
     ),
     html.Div(style={'width': '80vw', 'display': 'inline-block'}),
     html.Div(style={'display': 'flex'}, children=[
@@ -99,7 +105,7 @@ home_layout = html.Div([
             html.Div(style={'width': '10vw', 'display': 'inline-block'}),
             html.H5("Live Price Predictions"),
             html.P(
-                "Activate model deployment to visualize live price predictions and performance!"),
+                "Visualize live price predictions and performance!"),
         ], style={'flex': 1,
                   'textAlign': 'center',
                   'padding': '40px',
@@ -163,17 +169,27 @@ def update_table(n_intervals):
         num_active_models = 0
     num_active_models = len(active_models)
 
-    # load live websocket price and datetime values
+    # load live BTC/USD websocket price and datetime values
     try:
         live_price_df = pd.read_csv('./dataframes/data_buffer_df.csv')
         live_price_value = live_price_df['websocket_price'].iloc[-1]
         live_datetime_value = live_price_df['websocket_datetime'].iloc[-1]
     except pd.errors.EmptyDataError as e:
-        print(f"error occurred: {e}")
         raise PreventUpdate
-
+    
     # format live_price_value
     live_price_value_formatted = "${:,.2f}".format(live_price_value)
+
+    # load live ETH/USD websocket price and datetime values
+    try:
+        live_price_eth_df = pd.read_csv('./dataframes/eth_data_buffer_df.csv')
+        live_price_eth_value = live_price_eth_df['websocket_price'].iloc[-1]
+        #live_datetime_eth_value = live_price_df['websocket_datetime'].iloc[-1]
+    except pd.errors.EmptyDataError as e:
+        raise PreventUpdate
+    
+    # format live_price_value
+    live_price_eth_value_formatted = "${:,.2f}".format(live_price_eth_value)
 
     # get average prediction value
     avg_predictions = get_avg_prediction(
@@ -216,7 +232,7 @@ def update_table(n_intervals):
                                'padding-right': '20px'}),
                 html.Th('')
             ], style={'text-align': 'center'}),
-            # body
+            # BTC/USD
             html.Tr([
                 html.Td([
                     html.Img(src='./assets/bitcoin.png',
@@ -230,6 +246,23 @@ def update_table(n_intervals):
                         style={'padding': '10px'}),
                 html.Td(f'{prediction_msg} {avg_predictions_formatted}', style={
                         'padding': '10px'}),
+                html.Td(dcc.Link("view", href='/dashboard_pages/page3'),
+                        style={'padding': '10px'})
+            ], style={'text-align': 'left'}),
+            # ETH/USD
+            html.Tr([
+                html.Td([
+                    html.Img(src='./assets/Ethereum-ETH-Logo.png',
+                             style={'width': '20%',
+                                    'height': 'auto',
+                                    'object-fit': 'cover'}),
+                    'ETH/USD'], style={'width': '120px', 'padding': '10px'}),
+                html.Td('N/A', #f'{num_active_models} models',
+                        style={'padding': '10px'}),
+                html.Td(f'{live_price_eth_value_formatted}',
+                        style={'padding': '10px'}),
+                html.Td('N/A', #f'{prediction_msg} {avg_predictions_formatted}',
+                        style={'padding': '10px'}),
                 html.Td(dcc.Link("view", href='/dashboard_pages/page3'),
                         style={'padding': '10px'})
             ], style={'text-align': 'left'})

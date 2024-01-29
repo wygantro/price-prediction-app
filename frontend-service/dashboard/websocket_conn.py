@@ -38,7 +38,7 @@ async def save_down(logger):
             print("Task was cancelled!")
         # step 2: authenticate
         payload = {"action": "auth",
-                   "params": "68V4qcNzPdz7NuKkNvG5Hj2Z1O4hbvJj"}
+                   "params": ""}
         await websocket.send(json.dumps(payload))
         authenticate_msg = await websocket.recv()
         data = json.loads(authenticate_msg)
@@ -51,7 +51,7 @@ async def save_down(logger):
 
         data_buffer_lst = []
         data_buffer_df = pd.DataFrame(
-            columns=['websocket_datetime', 'websocket_price'])
+            columns=['websocket_datetime', 'websocket_price']) #, 'btc_price'])
         while True:
             # step 3: subscribe
             payload = {"action": "subscribe", "params": "XT.X:BTC-USD"}
@@ -73,7 +73,8 @@ async def save_down(logger):
                     data_buffer_lst[-1]['t'], unit='ms')
 
                 add_row = {'websocket_datetime': websocket_datetime_converted,
-                           'websocket_price': data_buffer_lst[-1]['p']}
+                           'websocket_price': data_buffer_lst[-1]['p'],
+                           'btc_price': data_buffer_lst[-1]['p']}
                 data_buffer_df = pd.concat(
                     [data_buffer_df, pd.DataFrame([add_row])], ignore_index=True)
             except:
@@ -87,7 +88,7 @@ async def save_down(logger):
             file_path = './dataframes/data_buffer_df.csv'
             data_buffer_df.to_csv(file_path, index=False)
 
-# run async function
 
+# run async function
 logger = init_logger('frontend-service')
 asyncio.run(save_down(logger))

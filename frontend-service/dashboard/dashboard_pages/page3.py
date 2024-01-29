@@ -68,7 +68,7 @@ layout = dbc.Container([
                         interval=1*1000
                     ),
                     dcc.Graph(id='prediction-graph',
-                              figure=initial_fig, animate=True),
+                              figure=initial_fig, animate=False),
                     dcc.Interval(
                         id='prediction-graph-interval',
                         interval=5*1000
@@ -177,7 +177,6 @@ def update_live_prediction(stored_model_id, n_intervals):
         live_price_value = live_price_df['websocket_price'].iloc[-1]
         live_datetime_value = live_price_df['websocket_datetime'].iloc[-1]
     except pd.errors.EmptyDataError as e:
-        print(f"error occurred: {e}")
         raise PreventUpdate
 
     # format live_price_value

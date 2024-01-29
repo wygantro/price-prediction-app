@@ -10,12 +10,14 @@ COPY . .
 RUN pip install -r ./config/requirements.txt
 
 # database env
-ENV DB_USER=user
-ENV DB_PASS=postgres
-ENV DB_FEATURE_SERVICE_NAME=feature-service-db
-ENV DB_PREDICTION_SERVICE_NAME=prediction-service-db
-ENV DB_MLFLOW_NAME=mlflow-db
-### removed host and port
+ENV DB_USER=
+ENV DB_PASS=
+ENV DB_FEATURE_SERVICE_NAME=
+ENV DB_PREDICTION_SERVICE_NAME=
+ENV DB_MLFLOW_NAME=
+ENV DB_HOST=
+#ENV DB_HOST=
+ENV DB_PORT=
 
 # API keys
 ENV POLYGON_API_KEY=68V4qcNzPdz7NuKkNvG5Hj2Z1O4hbvJj

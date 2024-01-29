@@ -35,7 +35,7 @@ style_dict = {
     'margin': '5px',
     'padding': '15px',
     'border': '1px solid black',
-    'borderRadius': '5px'
+    'borderRadius': '5px',
 }
 
 pio.templates.default = "simple_white"
