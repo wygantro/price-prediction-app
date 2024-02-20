@@ -29,7 +29,7 @@ def eth_daily_price_to_db():
     from app.get_data import eth_daily_price
     from app.feature_service_models import Daily_eth_price_data
 
-    # delay function execution
+    # delay execution
     time.sleep(30)
 
     try:

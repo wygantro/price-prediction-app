@@ -29,7 +29,7 @@ def eth_minute_price_to_db():
     from app.get_data import eth_minute_price
     from app.feature_service_models import Minute_eth_price_data
 
-    # delay function execution
+    # delay execution
     time.sleep(10)
 
     try:
