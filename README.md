@@ -5,7 +5,7 @@ Price Prediction App provides the basic infrastructure to train, compare, and de
 
 [blog post](https://nycdatascience.com/blog/meetup/predictions-for-everyone-with-the-price-prediction-app-an-mlops-platform/)
 
-link: http://34.171.93.147/
+<!-- link: http://34.171.93.147/ -->
 
 ## System Overview
 The application was designed with three indepedent containerized services cooridinated in a single Kubernetes Engine cluster and two Cloud hosted databases.
