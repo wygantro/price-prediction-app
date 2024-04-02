@@ -30,8 +30,8 @@ def feature_data_daily_to_db():
         Session = sessionmaker(bind=engine)
         session = Session()
 
-        # get ETC previous minute price
-        daily_datetime_input = current_datetime()[0] - timedelta(days=1)
+        # get minute price
+        daily_datetime_input = current_datetime()[0] #- timedelta(days=1)
         daily_feature_data = daily_features(daily_datetime_input)
 
         commit_daily_features(session, daily_datetime_input, daily_feature_data)
@@ -66,6 +66,8 @@ def btc_minute_price_to_db():
 
         new_data = Minute_price_data(
             minute_datetime_id=minute_datetime_input,
+            #hour_id=current_datetime()[1], # hour_id for minute_price table
+            #daily_id=current_datetime()[0], # daily_id for minute_price table
             btc_minute_price_open=btc_minute_price_data[1],
             btc_minute_price_close=btc_minute_price_data[2],
             btc_minute_price_high=btc_minute_price_data[3],
@@ -101,11 +103,12 @@ def btc_hour_price_to_db():
         session = Session()
 
         # get BTC previous hour price
-        hour_datetime_input = current_datetime()[1] - timedelta(hours=1)
+        hour_datetime_input = current_datetime()[1] #- timedelta(hours=1)
         btc_hour_price_data = hour_price(hour_datetime_input)
 
         new_data = Hour_price_data(
             hour_datetime_id=hour_datetime_input,
+            #daily_id=current_datetime()[0], # daily_id for hour_price table
             btc_hour_price_open=btc_hour_price_data[1],
             btc_hour_price_close=btc_hour_price_data[2],
             btc_hour_price_high=btc_hour_price_data[3],
@@ -139,7 +142,7 @@ def btc_daily_price_to_db():
         session = Session()
 
         # get BTC previous daily price
-        daily_datetime_input = current_datetime()[0] - timedelta(days=1)
+        daily_datetime_input = current_datetime()[0] #- timedelta(days=1)
         btc_daily_price_data = daily_price(daily_datetime_input)
 
         new_data = Daily_price_data(
@@ -220,7 +223,7 @@ def eth_hour_price_to_db():
         session = Session()
 
         # get ETH previous hour price
-        hour_datetime_input = current_datetime()[1] - timedelta(hours=1)
+        hour_datetime_input = current_datetime()[1] #- timedelta(hours=1)
         eth_hour_price_data = eth_hour_price(hour_datetime_input)
 
         new_data = Hour_eth_price_data(
@@ -258,7 +261,7 @@ def eth_daily_price_to_db():
         session = Session()
 
         # get ETH previous daily price
-        daily_datetime_input = current_datetime()[0] - timedelta(days=1)
+        daily_datetime_input = current_datetime()[0] #- timedelta(days=1)
         eth_daily_price_data = eth_daily_price(daily_datetime_input)
 
         new_data = Daily_eth_price_data(
