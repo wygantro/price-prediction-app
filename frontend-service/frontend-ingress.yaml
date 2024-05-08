@@ -1,16 +1,15 @@
-apiVersion: networking.k8s.io/v1
-kind: Ingress
+# frontend-service.yaml
+
+apiVersion: v1
+kind: Service
 metadata:
-  name: frontend-ingress
+  name: frontend-dashboard-service
 spec:
-  rules:
-    - host: www.price-prediction-app.com
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: frontend-dashboard-service
-                port:
-                  number: 80
+  selector:
+    app: frontend-app
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+  type: LoadBalancer
+  loadBalancerIP: ???
