@@ -107,7 +107,7 @@ def prediction_loop():
                     logger, session_mlflow, prediction_model_id)
 
                 # prediction entry ID
-                prediction_entry_id = f"{datetime.datetime.now().timestamp()}"
+                prediction_entry_id = f"{prediction_model_id}_{predicted_value_datetime}"
                 prediction_value = int(model.predict(X_predict)[0])
 
                 # commit prediction data to database
@@ -170,11 +170,6 @@ def prediction_loop():
             logger.log(
                 logging.INFO, f"prediction loop elapsed time: {elapsed_time}")
 
-        else:
-            logger.log(logging.INFO, f"no prediction update")
-            logger.log(
-                logging.INFO, f"prediction loop complete: {current_datetime()[2]}")
-
         # check for changeds in deployed model list
         deployed_models_update = deployed_model_lst(
             logger, session_prediction_service)
@@ -223,15 +218,15 @@ def prediction_loop():
                             ['hour_datetime_id', 'daily_id'], axis=1)
                         X_predict_i = df_predict_i.tail(1)
                         prediction_value_i = int(model.predict(X_predict_i)[0])
-
-                        # commit to prediction-service-db
-                        prediction_entry_id = f"{datetime.datetime.now().timestamp()}"
-
+                        
                         # calculate prediction datetime/threshold value
                         predicted_value_datetime_i = price_datetime_i + \
                             datetime.timedelta(hours=int(model_lookahead+1))
                         predicted_price_threshold_i = price_i * \
                             float(1 + percent_change_threshold / 100)
+                        
+                        # prediction record ID
+                        prediction_entry_id = f"{model_id}_{predicted_value_datetime_i}"
 
                         # commit prediction data to database
                         logger.log(
@@ -276,14 +271,12 @@ def prediction_loop():
                     session_prediction_service.close()
                     logger.log(
                         logging.INFO, f"{model_id} prediction entries deleted")
-
+                    
             # update deployed_models list
             deployed_models = deployed_model_lst(
                 logger, session_prediction_service)
-        else:
-            logger.log(logging.INFO, "no change in deployed models list")
 
-        time.sleep(1)
+        time.sleep(0.1)
 
 
 prediction_loop()
