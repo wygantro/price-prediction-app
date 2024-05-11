@@ -9,10 +9,11 @@ import plotly.graph_objects as go
 import datetime
 import pandas as pd
 
-from app.prediction_service_models import Labels_directory
 from app.binary_classification import binary_classification_lookahead, datetime_classified_ranges
+from app.feature_service_models import Hour_eth_price_data
+from app.prediction_service_models import Labels_directory
 from app.query import create_df_labels
-from dashboard_init import app, df, logger, session_prediction_service, style_dict
+from dashboard_init import app, df, logger, session_feature_service, session_prediction_service, style_dict
 
 
 # define initial scatter plot with selected target output
@@ -157,18 +158,18 @@ def select_feature(selected_feature):
     return selected_feature_msg
 
 # update graph with range, feature and label inputs
-
-
 @app.callback(
     Output('graph', 'figure'),
     Output('last-updated', 'children'),
+    Input('dropdown-select-output', 'value'),
     Input('dropdown-available-inputs', 'value'),
     Input('lookahead-timestep', 'value'),
     Input('lookahead-threshold', 'value'),
     Input('add-labels-checkbox', 'value')
 )
-def update_graph(graph_feature_value, lookahead_timestep,
-                 lookahead_threshold, add_labels_checkbox):
+def update_graph(graph_output_value, graph_feature_value,
+                 lookahead_timestep, lookahead_threshold,
+                 add_labels_checkbox):
 
     # define add feature values to graph
     if graph_feature_value == 'None' or not graph_feature_value:
@@ -180,13 +181,30 @@ def update_graph(graph_feature_value, lookahead_timestep,
     df = pd.read_csv('./dataframes/hour_data.csv')
     last_updated = df['hour_datetime_id'].iloc[-1]
 
+
+
+    # check graph output and query hour price data
+    if graph_output_value == 'btc_hour_price_close':
+        selected_output_str = graph_output_value.replace("_", " ")
+        x_data = df['hour_datetime_id']
+        y_data = df['btc_hour_price_close']
+
+    elif graph_output_value == 'eth_hour_price_close':
+        # query the data and sort it by datetime_column
+        selected_output_str = graph_output_value.replace("_", " ")
+        eth_hour_price_results = session_feature_service.query(Hour_eth_price_data.hour_datetime_id,
+                                                               Hour_eth_price_data.eth_hour_price_close).\
+                                                                order_by(Hour_eth_price_data.hour_datetime_id).all()
+        x_data = [result.hour_datetime_id for result in eth_hour_price_results]
+        y_data = [result.eth_hour_price_close for result in eth_hour_price_results]
+
     # define initial scatter plot with selected target output
     fig = go.Figure()
 
     fig.add_trace(
         go.Scatter(
-            x=df['hour_datetime_id'],
-            y=df['btc_hour_price_close'],
+            x=x_data,
+            y=y_data,
             mode='lines',
             name='btc/usd (hour)',
             yaxis='y1'
@@ -219,7 +237,7 @@ def update_graph(graph_feature_value, lookahead_timestep,
 
     # update initial layout and trace
     fig.update_layout(
-        yaxis_title="price (usd)",
+        yaxis_title=f"{selected_output_str} (usd)",
         showlegend=False,
         xaxis=dict(
             rangeslider=dict(
@@ -227,10 +245,10 @@ def update_graph(graph_feature_value, lookahead_timestep,
             ),
             type="date"
         ),
-        yaxis=dict(
-            range=[min(df['btc_hour_price_close']),
-                   max(df['btc_hour_price_close'])]
-        ),
+        # yaxis=dict(
+        #     range=[min(df['btc_hour_price_close']),
+        #            max(df['btc_hour_price_close'])]
+        # ),
     )
 
     fig.update_traces(line=dict(width=1),
@@ -288,9 +306,9 @@ def update_label_info(selected_output, relayout_data,
     # get selected datetime range from slider and format
     if relayout_data and 'xaxis.range' in relayout_data:
         range_start = str(pd.to_datetime(
-            relayout_data['xaxis.range'][0]).round("H"))
+            relayout_data['xaxis.range'][0]).round("h"))
         range_end = str(pd.to_datetime(
-            relayout_data['xaxis.range'][1]).round("H"))
+            relayout_data['xaxis.range'][1]).round("h"))
     else:
         # datetime object range frame dataframe
         df = pd.read_csv('./dataframes/hour_data.csv')
@@ -329,8 +347,8 @@ def save_label_info(selected_output, relayout_data,
     # get selected datetime range from slider and format
     if relayout_data and 'xaxis.range' in relayout_data:
         range_start = pd.to_datetime(
-            relayout_data['xaxis.range'][0]).round("H")
-        range_end = pd.to_datetime(relayout_data['xaxis.range'][1]).round("H")
+            relayout_data['xaxis.range'][0]).round("h")
+        range_end = pd.to_datetime(relayout_data['xaxis.range'][1]).round("h")
     else:
         range_start = df['hour_datetime_id'].iloc[0]
         range_end = df['hour_datetime_id'].iloc[-1]
