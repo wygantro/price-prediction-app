@@ -50,8 +50,9 @@ def get_full_feature_dataframe(logger, session):
     query = session.query(Hour_price_data, Daily_price_data, Daily_feature_data)\
         .join(Daily_price_data, Hour_price_data.daily_id == Daily_price_data.daily_datetime_id)\
         .join(Daily_feature_data, Hour_price_data.daily_id == Daily_feature_data.daily_feature_datetime_id)
-
-    df_data = pd.read_sql(query.statement, query.session.bind)
+    
+    # Convert query to a SQL statement for use with pandas
+    df_data = pd.read_sql_query(query.statement, query.session.bind)
     df_data = df_data.drop(columns=[
         'daily_datetime_id',
         'daily_feature_datetime_id'
@@ -61,6 +62,61 @@ def get_full_feature_dataframe(logger, session):
     df_data = df_data.reset_index(drop=True)
 
     return df_data
+
+
+def get_full_feature_dataframe_v2(session):
+    import pandas as pd
+    ### daily ###
+    query_daily = """
+                    SELECT dpd.*, dfd.*, depd.*
+                    FROM daily_price_data dpd
+                    JOIN daily_feature_data dfd ON dpd.daily_datetime_id = dfd.daily_feature_datetime_id
+                    JOIN daily_eth_price_data depd ON dpd.daily_datetime_id = depd.daily_datetime_id
+                    ORDER BY dpd.daily_datetime_id;
+                """
+    # fetch all results
+    results_daily = session.execute(query_daily).fetchall()
+
+    # convert to a list of dictionaries (assuming you know the column headers)
+    df_daily = pd.DataFrame([dict(row) for row in results_daily])
+    #print(df_daily)
+
+    ### hour ###
+    query_hour = """
+                    SELECT *
+                    FROM hour_price_data
+                    INNER JOIN hour_eth_price_data
+                    ON hour_price_data.hour_datetime_id = hour_eth_price_data.hour_datetime_id
+                    ORDER BY hour_price_data.hour_datetime_id ASC;
+                """
+
+    # fetch all results
+    results_hour = session.execute(query_hour).fetchall()
+
+    # convert to a list of dictionaries (assuming you know the column headers)
+    df_hour = pd.DataFrame([dict(row) for row in results_hour])
+    #print(df_hour)
+
+    # join hour and daily tables
+    df_final = pd.merge(df_hour, df_daily, left_on='daily_id', right_on='daily_datetime_id', how='inner')
+
+    # sort the DataFrame by 'hour_datetime_id'
+    df_final = df_final.sort_values('hour_datetime_id')
+
+    cols = ['hour_datetime_id'] + [col for col in df_final.columns if col != 'hour_datetime_id']
+    
+    # reorder column headers
+    df_final = df_final[cols]
+
+    # drop daily datetime columns
+    df_final = df_final.drop(columns=[
+        'daily_datetime_id',
+        'daily_feature_datetime_id'
+    ])
+    
+    # display the resulting dataframe
+    print(df_final)
+    return df_final
 
 
 def get_live_minute_price_dataframe(logger, session):
@@ -293,11 +349,12 @@ def get_mlflow_model_info(logger, session, models_id_input):
     Returns:
          lst: list of mlflow registered model tags
     """
-
-    result = session.execute(f"""
+    from sqlalchemy import text
+    
+    result = session.execute(text(f"""
                             SELECT * FROM registered_model_tags
                             WHERE name = '{models_id_input}';
-                             """)
+                             """))
     rows = result.fetchall()
 
     # append queried results to list
