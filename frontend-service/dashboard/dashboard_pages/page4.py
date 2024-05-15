@@ -106,11 +106,13 @@ def metrics_dropdown(metric_value):
 )
 def model_details(href_input):
     # check href address has model ID extension split address to get model ID
-    if "-" not in list(href_input):
+    if "selected-" not in href_input:
+        # get initial model if no model is selected in address
         model_id_clicked = get_active_models(
             logger, session_prediction_service, 'running_accuracy')[0][0]
     else:
-        model_id_clicked = str(href_input.split('-')[1])
+        # split address at 'selected-' to get model clicked on
+        model_id_clicked = str(href_input.split('selected-')[1])
 
     # check model ID present in href query model info
     model_info_query = get_model_info(
@@ -164,9 +166,8 @@ def update_live_prediction(stored_model_id):
 
     return model_details
 
+
 # update accuracy difference graph
-
-
 @app.callback(
     Output('accuracy-diff-graph', 'children'),
     Input('stored-ranking-model-id', 'data')

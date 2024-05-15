@@ -1,11 +1,11 @@
-# ./dashboard_pages/page4.py
+# ./dashboard_pages/page5.py
 
 from dash import html
 
 # define static layout for Grafana embedding
 layout = html.Div([
     html.Iframe(
-        src="http://34.72.106.126/d/f164e5d3-224b-44e0-9383-feb02ba88033/system-info-dashboard?orgId=1&from=now-3h&to=now&refresh=auto&kiosk",
+        src="http://34.171.107.33/d/ddl0q224g6bk0c/price-prediction-app-dashboard?orgId=1&from=now-3h&to=now&refresh=auto&kiosk",
         width="100%",
         height="675",
         style={'border': 'none'}

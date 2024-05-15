@@ -133,11 +133,11 @@ def metrics_dropdown(metric_value):
 )
 def model_details(href_input):
     # check href address has model ID extension split address to get model ID
-    if "-" not in list(href_input):
+    if "selected-" not in href_input:
         model_id_clicked = None
         return "", model_id_clicked
     else:
-        model_id_clicked = str(href_input.split('-')[1])
+        model_id_clicked = str(href_input.split('selected-')[1])
 
     # check model ID present in href query model info
     model_info_query = get_model_info(

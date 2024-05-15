@@ -8,6 +8,7 @@ import plotly.graph_objects as go
 
 import numpy as np
 import pandas as pd
+from sqlalchemy import text
 
 from app.query import get_labels_ids, get_labels_details, get_model_ids, get_model_info, get_mlflow_model_info
 from app.train_test import datetime_train_test_ranges
@@ -51,7 +52,7 @@ layout = dbc.Container([
                 html.Div(id='model-deployment-message'),
             ], style=style_dict),
             html.Footer(html.Small(dcc.Link("powered by MLflow",
-                                            href="http://34.31.62.132:5000/#/models",
+                                            href="/dashboard_pages/mlflow",
                                             target="_blank")))], width=3),
         dbc.Col([
             dbc.Row([
@@ -216,11 +217,11 @@ def update_deployed_status(models_id_input, deploy_model_checkbox):
             session_prediction_service.close()
 
             # MLflow model to 'Production' database update
-            update_statement = """
+            update_statement = text("""
                                 UPDATE model_versions
                                 SET current_stage = :new_value
                                 WHERE name = :record_id_name AND version = :record_id_version
-                            """
+                            """)
             params = {
                 'new_value': 'Production',
                 'record_id_name': models_id_input,
@@ -243,11 +244,11 @@ def update_deployed_status(models_id_input, deploy_model_checkbox):
             session_prediction_service.close()
 
             ### MLflow model to 'Staging' database update ###
-            update_statement = """
+            update_statement = text("""
                                 UPDATE model_versions
                                 SET current_stage = :new_value
                                 WHERE name = :record_id_name AND version = :record_id_version
-                            """
+                            """)
             params = {
                 'new_value': 'Staging',
                 'record_id_name': models_id_input,

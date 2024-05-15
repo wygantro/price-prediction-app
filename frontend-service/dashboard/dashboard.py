@@ -9,16 +9,45 @@ import datetime
 import pandas as pd
 
 from dashboard_init import app, logger, session_prediction_service
-from dashboard_pages import page1, page2, page3, page4, page5
+from dashboard_pages import page1, page2, page3, page4, page5, mlflow
 from app.query import current_datetime, get_active_models
 from app.prediction_metrics import get_avg_prediction
 
-# # set custom favicon .ico file
-# favicon_path = "assets/yellow_circle_dot.ico"
+# # Google Analytics ID
+# google_analytics_id = 'G-YEF9F8M3GP'
+
+# Define the Google Analytics tracking code snippet
+google_analytics_code = '''
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YEF9F8M3GP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YEF9F8M3GP');
+</script>
+'''
 
 # app layout
 app.layout = html.Div([
     dcc.Location(id='url', refresh=True),
+    # Add the Google Analytics tracking code to the head section
+    html.Meta(name='google-site-verification', content='G-YEF9F8M3GP'),
+    html.Script(children=google_analytics_code, type='text/javascript'),
+    # html.Script(
+    #         '''
+    #         <!-- Global site tag (gtag.js) - Google Analytics -->
+    #         <script async src="https://www.googletagmanager.com/gtag/js?id={}"></script>
+    #         <script>
+    #           window.dataLayer = window.dataLayer || [];
+    #           function gtag(){{dataLayer.push(arguments);}}
+    #           gtag('js', new Date());
+
+    #           gtag('config', '{}');
+    #         </script>
+    #         '''.format(google_analytics_id, google_analytics_id)
+    #     ),
     # html.Link(
     #     rel='icon',
     #     href=favicon_path,
@@ -119,7 +148,7 @@ home_layout = html.Div([
         html.A(html.Img(src='./assets/LI-In-Bug.png', alt='image',
                         style={'width': '45px',
                                'height': '40px'}),
-               href='https://www.linkedin.com/in/robert-wygant/', target='_blank'),
+               href='https://www.linkedin.com/in/rob-wygant/', target='_blank'),
         html.P("   "),
         html.A(html.Img(src='./assets/github-mark.png', alt='image',
                         style={'margin-left': '10px',
@@ -154,6 +183,8 @@ def display_page(pathname):
         return page4.layout
     elif pathname == '/dashboard_pages/page5':
         return page5.layout
+    elif pathname == '/dashboard_pages/mlflow':
+        return mlflow.layout
     else:
         return home_layout
 
@@ -278,4 +309,4 @@ def update_table(n_intervals):
 
 
 if __name__ == '__main__':
-    app.run_server(host='0.0.0.0', port=8050)
+    app.run_server(host='0.0.0.0', port=80)
