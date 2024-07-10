@@ -328,7 +328,7 @@ def minute_price(logger, date_minute, next_url=None):
 
 
 #### ETH price data ####
-def eth_daily_price(date_daily):
+def eth_daily_price(logger, date_daily):
     """
     Connect to daily price API and return daily price data.
 
@@ -374,7 +374,7 @@ def eth_daily_price(date_daily):
     return eth_price_results_lst
 
 
-def eth_hour_price(date_hour, next_url=None):
+def eth_hour_price(logger, date_hour, next_url=None):
     """
     Connect to hourly price API and return hourly price data.
 
@@ -454,7 +454,7 @@ def eth_hour_price(date_hour, next_url=None):
     return price_results_lst
 
 
-def eth_minute_price(date_minute, next_url=None):
+def eth_minute_price(logger, date_minute, next_url=None):
     """
     Connect to minute price API and return minute price data.
 
