@@ -41,6 +41,8 @@ initial_fig.update_layout(
 initial_fig.update_traces(line=dict(width=1),
                           selector=dict(mode='lines'))
 
+
+
 # page 1 layout
 layout = dbc.Container([
     dbc.Row([
