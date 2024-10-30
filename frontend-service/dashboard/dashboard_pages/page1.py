@@ -41,8 +41,6 @@ initial_fig.update_layout(
 initial_fig.update_traces(line=dict(width=1),
                           selector=dict(mode='lines'))
 
-
-
 # page 1 layout
 layout = dbc.Container([
     dbc.Row([
@@ -100,7 +98,7 @@ layout = dbc.Container([
                         value=12,
                         step=1
                     ),
-                    html.H6("Percent change threshold (%): "),
+                    html.H6("Percent Change Threshold (%): "),
                     dcc.Slider(
                         id='lookahead-threshold',
                         min=0,
