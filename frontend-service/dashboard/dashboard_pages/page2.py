@@ -5,11 +5,14 @@ from dash.dependencies import Input, Output
 import dash_bootstrap_components as dbc
 import plotly.figure_factory as ff
 import plotly.graph_objects as go
+
 import numpy as np
 import pandas as pd
+
 from sqlalchemy import text
 from app.query import get_labels_ids, get_labels_details, get_model_ids, get_model_info, get_mlflow_model_info
 from app.train_test import datetime_train_test_ranges
+
 from dashboard_init import app, df, logger, session_mlflow, session_prediction_service, style_dict
 
 
