@@ -15,6 +15,7 @@ from app.train_test import datetime_train_test_ranges
 
 from dashboard_init import app, df, logger, session_mlflow, session_prediction_service, style_dict
 
+
 # define initial scatter plot
 initial_fig = go.Figure()
 initial_fig.add_trace(
