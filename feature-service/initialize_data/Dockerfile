@@ -21,6 +21,6 @@ ENV DB_MLFLOW_NAME=mlflow-db
 ### removed host and port
 
 # API keys
-ENV POLYGON_API_KEY=68V4qcNzPdz7NuKkNvG5Hj2Z1O4hbvJj
+ENV POLYGON_API_KEY=???
 
 CMD ["python", "initialize_data.py"]
